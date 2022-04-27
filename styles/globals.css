@@ -21,8 +21,12 @@ body {
 }
 
 /* Button styles */
+.btn__basic {
+  @apply rounded-full p-3 font-medium;
+}
+
 .btn__default {
-  @apply bg-black p-4 rounded-xl text-white font-medium;
+  @apply rounded-full p-4 font-medium text-white;
 }
 
 /* Headings styles */
@@ -39,9 +43,24 @@ body {
   @apply text-lg font-medium;
 }
 
+/* Parahraph styles */
+
+/* Link styles */
+.link__menu {
+  @apply rounded-xl p-2 text-4xl font-medium hover:bg-black hover:text-white;
+}
+
+.link__logo {
+  @apply text-5xl font-extrabold;
+}
+
+.link__active {
+  @apply font-bold text-black;
+}
+
 /* Overlay styles */
 .overlay__default {
-  @apply fixed top-0 right-0 left-0 bottom-0 bg-black opacity-50;
+  @apply fixed top-0 right-0 left-0 bottom-0 bg-black/60;
 }
 
 .overlay__primary {

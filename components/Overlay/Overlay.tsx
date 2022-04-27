@@ -3,26 +3,24 @@ import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 interface OverlayProps {
   children: React.ReactNode;
-  type: "default" | "primary";
+  onclick?: () => void;
+  type?: "primary";
   close?: boolean;
 }
 
-export default function Overlay({ children, type }: OverlayProps) {
-  const [show, setshow] = useState(true);
-
+export default function Overlay({ children, onclick, type }: OverlayProps) {
   return (
     <>
-      {show && (
-        <ErrorBoundary>
-          <div
-            className={`${
-              type == "primary" ? "overlay__primary" : "overlay_default"
-            }`}
-          >
-            {children}
-          </div>
-        </ErrorBoundary>
-      )}
+      <ErrorBoundary>
+        <div
+          onClick={onclick}
+          className={`${
+            type === "primary" ? "overlay__primary" : "overlay__default"
+          }`}
+        >
+          {children}
+        </div>
+      </ErrorBoundary>
     </>
   );
 }

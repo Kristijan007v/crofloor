@@ -1,4 +1,5 @@
 import React from "react";
+import CookieBanner from "../CookieBanner/CookieBanner";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Navigation from "../Navigation/Navigation";
 
@@ -11,6 +12,10 @@ const Skeleton = ({ children }: SkeletonProps) => {
     <>
       <ErrorBoundary>
         <Navigation />
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <CookieBanner />
       </ErrorBoundary>
     </>
   );

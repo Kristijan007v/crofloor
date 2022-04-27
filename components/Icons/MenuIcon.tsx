@@ -1,21 +1,20 @@
 import React from "react";
 import { IconContext } from "react-icons";
-import { MdClose } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 
 interface Props {
   onclick: () => void;
-  style?: string;
 }
 
-export default function CloseIcon({ onclick, style }: Props) {
+export default function MenuIcon({ onclick }: Props) {
   return (
     <>
       <IconContext.Provider
         value={{
-          className: "icon__default",
+          className: "text-5xl",
         }}
       >
-        <MdClose onClick={onclick} />
+        <MdMenu onClick={onclick} />
       </IconContext.Provider>
     </>
   );
