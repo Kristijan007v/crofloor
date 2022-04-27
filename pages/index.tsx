@@ -1,11 +1,8 @@
 import type { NextPage } from "next";
+import Skeleton from "../components/Skeleton/Skeleton";
 
 const Home: NextPage = () => {
-  return (
-    <div className="">
-      <p>Ovo je test.</p>
-    </div>
-  );
+  return <Skeleton></Skeleton>;
 };
 
 export default Home;

@@ -2,6 +2,7 @@ import React, { Component, ErrorInfo, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  moduleName?: string;
 }
 
 interface State {
@@ -23,8 +24,22 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public render() {
+    function refreshPage() {}
     if (this.state.hasError) {
-      return <h1>Sorry.. there was an error</h1>;
+      return (
+        <div className="flex items-center justify-center space-x-2 bg-red-500 p-4 text-center font-semibold text-white">
+          <p>
+            There was an error in loading module. Please try to refresh the page
+            and try again.
+          </p>
+          <button
+            className="rounded-md bg-white pt-2 pb-2 pr-4 pl-4 text-black"
+            onClick={refreshPage}
+          >
+            Refresh
+          </button>
+        </div>
+      );
     }
 
     return this.props.children;

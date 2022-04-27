@@ -1,4 +1,5 @@
 import React from "react";
+import Skeleton from "../components/Skeleton/Skeleton";
 
 export default function Custom404() {
   return (

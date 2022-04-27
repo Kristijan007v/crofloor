@@ -38,3 +38,17 @@ body {
 .paragraph {
   @apply text-lg font-medium;
 }
+
+/* Overlay styles */
+.overlay__default {
+  @apply fixed top-0 right-0 left-0 bottom-0 bg-black opacity-50;
+}
+
+.overlay__primary {
+  @apply fixed top-0 right-0 left-0 bottom-0 bg-primary-bg;
+}
+
+/* Icons styles */
+.icon__default {
+  @apply text-6xl;
+}
