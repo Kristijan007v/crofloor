@@ -1,0 +1,23 @@
+{
+  "newsletter": {
+    "title": "Ostani u toku",
+    "button": "Prijavi se"
+  },
+
+  "info": {
+    "phone": "Telefon:",
+    "email": "E-mail:"
+  },
+  "navigation": {
+    "products": "Proizvodi",
+    "contact": "Kontaktiraj nas",
+    "blog": "Blog",
+    "about": "O nama"
+  },
+
+  "footer": {
+    "privacy-policy": "Politika privatnosti",
+    "terms": "Uvjeti korištenja",
+    "copyright": "Sva prava pridržana."
+  }
+}

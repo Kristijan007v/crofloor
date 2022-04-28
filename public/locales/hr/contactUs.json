@@ -1,0 +1,12 @@
+{
+  "section-header": {
+    "title": "Kontaktiraj nas"
+  },
+  "form": {
+    "name": "Ime",
+    "email": "E-mail adresa",
+    "message": "Poruka",
+    "terms": "Slažem se sa uvjetima korištenja",
+    "submit": "Pošalji"
+  }
+}

@@ -3,8 +3,11 @@ import Image from "next/image";
 import ButtonDefault from "../Buttons/ButtonDefault";
 import Navigation from "../Navigation/Navigation";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
+import { useTranslation } from "next-i18next";
 
 export default function HeroSection() {
+  const { t } = useTranslation("heroSection");
+
   return (
     <div className="relative h-screen w-full">
       <Image
@@ -31,8 +34,8 @@ export default function HeroSection() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <ButtonDefault
-            text="Explore our products"
-            ariaLabel="Explore our products"
+            text={t("button")}
+            ariaLabel={t("button")}
             onclick={() => (window.location.href = "/products")}
             icon="arrowRight"
           />

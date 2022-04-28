@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import ButtonDefault from "../Buttons/ButtonDefault";
 import Overlay from "../Overlay/Overlay";
+import { useTranslation } from "next-i18next";
 
 export default function CookieBanner() {
   const [show, setShow] = useState(true);
+
+  const { t } = useTranslation("cookieBanner");
 
   return (
     <>
@@ -15,23 +18,17 @@ export default function CookieBanner() {
         >
           <div className="fixed bottom-0 m-4 rounded-3xl bg-white p-6">
             <div className="flex w-full flex-col space-y-3">
-              <p className="text-center text-xl font-semibold">
-                This website uses cookies
-              </p>
-              <p className="text-left">
-                We use cookies to ensure that we give you the best experience on
-                our website. If you continue to use this site we will assume
-                that you are happy with it.
-              </p>
+              <p className="text-center text-xl font-semibold">{t("title")}</p>
+              <p className="text-left">{t("description")}</p>
               <div className="flex flex-col space-y-2">
                 <ButtonDefault
-                  text="Fine by me, I accept"
-                  ariaLabel="Accept cookies"
+                  text={t("button-accept")}
+                  ariaLabel={t("button-accept")}
                   onclick={() => setShow(false)}
                 />
                 <ButtonDefault
-                  text="Settings"
-                  ariaLabel="Go to cookie settings"
+                  text={t("button-settings")}
+                  ariaLabel={t("button-settings")}
                   onclick={() => setShow(false)}
                   color={"special"}
                 />

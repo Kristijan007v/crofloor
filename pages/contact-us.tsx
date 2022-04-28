@@ -1,11 +1,31 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 import React from "react";
+import toast from "react-hot-toast";
 import ButtonDefault from "../components/Buttons/ButtonDefault";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import FormField from "../components/FormField/FormField";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
-import toast from "react-hot-toast";
-import toastStyle from "../lib/styles/toastStyle";
+import nextI18NextConfig from "../next-i18next.config.js";
+import { useTranslation } from "next-i18next";
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "home",
+        "menu",
+        "heroSection",
+        "cookieBanner",
+        "footer",
+        "contactUs",
+      ])),
+      nextI18NextConfig,
+    },
+  };
+}
 
 export default function ContactUs() {
   const toastStyle = {
@@ -19,34 +39,41 @@ export default function ContactUs() {
     },
   };
 
+  const { t } = useTranslation("contactUs");
+
+  const { locale } = useRouter();
+
   return (
     <Skeleton>
       <ErrorBoundary>
-        <SectionHeader title="Contact us" image="contact-us.jpg" />
+        <SectionHeader
+          title={t("section-header.title")}
+          image="contact-us.jpg"
+        />
       </ErrorBoundary>
 
       <div className="flex flex-col space-y-8">
         <form className="flex flex-col bg-primary-yellow p-4">
-          <FormField label="Name" type="text" name="name" id="name" />
+          <FormField label={t("form.name")} type="text" name="name" id="name" />
           <FormField
-            label="E-mail address"
+            label={t("form.email")}
             type="text"
             name="email"
             id="email"
           />
           <FormField
-            label="Message"
+            label={t("form.message")}
             type="textarea"
             name="message"
             id="message"
           />
           <span className="flex items-center space-x-4 p-4">
             <input type={"checkbox"} name={"terms"} id={"terms"} />
-            <label className="font-medium">I agree to the terms</label>
+            <label className="font-medium">{t("form.terms")}</label>
           </span>
           <ButtonDefault
-            text="Send"
-            ariaLabel="Send message"
+            text={t("form.submit")}
+            ariaLabel={t("form.submit")}
             style="mt-10"
             onclick={() => {
               toast("Message sent sucessfully!");

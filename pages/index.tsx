@@ -1,7 +1,25 @@
 import type { NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Skeleton from "../components/Skeleton/Skeleton";
+import nextI18NextConfig from "../next-i18next.config.js";
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "home",
+        "menu",
+        "heroSection",
+        "cookieBanner",
+        "footer",
+      ])),
+      nextI18NextConfig,
+    },
+  };
+}
 
 const Home: NextPage = () => {
   return (

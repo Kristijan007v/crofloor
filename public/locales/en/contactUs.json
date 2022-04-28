@@ -1,0 +1,12 @@
+{
+  "section-header": {
+    "title": "Contact us"
+  },
+  "form": {
+    "name": "Name",
+    "email": "E-mail address",
+    "message": "Message",
+    "terms": "I agree to the terms and conditions",
+    "submit": "Send"
+  }
+}

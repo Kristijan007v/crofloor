@@ -1,0 +1,21 @@
+{
+  "newsletter": {
+    "title": "Stay up to date",
+    "button": "Subscribe"
+  },
+  "info": {
+    "phone": "Phone:",
+    "email": "E-mail:"
+  },
+  "navigation": {
+    "products": "Products",
+    "contact": "Contact",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "footer": {
+    "privacy-policy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "copyright": "All rights reserved."
+  }
+}
