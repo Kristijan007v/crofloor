@@ -1,20 +1,20 @@
 import React from "react";
 import { IconContext } from "react-icons";
-import { MdMenu } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 interface Props {
-  onclick: () => void;
+  style?: string;
 }
 
-export default function MenuIcon({ onclick }: Props) {
+export default function ArrowRight({ style }: Props) {
   return (
     <>
       <IconContext.Provider
         value={{
-          className: "text-4xl text-white",
+          className: "text-3xl",
         }}
       >
-        <MdMenu onClick={onclick} />
+        <MdKeyboardArrowRight />
       </IconContext.Provider>
     </>
   );

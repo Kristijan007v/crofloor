@@ -39,11 +39,22 @@ body {
   @apply text-3xl font-bold text-black;
 }
 
+.heading__3 {
+  @apply text-xl font-bold text-black;
+}
+
+.heading__4 {
+  @apply text-lg font-semibold text-black;
+}
+
 .paragraph {
   @apply text-lg font-medium;
 }
 
 /* Parahraph styles */
+.p__white {
+  @apply text-lg font-medium text-white;
+}
 
 /* Link styles */
 .link__menu {
@@ -51,7 +62,7 @@ body {
 }
 
 .link__logo {
-  @apply text-5xl font-extrabold;
+  @apply text-4xl font-extrabold text-white;
 }
 
 .link__active {
@@ -60,11 +71,11 @@ body {
 
 /* Overlay styles */
 .overlay__default {
-  @apply fixed top-0 right-0 left-0 bottom-0 bg-black/60;
+  @apply fixed top-0 right-0 left-0 bottom-0 z-30 bg-black/60;
 }
 
 .overlay__primary {
-  @apply fixed top-0 right-0 left-0 bottom-0 bg-primary-bg;
+  @apply fixed top-0 right-0 left-0 bottom-0 z-30 bg-primary-bg;
 }
 
 /* Icons styles */

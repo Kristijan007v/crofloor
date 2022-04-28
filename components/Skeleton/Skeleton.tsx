@@ -1,6 +1,7 @@
 import React from "react";
 import CookieBanner from "../CookieBanner/CookieBanner";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
+import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
 
 interface SkeletonProps {
@@ -10,10 +11,15 @@ interface SkeletonProps {
 const Skeleton = ({ children }: SkeletonProps) => {
   return (
     <>
+      {/* Here goes the MAIN CONTENT */}
+      <div>{children}</div>
+
+      {/* Footer */}
       <ErrorBoundary>
-        <Navigation />
+        <Footer />
       </ErrorBoundary>
 
+      {/* Cookies banner */}
       <ErrorBoundary>
         <CookieBanner />
       </ErrorBoundary>

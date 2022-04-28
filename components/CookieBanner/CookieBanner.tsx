@@ -13,7 +13,7 @@ export default function CookieBanner() {
             setShow(false);
           }}
         >
-          <div className="fixed bottom-0 m-4 rounded-3xl bg-white p-8">
+          <div className="fixed bottom-0 m-4 rounded-3xl bg-white p-6">
             <div className="flex w-full flex-col space-y-3">
               <p className="text-center text-xl font-semibold">
                 This website uses cookies
@@ -26,10 +26,12 @@ export default function CookieBanner() {
               <div className="flex flex-col space-y-2">
                 <ButtonDefault
                   text="Fine by me, I accept"
+                  ariaLabel="Accept cookies"
                   onclick={() => setShow(false)}
                 />
                 <ButtonDefault
                   text="Settings"
+                  ariaLabel="Go to cookie settings"
                   onclick={() => setShow(false)}
                   color={"special"}
                 />
