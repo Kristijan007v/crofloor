@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ArrowDown from "../Icons/ArrowDown";
+import ArrowUp from "../Icons/ArrowUp";
 
 interface Props {
   question: string;
@@ -17,7 +18,11 @@ export default function Faq({ question, answer }: Props) {
     <div className="flex flex-col space-y-2">
       <div className="flex items-center justify-between">
         <p className="text-lg">{question}</p>
-        <ArrowDown onclick={toogleAnswer} />
+        {isOpen ? (
+          <ArrowUp onclick={toogleAnswer} />
+        ) : (
+          <ArrowDown onclick={toogleAnswer} />
+        )}
       </div>
 
       {isOpen && (
