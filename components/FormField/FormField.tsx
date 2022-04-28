@@ -2,9 +2,17 @@ import React from "react";
 
 interface Props {
   label: string;
-  type: "text" | "textarea" | "email" | "password";
+  type:
+    | "text"
+    | "textarea"
+    | "email"
+    | "password"
+    | "checkbox"
+    | "radio"
+    | "number";
   name: string;
   id: string;
+  required?: false;
 }
 
 export default function FormField({ label, type, name, id }: Props) {
@@ -14,9 +22,20 @@ export default function FormField({ label, type, name, id }: Props) {
         {label}
       </label>
       {type === "text" ? (
-        <input className="input__default" type={type} name={name} id={id} />
+        <input
+          className="input__default"
+          type={type}
+          name={name}
+          id={id}
+          required
+        />
       ) : (
-        <textarea className="input__textarea" name={name} id={id}></textarea>
+        <textarea
+          className="input__textarea"
+          name={name}
+          id={id}
+          required
+        ></textarea>
       )}
     </div>
   );
