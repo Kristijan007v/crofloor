@@ -90,13 +90,13 @@ export default function MobileMenu({ closeMenu }: Props) {
             </Link>
           </li>
         </ul>
-        <div
-          className="absolute bottom-0 flex items-center justify-between space-x-20 p-8"
-          onClick={toogleLanguageSwitch}
-        >
+        <div className="absolute bottom-0 flex items-center justify-between space-x-20 p-8">
           <CloseIcon onclick={closeMenu} />
           {/* Language switcher */}
-          <div className="flex items-center justify-between space-x-6 rounded-full border-2 border-black bg-primary-gray pt-1 pl-6 pr-6 pb-1">
+          <div
+            onClick={toogleLanguageSwitch}
+            className="flex items-center justify-between space-x-6 rounded-full border-2 border-black bg-primary-gray pt-1 pl-6 pr-6 pb-1"
+          >
             <WorldIcon />
             <p className="text-lg font-medium">
               {locale === "hr" ? "Hrvatski" : "English"}
