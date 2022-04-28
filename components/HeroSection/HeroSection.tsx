@@ -26,7 +26,7 @@ export default function HeroSection() {
             <span>Feels</span>
             <span>Expensive.</span>
           </h1>
-          <p className="p__white">
+          <p className="p__white pb-32">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>

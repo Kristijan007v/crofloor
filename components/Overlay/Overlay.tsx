@@ -82,10 +82,16 @@ export default function Overlay({ children, onclick, type }: OverlayProps) {
       },
     },
     exit: {
-      x: 100,
+      x: "100vw",
       y: 0,
       scale: 1,
       rotate: 0,
+      transition: {
+        duration: 0.6,
+        type: "spring",
+        damping: 40,
+        stiffness: 200,
+      },
     },
   };
 
