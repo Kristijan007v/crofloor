@@ -20,7 +20,7 @@ export async function getStaticProps({ locale }: any) {
   };
 }
 
-export default function products() {
+export default function Products() {
   const { t } = useTranslation("products");
   return (
     <Skeleton title="" metaDescription="">

@@ -20,7 +20,7 @@ export async function getStaticProps({ locale }: any) {
   };
 }
 
-export default function about() {
+export default function About() {
   const { t } = useTranslation("about");
 
   return (
