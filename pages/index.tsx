@@ -4,6 +4,7 @@ import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -22,8 +23,12 @@ export async function getStaticProps({ locale }: any) {
 }
 
 const Home: NextPage = () => {
+  const { t } = useTranslation("common");
   return (
-    <Skeleton>
+    <Skeleton
+      title={t("pages.homepage.title")}
+      metaDescription={t("pages.homepage.meta-description")}
+    >
       {/* HERO SECTIOn */}
       <ErrorBoundary>
         <HeroSection />

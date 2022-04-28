@@ -8,5 +8,9 @@
     "message": "Message",
     "terms": "I agree to the terms and conditions",
     "submit": "Send"
+  },
+  "info": {
+    "phone": "Phone:",
+    "email": "E-mail:"
   }
 }

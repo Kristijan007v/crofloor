@@ -4,7 +4,7 @@ import Skeleton from "../components/Skeleton/Skeleton";
 
 export default function Custom404() {
   return (
-    <Skeleton>
+    <Skeleton title="404">
       <div className="m-6 flex h-screen flex-col items-center justify-center space-y-4 text-center">
         <p>
           <span className="text-8xl font-extrabold">4</span>

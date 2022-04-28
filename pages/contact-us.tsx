@@ -9,6 +9,7 @@ import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -39,12 +40,10 @@ export default function ContactUs() {
     },
   };
 
-  const { t } = useTranslation("contactUs");
-
-  const { locale } = useRouter();
+  const { t } = useTranslation(["contactUs", "common"]);
 
   return (
-    <Skeleton>
+    <Skeleton title="Contact us" metaDescription="Contact Požgaj Group.">
       <ErrorBoundary>
         <SectionHeader
           title={t("section-header.title")}
@@ -54,15 +53,23 @@ export default function ContactUs() {
 
       <div className="flex flex-col space-y-8">
         <form className="flex flex-col bg-primary-yellow p-4">
-          <FormField label={t("form.name")} type="text" name="name" id="name" />
+          <FormField
+            label={t("form.name")}
+            type="text"
+            name="name"
+            id="name"
+            htmlFor="name"
+          />
           <FormField
             label={t("form.email")}
+            htmlFor="email"
             type="text"
             name="email"
             id="email"
           />
           <FormField
             label={t("form.message")}
+            htmlFor="message"
             type="textarea"
             name="message"
             id="message"
@@ -92,12 +99,19 @@ export default function ContactUs() {
         </div>
         {/* Contact and address info */}
         <div className="items-left m-6 flex flex-col justify-center space-y-2 pb-8">
-          <p>Dravska 40, 42 231 Veliki Bukovec</p>
+          <Link
+            href={
+              "https://www.google.com/maps/place/Dravska+ul.+40,+42231,+Veliki+Bukovec/@46.2869072,16.7099287,17z/data=!4m2!3m1!1s0x4768a18575c182bf:0xfbb76f3cb4d6b219"
+            }
+          >
+            <a>Dravska 40, 42 231 Veliki Bukovec</a>
+          </Link>
           <p>
-            Phone: <a href="tel:+385 42 406 600">+385 42 406 600</a>
+            {t("info.phone")} <a href="tel:+385 42 406 600">+385 42 406 600</a>
           </p>
           <p>
-            Email: <a href="mailto:pozgaj@pozgaj.com">pozgaj@pozgaj.com</a>
+            {t("info.email")}{" "}
+            <a href="mailto:pozgaj@pozgaj.com">pozgaj@pozgaj.com</a>
           </p>
         </div>
       </div>

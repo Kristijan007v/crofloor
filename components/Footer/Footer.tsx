@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="">
       {/* FAQ */}
       <div className="flex flex-col space-y-4 bg-primary-bg p-6">
-        <h3 className="heading__3 text-center">FAQ</h3>
+        <p className="heading__3 text-center">FAQ</p>
         <Faq
           question="Kako proizvodite parkete?"
           answer="A blockchain is a distributed ledger of information."

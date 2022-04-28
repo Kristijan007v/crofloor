@@ -8,5 +8,9 @@
     "message": "Poruka",
     "terms": "Slažem se sa uvjetima korištenja",
     "submit": "Pošalji"
+  },
+  "info": {
+    "phone": "Telefon:",
+    "email": "E-mail:"
   }
 }

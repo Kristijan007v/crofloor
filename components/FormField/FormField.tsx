@@ -2,6 +2,7 @@ import React from "react";
 
 interface Props {
   label: string;
+  htmlFor: string;
   type:
     | "text"
     | "textarea"
@@ -15,10 +16,10 @@ interface Props {
   required?: false;
 }
 
-export default function FormField({ label, type, name, id }: Props) {
+export default function FormField({ label, htmlFor, type, name, id }: Props) {
   return (
     <div className="flex flex-col space-y-2 p-4">
-      <label className="label__default" htmlFor={name}>
+      <label className="label__default" htmlFor={htmlFor}>
         {label}
       </label>
       {type === "text" ? (
