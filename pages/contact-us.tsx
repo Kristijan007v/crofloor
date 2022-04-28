@@ -48,6 +48,7 @@ export default function ContactUs() {
         <SectionHeader
           title={t("section-header.title")}
           image="contact-us.jpg"
+          alt={t("section-header.image.alt")}
         />
       </ErrorBoundary>
 

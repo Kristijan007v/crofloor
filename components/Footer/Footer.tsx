@@ -33,7 +33,7 @@ export default function Footer() {
         />
       </div>
       <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
-        <h4 className="heading__4">{t("newsletter.title")}</h4>
+        <p className="heading__4">{t("newsletter.title")}</p>
         <div className="flex">
           <input
             className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black"
@@ -45,7 +45,7 @@ export default function Footer() {
             {t("newsletter.button")}
           </button>
         </div>
-        <h4 className="heading__4">Požgaj Group</h4>
+        <p className="heading__4">Požgaj Group</p>
         <Link
           href={
             "https://www.google.com/maps/place/Dravska+ul.+40,+42231,+Veliki+Bukovec/@46.2869072,16.7099287,17z/data=!4m2!3m1!1s0x4768a18575c182bf:0xfbb76f3cb4d6b219"
@@ -69,7 +69,7 @@ export default function Footer() {
         </div>
         <ul className="flex justify-between rounded-2xl bg-primary-gray p-3">
           <li>
-            <Link href="/">
+            <Link href="/products">
               <a>{t("navigation.products")}</a>
             </Link>
           </li>
@@ -79,12 +79,12 @@ export default function Footer() {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/blog">
               <a>{t("navigation.blog")}</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/about">
               <a>{t("navigation.about")}</a>
             </Link>
           </li>

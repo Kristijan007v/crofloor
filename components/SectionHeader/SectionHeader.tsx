@@ -4,14 +4,15 @@ import Image from "next/image";
 interface Props {
   title: string;
   image: string;
+  alt: string;
 }
 
-export default function SectionHeader({ title, image }: Props) {
+export default function SectionHeader({ title, image, alt }: Props) {
   return (
     <div className="relative h-48 w-full">
       <Image
         src={`/images/${image}`}
-        alt="Hero image"
+        alt={alt}
         layout="fill"
         objectFit="cover"
         className="opacity-85"
