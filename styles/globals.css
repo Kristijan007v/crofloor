@@ -86,3 +86,16 @@ body {
 .icon__default {
   @apply text-6xl;
 }
+
+/* Form styles */
+.label__default {
+  @apply text-lg font-semibold;
+}
+
+.input__default {
+  @apply border-b-2 border-black bg-transparent p-2 focus:bg-white focus:outline-none;
+}
+
+.input__textarea {
+  @apply border-b-2 border-black bg-transparent p-2 focus:bg-white focus:outline-none;
+}

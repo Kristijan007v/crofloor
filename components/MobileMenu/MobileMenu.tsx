@@ -54,7 +54,7 @@ export default function MobileMenu({ closeMenu }: Props) {
             </div>
           )}
           <li>
-            <Link href="/contact">
+            <Link href="/contact-us">
               <a className="link__menu">Contact us</a>
             </Link>
           </li>

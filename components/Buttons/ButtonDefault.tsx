@@ -3,7 +3,7 @@ import ArrowLeft from "../Icons/ArrowLeft";
 import ArrowRight from "../Icons/ArrowRight";
 
 interface Props {
-  onclick: () => void;
+  onclick?: () => void;
   text: string;
   ariaLabel: string;
   icon?: "arrowLeft" | "arrowRight";
