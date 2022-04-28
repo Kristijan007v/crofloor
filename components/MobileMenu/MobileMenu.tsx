@@ -8,6 +8,8 @@ import ArrowUp from "../Icons/ArrowUp";
 import CloseIcon from "../Icons/CloseIcon";
 import WorldIcon from "../Icons/WorldIcon";
 import Overlay from "../Overlay/Overlay";
+import { AnimatePresence, motion } from "framer-motion";
+import dropInBottom from "../../lib/animations/dropInBottom";
 
 interface Props {
   closeMenu: () => void;
@@ -103,34 +105,50 @@ export default function MobileMenu({ closeMenu }: Props) {
         </div>
 
         {/* Choose lanugage Popup */}
-        {languageSwitch && (
-          <div className="fixed bottom-0 flex w-full flex-col space-y-4 bg-primary-gray p-6">
-            <div className="flex items-center justify-center space-x-4">
-              <WorldIcon />
-              <p className="text-center text-2xl font-semibold">
-                Choose Language
-              </p>
-            </div>
-
-            <select
-              onChange={handleLocaleChange}
-              value={router.locale}
-              className="rounded-full border-2 border-black bg-primary-gray p-2 font-semibold focus:outline-none"
+        <AnimatePresence // Disable any initial animations on children that
+          // are present when the component is first rendered
+          initial={false}
+          // Only render one component at a time.
+          // The exiting component will finish its exit
+          // animation before entering component is rendered
+          exitBeforeEnter={true}
+          // Fires when all exiting nodes have completed animating out
+          onExitComplete={() => null}
+        >
+          {languageSwitch && (
+            <motion.div
+              variants={dropInBottom}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="fixed bottom-0 flex w-full flex-col space-y-4 bg-primary-gray p-10"
             >
-              <option
-                className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-semibold"
-                value="en"
+              <div className="flex items-center justify-center space-x-4">
+                <WorldIcon />
+                <p className="text-center text-2xl font-semibold">
+                  Choose Language
+                </p>
+              </div>
+
+              <select
+                onChange={handleLocaleChange}
+                value={router.locale}
+                className="rounded-full border-2 border-black bg-primary-gray p-2 font-semibold focus:outline-none"
               >
-                English
-              </option>
-              <option
-                className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-semibold"
-                value="hr"
-              >
-                Croatian
-              </option>
-            </select>
-            {/* <div className="flex items-center justify-between p-4">
+                <option
+                  className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-semibold"
+                  value="en"
+                >
+                  English
+                </option>
+                <option
+                  className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-semibold"
+                  value="hr"
+                >
+                  Croatian
+                </option>
+              </select>
+              {/* <div className="flex items-center justify-between p-4">
               <p className="text-xl font-semibold">Current:</p>
               <div className=" flex items-center justify-between space-x-6 rounded-full border-2 border-black bg-primary-gray pt-1 pl-6 pr-6 pb-1">
                 <WorldIcon />
@@ -139,13 +157,14 @@ export default function MobileMenu({ closeMenu }: Props) {
                 </p>
               </div>
             </div> */}
-            <ButtonDefault
-              text="Close"
-              onclick={toogleLanguageSwitch}
-              ariaLabel="Close language menu"
-            />
-          </div>
-        )}
+              <ButtonDefault
+                text="Close"
+                onclick={toogleLanguageSwitch}
+                ariaLabel="Close language menu"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </Overlay>
   );
