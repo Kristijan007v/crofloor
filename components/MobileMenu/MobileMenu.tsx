@@ -2,6 +2,7 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import ButtonDefault from "../Buttons/ButtonDefault";
 import ArrowDown from "../Icons/ArrowDown";
 import ArrowUp from "../Icons/ArrowUp";
 import CloseIcon from "../Icons/CloseIcon";
@@ -87,12 +88,15 @@ export default function MobileMenu({ closeMenu }: Props) {
             </Link>
           </li>
         </ul>
-        <div className="absolute bottom-0 flex items-center justify-between space-x-20 p-8">
+        <div
+          className="absolute bottom-0 flex items-center justify-between space-x-20 p-8"
+          onClick={toogleLanguageSwitch}
+        >
           <CloseIcon onclick={closeMenu} />
           {/* Language switcher */}
-          <div className=" flex items-center justify-between space-x-6 rounded-full border-2 border-black bg-primary-gray pt-1 pl-6 pr-6 pb-1">
+          <div className="flex items-center justify-between space-x-6 rounded-full border-2 border-black bg-primary-gray pt-1 pl-6 pr-6 pb-1">
             <WorldIcon />
-            <p className="text-lg font-medium" onClick={toogleLanguageSwitch}>
+            <p className="text-lg font-medium">
               {locale === "hr" ? "Hrvatski" : "English"}
             </p>
           </div>
@@ -101,24 +105,32 @@ export default function MobileMenu({ closeMenu }: Props) {
         {/* Choose lanugage Popup */}
         {languageSwitch && (
           <div className="fixed bottom-0 flex w-full flex-col space-y-4 bg-primary-gray p-6">
-            <p className="text-center text-2xl font-semibold">
-              Choose Language
-            </p>
-            <select onChange={handleLocaleChange} value={router.locale}>
+            <div className="flex items-center justify-center space-x-4">
+              <WorldIcon />
+              <p className="text-center text-2xl font-semibold">
+                Choose Language
+              </p>
+            </div>
+
+            <select
+              onChange={handleLocaleChange}
+              value={router.locale}
+              className="rounded-full border-2 border-black bg-primary-gray p-2 font-semibold focus:outline-none"
+            >
               <option
-                className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-medium"
+                className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-semibold"
                 value="en"
               >
                 English
               </option>
               <option
-                className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-medium"
+                className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-semibold"
                 value="hr"
               >
                 Croatian
               </option>
             </select>
-            <div className="flex items-center justify-between p-4">
+            {/* <div className="flex items-center justify-between p-4">
               <p className="text-xl font-semibold">Current:</p>
               <div className=" flex items-center justify-between space-x-6 rounded-full border-2 border-black bg-primary-gray pt-1 pl-6 pr-6 pb-1">
                 <WorldIcon />
@@ -126,8 +138,12 @@ export default function MobileMenu({ closeMenu }: Props) {
                   {locale === "hr" ? "Hrvatski" : "English"}
                 </p>
               </div>
-            </div>
-            <CloseIcon onclick={toogleLanguageSwitch} />
+            </div> */}
+            <ButtonDefault
+              text="Close"
+              onclick={toogleLanguageSwitch}
+              ariaLabel="Close language menu"
+            />
           </div>
         )}
       </div>
