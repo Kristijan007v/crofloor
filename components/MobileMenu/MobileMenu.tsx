@@ -50,14 +50,14 @@ export default function MobileMenu({ closeMenu }: Props) {
     <Overlay type="primary">
       <div>
         <ul className="flex flex-col space-y-3 p-8">
-          <li>
+          {/* <li>
             <Link href="/">
               <a className={`link__menu ${asPath == "/" && "link__active"}`}>
                 {t("home")}
               </a>
             </Link>
-          </li>
-          <li>
+          </li> */}
+          <li className="flex items-center justify-between">
             <Link href="/products">
               <a
                 className={`link__menu ${
@@ -67,11 +67,11 @@ export default function MobileMenu({ closeMenu }: Props) {
                 {t("products")}
               </a>
             </Link>
-            {/* {dropDown ? (
+            {dropDown ? (
               <ArrowUp onclick={toogleDropdown} />
             ) : (
               <ArrowDown onclick={toogleDropdown} />
-            )} */}
+            )}
           </li>
           {dropDown && (
             <div className="">
