@@ -70,7 +70,7 @@ body {
 }
 
 .link__active {
-  @apply font-semibold text-black;
+  @apply font-bold text-black;
 }
 
 /* Overlay styles */
