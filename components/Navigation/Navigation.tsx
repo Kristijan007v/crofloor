@@ -4,7 +4,11 @@ import Link from "next/link";
 import MenuIcon from "../Icons/MenuIcon";
 import { AnimatePresence } from "framer-motion";
 
-export default function Navigation() {
+interface Props {
+  style?: string;
+}
+
+export default function Navigation({ style }: Props) {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const toogleMenu = () => {
@@ -12,7 +16,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="flex justify-between p-4">
+    <nav className={`flex justify-between p-4 ${style}`}>
       <Link href="/">
         <a className="link__logo">CF</a>
       </Link>

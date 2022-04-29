@@ -62,7 +62,7 @@ body {
 
 /* Link styles */
 .link__menu {
-  @apply rounded-xl p-2 text-4xl font-medium hover:bg-black hover:text-white;
+  @apply rounded-xl p-2 text-4xl font-medium hover:font-semibold;
 }
 
 .link__logo {
@@ -70,7 +70,7 @@ body {
 }
 
 .link__active {
-  @apply font-bold text-black;
+  @apply font-semibold text-black;
 }
 
 /* Overlay styles */

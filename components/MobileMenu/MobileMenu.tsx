@@ -16,6 +16,8 @@ interface Props {
 }
 
 export default function MobileMenu({ closeMenu }: Props) {
+  const { asPath, pathname } = useRouter();
+
   const [languageSwitch, setLanguageSwitch] = useState(false);
 
   const toogleLanguageSwitch = () => {
@@ -46,17 +48,30 @@ export default function MobileMenu({ closeMenu }: Props) {
 
   return (
     <Overlay type="primary">
-      <div className="flex flex-col">
+      <div>
         <ul className="flex flex-col space-y-3 p-8">
-          <li className="flex items-center justify-between">
-            <Link href="/products">
-              <a className="link__menu">{t("products")}</a>
+          <li>
+            <Link href="/">
+              <a className={`link__menu ${asPath == "/" && "link__active"}`}>
+                {t("home")}
+              </a>
             </Link>
-            {dropDown ? (
+          </li>
+          <li>
+            <Link href="/products">
+              <a
+                className={`link__menu ${
+                  asPath == "/products" && "link__active"
+                }`}
+              >
+                {t("products")}
+              </a>
+            </Link>
+            {/* {dropDown ? (
               <ArrowUp onclick={toogleDropdown} />
             ) : (
               <ArrowDown onclick={toogleDropdown} />
-            )}
+            )} */}
           </li>
           {dropDown && (
             <div className="">
@@ -76,17 +91,31 @@ export default function MobileMenu({ closeMenu }: Props) {
           )}
           <li>
             <Link href="/contact-us">
-              <a className="link__menu">{t("contact")}</a>
+              <a
+                className={`link__menu ${
+                  asPath == "/contact-us" && "link__active"
+                }`}
+              >
+                {t("contact")}
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/blog">
-              <a className="link__menu">{t("blog")}</a>
+              <a
+                className={`link__menu ${asPath == "/blog" && "link__active"}`}
+              >
+                {t("blog")}
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/about">
-              <a className="link__menu">{t("about")}</a>
+              <a
+                className={`link__menu ${asPath == "/about" && "link__active"}`}
+              >
+                {t("about")}
+              </a>
             </Link>
           </li>
         </ul>
