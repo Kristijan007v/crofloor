@@ -16,6 +16,7 @@ export default function HeroSection() {
         layout="fill"
         objectFit="cover"
         className="opacity-85"
+        priority={true}
       />
       <div className="relative h-full w-full bg-black/40">
         <Navigation />
