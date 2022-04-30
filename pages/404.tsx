@@ -1,8 +1,28 @@
 import React from "react";
 import ButtonDefault from "../components/Buttons/ButtonDefault";
 import Skeleton from "../components/Skeleton/Skeleton";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import nextI18NextConfig from "../next-i18next.config.js";
+import { useTranslation } from "next-i18next";
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "menu",
+        "cookieBanner",
+        "footer",
+        "Custom404",
+      ])),
+      nextI18NextConfig,
+    },
+  };
+}
 
 export default function Custom404() {
+  const { t } = useTranslation("Custom404");
+
   return (
     <Skeleton title="404">
       <div className="m-6 flex h-screen flex-col items-center justify-center space-y-4 text-center">
@@ -11,14 +31,11 @@ export default function Custom404() {
           <span className="text-8xl font-extrabold text-yellow-special">0</span>
           <span className="text-8xl font-extrabold">4</span>
         </p>
-        <p className="h2">Page not found</p>
-        <p className="paragraph">
-          It seems you are lost or just misspelled the URL. Click the button
-          bellow to find your way home.
-        </p>
+        <p className="h2">{t("title")}</p>
+        <p className="paragraph">{t("description")}</p>
         <ButtonDefault
-          text="Go back to the homepage"
-          ariaLabel="Go back to the homepage"
+          text={t("button")}
+          ariaLabel={t("button")}
           onclick={() => (window.location.href = "/")}
           icon="arrowLeft"
         />
