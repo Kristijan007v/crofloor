@@ -27,12 +27,15 @@ export default function Maintenance() {
         This page is under a scheduled maintaince, if you have any questions
         feel free to contact us.
       </p>
-      <div className="flex space-x-4 rounded-xl bg-black pt-3 pb-3 pr-8 pl-8">
-        <a className="font-medium text-white" href="mailto:pozgaj@pozgaj.com">
-          Contact us
-        </a>
+      <button
+        className="flex space-x-4 rounded-xl bg-black pt-3 pb-3 pr-8 pl-8"
+        onClick={() => {
+          window.location.href = "mailto:pozgaj@pozgaj.com";
+        }}
+      >
+        <a className="font-medium text-white">Contact us</a>
         <MailIcon />
-      </div>
+      </button>
     </div>
   );
 }
