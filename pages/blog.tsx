@@ -30,6 +30,7 @@ export default function Blog() {
         title={t("section-header.title")}
         image="blog.jpg"
         alt={t("section-header.image.alt")}
+        description={t("section-header.description")}
       />
     </Skeleton>
   );

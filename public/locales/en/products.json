@@ -3,6 +3,10 @@
     "title": "Products",
     "image": {
       "alt": "Products"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "search": {
+      "placeholder": "Search for products..."
     }
   }
 }

@@ -29,6 +29,8 @@ export default function About() {
         title={t("section-header.title")}
         image="about.jpg"
         alt={t("section-header.image.alt")}
+        description={t("section-header.description")}
+        search={true}
       />
     </Skeleton>
   );

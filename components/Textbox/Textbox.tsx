@@ -1,9 +1,14 @@
 import React from "react";
 
 interface TextboxProps {
-  text: string;
+  children: React.ReactNode;
+  style?: string;
 }
 
-export default function Textbox({ text }: TextboxProps) {
-  return <div>{text}</div>;
+export default function Textbox({ children, style }: TextboxProps) {
+  return (
+    <div className={`${style}`}>
+      <p className="p__default">{children}</p>
+    </div>
+  );
 }
