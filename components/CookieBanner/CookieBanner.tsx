@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonDefault from "../Buttons/ButtonDefault";
 import Overlay from "../Overlay/Overlay";
 import { useTranslation } from "next-i18next";
@@ -24,7 +24,9 @@ export default function CookieBanner() {
                 <ButtonDefault
                   text={t("button-accept")}
                   ariaLabel={t("button-accept")}
-                  onclick={() => setShow(false)}
+                  onclick={() => {
+                    setShow(false);
+                  }}
                 />
                 <ButtonDefault
                   text={t("button-settings")}

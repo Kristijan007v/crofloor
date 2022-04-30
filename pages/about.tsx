@@ -4,6 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import nextI18NextConfig from "../next-i18next.config.js";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import { useTranslation } from "next-i18next";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -25,13 +26,15 @@ export default function About() {
 
   return (
     <Skeleton title="" metaDescription="">
-      <SectionHeader
-        title={t("section-header.title")}
-        image="about.jpg"
-        alt={t("section-header.image.alt")}
-        description={t("section-header.description")}
-        search={true}
-      />
+      <ErrorBoundary moduleName="SectionHeader">
+        <SectionHeader
+          title={t("section-header.title")}
+          image="about.jpg"
+          alt={t("section-header.image.alt")}
+          description={t("section-header.description")}
+          search={true}
+        />
+      </ErrorBoundary>
     </Skeleton>
   );
 }

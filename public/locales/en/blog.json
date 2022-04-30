@@ -4,6 +4,9 @@
     "image": {
       "alt": "Blog"
     },
-    "description": "Welcome to our blog! Here you will be able to find out about our latest donations or news from the company."
+    "description": "Welcome to our blog! Here you will be able to find out about our latest donations or news from the company.",
+    "search": {
+      "placeholder": "Search for articles..."
+    }
   }
 }

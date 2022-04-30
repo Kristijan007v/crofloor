@@ -1,6 +1,7 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
@@ -24,14 +25,16 @@ export default function Products() {
   const { t } = useTranslation("products");
   return (
     <Skeleton title="" metaDescription="">
-      <SectionHeader
-        title={t("section-header.title")}
-        image="products.jpg"
-        alt={t("section-header.image.alt")}
-        description={t("section-header.description")}
-        search={true}
-        searchPlaceholder={t("section-header.search.placeholder")}
-      />
+      <ErrorBoundary moduleName="SectionHeader">
+        <SectionHeader
+          title={t("section-header.title")}
+          image="products.jpg"
+          alt={t("section-header.image.alt")}
+          description={t("section-header.description")}
+          search={true}
+          searchPlaceholder={t("section-header.search.placeholder")}
+        />
+      </ErrorBoundary>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
         sapiente facilis qui ad perferendis ab eos dolorem, iste laudantium

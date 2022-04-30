@@ -44,7 +44,7 @@ export default function ContactUs() {
 
   return (
     <Skeleton title="Contact us" metaDescription="Contact Požgaj Group.">
-      <ErrorBoundary>
+      <ErrorBoundary moduleName="SectionHeader">
         <SectionHeader
           title={t("section-header.title")}
           image="contact-us.jpg"
