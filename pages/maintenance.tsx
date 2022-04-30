@@ -5,6 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import nextI18NextConfig from "../next-i18next.config.js";
 import { useTranslation } from "next-i18next";
 import HammerIcon from "../components/Icons/HammerIcon";
+import MailIcon from "../components/Icons/MailIcon";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -26,12 +27,12 @@ export default function Maintenance() {
         This page is under a scheduled maintaince, if you have any questions
         feel free to contact us.
       </p>
-      <a
-        className="rounded-xl bg-black pt-3 pb-3 pr-8 pl-8 font-medium text-white"
-        href="mailto:pozgaj@pozgaj.com"
-      >
-        Contact us
-      </a>
+      <div className="flex space-x-4 rounded-xl bg-black pt-3 pb-3 pr-8 pl-8">
+        <a className="font-medium text-white" href="mailto:pozgaj@pozgaj.com">
+          Contact us
+        </a>
+        <MailIcon />
+      </div>
     </div>
   );
 }
