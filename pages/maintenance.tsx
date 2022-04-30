@@ -28,12 +28,12 @@ export default function Maintenance() {
         feel free to contact us.
       </p>
       <button
-        className="flex space-x-4 rounded-xl bg-black pt-3 pb-3 pr-8 pl-8"
+        className="flex space-x-4 rounded-xl bg-black pt-3 pb-3 pr-8 pl-8 text-white"
         onClick={() => {
           window.location.href = "mailto:pozgaj@pozgaj.com";
         }}
       >
-        <a className="font-medium text-white">Contact us</a>
+        <span>Contact us</span>
         <MailIcon />
       </button>
     </div>
