@@ -1,6 +1,7 @@
 import React from "react";
 import { IconContext } from "react-icons";
 import { MdFacebook } from "react-icons/md";
+import ButtonLink from "../ButtonLink/ButtonLink";
 
 interface Props {
   onclick?: () => void;
@@ -9,14 +10,12 @@ interface Props {
 
 export default function FacebookIcon({ onclick, style }: Props) {
   return (
-    <>
-      <IconContext.Provider
-        value={{
-          className: "text-4xl",
-        }}
-      >
-        <MdFacebook onClick={onclick} />
-      </IconContext.Provider>
-    </>
+    <IconContext.Provider
+      value={{
+        className: "text-4xl",
+      }}
+    >
+      <MdFacebook />
+    </IconContext.Provider>
   );
 }

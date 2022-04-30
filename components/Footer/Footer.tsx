@@ -7,6 +7,7 @@ import LinkedinIcon from "../Icons/LinkedinIcon";
 import YoutubeIcon from "../Icons/YoutubeIcon";
 import { useTranslation } from "next-i18next";
 import GoUp from "../Buttons/GoUp";
+import ButtonLink from "../ButtonLink/ButtonLink";
 
 export default function Footer() {
   const { t } = useTranslation("footer");
@@ -64,10 +65,18 @@ export default function Footer() {
           </p>
           {/* Social links */}
           <div className="justify-left flex items-center space-x-4">
-            <FacebookIcon />
-            <InstagramIcon />
-            <LinkedinIcon />
-            <YoutubeIcon />
+            <ButtonLink href="https://facebook.com" newTab={true}>
+              <FacebookIcon />
+            </ButtonLink>
+            <ButtonLink href="https://instagram.com" newTab={true}>
+              <InstagramIcon />
+            </ButtonLink>
+            <ButtonLink href="https://linkedin.com" newTab={true}>
+              <LinkedinIcon />
+            </ButtonLink>
+            <ButtonLink href="https://youtube.com" newTab={true}>
+              <YoutubeIcon />
+            </ButtonLink>
           </div>
           <ul className="flex justify-between rounded-2xl bg-primary-gray p-3">
             <li>
