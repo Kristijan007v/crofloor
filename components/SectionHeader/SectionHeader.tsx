@@ -43,7 +43,7 @@ export default function SectionHeader({
         </div>
       </div>
       <Textbox style="pt-6 pl-6 pr-6 pb-2">{description}</Textbox>
-      {search && <SectionSearch searchPlaceholder={searchPlaceholder} />}
+      {search && <SectionSearch searchPlaceholder={`${searchPlaceholder}`} />}
     </>
   );
 }
