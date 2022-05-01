@@ -24,7 +24,7 @@ export async function getStaticProps({ locale }: any) {
 export default function Products() {
   const { t } = useTranslation("products");
   return (
-    <Skeleton title="" metaDescription="">
+    <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
         <SectionHeader
           title={t("section-header.title")}

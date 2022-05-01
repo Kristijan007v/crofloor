@@ -10,6 +10,7 @@ import WorldIcon from "../Icons/WorldIcon";
 import Overlay from "../Overlay/Overlay";
 import { AnimatePresence, motion } from "framer-motion";
 import dropInBottom from "../../lib/animations/dropInBottom";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 interface Props {
   closeMenu: () => void;
@@ -19,6 +20,8 @@ export default function MobileMenu({ closeMenu }: Props) {
   const { asPath, pathname } = useRouter();
 
   const [languageSwitch, setLanguageSwitch] = useState(false);
+
+  const [language, setLanguage] = useLocalStorage("language", "en");
 
   const toogleLanguageSwitch = () => {
     setLanguageSwitch(!languageSwitch);
@@ -35,6 +38,7 @@ export default function MobileMenu({ closeMenu }: Props) {
 
   const handleLocaleChange = (event: any) => {
     const value = event.target.value;
+    setLanguage(value);
 
     router.push(router.route, router.asPath, {
       locale: value,

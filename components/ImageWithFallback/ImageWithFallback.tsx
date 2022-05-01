@@ -9,6 +9,8 @@ const ImageWithFallback = (props: any) => {
     <Image
       {...rest}
       src={imgSrc}
+      placeholder={"blur"}
+      blurDataURL={imgSrc}
       onError={() => {
         setImgSrc(fallbackSrc);
       }}

@@ -25,7 +25,7 @@ export default function About() {
   const { t } = useTranslation("about");
 
   return (
-    <Skeleton title="" metaDescription="">
+    <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
         <SectionHeader
           title={t("section-header.title")}

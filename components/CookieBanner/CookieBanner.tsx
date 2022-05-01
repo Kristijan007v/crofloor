@@ -8,7 +8,7 @@ export default function CookieBanner() {
   const [cookie, setCookie] = useLocalStorage<string>("cookieBanner", "true");
   const { t } = useTranslation("cookieBanner");
 
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   return (
     <>

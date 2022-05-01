@@ -36,6 +36,8 @@ export default function FormField({ label, htmlFor, type, name, id }: Props) {
           name={name}
           id={id}
           required
+          cols={30}
+          rows={10}
         ></textarea>
       )}
     </div>

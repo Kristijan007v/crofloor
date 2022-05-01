@@ -4,14 +4,21 @@ import { Toaster } from "react-hot-toast";
 import CookieBanner from "../CookieBanner/CookieBanner";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Footer from "../Footer/Footer";
+import Navigation from "../Navigation/Navigation";
 
 interface SkeletonProps {
   children?: React.ReactNode;
   title: string;
   metaDescription?: string;
+  navigation?: boolean;
 }
 
-const Skeleton = ({ children, title, metaDescription }: SkeletonProps) => {
+const Skeleton = ({
+  children,
+  title,
+  metaDescription,
+  navigation,
+}: SkeletonProps) => {
   return (
     <>
       <Head>
@@ -19,6 +26,9 @@ const Skeleton = ({ children, title, metaDescription }: SkeletonProps) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={metaDescription} />
       </Head>
+
+      {/* Navigation */}
+      {navigation && <Navigation style="bg-black items-center" />}
 
       {/* Here goes the MAIN CONTENT */}
       <div>{children}</div>

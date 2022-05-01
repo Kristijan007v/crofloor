@@ -1,9 +1,21 @@
 {
   "pages": {
     "homepage": {
-      "title": "Početna",
+      "title": "Homepage",
       "meta-description": "Crofloor is a website for luxury wooden flooring. You can find and buy the most beautiful wooden parquet flooring options and even make your own."
     },
     "contact": "Contact Us"
+  },
+  "product-collection": {
+    "heading": "Product Collection",
+    "tabs": {
+      "hrast": "Hrast",
+      "jasen": "Jasen",
+      "jela": "Jela"
+    },
+    "button": "Explore more"
+  },
+  "about-section": {
+    "heading": "About Us"
   }
 }

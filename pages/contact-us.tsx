@@ -43,7 +43,11 @@ export default function ContactUs() {
   const { t } = useTranslation(["contactUs", "common"]);
 
   return (
-    <Skeleton title="Contact us" metaDescription="Contact Požgaj Group.">
+    <Skeleton
+      title="Contact us"
+      metaDescription="Contact Požgaj Group."
+      navigation={true}
+    >
       <ErrorBoundary moduleName="SectionHeader">
         <SectionHeader
           title={t("section-header.title")}
@@ -82,7 +86,7 @@ export default function ContactUs() {
           <ButtonDefault
             text={t("form.submit")}
             ariaLabel={t("form.submit")}
-            style="mt-10"
+            style="mt-4"
             onclick={() => {
               toast("Message sent sucessfully!");
             }}

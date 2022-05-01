@@ -6,6 +6,9 @@ import SectionHeader from "../components/SectionHeader/SectionHeader";
 import { useTranslation } from "next-i18next";
 import Navigation from "../components/Navigation/Navigation";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import Image from "next/image";
+import ArticleCard from "../components/ArticleCard/ArticleCard";
+import { AnimatePresence } from "framer-motion";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -24,9 +27,15 @@ export async function getStaticProps({ locale }: any) {
 
 export default function Blog() {
   const { t } = useTranslation("blog");
+
+  const [showRecommended, setShowRecommended] = React.useState(false);
+
+  const toogleRecommended = () => {
+    setShowRecommended(!showRecommended);
+  };
+
   return (
-    <Skeleton title="" metaDescription="">
-      <Navigation style="bg-black" />
+    <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
         <SectionHeader
           title={t("section-header.title")}
@@ -37,6 +46,23 @@ export default function Blog() {
           searchPlaceholder={t("section-header.search.placeholder")}
         />
       </ErrorBoundary>
+      <div className="bg-primary-bg p-3 text-right font-medium">
+        <p>Featured</p>
+      </div>
+
+      <div
+        className={`${
+          showRecommended
+            ? "bg-black text-white"
+            : "bg-primary-yellow text-black"
+        } p-3 text-left font-medium`}
+        onClick={toogleRecommended}
+      >
+        <p>Recommended</p>
+      </div>
+
+      {showRecommended && <ArticleCard />}
+
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
         sapiente facilis qui ad perferendis ab eos dolorem, iste laudantium

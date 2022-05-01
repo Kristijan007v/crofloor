@@ -5,5 +5,17 @@
       "meta-description": "Crofloor je web stranica za luksuzne drvene podove. Možete pronaći i kupiti najljepše mogućnosti drvenog parketa, pa čak i napraviti svoj vlastiti."
     },
     "contact-us": "Kontaktiraj nas"
+  },
+  "product-collection": {
+    "heading": "Naši proizvodi",
+    "tabs": {
+      "hrast": "Hrast",
+      "jasen": "Jasen",
+      "jela": "Jela"
+    },
+    "button": "Istraži više"
+  },
+  "about-section": {
+    "heading": "O nama"
   }
 }
