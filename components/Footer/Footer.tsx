@@ -14,7 +14,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="relative">
+      <footer className="relative flex flex-col md:flex-row">
         {/* FAQ */}
         <div className="flex flex-col space-y-4 bg-primary-bg p-6">
           <p className="heading__3 text-center">FAQ</p>
@@ -103,7 +103,7 @@ export default function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className="flex flex-col items-center justify-center space-y-2 bg-black p-4">
+        <div className="flex flex-col items-center justify-center space-y-2 bg-black p-4 md:flex-row md:justify-between">
           <Link href={"/"}>
             <a className="text-lg uppercase text-white">
               {t("footer.privacy-policy")}

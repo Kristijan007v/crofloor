@@ -3,5 +3,13 @@
   "products": "Products",
   "contact": "Contact",
   "blog": "Blog",
-  "about": "About"
+  "about": "About",
+  "language-switcher": {
+    "heading": "Choose Language",
+    "options": {
+      "en": "English",
+      "hr": "Croatian"
+    },
+    "button": "Close"
+  }
 }

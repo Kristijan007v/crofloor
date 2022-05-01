@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const ImageWithFallback = (props: any) => {
-  const { src, fallbackSrc, ...rest } = props;
-  const [imgSrc, setImgSrc] = useState(src);
+interface Props {
+  style?: string;
+  src: string;
+  fallBackSrc: string;
+  alt: string;
+  props?: any;
+}
+
+const ImageWithFallback = ({ style, src, fallBackSrc, alt, props }: Props) => {
+  const [imageError, setImageError] = useState(false);
 
   return (
     <Image
-      {...rest}
-      src={imgSrc}
-      placeholder={"blur"}
-      blurDataURL={imgSrc}
-      onError={() => {
-        setImgSrc(fallbackSrc);
-      }}
+      className={`${style}`}
+      src={imageError ? fallBackSrc : src}
+      alt={alt}
+      layout="fill"
+      objectFit="cover"
+      onError={() => setImageError(true)}
     />
   );
 };

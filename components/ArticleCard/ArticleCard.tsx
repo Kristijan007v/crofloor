@@ -3,6 +3,7 @@ import Image from "next/image";
 import ButtonDefault from "../Buttons/ButtonDefault";
 import { motion } from "framer-motion";
 import dropInLeft from "../../lib/animations/dropInLeft";
+import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
 
 export default function ArticleCard() {
   return (
@@ -17,14 +18,19 @@ export default function ArticleCard() {
         FEATURED ARTICLES
       </h2>
       <div className="relative h-48 w-full">
-        <Image
+        <ImageWithFallback
+          src={`/images/about.jpg`}
+          fallBackSrc={`/images/image-error.jpg`}
+          alt={"Ovo je test"}
+        />
+        {/* <Image
           src={`/images/about.jpg`}
           alt={"Ovo je test"}
           layout="fill"
           objectFit="cover"
           className="opacity-85"
           priority={true}
-        />
+        /> */}
       </div>
       <h3 className="text-lg font-semibold">Here goes the heading</h3>
       <p>

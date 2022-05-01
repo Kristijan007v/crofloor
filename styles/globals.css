@@ -69,6 +69,10 @@ body {
   @apply rounded-xl p-2 text-4xl font-normal hover:font-semibold;
 }
 
+.link__menu__desktop {
+  @apply text-lg font-medium text-white;
+}
+
 .link__logo {
   @apply text-4xl font-extrabold text-white;
 }
@@ -110,5 +114,5 @@ body {
 }
 
 .tab__default {
-  @apply pt-1 pb-1 pr-6 pl-6;
+  @apply cursor-pointer pt-1 pb-1 pr-6 pl-6 hover:bg-primary-yellow;
 }

@@ -3,5 +3,13 @@
   "products": "Proizvodi",
   "contact": "Kontaktiraj nas",
   "blog": "Blog",
-  "about": "O nama"
+  "about": "O nama",
+  "language-switcher": {
+    "heading": "Izaberi jezik",
+    "options": {
+      "en": "English",
+      "hr": "Croatian"
+    },
+    "button": "Zatvori"
+  }
 }

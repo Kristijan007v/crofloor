@@ -22,22 +22,29 @@ export default function Navigation({ style }: Props) {
       </Link>
       <ul className="hidden space-x-4 md:flex">
         <li>
-          <Link href="/">
-            <a>Home</a>
+          <Link href="/products">
+            <a className="link__menu__desktop">Products</a>
           </Link>
         </li>
         <li>
-          <Link href="/about">
-            <a>About</a>
+          <Link href="/contact-us">
+            <a className="link__menu__desktop">Contact</a>
           </Link>
         </li>
         <li>
           <Link href="/blog">
-            <a>Blog</a>
+            <a className="link__menu__desktop">Blog</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/about">
+            <a className="link__menu__desktop">About</a>
           </Link>
         </li>
       </ul>
-      <MenuIcon onclick={toogleMenu} />
+      <span className="block md:hidden">
+        <MenuIcon onclick={toogleMenu} />
+      </span>
       <AnimatePresence
         // Disable any initial animations on children that
         // are present when the component is first rendered

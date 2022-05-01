@@ -27,10 +27,8 @@ export default function SectionHeader({
   return (
     <>
       <div className="relative h-48 w-full">
-        <ImageWithFallback
-          key={key}
+        <Image
           src={`/images/${image}`}
-          fallbackSrc={`/images/image-error.jpg`}
           alt={alt}
           layout="fill"
           objectFit="cover"

@@ -53,7 +53,7 @@ export default function MobileMenu({ closeMenu }: Props) {
   return (
     <Overlay type="primary">
       <div>
-        <ul className="flex flex-col space-y-3 p-8">
+        <ul className="flex flex-col space-y-3 p-8 md:hidden">
           {/* <li>
             <Link href="/">
               <a className={`link__menu ${asPath == "/" && "link__active"}`}>
@@ -159,7 +159,7 @@ export default function MobileMenu({ closeMenu }: Props) {
               <div className="flex items-center justify-center space-x-4">
                 <WorldIcon />
                 <p className="text-center text-2xl font-semibold">
-                  Choose Language
+                  {t("language-switcher.heading")}
                 </p>
               </div>
 
@@ -191,9 +191,9 @@ export default function MobileMenu({ closeMenu }: Props) {
               </div>
             </div> */}
               <ButtonDefault
-                text="Close"
+                text={t("language-switcher.button")}
                 onclick={toogleLanguageSwitch}
-                ariaLabel="Close language menu"
+                ariaLabel={t("language-switcher.button")}
               />
             </motion.div>
           )}
