@@ -24,12 +24,7 @@ export default function LocationContainer({
 }: Props) {
   return (
     <ErrorBoundary moduleName="LocationContainer">
-      <div
-        className={`relative w-full ${height ? height : "h-48"}`}
-        onClick={() => {
-          window.location.href = `${href}`;
-        }}
-      >
+      <div className={`relative w-full ${height ? height : "h-48"}`}>
         <Image
           src={`/images/${image}`}
           layout="fill"
@@ -39,13 +34,19 @@ export default function LocationContainer({
           blurDataURL={`/images/${image}`}
         />
 
-        <div className="relative h-48 w-full bg-black/30">
+        <div className="relative h-48 w-full bg-black/20">
           <div
             className={`absolute top-0 ${
               tagPosition === "right" ? "right-0" : "left-0"
             } p-4`}
           >
-            <Tag text={address} icon={"location"} />
+            <Tag
+              text={address}
+              icon={"location"}
+              onclick={() => {
+                window.location.href = `${href}`;
+              }}
+            />
           </div>
           <h4
             className={`absolute bottom-0 ${
