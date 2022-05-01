@@ -172,13 +172,13 @@ export default function MobileMenu({ closeMenu }: Props) {
                   className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-semibold"
                   value="en"
                 >
-                  English
+                  {locale === "hr" ? "English" : "Engleski"}
                 </option>
                 <option
                   className="rounded-2xl bg-gray-100 p-2 text-center text-lg font-semibold"
                   value="hr"
                 >
-                  Croatian
+                  {locale === "hr" ? "Croatian" : "Hrvatski"}
                 </option>
               </select>
               {/* <div className="flex items-center justify-between p-4">
