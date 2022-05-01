@@ -45,7 +45,10 @@ export default function Article() {
           tempore ipsum atque?
         </p>
       </div>
-      <SocialShare />
+      <SocialShare
+        url="https://crofloor.kristijan007v.vercel.app/articles/post"
+        iconSize="md"
+      />
     </Skeleton>
   );
 }
