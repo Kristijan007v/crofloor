@@ -5,5 +5,24 @@
       "alt": "O nama"
     },
     "description": "Naša misija je da postanemo najprepoznatljivi i kvalitetniji brand parketa u Hrvatskoj."
+  },
+  "section": {
+    "locations": {
+      "heading": "Lokacije",
+      "description": "Imamo urede u Zagrebu, Varaždinu, Rijeci i Splitu.",
+      "tag": "Lokacija"
+    },
+    "our-motivation": {
+      "heading": "Naša motivacija",
+      "description": "Mi smo strastveni oko parketa i uvijek smo u potrazi za novim načinima poboljšanja naših proizvoda i usluga.",
+      "ceo": "POŽGAJ GROUP  CEO  - Name Surname"
+    },
+    "factory": {
+      "heading": "Tvornica"
+    },
+    "certificate": {
+      "heading": "Naši certifikati",
+      "description": "Certificirani smo prema europskoj normi EN ISO 9001:2008 i EN ISO 14001:2004."
+    }
   }
 }
