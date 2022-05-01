@@ -10,6 +10,7 @@ import Image from "next/image";
 import ProductCard from "../components/ProductCard/ProductCard";
 import { useState } from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
+import PostCard from "../components/PostCard/PostCard";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -130,7 +131,7 @@ const Home: NextPage = () => {
       </h3>
 
       <div className="p-6">
-        <ProductCard
+        <PostCard
           heading="Article heading"
           type="secondary"
           image="about.jpg"
