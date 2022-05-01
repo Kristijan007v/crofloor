@@ -148,7 +148,7 @@ const Home: NextPage = () => {
           placeholder="blur"
           blurDataURL="/images/about-us.jpg"
         />
-        <div className="absolute flex h-80 w-full flex-col space-y-2 bg-gray-500/40 p-6">
+        <div className="absolute flex h-80 w-full flex-col space-y-2 bg-gray-500/60 p-6">
           <h2 className="text-2xl font-semibold text-yellow-special">
             {t("about-section.heading")}
           </h2>
@@ -159,7 +159,7 @@ const Home: NextPage = () => {
             ullam accusantium minima autem consectetur, molestiae ipsam culpa
             voluptatum?
           </p>
-          <p className="font-semibold text-primary-yellow">
+          <p className="font-bold text-yellow-special">
             Pozgaj Group CEO - Name Surname
           </p>
         </div>
