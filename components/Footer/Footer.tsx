@@ -50,7 +50,7 @@ export default function Footer() {
               {t("newsletter.button")}
             </button>
           </div>
-          <p className="heading__4">Požgaj Group</p>
+          <p className="heading__4">{t("info.title")}</p>
           <Link
             href={
               "https://www.google.com/maps/place/Dravska+ul.+40,+42231,+Veliki+Bukovec/@46.2869072,16.7099287,17z/data=!4m2!3m1!1s0x4768a18575c182bf:0xfbb76f3cb4d6b219"
@@ -115,7 +115,7 @@ export default function Footer() {
             <a className="text-lg uppercase text-white">{t("footer.terms")}</a>
           </Link>
           <p className="text-sm text-gray-400">
-            © Požgaj Grupa. {t("footer.copyright")}
+            © {t("info.title")}. {t("footer.copyright")}
           </p>
         </div>
         <GoUp />
