@@ -8,9 +8,11 @@ import YoutubeIcon from "../Icons/YoutubeIcon";
 import { useTranslation } from "next-i18next";
 import GoUp from "../Buttons/GoUp";
 import ButtonLink from "../ButtonLink/ButtonLink";
+import { useRouter } from "next/router";
 
 export default function Footer() {
   const { t } = useTranslation("footer");
+  const router = useRouter();
 
   return (
     <>
@@ -104,12 +106,12 @@ export default function Footer() {
 
         {/* Footer bottom */}
         <div className="flex flex-col items-center justify-center space-y-2 bg-black p-4 md:flex-row md:justify-between">
-          <Link href={"/"}>
+          <Link href={"/legal/privacy-policy"} locale={router.locale}>
             <a className="text-lg uppercase text-white">
               {t("footer.privacy-policy")}
             </a>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/legal/terms"} locale={router.locale}>
             <a className="text-lg uppercase text-white">{t("footer.terms")}</a>
           </Link>
           <p className="text-sm text-gray-400">
