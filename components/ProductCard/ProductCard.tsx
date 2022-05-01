@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import dropInLeft from "../../lib/animations/dropInLeft";
+import Link from "next/link";
 
 interface Props {
   heading: string;
@@ -16,7 +17,7 @@ export default function ProductCard({ heading, type, image }: Props) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className={`flex flex-col space-y-4 rounded-xl text-center shadow-md ${
+      className={`flex flex-col space-y-4 rounded-xl text-center shadow-sm ${
         type === "primary" ? "bg-primary-yellow" : "bg-primary-bg"
       }`}
     >
@@ -25,13 +26,16 @@ export default function ProductCard({ heading, type, image }: Props) {
           src={`/images/${image}`}
           layout="fill"
           objectFit="cover"
+          priority={true}
           placeholder="blur"
           blurDataURL={`/images/${image}`}
           className="rounded-tr-xl rounded-tl-xl"
         />
       </div>
       <div className="flex flex-col space-y-4 pt-2 pb-10">
-        <h2 className="text-xl font-semibold uppercase">{heading}</h2>
+        <Link href={`/products/hrast/${heading}`}>
+          <a className="text-xl font-semibold uppercase">{heading}</a>
+        </Link>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
           enim.
