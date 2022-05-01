@@ -6,7 +6,7 @@ import Link from "next/link";
 
 interface Props {
   heading: string;
-  type: "primary" | "secondary";
+  type?: "primary" | "secondary";
   image: string;
 }
 
@@ -18,7 +18,11 @@ export default function ProductCard({ heading, type, image }: Props) {
       animate="visible"
       exit="exit"
       className={`flex flex-col space-y-4 rounded-xl text-center shadow-sm ${
-        type === "primary" ? "bg-primary-yellow" : "bg-primary-bg"
+        type === "primary"
+          ? "bg-primary-yellow"
+          : type === "secondary"
+          ? "bg-primary-bg"
+          : "bg-white"
       }`}
     >
       <div className="relative h-72 w-full">
@@ -34,7 +38,7 @@ export default function ProductCard({ heading, type, image }: Props) {
       </div>
       <div className="flex flex-col space-y-4 pt-2 pb-10">
         <Link href={`/products/hrast/${heading}`}>
-          <a className="text-xl font-semibold uppercase">{heading}</a>
+          <a className="text-xl font-semibold">{heading}</a>
         </Link>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,

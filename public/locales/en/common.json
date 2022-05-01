@@ -15,6 +15,11 @@
     },
     "button": "Explore more"
   },
+  "blog": {
+    "heading": "Blog",
+    "featured-articles": "Featured articles",
+    "latest-articles": "Latest articles"
+  },
   "about-section": {
     "heading": "About Us"
   }

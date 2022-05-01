@@ -9,6 +9,7 @@ import ButtonDefault from "../components/Buttons/ButtonDefault";
 import Image from "next/image";
 import ProductCard from "../components/ProductCard/ProductCard";
 import { useState } from "react";
+import ArticleCard from "../components/ArticleCard/ArticleCard";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -115,7 +116,26 @@ const Home: NextPage = () => {
       </div>
 
       {/* BLOG SECTION */}
-      <h2 className="p-4 text-2xl font-semibold">Blog</h2>
+      <h2 className="p-4 text-2xl font-semibold">{t("blog.heading")}</h2>
+      {/* <h3 className="p-4 text-center text-xl font-semibold uppercase">
+        FEATURED ARTICLE
+      </h3> */}
+
+      <div>
+        <ArticleCard />
+      </div>
+
+      <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
+        {t("blog.latest-articles")}
+      </h3>
+
+      <div className="p-6">
+        <ProductCard
+          heading="Article heading"
+          type="secondary"
+          image="about.jpg"
+        />
+      </div>
 
       {/* About SECTION */}
       <div className="relative h-80 w-full">

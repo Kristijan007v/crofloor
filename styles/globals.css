@@ -20,6 +20,10 @@ body {
   @apply m-6;
 }
 
+.container__section {
+  @apply pt-10 pl-6 pr-6;
+}
+
 /* Button styles */
 .btn__basic {
   @apply rounded-full p-3 font-medium;

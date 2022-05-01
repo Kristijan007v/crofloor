@@ -17,5 +17,10 @@
   },
   "about-section": {
     "heading": "O nama"
+  },
+  "blog": {
+    "heading": "Blog",
+    "featured-articles": "Istaknuti članci",
+    "latest-articles": "Najnoviji članci"
   }
 }

@@ -13,7 +13,9 @@ export default function ArticleCard() {
       exit="exit"
       className="flex flex-col space-y-4 bg-primary-yellow p-6"
     >
-      <h2 className="text-lg font-semibold uppercase">FEATURED ARTICLES</h2>
+      <h2 className="text-center text-lg font-semibold uppercase">
+        FEATURED ARTICLES
+      </h2>
       <div className="relative h-48 w-full">
         <Image
           src={`/images/about.jpg`}
