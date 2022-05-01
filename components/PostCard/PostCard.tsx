@@ -12,9 +12,10 @@ interface Props {
   heading: string;
   type?: "primary" | "secondary";
   image: string;
+  href: string;
 }
 
-export default function PostCard({ heading, type, image }: Props) {
+export default function PostCard({ heading, type, image, href }: Props) {
   return (
     <motion.div
       variants={dropInLeft}
@@ -47,7 +48,7 @@ export default function PostCard({ heading, type, image }: Props) {
             <button
               className="flex items-center space-x-2"
               onClick={() => {
-                window.location.href = "https://google.com";
+                window.location.href = `${href}`;
               }}
             >
               <span>Read more</span>

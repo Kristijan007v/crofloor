@@ -135,6 +135,7 @@ const Home: NextPage = () => {
           heading="Article heading"
           type="secondary"
           image="about.jpg"
+          href="/articles/post"
         />
       </div>
 

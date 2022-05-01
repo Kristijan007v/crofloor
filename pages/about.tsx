@@ -1,13 +1,11 @@
-import React from "react";
-import Skeleton from "../components/Skeleton/Skeleton";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import nextI18NextConfig from "../next-i18next.config.js";
-import SectionHeader from "../components/SectionHeader/SectionHeader";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React from "react";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import Image from "next/image";
-import Tag from "../components/Tag/Tag";
 import LocationContainer from "../components/LocationContainer/LocationContainer";
+import SectionHeader from "../components/SectionHeader/SectionHeader";
+import Skeleton from "../components/Skeleton/Skeleton";
+import nextI18NextConfig from "../next-i18next.config.js";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -65,7 +63,7 @@ export default function About() {
         href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
         cityPosition="right"
       />
-      <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
+      <div className="flex flex-col space-y-2 bg-primary-yellow p-6">
         <h2 className="text-xl font-semibold uppercase">
           {t("section.our-motivation.heading")}
         </h2>
@@ -74,12 +72,12 @@ export default function About() {
           {t("section.our-motivation.ceo")}
         </p>
       </div>
-      <div className="flex flex-col space-y-4 bg-white p-6">
+      <div className="flex flex-col space-y-2 bg-white p-6">
         <h2 className="text-xl font-semibold uppercase">
           {t("section.factory.heading")}
         </h2>
       </div>
-      <div className="flex flex-col space-y-4 bg-white p-6">
+      <div className="flex flex-col space-y-2 bg-white p-6">
         <h2 className="text-xl font-semibold uppercase">
           {t("section.certificate.heading")}
         </h2>
