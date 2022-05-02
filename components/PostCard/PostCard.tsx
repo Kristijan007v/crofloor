@@ -13,6 +13,9 @@ interface Props {
   type?: "primary" | "secondary";
   image: string;
   href: string;
+  author?: string;
+  createdAt?: string;
+  tag?: string;
 }
 
 export default function PostCard({ heading, type, image, href }: Props) {

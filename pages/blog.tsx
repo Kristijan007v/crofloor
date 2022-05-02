@@ -3,6 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import useLocale from "../hooks/useLocale";
@@ -94,20 +95,30 @@ export default function Blog() {
         />
       )}
 
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-        sapiente facilis qui ad perferendis ab eos dolorem, iste laudantium
-        soluta earum repellendus blanditiis pariatur. Ipsa at dolores aperiam
-        repudiandae placeat expedita, doloribus labore vero ipsam sed eum
-        pariatur facilis. Voluptate praesentium inventore harum quis aut ex nam
-        totam qui sint a repellendus eveniet quae quia consectetur optio
-        provident, ab voluptas eligendi corrupti. A exercitationem ipsum
-        laboriosam temporibus sunt. Deserunt quos blanditiis cumque? Molestiae,
-        ullam nobis fuga inventore saepe ut explicabo beatae cupiditate
-        provident eos natus similique corrupti expedita, quo ad libero
-        doloremque doloribus quidem at dolor possimus! Distinctio, repellendus
-        deserunt!
-      </p>
+      {/* Latest articles */}
+      <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
+        latest articles
+      </h3>
+      <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-10">
+        <PostCard
+          heading="Article heading"
+          type="secondary"
+          image="about.jpg"
+          href="/articles/post"
+        />
+        <PostCard
+          heading="Article heading"
+          type="secondary"
+          image="factory_1.jpg"
+          href="/articles/post"
+        />
+        <PostCard
+          heading="Article heading"
+          type="secondary"
+          image="products.jpg"
+          href="/articles/post"
+        />
+      </div>
     </Skeleton>
   );
 }
