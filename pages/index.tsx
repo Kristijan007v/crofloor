@@ -123,7 +123,13 @@ const Home: NextPage = () => {
       </h3> */}
 
       <div>
-        <ArticleCard />
+        <ArticleCard
+          sectionType={"featured"}
+          heading="Article heading"
+          image="about.jpg"
+          imageAlt="About picture"
+          href="/articles/post"
+        />
       </div>
 
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">

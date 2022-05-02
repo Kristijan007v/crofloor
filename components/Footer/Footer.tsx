@@ -20,13 +20,6 @@ export default function Footer() {
       <footer className="relative flex flex-col md:flex-row">
         {/* FAQ */}
         <div className="flex flex-col space-y-4 bg-primary-bg p-6">
-          <ButtonLink
-            href="/documents/catalogue.pdf"
-            newTab={true}
-            text="Download catalogue"
-            type="button"
-            color="special"
-          />
           <p className="heading__3 text-center">FAQ</p>
           <Faq
             question="Kako proizvodite parkete?"
@@ -45,6 +38,7 @@ export default function Footer() {
             answer="A blockchain is a distributed ledger of information."
           />
         </div>
+
         <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
           <p className="heading__4">{t("newsletter.title")}</p>
           <div className="flex">
@@ -110,6 +104,13 @@ export default function Footer() {
               </Link>
             </li>
           </ul>
+          <ButtonLink
+            href="/documents/catalogue.pdf"
+            newTab={true}
+            text="Download catalogue"
+            type="button"
+            color="special"
+          />
         </div>
 
         {/* Footer bottom */}

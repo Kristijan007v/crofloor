@@ -1,12 +1,13 @@
-import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import dropInLeft from "../../lib/animations/dropInLeft";
+import { useTranslation } from "next-i18next";
+import Image from "next/image";
 import Link from "next/link";
-import Tag from "../Tag/Tag";
+import { useRouter } from "next/router";
+import React from "react";
+import dropInLeft from "../../lib/animations/dropInLeft";
 import CalendarIcon from "../Icons/CalendarIcon";
-import ButtonDefault from "../Buttons/ButtonDefault";
 import LinkIcon from "../Icons/LinkIcon";
+import Tag from "../Tag/Tag";
 
 interface Props {
   heading: string;
@@ -16,6 +17,10 @@ interface Props {
 }
 
 export default function PostCard({ heading, type, image, href }: Props) {
+  const router = useRouter();
+
+  const locale = router.locale;
+
   return (
     <motion.div
       variants={dropInLeft}
@@ -51,7 +56,7 @@ export default function PostCard({ heading, type, image, href }: Props) {
                 window.location.href = `${href}`;
               }}
             >
-              <span>Read more</span>
+              <span>{locale === "hr" ? "Pročitaj više" : "Read more"}</span>
               <LinkIcon />
             </button>
           </div>
@@ -59,7 +64,9 @@ export default function PostCard({ heading, type, image, href }: Props) {
       </div>
       <div className="flex flex-col space-y-4 pt-2 pb-10">
         <div className="ml-4 mr-4 flex flex-row-reverse flex-wrap justify-between">
-          <p className="rounded-xl bg-black p-2 text-white">Author: Vedran</p>
+          <p className="rounded-xl bg-black p-2 text-white">
+            {locale === "hr" ? "Autor" : "Author"}: Vedran
+          </p>
           <div className="flex items-center space-x-2">
             <CalendarIcon />
             <p>24 May, 2022</p>

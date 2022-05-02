@@ -1,14 +1,11 @@
-import React from "react";
-import Skeleton from "../components/Skeleton/Skeleton";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import nextI18NextConfig from "../next-i18next.config.js";
-import SectionHeader from "../components/SectionHeader/SectionHeader";
 import { useTranslation } from "next-i18next";
-import Navigation from "../components/Navigation/Navigation";
-import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import Image from "next/image";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
-import { AnimatePresence } from "framer-motion";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import SectionHeader from "../components/SectionHeader/SectionHeader";
+import Skeleton from "../components/Skeleton/Skeleton";
+import nextI18NextConfig from "../next-i18next.config.js";
 
 export async function getStaticProps({ locale }: any) {
   return {
