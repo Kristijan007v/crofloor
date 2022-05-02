@@ -22,9 +22,7 @@ export default function ButtonDefault({
   return (
     <button
       className={`btn__basic flex items-center justify-center ${
-        color === "special"
-          ? "bg-primary-yellow text-black"
-          : "bg-black text-white"
+        color === "special" ? "bg-primary-bg text-black" : "bg-black text-white"
       } ${style}`}
       onClick={onclick}
       aria-label={ariaLabel}

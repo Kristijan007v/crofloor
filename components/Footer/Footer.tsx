@@ -9,6 +9,7 @@ import { useTranslation } from "next-i18next";
 import GoUp from "../Buttons/GoUp";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import { useRouter } from "next/router";
+import LinkDefault from "../LinkDefault/LinkDefault";
 
 export default function Footer() {
   const { t } = useTranslation("footer");
@@ -19,6 +20,13 @@ export default function Footer() {
       <footer className="relative flex flex-col md:flex-row">
         {/* FAQ */}
         <div className="flex flex-col space-y-4 bg-primary-bg p-6">
+          <ButtonLink
+            href="/documents/catalogue.pdf"
+            newTab={true}
+            text="Download catalogue"
+            type="button"
+            color="special"
+          />
           <p className="heading__3 text-center">FAQ</p>
           <Faq
             question="Kako proizvodite parkete?"
@@ -117,6 +125,10 @@ export default function Footer() {
           <p className="text-sm text-gray-400">
             © {t("info.title")}. {t("footer.copyright")}
           </p>
+          <ButtonLink
+            href="/documents/catalogue.pdf"
+            text="Download catalogue"
+          />
         </div>
         <GoUp />
       </footer>

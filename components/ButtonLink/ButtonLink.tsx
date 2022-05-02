@@ -45,7 +45,7 @@ export default function ButtonLink({
         <button
           className={`btn__basic flex items-center justify-center ${
             color === "special"
-              ? "bg-primary-yellow text-black"
+              ? "border border-black bg-transparent text-black hover:bg-black hover:text-white"
               : "bg-black text-white"
           } ${style}`}
           onClick={visitLink}
