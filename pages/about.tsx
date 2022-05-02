@@ -2,10 +2,12 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import Gallery from "../components/Gallery/Gallery";
 import LocationContainer from "../components/LocationContainer/LocationContainer";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -77,6 +79,7 @@ export default function About() {
           {t("section.factory.heading")}
         </h2>
       </div>
+      <Gallery />
       <div className="flex flex-col space-y-2 bg-white p-6">
         <h2 className="text-xl font-semibold uppercase">
           {t("section.certificate.heading")}

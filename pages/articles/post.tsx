@@ -47,7 +47,7 @@ export default function Article() {
       </div>
       <SocialShare
         url="https://crofloor.kristijan007v.vercel.app/articles/post"
-        iconSize="md"
+        iconSize="lg"
       />
     </Skeleton>
   );
