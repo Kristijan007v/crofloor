@@ -29,9 +29,16 @@ export default function Blog() {
   const locale = useLocale();
 
   const [showRecommended, setShowRecommended] = React.useState(false);
+  const [showFeatured, setShowFeatured] = React.useState(true);
 
   const toogleRecommended = () => {
     setShowRecommended(!showRecommended);
+    setShowFeatured(false);
+  };
+
+  const toogleFeatured = () => {
+    setShowFeatured(!showFeatured);
+    setShowRecommended(false);
   };
 
   return (
@@ -46,9 +53,25 @@ export default function Blog() {
           searchPlaceholder={t("section-header.search.placeholder")}
         />
       </ErrorBoundary>
-      <div className="bg-primary-bg p-3 text-right font-medium">
+      <div
+        className={`${
+          showFeatured ? "bg-black text-white" : "bg-primary-bg text-black "
+        } p-3 text-right font-medium`}
+        onClick={toogleFeatured}
+      >
         <p>Featured</p>
       </div>
+
+      {showFeatured && (
+        <ArticleCard
+          sectionType={"featured"}
+          heading="Article heading"
+          image="about.jpg"
+          imageAlt="About picture"
+          href="/articles/post"
+          type={"secondary"}
+        />
+      )}
 
       <div
         className={`${

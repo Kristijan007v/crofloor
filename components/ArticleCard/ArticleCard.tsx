@@ -11,6 +11,7 @@ interface Props {
   href: string;
   image: string;
   imageAlt?: string;
+  type?: "primary" | "secondary";
 }
 
 export default function ArticleCard({
@@ -19,6 +20,7 @@ export default function ArticleCard({
   href,
   image,
   imageAlt,
+  type,
 }: Props) {
   const locale = useLocale();
   return (
@@ -27,7 +29,9 @@ export default function ArticleCard({
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="flex flex-col space-y-4 bg-primary-yellow p-6"
+      className={`flex flex-col space-y-4 p-6 ${
+        type === "secondary" ? "bg-primary-bg" : "bg-primary-yellow "
+      }`}
     >
       <h2 className="text-center text-lg font-semibold uppercase">
         {sectionType} ARTICLES
