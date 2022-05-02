@@ -1,11 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import ButtonDefault from "../Buttons/ButtonDefault";
 import { motion } from "framer-motion";
+import React from "react";
+import useLocale from "../../hooks/useLocale";
 import dropInLeft from "../../lib/animations/dropInLeft";
-import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
 import ButtonLink from "../ButtonLink/ButtonLink";
-import { useRouter } from "next/router";
+import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
 
 interface Props {
   sectionType: "recommended" | "featured";
@@ -22,8 +20,7 @@ export default function ArticleCard({
   image,
   imageAlt,
 }: Props) {
-  const router = useRouter();
-  const locale = router.locale;
+  const locale = useLocale();
   return (
     <motion.article
       variants={dropInLeft}

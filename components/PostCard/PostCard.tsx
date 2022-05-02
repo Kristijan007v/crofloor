@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
+import useLocale from "../../hooks/useLocale";
 import dropInLeft from "../../lib/animations/dropInLeft";
 import CalendarIcon from "../Icons/CalendarIcon";
 import LinkIcon from "../Icons/LinkIcon";
@@ -17,9 +16,7 @@ interface Props {
 }
 
 export default function PostCard({ heading, type, image, href }: Props) {
-  const router = useRouter();
-
-  const locale = router.locale;
+  const locale = useLocale();
 
   return (
     <motion.div

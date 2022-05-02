@@ -5,6 +5,7 @@ import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
+import useLocale from "../hooks/useLocale";
 import nextI18NextConfig from "../next-i18next.config.js";
 
 export async function getStaticProps({ locale }: any) {
@@ -24,6 +25,8 @@ export async function getStaticProps({ locale }: any) {
 
 export default function Blog() {
   const { t } = useTranslation("blog");
+
+  const locale = useLocale();
 
   const [showRecommended, setShowRecommended] = React.useState(false);
 
@@ -58,7 +61,15 @@ export default function Blog() {
         <p>Recommended</p>
       </div>
 
-      {showRecommended && <ArticleCard />}
+      {showRecommended && (
+        <ArticleCard
+          sectionType={"recommended"}
+          heading="Article heading"
+          image="about.jpg"
+          imageAlt="About picture"
+          href="/articles/post"
+        />
+      )}
 
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
