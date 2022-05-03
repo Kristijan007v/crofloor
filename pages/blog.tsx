@@ -60,12 +60,12 @@ export default function Blog() {
         } p-3 text-right font-medium`}
         onClick={toogleFeatured}
       >
-        <p>Featured</p>
+        <p>{t("section.featured")}</p>
       </div>
 
       {showFeatured && (
         <ArticleCard
-          sectionType={"featured"}
+          sectionType={t("section.featured-article")}
           heading="Article heading"
           image="about.jpg"
           imageAlt="About picture"
@@ -82,12 +82,12 @@ export default function Blog() {
         } p-3 text-left font-medium`}
         onClick={toogleRecommended}
       >
-        <p>Recommended</p>
+        <p>{t("section.recommended")}</p>
       </div>
 
       {showRecommended && (
         <ArticleCard
-          sectionType={"recommended"}
+          sectionType={t("section.recommended-article")}
           heading="Article heading"
           image="about.jpg"
           imageAlt="About picture"
@@ -97,7 +97,7 @@ export default function Blog() {
 
       {/* Latest articles */}
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
-        latest articles
+        {t("section.latest")}
       </h3>
       <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-20">
         <PostCard

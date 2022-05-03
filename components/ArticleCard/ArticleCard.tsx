@@ -34,7 +34,7 @@ export default function ArticleCard({
       }`}
     >
       <h2 className="text-center text-lg font-semibold uppercase">
-        {sectionType} ARTICLES
+        {sectionType}
       </h2>
       <div className="relative h-48 w-full">
         <ImageWithFallback

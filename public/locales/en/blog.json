@@ -8,5 +8,12 @@
     "search": {
       "placeholder": "Search for articles..."
     }
+  },
+  "section": {
+    "featured": "Featured",
+    "featured-article": "Featured Article",
+    "recommended": "Recommended",
+    "recommended-article": "Recommended Article",
+    "latest": "Latest articles"
   }
 }

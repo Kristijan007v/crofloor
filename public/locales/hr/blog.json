@@ -8,5 +8,12 @@
     "search": {
       "placeholder": "Pretraži članke..."
     }
+  },
+  "section": {
+    "featured": "Istaknuto",
+    "featured-article": "Istaknuti članak",
+    "recommended": "Preporučeno",
+    "recommended-article": "Preporučeni članak",
+    "latest": "Nedavne objave"
   }
 }
