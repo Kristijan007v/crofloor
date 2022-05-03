@@ -81,10 +81,12 @@ export default function Footer() {
           <p className="heading__4">{t("newsletter.title")}</p>
           <form onSubmit={subscribe} className="flex">
             <input
-              className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black"
+              className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-6 focus:bg-primary-gray focus:outline-none focus:placeholder:text-white"
               type="email"
               name="email"
               id="email"
+              value={email}
+              placeholder={t("newsletter.placeholder")}
               onChange={(e) => setEmail(e.target.value)}
               required
             />

@@ -3,6 +3,7 @@
   "newsletter": {
     "title": "Stay up to date",
     "button": "Subscribe",
+    "placeholder": "E-mail address",
     "error-message": "There was an error, please try again.",
     "success-message": "Success! 🎉 You are now subscribed to the newsletter."
   },
