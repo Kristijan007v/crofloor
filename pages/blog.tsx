@@ -30,7 +30,7 @@ export default function Blog() {
   const locale = useLocale();
 
   const [showRecommended, setShowRecommended] = React.useState(false);
-  const [showFeatured, setShowFeatured] = React.useState(true);
+  const [showFeatured, setShowFeatured] = React.useState(false);
 
   const toogleRecommended = () => {
     setShowRecommended(!showRecommended);

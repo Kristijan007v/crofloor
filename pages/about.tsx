@@ -6,6 +6,7 @@ import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import Gallery from "../components/Gallery/Gallery";
 import LocationContainer from "../components/LocationContainer/LocationContainer";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
+import SectionHeading from "../components/SectionHeading/SectionHeading";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
 

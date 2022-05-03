@@ -1,6 +1,7 @@
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
-import React from "react";
+import Link from "next/link";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 import ButtonDefault from "../components/Buttons/ButtonDefault";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
@@ -8,8 +9,6 @@ import FormField from "../components/FormField/FormField";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
-import { useTranslation } from "next-i18next";
-import Link from "next/link";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -57,7 +56,11 @@ export default function ContactUs() {
       </ErrorBoundary>
 
       <div className="flex flex-col space-y-8">
-        <form className="flex flex-col bg-primary-yellow p-4">
+        <form
+          className="flex flex-col bg-primary-yellow p-4"
+          method="POST"
+          action="https://getform.io/f/bca9d5f9-ce66-41be-b858-03656b93a86d"
+        >
           <FormField
             label={t("form.name")}
             type="text"
@@ -80,17 +83,19 @@ export default function ContactUs() {
             id="message"
           />
           <span className="flex items-center space-x-4 p-4">
-            <input type={"checkbox"} name={"terms"} id={"terms"} />
-            <label className="font-medium">{t("form.terms")}</label>
+            <label className="font-medium" htmlFor="terms">
+              {t("form.terms")}
+            </label>
+            <input type={"checkbox"} name={"terms"} id={"terms"} required />
           </span>
-          <ButtonDefault
+          {/* <ButtonDefault
             text={t("form.submit")}
             ariaLabel={t("form.submit")}
             style="mt-4"
-            onclick={() => {
-              toast("Message sent sucessfully!");
-            }}
-          />
+          /> */}
+          <button className="btn__basic bg-black text-white" type={"submit"}>
+            {t("form.submit")}
+          </button>
         </form>
         <div className="m-4 rounded-2xl border border-black">
           <iframe

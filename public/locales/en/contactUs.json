@@ -3,7 +3,7 @@
     "title": "Contact us"
   },
   "form": {
-    "name": "Name",
+    "name": "Full Name",
     "email": "E-mail address",
     "message": "Message",
     "terms": "I agree to the terms and conditions",

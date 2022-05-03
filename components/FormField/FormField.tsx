@@ -14,9 +14,17 @@ interface Props {
   name: string;
   id: string;
   required?: false;
+  onChange?: (e: any) => void;
 }
 
-export default function FormField({ label, htmlFor, type, name, id }: Props) {
+export default function FormField({
+  label,
+  htmlFor,
+  type,
+  name,
+  id,
+  onChange,
+}: Props) {
   return (
     <div className="flex flex-col space-y-2 p-4">
       <label className="label__default" htmlFor={htmlFor}>
@@ -28,6 +36,7 @@ export default function FormField({ label, htmlFor, type, name, id }: Props) {
           type={type}
           name={name}
           id={id}
+          onChange={onChange}
           required
         />
       ) : (
@@ -38,6 +47,7 @@ export default function FormField({ label, htmlFor, type, name, id }: Props) {
           required
           cols={30}
           rows={10}
+          onChange={onChange}
         ></textarea>
       )}
     </div>
