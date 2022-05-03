@@ -2,7 +2,9 @@
   "button-catalogue": "Preuzmi katalog",
   "newsletter": {
     "title": "Ostani u toku",
-    "button": "Prijavi se"
+    "button": "Prijavi se",
+    "error-message": "Došlo je do greške, pokušajte ponovno..",
+    "success-message": "Uspjeh! 🎉 Sada ste prijavljeni na naš Newsletter."
   },
 
   "info": {

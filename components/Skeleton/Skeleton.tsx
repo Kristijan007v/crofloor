@@ -45,7 +45,17 @@ const Skeleton = ({
 
       {/* Notification toaster */}
       <div>
-        <Toaster />
+        <Toaster
+          toastOptions={{
+            position: "bottom-center",
+            style: {
+              borderRadius: "10px",
+              background: "rgb(0, 0, 0)",
+              color: "#fff",
+              border: "0.5px solid white",
+            },
+          }}
+        />
       </div>
     </>
   );

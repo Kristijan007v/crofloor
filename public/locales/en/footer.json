@@ -2,7 +2,9 @@
   "button-catalogue": "Download Catalogue",
   "newsletter": {
     "title": "Stay up to date",
-    "button": "Subscribe"
+    "button": "Subscribe",
+    "error-message": "There was an error, please try again.",
+    "success-message": "Success! 🎉 You are now subscribed to the newsletter."
   },
   "info": {
     "title": "Požgaj Group",

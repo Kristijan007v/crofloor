@@ -1,19 +1,50 @@
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useRef, useState } from "react";
+import toast from "react-hot-toast";
+import ButtonLink from "../ButtonLink/ButtonLink";
+import GoUp from "../Buttons/GoUp";
 import Faq from "../Faq/Faq";
 import FacebookIcon from "../Icons/FacebookIcon";
 import InstagramIcon from "../Icons/InstagramIcon";
 import LinkedinIcon from "../Icons/LinkedinIcon";
 import YoutubeIcon from "../Icons/YoutubeIcon";
-import { useTranslation } from "next-i18next";
-import GoUp from "../Buttons/GoUp";
-import ButtonLink from "../ButtonLink/ButtonLink";
-import { useRouter } from "next/router";
-import LinkDefault from "../LinkDefault/LinkDefault";
 
 export default function Footer() {
   const { t } = useTranslation("footer");
+
+  const [email, setEmail] = useState("");
+
   const router = useRouter();
+
+  const subscribe = async (e: any) => {
+    e.preventDefault();
+
+    // 3. Send a request to our API with the user's email address.
+    const res = await fetch("/api/subscribe", {
+      body: JSON.stringify({
+        email: email,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+
+    if (error) {
+      // 4. If there was an error, update the message in state.
+      toast(`${t("newsletter.error-message")}`);
+
+      return;
+    }
+
+    // 5. Clear the input value and show a success message.
+    setEmail("");
+    toast(`${t("newsletter.success-message")}`);
+  };
 
   return (
     <>
@@ -48,17 +79,23 @@ export default function Footer() {
 
         <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
           <p className="heading__4">{t("newsletter.title")}</p>
-          <div className="flex">
+          <form onSubmit={subscribe} className="flex">
             <input
               className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black"
-              type="text"
+              type="email"
               name="email"
               id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
-            <button className="rounded-tr-2xl rounded-br-2xl bg-black p-2 text-white">
+            <button
+              type="submit"
+              className="rounded-tr-2xl rounded-br-2xl bg-black p-2 text-white"
+            >
               {t("newsletter.button")}
             </button>
-          </div>
+          </form>
+
           <p className="heading__4">{t("info.title")}</p>
           <Link
             href={
