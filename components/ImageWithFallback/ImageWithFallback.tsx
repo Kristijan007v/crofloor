@@ -19,6 +19,8 @@ const ImageWithFallback = ({ style, src, fallBackSrc, alt, props }: Props) => {
       alt={alt}
       layout="fill"
       objectFit="cover"
+      placeholder="blur"
+      blurDataURL={`${src}`}
       onError={() => setImageError(true)}
     />
   );

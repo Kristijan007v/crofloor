@@ -23,7 +23,7 @@ export default function Footer() {
           <ButtonLink
             href="/documents/catalogue.pdf"
             newTab={true}
-            text="Download catalogue"
+            text={t("button-catalogue")}
             type="button"
             color="special"
           />

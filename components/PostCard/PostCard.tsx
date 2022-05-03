@@ -40,7 +40,6 @@ export default function PostCard({ heading, type, image, href }: Props) {
           src={`/images/${image}`}
           layout="fill"
           objectFit="cover"
-          priority={true}
           placeholder="blur"
           blurDataURL={`/images/${image}`}
           className="rounded-tr-xl rounded-tl-xl"

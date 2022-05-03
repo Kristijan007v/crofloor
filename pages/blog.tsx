@@ -99,7 +99,7 @@ export default function Blog() {
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
         latest articles
       </h3>
-      <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-10">
+      <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-20">
         <PostCard
           heading="Article heading"
           type="secondary"
