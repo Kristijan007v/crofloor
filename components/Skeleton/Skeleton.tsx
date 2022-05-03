@@ -47,7 +47,7 @@ const Skeleton = ({
       <div>
         <Toaster
           toastOptions={{
-            position: "bottom-center",
+            position: "top-center",
             style: {
               borderRadius: "10px",
               background: "rgb(0, 0, 0)",
