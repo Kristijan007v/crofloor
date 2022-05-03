@@ -81,7 +81,7 @@ export default function Footer() {
           <p className="heading__4">{t("newsletter.title")}</p>
           <form onSubmit={subscribe} className="flex">
             <input
-              className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-6 focus:bg-primary-gray focus:outline-none focus:placeholder:text-black"
+              className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black p-2 focus:bg-primary-gray focus:outline-none focus:placeholder:text-black"
               type="email"
               name="email"
               id="email"
@@ -98,6 +98,7 @@ export default function Footer() {
             </button>
           </form>
 
+          {/* Compay INFO */}
           <p className="heading__4">{t("info.title")}</p>
           <Link
             href={
@@ -113,6 +114,11 @@ export default function Footer() {
             {t("info.email")}{" "}
             <a href="mailto:pozgaj@pozgaj.com">pozgaj@pozgaj.com</a>
           </p>
+
+          {/* Work hours INFO */}
+          <p className="heading__4">{t("work-hours.title")}</p>
+          <p>{t("work-hours.monday-friday")}: 08h-17h</p>
+          <p>{t("work-hours.saturday")}: 08h-17h</p>
           {/* Social links */}
           <div className="justify-left flex items-center space-x-4">
             <ButtonLink href="https://facebook.com" newTab={true}>

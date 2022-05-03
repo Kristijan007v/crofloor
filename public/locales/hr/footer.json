@@ -13,6 +13,11 @@
     "phone": "Telefon:",
     "email": "E-mail:"
   },
+  "work-hours": {
+    "title": "Radno vrijeme",
+    "monday-friday": "Pon-Pet",
+    "saturday": "Subota"
+  },
   "navigation": {
     "products": "Proizvodi",
     "contact": "Kontaktiraj nas",

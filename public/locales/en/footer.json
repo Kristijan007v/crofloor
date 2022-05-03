@@ -12,6 +12,11 @@
     "phone": "Phone:",
     "email": "E-mail:"
   },
+  "work-hours": {
+    "title": "Work hours",
+    "monday-friday": "Mon-Fri",
+    "saturday": "Saturday"
+  },
   "navigation": {
     "products": "Products",
     "contact": "Contact",
