@@ -9,8 +9,16 @@
     "terms": "Slažem se sa uvjetima korištenja",
     "submit": "Pošalji"
   },
+  "map": {
+    "title": "Naša lokacija"
+  },
   "info": {
     "phone": "Telefon:",
     "email": "E-mail:"
+  },
+  "work-hours": {
+    "title": "Radno vrijeme",
+    "monday-friday": "Pon-Pet",
+    "saturday": "Subota"
   }
 }

@@ -9,8 +9,16 @@
     "terms": "I agree to the terms and conditions",
     "submit": "Send"
   },
+  "map": {
+    "title": "Our location"
+  },
   "info": {
     "phone": "Phone:",
     "email": "E-mail:"
+  },
+  "work-hours": {
+    "title": "Work hours",
+    "monday-friday": "Mon-Fri",
+    "saturday": "Saturday"
   }
 }

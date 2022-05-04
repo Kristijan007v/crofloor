@@ -81,7 +81,7 @@ export default function Footer() {
           <p className="heading__4">{t("newsletter.title")}</p>
           <form onSubmit={subscribe} className="flex">
             <input
-              className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black p-2 focus:bg-primary-gray focus:outline-none focus:placeholder:text-black"
+              className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black focus:bg-primary-gray focus:outline-none focus:placeholder:text-black"
               type="email"
               name="email"
               id="email"

@@ -72,10 +72,10 @@ export default function ContactUs() {
             id="message"
           />
           <span className="flex items-center space-x-4 p-4">
+            <input type={"checkbox"} name={"terms"} id={"terms"} required />
             <label className="font-medium" htmlFor="terms">
               {t("form.terms")}
             </label>
-            <input type={"checkbox"} name={"terms"} id={"terms"} required />
           </span>
           {/* <ButtonDefault
             text={t("form.submit")}
@@ -86,6 +86,9 @@ export default function ContactUs() {
             {t("form.submit")}
           </button>
         </form>
+        <h3 className="pt-2 pl-6 pr-6 text-center text-xl font-semibold">
+          {t("map.title")}
+        </h3>
         <div className="m-4 rounded-2xl border border-black">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2777.4923100866913!2d16.17125381574605!3d45.88146601352417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476676c82e1c57a5%3A0x16294928bda8e9b6!2sBOHOR%20d.o.o.!5e0!3m2!1sen!2shr!4v1651139897150!5m2!1sen!2shr"
@@ -112,6 +115,9 @@ export default function ContactUs() {
             {t("info.email")}{" "}
             <a href="mailto:pozgaj@pozgaj.com">pozgaj@pozgaj.com</a>
           </p>
+          <p className="heading__4">{t("work-hours.title")}</p>
+          <p>{t("work-hours.monday-friday")}: 08h-17h</p>
+          <p>{t("work-hours.saturday")}: 08h-17h</p>
         </div>
       </div>
     </Skeleton>
