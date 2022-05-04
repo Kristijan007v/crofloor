@@ -2,6 +2,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 import Dropdown from "../components/Dropdown/Dropdown";
+import DropdownItem from "../components/DropdownItem/DropdownItem";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
@@ -63,8 +64,17 @@ export default function Products() {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div className="p-6">
-        <Dropdown title="Zagreb"></Dropdown>
+      <div className="m-6 flex flex-col space-y-2 rounded-2xl">
+        <Dropdown title="Zagreb" open={true}>
+          <DropdownItem item="Varaždinska ul. 22, 10363, Belovar" />
+          <DropdownItem item="bistrička ul. 7, 10360, Sesvete" />
+        </Dropdown>
+        <Dropdown title="Varaždin" open={false}>
+          <DropdownItem item="Varaždinska ul. 22, 10363, Belovar" />
+        </Dropdown>
+        <Dropdown title="Split" open={false}>
+          <DropdownItem item="Varaždinska ul. 22, 10363, Belovar" />
+        </Dropdown>
       </div>
     </Skeleton>
   );

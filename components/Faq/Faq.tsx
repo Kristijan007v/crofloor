@@ -16,13 +16,9 @@ export default function Faq({ question, answer }: Props) {
 
   return (
     <div className="flex flex-col space-y-2">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between" onClick={toogleAnswer}>
         <p className="text-lg">{question}</p>
-        {isOpen ? (
-          <ArrowUp onclick={toogleAnswer} />
-        ) : (
-          <ArrowDown onclick={toogleAnswer} />
-        )}
+        {isOpen ? <ArrowUp /> : <ArrowDown />}
       </div>
 
       {isOpen && (
