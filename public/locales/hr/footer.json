@@ -3,6 +3,7 @@
   "newsletter": {
     "title": "Ostani u toku",
     "button": "Prijavi se",
+    "button-message": "Prijava...",
     "placeholder": "E-mail adresa",
     "error-message": "Već ste se prijavili. 😎",
     "success-message": "Uspjeh! 🎉 Sada ste prijavljeni na naš Newsletter."

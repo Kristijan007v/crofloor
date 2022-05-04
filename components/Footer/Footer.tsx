@@ -15,12 +15,10 @@ import YoutubeIcon from "../Icons/YoutubeIcon";
 export default function Footer() {
   const { t } = useTranslation("footer");
 
-  const {
-    register,
-    getValues,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, getValues, handleSubmit, reset, formState } = useForm();
+
+  const { isSubmitting } = formState;
+  const { errors } = formState;
 
   const router = useRouter();
 
@@ -49,6 +47,12 @@ export default function Footer() {
     // 5. Clear the input value and show a success message.
     toast(`${t("newsletter.success-message")}`);
   };
+
+  React.useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({ email: "" });
+    }
+  }, [formState, reset]);
 
   return (
     <>
@@ -84,6 +88,7 @@ export default function Footer() {
         <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
           <p className="heading__4">{t("newsletter.title")}</p>
           {errors?.name && errors.name.message}
+
           <form onSubmit={handleSubmit(subscribe)} className="flex">
             <input
               className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black focus:bg-primary-gray focus:outline-none focus:placeholder:text-black"
@@ -98,8 +103,13 @@ export default function Footer() {
             <button
               type="submit"
               className="rounded-tr-2xl rounded-br-2xl bg-black p-2 text-white"
+              disabled={isSubmitting ? true : false}
             >
-              {t("newsletter.button")}
+              {isSubmitting ? (
+                <>{t("newsletter.button-message")}</>
+              ) : (
+                <>{t("newsletter.button")}</>
+              )}
             </button>
           </form>
 
