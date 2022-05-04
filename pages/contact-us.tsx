@@ -1,9 +1,7 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
-import React, { useState } from "react";
-import toast from "react-hot-toast";
-import ButtonDefault from "../components/Buttons/ButtonDefault";
+import React from "react";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import FormField from "../components/FormField/FormField";
 import SectionHeader from "../components/SectionHeader/SectionHeader";

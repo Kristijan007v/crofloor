@@ -4,7 +4,7 @@
     "title": "Ostani u toku",
     "button": "Prijavi se",
     "placeholder": "E-mail adresa",
-    "error-message": "Došlo je do greške, pokušajte ponovno..",
+    "error-message": "Već ste se prijavili. 😎",
     "success-message": "Uspjeh! 🎉 Sada ste prijavljeni na naš Newsletter."
   },
 
