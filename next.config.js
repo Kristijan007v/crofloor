@@ -2,6 +2,8 @@
 const { i18n } = require("./next-i18next.config");
 const withPWA = require("next-pwa");
 
+const MEDIA_DOMAIN = process.env.MEDIA_DOMAIN;
+
 const nextConfig = {
   i18n,
   reactStrictMode: true,
@@ -16,6 +18,6 @@ module.exports = withPWA({
   i18n,
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "test.pozgaj.com"],
+    domains: ["localhost", MEDIA_DOMAIN],
   },
 });
