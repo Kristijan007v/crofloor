@@ -15,4 +15,7 @@ module.exports = withPWA({
   },
   i18n,
   reactStrictMode: true,
+  images: {
+    domains: ["localhost", "test.pozgaj.com"],
+  },
 });

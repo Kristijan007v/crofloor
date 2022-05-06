@@ -138,6 +138,7 @@ const Home: NextPage = () => {
 
       <div className="p-6">
         <PostCard
+          tagName="News"
           heading="Article heading"
           type="secondary"
           image="about.jpg"

@@ -8,23 +8,15 @@ import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import useLocale from "../hooks/useLocale";
 import nextI18NextConfig from "../next-i18next.config.js";
+import { gql } from "@apollo/client";
+import client from "../lib/backend/client";
+import moment from "moment";
 
-export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "menu",
-        "cookieBanner",
-        "footer",
-        "blog",
-      ])),
-      nextI18NextConfig,
-    },
-  };
+interface Props {
+  posts: any;
 }
 
-export default function Blog() {
+export default function Blog({ posts }: Props) {
   const { t } = useTranslation("blog");
 
   const locale = useLocale();
@@ -42,6 +34,15 @@ export default function Blog() {
     setShowRecommended(false);
   };
 
+  //Search blog posts
+  const [search, setSearch] = React.useState("");
+
+  //Format date
+  const formatDate = (date: string) => {
+    const newDate = moment(date).format("DD MMM, YYYY");
+    return newDate;
+  };
+
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
@@ -54,6 +55,10 @@ export default function Blog() {
           searchPlaceholder={t("section-header.search.placeholder")}
         />
       </ErrorBoundary>
+      {/* <div>
+        <p>Search results:</p>
+        <p>{search}</p>
+      </div> */}
       <div
         className={`${
           showFeatured ? "bg-black text-white" : "bg-primary-bg text-black "
@@ -100,25 +105,66 @@ export default function Blog() {
         {t("section.latest")}
       </h3>
       <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-20">
-        <PostCard
-          heading="Article heading"
-          type="secondary"
-          image="about.jpg"
-          href="/articles/post"
-        />
-        <PostCard
-          heading="Article heading"
-          type="secondary"
-          image="factory_1.jpg"
-          href="/articles/post"
-        />
-        <PostCard
-          heading="Article heading"
-          type="secondary"
-          image="products.jpg"
-          href="/articles/post"
-        />
+        {posts.map((post: any) => (
+          <PostCard
+            key={post.id}
+            heading={post.title}
+            image={post.featuredImage.node.sourceUrl}
+            href={`/articles/${post.slug}`}
+            createdAt={formatDate(post.date)}
+            author={post.author.node.name}
+            tagName={post.tags.nodes.map((tag: any) => tag.name)}
+          />
+        ))}
       </div>
     </Skeleton>
   );
+}
+
+export async function getStaticProps({ locale }: any) {
+  const { data } = await client.query({
+    query: gql`
+      query Posts {
+        posts {
+          nodes {
+            content
+            date
+            id
+            slug
+            title
+            author {
+              node {
+                id
+                name
+              }
+            }
+            tags {
+              nodes {
+                name
+              }
+            }
+            featuredImage {
+              node {
+                sourceUrl(size: MEDIUM)
+              }
+            }
+          }
+        }
+      }
+    `,
+  });
+
+  return {
+    props: {
+      posts: data.posts.nodes,
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "menu",
+        "cookieBanner",
+        "footer",
+        "blog",
+      ])),
+      nextI18NextConfig,
+    },
+  };
 }

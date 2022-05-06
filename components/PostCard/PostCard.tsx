@@ -15,10 +15,18 @@ interface Props {
   href: string;
   author?: string;
   createdAt?: string;
-  tag?: string;
+  tagName: string;
 }
 
-export default function PostCard({ heading, type, image, href }: Props) {
+export default function PostCard({
+  heading,
+  type,
+  image,
+  href,
+  author,
+  createdAt,
+  tagName,
+}: Props) {
   const locale = useLocale();
 
   return (
@@ -37,7 +45,7 @@ export default function PostCard({ heading, type, image, href }: Props) {
     >
       <div className="relative h-72 w-full">
         <Image
-          src={`/images/${image}`}
+          src={`${image}`}
           layout="fill"
           objectFit="cover"
           placeholder="blur"
@@ -46,7 +54,7 @@ export default function PostCard({ heading, type, image, href }: Props) {
         />
         <div className="relative h-72 w-full rounded-tr-xl rounded-tl-xl bg-black/40">
           <div className="absolute top-0 p-4">
-            <Tag text="Donacija" />
+            <Tag text={tagName} />
           </div>
           <div className="absolute bottom-0 left-0 p-4 text-white">
             <button
@@ -64,11 +72,11 @@ export default function PostCard({ heading, type, image, href }: Props) {
       <div className="flex flex-col space-y-4 pt-2 pb-10">
         <div className="ml-4 mr-4 flex flex-row-reverse flex-wrap justify-between">
           <p className="rounded-xl bg-black p-2 text-white">
-            {locale === "hr" ? "Autor" : "Author"}: Vedran
+            {locale === "hr" ? "Autor" : "Author"}: {author}
           </p>
           <div className="flex items-center space-x-2">
             <CalendarIcon />
-            <p>24 May, 2022</p>
+            <p>{createdAt}</p>
           </div>
         </div>
         <Link href={`/products/hrast/${heading}`}>
