@@ -127,7 +127,7 @@ const Home: NextPage<Props> = ({ posts }) => {
         {t("blog.latest-articles")}
       </h3>
 
-      <div className="p-6">
+      <div className="flex flex-col space-y-8 p-6">
         {posts.map((post: any) => (
           <PostCard
             key={post.id}
