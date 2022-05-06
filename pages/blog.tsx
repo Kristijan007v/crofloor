@@ -112,7 +112,7 @@ export default function Blog({ posts }: Props) {
 }
 
 export async function getStaticProps({ locale }: any) {
-  const { posts } = (await getPosts(2)) || [];
+  const { posts } = (await getPosts(3)) || [];
 
   return {
     props: {
@@ -126,5 +126,6 @@ export async function getStaticProps({ locale }: any) {
       ])),
       nextI18NextConfig,
     },
+    revalidate: 60,
   };
 }

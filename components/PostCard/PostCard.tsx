@@ -49,7 +49,7 @@ export default function PostCard({
           layout="fill"
           objectFit="cover"
           placeholder="blur"
-          blurDataURL={`/images/${image}`}
+          blurDataURL={`${image}`}
           className="rounded-tr-xl rounded-tl-xl"
         />
         <div className="relative h-72 w-full rounded-tr-xl rounded-tl-xl bg-black/40">

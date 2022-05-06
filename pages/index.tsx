@@ -13,6 +13,7 @@ import ArticleCard from "../components/ArticleCard/ArticleCard";
 import PostCard from "../components/PostCard/PostCard";
 import { getPosts } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
+import LinkDefault from "../components/LinkDefault/LinkDefault";
 
 interface Props {
   posts: any;
@@ -138,6 +139,7 @@ const Home: NextPage<Props> = ({ posts }) => {
             tagName={post.tags.nodes.map((tag: any) => tag.name)}
           />
         ))}
+        <LinkDefault href="/blog" text="VIEW ALL" />
       </div>
 
       {/* About SECTION */}
@@ -188,5 +190,6 @@ export async function getStaticProps({ locale }: any) {
       ])),
       nextI18NextConfig,
     },
+    revalidate: 60,
   };
 }
