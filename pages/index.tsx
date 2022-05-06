@@ -11,24 +11,14 @@ import ProductCard from "../components/ProductCard/ProductCard";
 import { useState } from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import PostCard from "../components/PostCard/PostCard";
+import { getPosts } from "../lib/backend/api";
+import formatDate from "../lib/utilities/formatDate";
 
-export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "home",
-        "menu",
-        "heroSection",
-        "cookieBanner",
-        "footer",
-      ])),
-      nextI18NextConfig,
-    },
-  };
+interface Props {
+  posts: any;
 }
 
-const Home: NextPage = () => {
+const Home: NextPage<Props> = ({ posts }) => {
   const { t } = useTranslation("common");
 
   const [tab, setTab] = useState("hrast");
@@ -137,13 +127,17 @@ const Home: NextPage = () => {
       </h3>
 
       <div className="p-6">
-        <PostCard
-          tagName="News"
-          heading="Article heading"
-          type="secondary"
-          image="about.jpg"
-          href="/articles/post"
-        />
+        {posts.map((post: any) => (
+          <PostCard
+            key={post.id}
+            heading={post.title}
+            image={post.featuredImage.node.sourceUrl}
+            href={`/articles/${post.slug}`}
+            createdAt={formatDate(post.date)}
+            author={post.author.node.name}
+            tagName={post.tags.nodes.map((tag: any) => tag.name)}
+          />
+        ))}
       </div>
 
       {/* About SECTION */}
@@ -177,3 +171,22 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps({ locale }: any) {
+  const { posts } = (await getPosts(3)) || [];
+
+  return {
+    props: {
+      posts,
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "home",
+        "menu",
+        "heroSection",
+        "cookieBanner",
+        "footer",
+      ])),
+      nextI18NextConfig,
+    },
+  };
+}

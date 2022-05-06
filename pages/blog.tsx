@@ -7,10 +7,9 @@ import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import useLocale from "../hooks/useLocale";
+import { getPosts } from "../lib/backend/api";
 import nextI18NextConfig from "../next-i18next.config.js";
-import { gql } from "@apollo/client";
-import client from "../lib/backend/client";
-import moment from "moment";
+import formatDate from "../lib/utilities/formatDate";
 
 interface Props {
   posts: any;
@@ -32,15 +31,6 @@ export default function Blog({ posts }: Props) {
   const toogleFeatured = () => {
     setShowFeatured(!showFeatured);
     setShowRecommended(false);
-  };
-
-  //Search blog posts
-  const [search, setSearch] = React.useState("");
-
-  //Format date
-  const formatDate = (date: string) => {
-    const newDate = moment(date).format("DD MMM, YYYY");
-    return newDate;
   };
 
   return (
@@ -122,41 +112,11 @@ export default function Blog({ posts }: Props) {
 }
 
 export async function getStaticProps({ locale }: any) {
-  const { data } = await client.query({
-    query: gql`
-      query Posts {
-        posts {
-          nodes {
-            content
-            date
-            id
-            slug
-            title
-            author {
-              node {
-                id
-                name
-              }
-            }
-            tags {
-              nodes {
-                name
-              }
-            }
-            featuredImage {
-              node {
-                sourceUrl(size: MEDIUM)
-              }
-            }
-          }
-        }
-      }
-    `,
-  });
+  const { posts } = (await getPosts(2)) || [];
 
   return {
     props: {
-      posts: data.posts.nodes,
+      posts,
       ...(await serverSideTranslations(locale, [
         "common",
         "menu",
