@@ -24,7 +24,7 @@ export default function Custom404() {
   const { t } = useTranslation("Custom404");
 
   return (
-    <Skeleton title="404">
+    <Skeleton title="404" navigation={true}>
       <div className="m-6 flex h-screen flex-col items-center justify-center space-y-4 text-center">
         <p>
           <span className="text-8xl font-extrabold">4</span>
