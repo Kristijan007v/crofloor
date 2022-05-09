@@ -17,6 +17,8 @@ interface Props {
 export default function Article({ post }: Props) {
   const router = useRouter();
 
+  const MAIN_DOMAIN = process.env.MAIN_DOMAIN;
+
   function createMarkup(content: any) {
     return { __html: `${content}` };
   }
@@ -49,7 +51,7 @@ export default function Article({ post }: Props) {
             <div dangerouslySetInnerHTML={createMarkup(`${post.content}`)} />
           </div>
           <SocialShare
-            url="https://crofloor.kristijan007v.vercel.app/articles/post"
+            url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
             iconSize="lg"
           />
         </>
