@@ -9,12 +9,10 @@ export async function getPosts(perPage: number, page?: number) {
           nodes {
             content
             date
-            id
             slug
             title
             author {
               node {
-                id
                 name
                 avatar {
                   url
@@ -47,11 +45,8 @@ export async function getPostBySlug(slug: string) {
     query: gql`
       query Post {
         post(id: "${slug}", idType: SLUG) {
-          id
-          databaseId
           title
           content
-          uri
           date
           slug
           author {
