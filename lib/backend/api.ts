@@ -49,6 +49,7 @@ export async function getPostBySlug(slug: string) {
           content
           uri
           date
+          slug
           author {
             node {
               name
