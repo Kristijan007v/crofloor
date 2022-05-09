@@ -82,7 +82,7 @@ export default function PostCard({
             <p>{createdAt}</p>
           </div>
         </div>
-        <Link href={`/products/hrast/${heading}`}>
+        <Link href={`${href}`}>
           <a className="text-center text-xl font-semibold">{heading}</a>
         </Link>
         <ReadMore
