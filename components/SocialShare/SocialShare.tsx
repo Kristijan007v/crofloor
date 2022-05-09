@@ -18,7 +18,7 @@ export default function SocialShare({ url, iconSize }: Props) {
   const locale = useLocale();
 
   return (
-    <div className="flex items-center justify-between bg-primary-gray p-5">
+    <div className="flex items-center justify-between bg-transparent">
       <p className="font-medium">
         {locale == "en" ? "Share this article" : "Podijeli članak"}
       </p>

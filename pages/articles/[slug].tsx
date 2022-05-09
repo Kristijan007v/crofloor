@@ -42,18 +42,11 @@ export default function Article({ post }: Props) {
           {/* Article content */}
           <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
             <div dangerouslySetInnerHTML={createMarkup(`${post.content}`)} />
-            {/* <div className="flex justify-between">
-              <div className="flex items-center justify-center space-x-2">
-                <CalendarIcon />
-                <p>{formatDate(post.date)}</p>
-              </div>
-              <p>Author: {post.author.node.name}</p>
-            </div> */}
+            <SocialShare
+              url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
+              iconSize={"md"}
+            />
           </div>
-          <SocialShare
-            url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
-            iconSize={"md"}
-          />
         </>
       )}
     </Skeleton>
