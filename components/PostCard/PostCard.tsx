@@ -15,6 +15,7 @@ interface Props {
   image: string;
   href: string;
   author?: string;
+  avatarURL?: string;
   createdAt?: string;
   tagName: string;
 }
@@ -25,6 +26,7 @@ export default function PostCard({
   image,
   href,
   author,
+  avatarURL,
   createdAt,
   tagName,
 }: Props) {
@@ -72,9 +74,9 @@ export default function PostCard({
       </div>
       <div className="flex flex-col space-y-4 pt-2 pb-10">
         <div className="ml-4 mr-4 flex flex-row-reverse flex-wrap justify-between">
-          <p className="rounded-xl bg-black p-2 text-white">
+          <span className="rounded-xl bg-black p-2 text-white">
             {locale === "hr" ? "Autor" : "Author"}: {author}
-          </p>
+          </span>
           <div className="flex items-center space-x-2">
             <CalendarIcon />
             <p>{createdAt}</p>

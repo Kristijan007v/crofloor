@@ -16,6 +16,9 @@ export async function getPosts(perPage: number, page?: number) {
               node {
                 id
                 name
+                avatar {
+                  url
+                }
               }
             }
             tags {
