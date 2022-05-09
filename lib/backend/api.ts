@@ -1,5 +1,5 @@
 import client from "./client";
-import { gql } from "@apollo/client";
+import { useLazyQuery, gql } from "@apollo/client";
 
 export async function getPosts(perPage: number, page?: number) {
   const { data } = await client.query({
@@ -85,3 +85,28 @@ export async function getAllPostsWithSlug() {
     posts: data?.posts.nodes,
   };
 }
+
+// export async function searchPosts() {
+//   const { data } = await client.query({
+//     query: gql`
+//       query SearchPosts {
+//         posts(where: { search: "Test" }) {
+//           nodes {
+//             id
+//             title
+//             slug
+//             author {
+//               node {
+//                 name
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `,
+//   });
+//   console.log(data);
+//   return {
+//     posts: data,
+//   };
+// }

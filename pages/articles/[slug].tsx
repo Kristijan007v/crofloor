@@ -42,11 +42,11 @@ export default function Article({ post }: Props) {
           {/* Article content */}
           <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
             <div dangerouslySetInnerHTML={createMarkup(`${post.content}`)} />
-            <SocialShare
-              url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
-              iconSize={"md"}
-            />
           </div>
+          <SocialShare
+            url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
+            iconSize={"md"}
+          />
         </>
       )}
     </Skeleton>
