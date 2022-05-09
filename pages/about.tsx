@@ -1,12 +1,10 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import Gallery from "../components/Gallery/Gallery";
 import LocationContainer from "../components/LocationContainer/LocationContainer";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
-import SectionHeading from "../components/SectionHeading/SectionHeading";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
 

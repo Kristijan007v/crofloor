@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import toast from "react-hot-toast";
 import useLocale from "../../hooks/useLocale";
 import ClipboardIcon from "../Icons/ClipboardIcon";
@@ -9,8 +8,6 @@ interface Props {
 }
 
 export default function CopyToClipboard({ textToCopy, size }: Props) {
-  const [isCopied, setIsCopied] = useState(false);
-
   const locale = useLocale();
 
   async function copyTextToClipboard(text: string) {

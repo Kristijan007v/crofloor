@@ -1,32 +1,13 @@
-import React from "react";
-import FacebookIcon from "../Icons/FacebookIcon";
-import InstagramIcon from "../Icons/InstagramIcon";
-import LinkedinIcon from "../Icons/LinkedinIcon";
 import {
-  EmailShareButton,
   FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
   TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
   WhatsappShareButton,
-  WorkplaceShareButton,
 } from "react-share";
+import useLocale from "../../hooks/useLocale";
+import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
+import FacebookIcon from "../Icons/FacebookIcon";
 import TwitterIcon from "../Icons/TwitterIcon";
 import WhatsappIcon from "../Icons/WhatsappIcon";
-import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
-import useLocale from "../../hooks/useLocale";
 
 interface Props {
   url: string;

@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
+import { useTranslation } from "next-i18next";
+import { useState } from "react";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import ButtonDefault from "../Buttons/ButtonDefault";
 import Overlay from "../Overlay/Overlay";
-import { useTranslation } from "next-i18next";
-import useLocalStorage from "../../hooks/useLocalStorage";
 
 export default function CookieBanner() {
   const [cookie, setCookie] = useLocalStorage<string>("cookieBanner", "true");

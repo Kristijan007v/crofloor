@@ -1,11 +1,9 @@
-import React from "react";
-import Navigation from "../../components/Navigation/Navigation";
-import Skeleton from "../../components/Skeleton/Skeleton";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import nextI18nextConfig from "../../next-i18next.config";
 import { useTranslation } from "next-i18next";
-import ButtonDefault from "../../components/Buttons/ButtonDefault";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Navigation from "../../components/Navigation/Navigation";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
+import Skeleton from "../../components/Skeleton/Skeleton";
+import nextI18nextConfig from "../../next-i18next.config";
 
 export async function getStaticProps({ locale }: any) {
   return {
