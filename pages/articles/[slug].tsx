@@ -17,7 +17,7 @@ interface Props {
 export default function Article({ post }: Props) {
   const router = useRouter();
 
-  const MAIN_DOMAIN = process.env.MAIN_DOMAIN;
+  const MAIN_DOMAIN = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
 
   function createMarkup(content: any) {
     return { __html: `${content}` };
@@ -61,7 +61,6 @@ export default function Article({ post }: Props) {
 }
 export async function getStaticPaths() {
   const paths = await getAllPostsWithSlug();
-  console.log(paths);
   return {
     paths: paths.posts.map((path: any) => ({
       params: {
@@ -74,7 +73,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ locale, params }: any) {
   const { data } = (await getPostBySlug(params.slug)) || {};
-  console.log(params.slug);
 
   return {
     props: {
