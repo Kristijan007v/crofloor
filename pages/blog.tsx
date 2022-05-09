@@ -6,10 +6,9 @@ import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
-import useLocale from "../hooks/useLocale";
 import { getPosts } from "../lib/backend/api";
-import nextI18NextConfig from "../next-i18next.config.js";
 import formatDate from "../lib/utilities/formatDate";
+import nextI18NextConfig from "../next-i18next.config.js";
 
 interface Props {
   posts: any;
@@ -17,8 +16,6 @@ interface Props {
 
 export default function Blog({ posts }: Props) {
   const { t } = useTranslation("blog");
-
-  const locale = useLocale();
 
   const [showRecommended, setShowRecommended] = React.useState(false);
   const [showFeatured, setShowFeatured] = React.useState(false);
@@ -100,6 +97,7 @@ export default function Blog({ posts }: Props) {
             key={post.id}
             heading={post.title}
             image={post.featuredImage.node.sourceUrl}
+            alt={post.featuredImage.node.altText}
             href={`/articles/${post.slug}`}
             createdAt={formatDate(post.date)}
             author={post.author.node.name}

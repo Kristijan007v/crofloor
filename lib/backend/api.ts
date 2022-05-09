@@ -29,6 +29,7 @@ export async function getPosts(perPage: number, page?: number) {
             featuredImage {
               node {
                 sourceUrl(size: MEDIUM)
+                altText
               }
             }
           }
@@ -61,6 +62,7 @@ export async function getPostBySlug(slug: string) {
           featuredImage {
             node {
               sourceUrl
+              altText
             }
           }
         }

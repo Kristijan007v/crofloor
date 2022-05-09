@@ -34,7 +34,7 @@ export default function Article({ post }: Props) {
           <ArticleHeader
             title={post.title}
             imageURL={post.featuredImage?.node.sourceUrl}
-            alt="Article image"
+            alt={post.featuredImage?.node.altText}
             author={post.author.node.name}
             date={formatDate(post.date)}
           />

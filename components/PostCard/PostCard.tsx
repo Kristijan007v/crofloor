@@ -18,6 +18,7 @@ interface Props {
   avatarURL?: string;
   createdAt?: string;
   tagName: string;
+  alt: string;
 }
 
 export default function PostCard({
@@ -29,6 +30,7 @@ export default function PostCard({
   avatarURL,
   createdAt,
   tagName,
+  alt,
 }: Props) {
   const locale = useLocale();
 
@@ -54,6 +56,7 @@ export default function PostCard({
           placeholder="blur"
           blurDataURL={`${image}`}
           className="rounded-tr-xl rounded-tl-xl"
+          alt={alt}
         />
         <div className="relative h-72 w-full rounded-tr-xl rounded-tl-xl bg-black/40">
           <div className="absolute top-0 p-4">
