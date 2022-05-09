@@ -45,8 +45,13 @@ export default function Article({ post }: Props) {
 }
 export async function getStaticPaths() {
   const paths = await getAllPostsWithSlug();
+  console.log(paths);
   return {
-    paths: paths,
+    paths: paths.posts.map((path: any) => ({
+      params: {
+        slug: path.slug,
+      },
+    })),
     fallback: true,
   };
 }
