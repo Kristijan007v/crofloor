@@ -133,6 +133,7 @@ const Home: NextPage<Props> = ({ posts }) => {
             key={post.id}
             heading={post.title}
             image={post.featuredImage.node.sourceUrl}
+            alt={post.featuredImage.node.altText}
             href={`/articles/${post.slug}`}
             createdAt={formatDate(post.date)}
             author={post.author.node.name}
