@@ -25,6 +25,7 @@ import {
 } from "react-share";
 import TwitterIcon from "../Icons/TwitterIcon";
 import WhatsappIcon from "../Icons/WhatsappIcon";
+import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
 
 interface Props {
   url: string;
@@ -49,6 +50,7 @@ export default function SocialShare({ url, iconSize }: Props) {
         <WhatsappShareButton url={url}>
           <WhatsappIcon size={iconSize} />
         </WhatsappShareButton>
+        <CopyToClipboard textToCopy={url} size={iconSize} />
       </div>
     </div>
   );

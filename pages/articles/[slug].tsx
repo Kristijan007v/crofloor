@@ -52,7 +52,7 @@ export default function Article({ post }: Props) {
           </div>
           <SocialShare
             url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
-            iconSize="lg"
+            iconSize={"md"}
           />
         </>
       )}
