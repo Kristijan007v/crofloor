@@ -7,7 +7,8 @@ import Textbox from "../Textbox/Textbox";
 
 interface Props {
   title: string;
-  image: string;
+  image?: string;
+  imageURL?: string;
   alt: string;
   key?: number;
   description?: string;
@@ -18,6 +19,7 @@ interface Props {
 export default function SectionHeader({
   title,
   image,
+  imageURL,
   alt,
   key,
   description,
@@ -28,7 +30,7 @@ export default function SectionHeader({
     <>
       <div className="relative h-48 w-full">
         <Image
-          src={`/images/${image}`}
+          src={`${imageURL ? imageURL : `/images/${image}`}`}
           alt={alt}
           layout="fill"
           objectFit="cover"
