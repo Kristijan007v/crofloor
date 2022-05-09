@@ -1,7 +1,6 @@
 import Image from "next/image";
+import useLocale from "../../hooks/useLocale";
 import CalendarIcon from "../Icons/CalendarIcon";
-import SectionSearch from "../SectionSearch/SectionSearch";
-import Textbox from "../Textbox/Textbox";
 
 interface Props {
   title: string;
@@ -9,6 +8,8 @@ interface Props {
   imageURL?: string;
   alt: string;
   key?: number;
+  author: string;
+  date: string;
 }
 
 export default function ArticleHeader({
@@ -17,7 +18,11 @@ export default function ArticleHeader({
   imageURL,
   alt,
   key,
+  author,
+  date,
 }: Props) {
+  const locale = useLocale();
+
   return (
     <>
       <div className="relative h-48 w-full">
@@ -31,15 +36,15 @@ export default function ArticleHeader({
         />
 
         <div className="relative h-48 w-full bg-black/40">
-          <h1 className="h1__white absolute bottom-0 p-4">{title}</h1>
+          <h1 className="h1__white absolute p-4">{title}</h1>
 
-          {/* <div className="absolute bottom-0 flex items-center justify-center space-x-2 p-4">
-            <CalendarIcon />
-            <p className="font-medium text-white">20 May 2022</p>
+          <div className="absolute bottom-0 flex items-center justify-center space-x-2 p-4">
+            <CalendarIcon style="text-white" />
+            <p className="font-medium text-white">{date}</p>
           </div>
           <p className="absolute bottom-0 right-0 p-4 font-medium text-white">
-            Author: admin
-          </p> */}
+            {locale == "en" ? "Author" : "Autor"}: {author}
+          </p>
         </div>
       </div>
     </>

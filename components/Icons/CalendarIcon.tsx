@@ -12,7 +12,7 @@ export default function CalendarIcon({ onclick, style }: Props) {
     <>
       <IconContext.Provider
         value={{
-          className: "text-xl",
+          className: `${style} text-xl`,
         }}
       >
         <MdCalendarToday onClick={onclick} />

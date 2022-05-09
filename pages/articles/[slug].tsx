@@ -2,7 +2,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 import ArticleHeader from "../../components/ArticleHeader/ArticleHeader";
-import CalendarIcon from "../../components/Icons/CalendarIcon";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import SocialShare from "../../components/SocialShare/SocialShare";
 import { getAllPostsWithSlug, getPostBySlug } from "../../lib/backend/api";
@@ -36,18 +35,20 @@ export default function Article({ post }: Props) {
             title={post.title}
             imageURL={post.featuredImage?.node.sourceUrl}
             alt="Article image"
+            author={post.author.node.name}
+            date={formatDate(post.date)}
           />
 
           {/* Article content */}
           <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
             <div dangerouslySetInnerHTML={createMarkup(`${post.content}`)} />
-            <div className="flex justify-between">
+            {/* <div className="flex justify-between">
               <div className="flex items-center justify-center space-x-2">
                 <CalendarIcon />
                 <p>{formatDate(post.date)}</p>
               </div>
               <p>Author: {post.author.node.name}</p>
-            </div>
+            </div> */}
           </div>
           <SocialShare
             url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
