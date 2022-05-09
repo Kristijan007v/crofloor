@@ -1,13 +1,12 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
+import CalendarIcon from "../../components/Icons/CalendarIcon";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import SocialShare from "../../components/SocialShare/SocialShare";
-import nextI18nextConfig from "../../next-i18next.config";
 import { getAllPostsWithSlug, getPostBySlug } from "../../lib/backend/api";
-import { useRouter } from "next/router";
 import formatDate from "../../lib/utilities/formatDate";
-import CalendarIcon from "../../components/Icons/CalendarIcon";
+import nextI18nextConfig from "../../next-i18next.config";
 
 interface Props {
   post: any;
@@ -17,6 +16,7 @@ export default function Article({ post }: Props) {
   function createMarkup(content: any) {
     return { __html: `${content}` };
   }
+
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
       <SectionHeader
@@ -43,9 +43,16 @@ export default function Article({ post }: Props) {
     </Skeleton>
   );
 }
+export async function getStaticPaths() {
+  const allPosts = await getAllPostsWithSlug();
+  return {
+    paths: allPosts?.posts.map((post: any) => `/articles/${post.slug}`) || [],
+    fallback: true,
+  };
+}
 
-export async function getStaticProps({ locale }: any) {
-  const { data } = (await getPostBySlug(`ovo-je-test`)) || {};
+export async function getStaticProps({ locale, params }: any) {
+  const { data } = (await getPostBySlug(params.slug)) || {};
 
   return {
     props: {

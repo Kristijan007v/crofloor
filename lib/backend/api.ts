@@ -69,20 +69,18 @@ export async function getPostBySlug(slug: string) {
 }
 
 export async function getAllPostsWithSlug() {
-  const data = await client.query({
+  const { data } = await client.query({
     query: gql`
-      query PostbySlug {  {
-        posts(first: 10000) {
-          edges {
-            node {
-              slug
-            }
+      query PostBySlug {
+        posts {
+          nodes {
+            slug
           }
         }
       }
     `,
   });
   return {
-    data,
+    posts: data?.posts.nodes,
   };
 }
