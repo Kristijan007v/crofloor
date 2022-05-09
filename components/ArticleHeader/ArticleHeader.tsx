@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CalendarIcon from "../Icons/CalendarIcon";
 import SectionSearch from "../SectionSearch/SectionSearch";
 import Textbox from "../Textbox/Textbox";
 
@@ -8,20 +9,14 @@ interface Props {
   imageURL?: string;
   alt: string;
   key?: number;
-  description?: string;
-  search?: boolean;
-  searchPlaceholder?: string;
 }
 
-export default function SectionHeader({
+export default function ArticleHeader({
   title,
   image,
   imageURL,
   alt,
   key,
-  description,
-  search,
-  searchPlaceholder,
 }: Props) {
   return (
     <>
@@ -37,12 +32,16 @@ export default function SectionHeader({
 
         <div className="relative h-48 w-full bg-black/40">
           <h1 className="h1__white absolute bottom-0 p-4">{title}</h1>
+
+          {/* <div className="absolute bottom-0 flex items-center justify-center space-x-2 p-4">
+            <CalendarIcon />
+            <p className="font-medium text-white">20 May 2022</p>
+          </div>
+          <p className="absolute bottom-0 right-0 p-4 font-medium text-white">
+            Author: admin
+          </p> */}
         </div>
       </div>
-      {description && (
-        <Textbox style="pt-6 pl-6 pr-6 pb-2">{description}</Textbox>
-      )}
-      {search && <SectionSearch searchPlaceholder={`${searchPlaceholder}`} />}
     </>
   );
 }

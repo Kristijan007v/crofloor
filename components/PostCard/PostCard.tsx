@@ -6,6 +6,7 @@ import useLocale from "../../hooks/useLocale";
 import dropInLeft from "../../lib/animations/dropInLeft";
 import CalendarIcon from "../Icons/CalendarIcon";
 import LinkIcon from "../Icons/LinkIcon";
+import ReadMore from "../ReadMore/ReadMore";
 import Tag from "../Tag/Tag";
 
 interface Props {
@@ -82,10 +83,15 @@ export default function PostCard({
         <Link href={`/products/hrast/${heading}`}>
           <a className="text-center text-xl font-semibold">{heading}</a>
         </Link>
-        <p className="pl-4 pr-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
-          enim.
-        </p>
+        <ReadMore
+          maxLength={100}
+          text={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,enim."
+          }
+          style={"pl-4 pr-4"}
+        />
+
+        {/* <p className="pl-4 pr-4"></p> */}
       </div>
     </motion.div>
   );

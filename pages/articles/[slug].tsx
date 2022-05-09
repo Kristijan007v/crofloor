@@ -1,14 +1,13 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ErrorPage from "next/error";
 import { useRouter } from "next/router";
-import React from "react";
+import ArticleHeader from "../../components/ArticleHeader/ArticleHeader";
 import CalendarIcon from "../../components/Icons/CalendarIcon";
-import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import SocialShare from "../../components/SocialShare/SocialShare";
 import { getAllPostsWithSlug, getPostBySlug } from "../../lib/backend/api";
 import formatDate from "../../lib/utilities/formatDate";
 import nextI18nextConfig from "../../next-i18next.config";
-import ErrorPage from "next/error";
 
 interface Props {
   post: any;
@@ -30,10 +29,10 @@ export default function Article({ post }: Props) {
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
       {router.isFallback ? (
-        <p>Loading…</p>
+        <p className="p-6 text-center">Loading article…</p>
       ) : (
         <>
-          <SectionHeader
+          <ArticleHeader
             title={post.title}
             imageURL={post.featuredImage?.node.sourceUrl}
             alt="Article image"
@@ -41,14 +40,14 @@ export default function Article({ post }: Props) {
 
           {/* Article content */}
           <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
+            <div dangerouslySetInnerHTML={createMarkup(`${post.content}`)} />
             <div className="flex justify-between">
-              <div className="flex items-center justify-center space-x-4">
+              <div className="flex items-center justify-center space-x-2">
                 <CalendarIcon />
                 <p>{formatDate(post.date)}</p>
               </div>
               <p>Author: {post.author.node.name}</p>
             </div>
-            <div dangerouslySetInnerHTML={createMarkup(`${post.content}`)} />
           </div>
           <SocialShare
             url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
