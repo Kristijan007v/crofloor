@@ -44,9 +44,9 @@ export default function Article({ post }: Props) {
   );
 }
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
+  const paths = await getAllPostsWithSlug();
   return {
-    paths: allPosts?.posts.map((post: any) => `/articles/${post.slug}`) || [],
+    paths: paths,
     fallback: true,
   };
 }
