@@ -7,6 +7,7 @@ export async function getPosts(perPage: number, page?: number) {
       query Posts {
         posts(first: ${perPage}) {
           nodes {
+            id
             content
             date
             slug
@@ -45,6 +46,7 @@ export async function getPostBySlug(slug: string) {
     query: gql`
       query Post {
         post(id: "${slug}", idType: SLUG) {
+          id
           title
           content
           date

@@ -10,6 +10,9 @@ interface SkeletonProps {
   children?: React.ReactNode;
   title: string;
   metaDescription?: string;
+  metaTitle?: string;
+  metaShareDescription?: string;
+  metaImageURL?: string;
   navigation?: boolean;
 }
 
@@ -17,6 +20,9 @@ const Skeleton = ({
   children,
   title,
   metaDescription,
+  metaTitle,
+  metaShareDescription,
+  metaImageURL,
   navigation,
 }: SkeletonProps) => {
   return (
@@ -25,6 +31,9 @@ const Skeleton = ({
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaShareDescription} />
+        <meta property="og:image" content={metaImageURL} />
       </Head>
 
       {/* Navigation */}

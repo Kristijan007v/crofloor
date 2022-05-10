@@ -26,7 +26,14 @@ export default function Article({ post }: Props) {
   }
 
   return (
-    <Skeleton title="" metaDescription="" navigation={true}>
+    <Skeleton
+      title=""
+      metaDescription=""
+      navigation={true}
+      metaTitle={post.title}
+      metaShareDescription={""}
+      metaImageURL={post.featuredImage?.node.sourceUrl}
+    >
       {router.isFallback ? (
         <p className="p-6 text-center">Loading article…</p>
       ) : (
