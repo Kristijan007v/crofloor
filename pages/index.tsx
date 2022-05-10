@@ -11,15 +11,16 @@ import ProductCard from "../components/ProductCard/ProductCard";
 import { useState } from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import PostCard from "../components/PostCard/PostCard";
-import { getPosts } from "../lib/backend/api";
+import { getPostByCategory, getPosts } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
 
 interface Props {
   posts: any;
+  featuredArticle: any;
 }
 
-const Home: NextPage<Props> = ({ posts }) => {
+const Home: NextPage<Props> = ({ posts, featuredArticle }) => {
   const { t } = useTranslation("common");
 
   const [tab, setTab] = useState("hrast");
@@ -113,13 +114,16 @@ const Home: NextPage<Props> = ({ posts }) => {
         FEATURED ARTICLE
       </h3> */}
 
+      {/* FEATURED ARTICLE */}
       <div>
         <ArticleCard
-          sectionType={"featured"}
-          heading="Article heading"
-          image="about.jpg"
+          sectionType={`featured`}
+          heading={featuredArticle.featuredPost[0].title}
+          imageArticle={
+            featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
+          }
           imageAlt="About picture"
-          href="/articles/post"
+          href={`/articles/${featuredArticle.featuredPost[0].slug}`}
         />
       </div>
 
@@ -177,10 +181,12 @@ export default Home;
 
 export async function getStaticProps({ locale }: any) {
   const { posts } = (await getPosts(3)) || [];
+  const featuredArticle = (await getPostByCategory("Featured")) || [];
 
   return {
     props: {
       posts,
+      featuredArticle,
       ...(await serverSideTranslations(locale, [
         "common",
         "home",
