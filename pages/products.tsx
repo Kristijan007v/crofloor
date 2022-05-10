@@ -82,18 +82,15 @@ export default function Products() {
       </div>
 
       {/* Fixed product navbar */}
-      <div className="fixed bottom-0 left-0 right-0 z-20 flex flex-col space-y-4 border-t bg-primary-yellow p-4">
-        <div className="flex justify-between space-x-6 text-xl font-medium text-black">
-          <div className="flex justify-start space-x-4">
-            <LinkDefault
-              text="Hrast"
-              href=""
-              style="border-b-2 border-black font-semibold"
-            />
-            <LinkDefault text="Jasen" href="" />
-            <LinkDefault text="Jela" href="" />
-          </div>
-          <ArrowDown />
+      <div className="fixed bottom-0 left-0 right-0 z-20 flex flex-col space-y-4 border-t bg-primary-yellow p-3">
+        <div className="flex justify-center space-x-6 text-xl font-medium text-black">
+          <LinkDefault
+            text="Hrast"
+            href=""
+            style="border-b-2 border-black font-semibold"
+          />
+          <LinkDefault text="Jasen" href="" />
+          <LinkDefault text="Jela" href="" />
         </div>
         {/* <div className="flex flex-wrap justify-center space-x-6">
           <LinkDefault text="Morello Ricco" href="" />
