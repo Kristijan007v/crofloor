@@ -6,11 +6,14 @@ import DropdownItem from "../components/DropdownItem/DropdownItem";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import ArrowDown from "../components/Icons/ArrowDown";
 import ArrowUp from "../components/Icons/ArrowUp";
+import ImageWithFallback from "../components/ImageWithFallback/ImageWithFallback";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import SectionSearch from "../components/SectionSearch/SectionSearch";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
+import Image from "next/image";
+import Card from "../components/Card/Card";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -43,7 +46,7 @@ export default function Products() {
         />
         {/* Fixed product navbar */}
         <div className="sticky top-0 left-0 right-0 z-20 flex flex-col border-t">
-          <SectionSearch searchPlaceholder="Search for products" />
+          {/* <SectionSearch searchPlaceholder="Search for products" /> */}
           <div className="flex justify-center space-x-6 border-b bg-primary-yellow p-3 text-xl font-medium text-black">
             <LinkDefault
               text="Hrast"
@@ -64,20 +67,9 @@ export default function Products() {
           {/* <ArrowUp /> */}
         </div>
       </ErrorBoundary>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-        sapiente facilis qui ad perferendis ab eos dolorem, iste laudantium
-        soluta earum repellendus blanditiis pariatur. Ipsa at dolores aperiam
-        repudiandae placeat expedita, doloribus labore vero ipsam sed eum
-        pariatur facilis. Voluptate praesentium inventore harum quis aut ex nam
-        totam qui sint a repellendus eveniet quae quia consectetur optio
-        provident, ab voluptas eligendi corrupti. A exercitationem ipsum
-        laboriosam temporibus sunt. Deserunt quos blanditiis cumque? Molestiae,
-        ullam nobis fuga inventore saepe ut explicabo beatae cupiditate
-        provident eos natus similique corrupti expedita, quo ad libero
-        doloremque doloribus quidem at dolor possimus! Distinctio, repellendus
-        deserunt!
-      </p>
+      <div className="p-6">
+        <Card />
+      </div>
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
         Lokacije trgovina
       </h3>
