@@ -132,7 +132,7 @@ export default function Blog({
 }
 
 export async function getStaticProps({ locale }: any) {
-  const { posts } = (await getPosts(3)) || [];
+  const { posts } = (await getPosts(10)) || [];
   const featuredArticle = (await getPostByCategory("Featured")) || [];
   const recommendedArticle = (await getPostByCategory("Recommended")) || [];
 
