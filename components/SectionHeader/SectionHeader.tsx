@@ -11,6 +11,7 @@ interface Props {
   description?: string;
   search?: boolean;
   searchPlaceholder?: string;
+  stickySearch?: boolean;
 }
 
 export default function SectionHeader({
@@ -22,6 +23,7 @@ export default function SectionHeader({
   description,
   search,
   searchPlaceholder,
+  stickySearch,
 }: Props) {
   return (
     <>
@@ -42,7 +44,12 @@ export default function SectionHeader({
       {description && (
         <Textbox style="pt-6 pl-6 pr-6 pb-2">{description}</Textbox>
       )}
-      {search && <SectionSearch searchPlaceholder={`${searchPlaceholder}`} />}
+      {search && (
+        <SectionSearch
+          searchPlaceholder={`${searchPlaceholder}`}
+          sticky={stickySearch}
+        />
+      )}
     </>
   );
 }

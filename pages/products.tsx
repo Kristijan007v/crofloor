@@ -41,7 +41,7 @@ export default function Products() {
           image="products.jpg"
           alt={t("section-header.image.alt")}
           description={t("section-header.description")}
-          search={false}
+          search={true}
           searchPlaceholder={t("section-header.search.placeholder")}
         />
         {/* Fixed product navbar */}

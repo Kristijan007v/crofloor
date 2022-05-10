@@ -46,6 +46,7 @@ export default function Blog({
           description={t("section-header.description")}
           search={true}
           searchPlaceholder={t("section-header.search.placeholder")}
+          stickySearch={true}
         />
       </ErrorBoundary>
 
