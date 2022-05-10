@@ -1,19 +1,13 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React from "react";
+import Card from "../components/Card/Card";
 import Dropdown from "../components/Dropdown/Dropdown";
 import DropdownItem from "../components/DropdownItem/DropdownItem";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import ArrowDown from "../components/Icons/ArrowDown";
-import ArrowUp from "../components/Icons/ArrowUp";
-import ImageWithFallback from "../components/ImageWithFallback/ImageWithFallback";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
-import SectionSearch from "../components/SectionSearch/SectionSearch";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
-import Image from "next/image";
-import Card from "../components/Card/Card";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -46,7 +40,6 @@ export default function Products() {
         />
         {/* Fixed product navbar */}
         <div className="sticky top-0 left-0 right-0 z-20 flex flex-col border-t">
-          {/* <SectionSearch searchPlaceholder="Search for products" /> */}
           <div className="flex justify-center space-x-6 border-b bg-primary-yellow p-3 text-xl font-medium text-black">
             <LinkDefault
               text="Hrast"
@@ -56,19 +49,19 @@ export default function Products() {
             <LinkDefault text="Jasen" href="" />
             <LinkDefault text="Jela" href="" />
           </div>
-          {/* <div className="flex flex-wrap justify-center space-x-6">
-          <LinkDefault text="Morello Ricco" href="" />
-          <LinkDefault text="Castro" href="" />
-          <LinkDefault text="Morello Ottimo" href="" />
-          <LinkDefault text="Morello Ottimo" href="" />
-          <LinkDefault text="Morello Ottimo" href="" />
-        </div> */}
-
-          {/* <ArrowUp /> */}
         </div>
       </ErrorBoundary>
       <div className="p-6">
-        <Card />
+        <Card
+          title="Morello Ricco"
+          imageURL="/images/morello-floor.jpg"
+          imageAlt=""
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
+          fugit voluptatibus consequuntur totam saepe odio assumenda beatae
+          mollitia voluptatum molestiae."
+          href=""
+          tagText="New collection"
+        />
       </div>
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
         Lokacije trgovina
