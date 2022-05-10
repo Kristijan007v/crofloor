@@ -23,8 +23,6 @@ export default function Blog({
 }: Props) {
   const { t } = useTranslation("blog");
 
-  console.log(featuredArticle.featuredPost[0]);
-
   const [showRecommended, setShowRecommended] = React.useState(false);
   const [showFeatured, setShowFeatured] = React.useState(false);
 
@@ -132,7 +130,6 @@ export async function getStaticProps({ locale }: any) {
   const { posts } = (await getPosts(3)) || [];
   const featuredArticle = (await getPostByCategory("Featured")) || [];
   const recommendedArticle = (await getPostByCategory("Recommended")) || [];
-  console.log(recommendedArticle);
 
   return {
     props: {

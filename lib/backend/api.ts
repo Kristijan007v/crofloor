@@ -123,7 +123,6 @@ export async function getPostByCategory(categoryName: string) {
     }
     `,
   });
-  console.log(data);
   return {
     featuredPost: data?.posts.nodes,
   };
