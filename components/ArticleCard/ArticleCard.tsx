@@ -68,7 +68,7 @@ export default function ArticleCard({
           priority={true}
         /> */}
       </div>
-      <h3 className="text-lg font-semibold">{heading}</h3>
+      <h3 className="heading__3">{heading}</h3>
       <ReadMore
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore neque
         dolorem porro eveniet dolor consectetur, natus rerum aperiam! Ab, omnis?"
@@ -79,7 +79,6 @@ export default function ArticleCard({
         ariaLabel="Read more"
         href={href}
         type={"button"}
-        locale={true}
         icon={"arrowRight"}
       />
     </motion.article>

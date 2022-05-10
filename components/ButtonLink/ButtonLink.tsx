@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
+import useLocale from "../../hooks/useLocale";
 import ArrowLeft from "../Icons/ArrowLeft";
 import ArrowRight from "../Icons/ArrowRight";
 
@@ -28,9 +28,9 @@ export default function ButtonLink({
   text,
   locale,
 }: Props) {
-  const router = useRouter();
+  const lang = useLocale();
 
-  const localeLink = `${router.locale}/${href}`;
+  const localeLink = `/${href}`;
 
   const visitLink = () => {
     {

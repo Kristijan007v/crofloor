@@ -1,6 +1,5 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import "react-image-gallery/styles/css/image-gallery.css";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import Gallery from "../components/Gallery/Gallery";
 import LocationContainer from "../components/LocationContainer/LocationContainer";

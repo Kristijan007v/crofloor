@@ -6,7 +6,7 @@ import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
-import { getPostByCategory, getPosts } from "../lib/backend/api";
+import { getPostByCategory, getPosts, getSearch } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
 
