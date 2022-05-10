@@ -114,23 +114,25 @@ const Home: NextPage<Props> = ({ posts, featuredArticle }) => {
         FEATURED ARTICLE
       </h3> */}
 
-      {/* FEATURED ARTICLE */}
-      <div>
-        <ArticleCard
-          sectionType={`featured`}
-          heading={featuredArticle.featuredPost[0].title}
-          imageArticle={
-            featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
-          }
-          imageAlt="About picture"
-          href={`/articles/${featuredArticle.featuredPost[0].slug}`}
-        />
-      </div>
-
+      {/* Featured ARTICLES */}
+      {featuredArticle.featuredPost.length > 0 && (
+        <>
+          <div>
+            <ArticleCard
+              sectionType={`featured`}
+              heading={featuredArticle.featuredPost[0].title}
+              imageArticle={
+                featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
+              }
+              imageAlt="About picture"
+              href={`/articles/${featuredArticle.featuredPost[0].slug}`}
+            />
+          </div>
+        </>
+      )}
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
         {t("blog.latest-articles")}
       </h3>
-
       <div className="flex flex-col space-y-8 p-6">
         {posts.map((post: any) => (
           <PostCard

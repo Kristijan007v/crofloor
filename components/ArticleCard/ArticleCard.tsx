@@ -4,6 +4,7 @@ import useLocale from "../../hooks/useLocale";
 import dropInLeft from "../../lib/animations/dropInLeft";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
+import ReadMore from "../ReadMore/ReadMore";
 
 interface Props {
   sectionType: "recommended" | "featured";
@@ -54,10 +55,11 @@ export default function ArticleCard({
         /> */}
       </div>
       <h3 className="text-lg font-semibold">{heading}</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore neque
-        dolorem porro eveniet dolor consectetur, natus rerum aperiam! Ab, omnis?
-      </p>
+      <ReadMore
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore neque
+        dolorem porro eveniet dolor consectetur, natus rerum aperiam! Ab, omnis?"
+        maxLength={100}
+      />
       <ButtonLink
         text={locale === "hr" ? "Pročitaj više" : "Read more"}
         ariaLabel="Read more"
