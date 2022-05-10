@@ -80,6 +80,7 @@ export default function ArticleCard({
         href={href}
         type={"button"}
         locale={true}
+        icon={"arrowRight"}
       />
     </motion.article>
   );

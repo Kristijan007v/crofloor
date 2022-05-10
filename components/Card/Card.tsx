@@ -28,7 +28,7 @@ export default function Card() {
           fugit voluptatibus consequuntur totam saepe odio assumenda beatae
           mollitia voluptatum molestiae.
         </p>
-        <ButtonDefault text="Find out more" ariaLabel="" />
+        <ButtonDefault text="Find out more" ariaLabel="" icon={"arrowRight"} />
       </div>
     </div>
   );
