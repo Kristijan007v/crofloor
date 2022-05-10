@@ -66,7 +66,7 @@ export default function PostCard({
             <button
               className="flex items-center space-x-2"
               onClick={() => {
-                window.location.href = `${href}`;
+                window.location.href = `/${locale}/${href}`;
               }}
             >
               <span>{locale === "hr" ? "Pročitaj više" : "Read more"}</span>
