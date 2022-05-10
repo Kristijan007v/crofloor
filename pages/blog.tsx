@@ -50,51 +50,60 @@ export default function Blog({
           searchPlaceholder={t("section-header.search.placeholder")}
         />
       </ErrorBoundary>
-      {/* <div>
-        <p>Search results:</p>
-        <p>{search}</p>
-      </div> */}
-      <div
-        className={`${
-          showFeatured ? "bg-black text-white" : "bg-primary-bg text-black "
-        } p-3 text-right font-medium`}
-        onClick={toogleFeatured}
-      >
-        <p>{t("section.featured")}</p>
-      </div>
 
-      {showFeatured && (
-        <ArticleCard
-          sectionType={t("section.featured-article")}
-          heading={featuredArticle.featuredPost[0].title}
-          imageArticle={
-            featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
-          }
-          imageAlt="About picture"
-          href={`/articles/${featuredArticle.featuredPost[0].slug}`}
-          type={"secondary"}
-        />
+      {/* Featured ARTICLES */}
+      {featuredArticle.featuredPost.length > 0 && (
+        <>
+          <div
+            className={`${
+              showFeatured ? "bg-black text-white" : "bg-primary-bg text-black "
+            } p-3 text-right font-medium`}
+            onClick={toogleFeatured}
+          >
+            <p>{t("section.featured")}</p>
+          </div>
+
+          {showFeatured && (
+            <ArticleCard
+              sectionType={t("section.featured-article")}
+              heading={featuredArticle.featuredPost[0].title}
+              imageArticle={
+                featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
+              }
+              imageAlt="About picture"
+              href={`/articles/${featuredArticle.featuredPost[0].slug}`}
+              type={"secondary"}
+            />
+          )}
+        </>
       )}
 
-      <div
-        className={`${
-          showRecommended
-            ? "bg-black text-white"
-            : "bg-primary-yellow text-black"
-        } p-3 text-left font-medium`}
-        onClick={toogleRecommended}
-      >
-        <p>{t("section.recommended")}</p>
-      </div>
+      {/* RECOMMENDED ARTICLES */}
+      {recommendedArticle.featuredPost.length > 0 && (
+        <>
+          <div
+            className={`${
+              showRecommended
+                ? "bg-black text-white"
+                : "bg-primary-yellow text-black"
+            } p-3 text-left font-medium`}
+            onClick={toogleRecommended}
+          >
+            <p>{t("section.recommended")}</p>
+          </div>
 
-      {showRecommended && (
-        <ArticleCard
-          sectionType={t("section.recommended-article")}
-          heading="Article heading"
-          image="about.jpg"
-          imageAlt="About picture"
-          href="/articles/post"
-        />
+          {showRecommended && (
+            <ArticleCard
+              sectionType={t("section.recommended-article")}
+              heading={recommendedArticle.featuredPost[0].title}
+              imageArticle={
+                recommendedArticle.featuredPost[0].featuredImage.node.sourceUrl
+              }
+              imageAlt="About picture"
+              href={`/articles/${recommendedArticle.featuredPost[0].slug}`}
+            />
+          )}
+        </>
       )}
 
       {/* Latest articles */}
