@@ -4,6 +4,9 @@ import React from "react";
 import Dropdown from "../components/Dropdown/Dropdown";
 import DropdownItem from "../components/DropdownItem/DropdownItem";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import ArrowDown from "../components/Icons/ArrowDown";
+import ArrowUp from "../components/Icons/ArrowUp";
+import LinkDefault from "../components/LinkDefault/LinkDefault";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
@@ -25,6 +28,7 @@ export async function getStaticProps({ locale }: any) {
 
 export default function Products() {
   const { t } = useTranslation("products");
+
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
@@ -75,6 +79,31 @@ export default function Products() {
         <Dropdown title="Split" open={false}>
           <DropdownItem item="Varaždinska ul. 22, 10363, Belovar" />
         </Dropdown>
+      </div>
+
+      {/* Fixed product navbar */}
+      <div className="fixed bottom-0 left-0 right-0 z-20 flex flex-col space-y-4 border-t bg-primary-yellow p-4">
+        <div className="flex justify-between space-x-6 text-xl font-medium text-black">
+          <div className="flex justify-start space-x-4">
+            <LinkDefault
+              text="Hrast"
+              href=""
+              style="border-b-2 border-black font-semibold"
+            />
+            <LinkDefault text="Jasen" href="" />
+            <LinkDefault text="Jela" href="" />
+          </div>
+          <ArrowDown />
+        </div>
+        {/* <div className="flex flex-wrap justify-center space-x-6">
+          <LinkDefault text="Morello Ricco" href="" />
+          <LinkDefault text="Castro" href="" />
+          <LinkDefault text="Morello Ottimo" href="" />
+          <LinkDefault text="Morello Ottimo" href="" />
+          <LinkDefault text="Morello Ottimo" href="" />
+        </div> */}
+
+        {/* <ArrowUp /> */}
       </div>
     </Skeleton>
   );
