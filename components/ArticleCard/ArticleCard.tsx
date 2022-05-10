@@ -9,7 +9,8 @@ interface Props {
   sectionType: "recommended" | "featured";
   heading: string;
   href: string;
-  image: string;
+  image?: string;
+  imageArticle?: string;
   imageAlt?: string;
   type?: "primary" | "secondary";
 }
@@ -19,6 +20,7 @@ export default function ArticleCard({
   heading,
   href,
   image,
+  imageArticle,
   imageAlt,
   type,
 }: Props) {
@@ -38,7 +40,7 @@ export default function ArticleCard({
       </h2>
       <div className="relative h-48 w-full">
         <ImageWithFallback
-          src={`/images/${image}`}
+          src={`${imageArticle ? imageArticle : "/images/" + image}`}
           fallBackSrc={`/images/image-error.jpg`}
           alt={`${imageAlt}`}
         />

@@ -88,27 +88,43 @@ export async function getAllPostsWithSlug() {
   };
 }
 
-// export async function searchPosts() {
-//   const { data } = await client.query({
-//     query: gql`
-//       query SearchPosts {
-//         posts(where: { search: "Test" }) {
-//           nodes {
-//             id
-//             title
-//             slug
-//             author {
-//               node {
-//                 name
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `,
-//   });
-//   console.log(data);
-//   return {
-//     posts: data,
-//   };
-// }
+export async function getPostByCategory(categoryName: string) {
+  const { data } = await client.query({
+    query: gql`
+    query Posts {
+      posts(where: {categoryName: "${categoryName}"}) {
+        nodes {
+          id
+          content
+          date
+          slug
+          title
+          author {
+            node {
+              name
+              avatar {
+                url
+              }
+            }
+          }
+          tags {
+            nodes {
+              name
+            }
+          }
+          featuredImage {
+            node {
+              sourceUrl(size: MEDIUM)
+              altText
+            }
+          }
+        }
+      }
+    }
+    `,
+  });
+  console.log(data);
+  return {
+    featuredPost: data?.posts.nodes,
+  };
+}

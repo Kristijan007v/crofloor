@@ -6,16 +6,24 @@ import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
-import { getPosts } from "../lib/backend/api";
+import { getPostByCategory, getPosts } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
 
 interface Props {
   posts: any;
+  featuredArticle: any;
+  recommendedArticle: any;
 }
 
-export default function Blog({ posts }: Props) {
+export default function Blog({
+  posts,
+  featuredArticle,
+  recommendedArticle,
+}: Props) {
   const { t } = useTranslation("blog");
+
+  console.log(featuredArticle.featuredPost[0]);
 
   const [showRecommended, setShowRecommended] = React.useState(false);
   const [showFeatured, setShowFeatured] = React.useState(false);
@@ -58,10 +66,12 @@ export default function Blog({ posts }: Props) {
       {showFeatured && (
         <ArticleCard
           sectionType={t("section.featured-article")}
-          heading="Article heading"
-          image="about.jpg"
+          heading={featuredArticle.featuredPost[0].title}
+          imageArticle={
+            featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
+          }
           imageAlt="About picture"
-          href="/articles/post"
+          href={`/articles/${featuredArticle.featuredPost[0].slug}`}
           type={"secondary"}
         />
       )}
@@ -111,10 +121,15 @@ export default function Blog({ posts }: Props) {
 
 export async function getStaticProps({ locale }: any) {
   const { posts } = (await getPosts(3)) || [];
+  const featuredArticle = (await getPostByCategory("Featured")) || [];
+  const recommendedArticle = (await getPostByCategory("Recommended")) || [];
+  console.log(recommendedArticle);
 
   return {
     props: {
       posts,
+      featuredArticle,
+      recommendedArticle,
       ...(await serverSideTranslations(locale, [
         "common",
         "menu",
