@@ -3,6 +3,7 @@ import React from "react";
 import useLocale from "../../hooks/useLocale";
 import dropInLeft from "../../lib/animations/dropInLeft";
 import ButtonLink from "../ButtonLink/ButtonLink";
+import CalendarIcon from "../Icons/CalendarIcon";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
 import ReadMore from "../ReadMore/ReadMore";
 
@@ -14,6 +15,8 @@ interface Props {
   imageArticle?: string;
   imageAlt?: string;
   type?: "primary" | "secondary";
+  date: string;
+  author: string;
 }
 
 export default function ArticleCard({
@@ -24,6 +27,8 @@ export default function ArticleCard({
   imageArticle,
   imageAlt,
   type,
+  date,
+  author,
 }: Props) {
   const locale = useLocale();
   return (
@@ -45,6 +50,15 @@ export default function ArticleCard({
           fallBackSrc={`/images/image-error.jpg`}
           alt={`${imageAlt}`}
         />
+        <div className="relative h-48 w-full bg-black/40">
+          <div className="absolute bottom-0 flex items-center justify-center space-x-2 p-4">
+            <CalendarIcon style="text-white" />
+            <p className="font-medium text-white">{date}</p>
+          </div>
+          <p className="absolute bottom-0 right-0 p-4 font-medium text-white">
+            {locale == "en" ? "Author" : "Autor"}: {author}
+          </p>
+        </div>
         {/* <Image
           src={`/images/about.jpg`}
           alt={"Ovo je test"}

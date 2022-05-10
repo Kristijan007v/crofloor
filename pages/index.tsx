@@ -124,6 +124,8 @@ const Home: NextPage<Props> = ({ posts, featuredArticle }) => {
               imageArticle={
                 featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
               }
+              date={formatDate(featuredArticle.featuredPost[0].date)}
+              author={featuredArticle.featuredPost[0].author.node.name}
               imageAlt="About picture"
               href={`/articles/${featuredArticle.featuredPost[0].slug}`}
             />
