@@ -4,6 +4,7 @@ import ButtonDefault from "../Buttons/ButtonDefault";
 import Tag from "../Tag/Tag";
 
 interface Props {
+  id?: string;
   key?: number;
   title: string;
   imageURL: string;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export default function Card({
+  id,
   key,
   title,
   imageURL,
@@ -23,7 +25,7 @@ export default function Card({
   href,
 }: Props) {
   return (
-    <div className="" key={key}>
+    <div className="" key={key} id={id}>
       <div className="relative h-72 w-full">
         <Image
           src={`${imageURL}`}

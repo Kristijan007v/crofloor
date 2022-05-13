@@ -116,3 +116,19 @@ body {
 .tab__default {
   @apply cursor-pointer pt-1 pb-1 pr-6 pl-6 hover:bg-primary-yellow;
 }
+
+.tab__special {
+  @apply rounded-full bg-primary-bg pt-2 pb-2 pr-6 pl-6 font-medium;
+}
+
+/* Hide scrollbars */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
