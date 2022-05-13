@@ -25,35 +25,38 @@ export default function Card({
   href,
 }: Props) {
   return (
-    <div className="" key={key} id={id}>
-      <div className="relative h-72 w-full">
-        <Image
-          src={`${imageURL}`}
-          layout="fill"
-          objectFit="cover"
-          placeholder="blur"
-          blurDataURL={`${imageURL}`}
-          className="rounded-2xl"
-          alt={imageAlt}
-        />
-        {tagText && (
-          <div className="absolute top-0 p-4">
-            <Tag text={tagText} />
-          </div>
-        )}
+    <>
+      <div id={id} className="scroll-mt-32"></div>
+      <div className="" key={key}>
+        <div className="relative h-72 w-full">
+          <Image
+            src={`${imageURL}`}
+            layout="fill"
+            objectFit="cover"
+            placeholder="blur"
+            blurDataURL={`${imageURL}`}
+            className="rounded-2xl"
+            alt={imageAlt}
+          />
+          {tagText && (
+            <div className="absolute top-0 p-4">
+              <Tag text={tagText} />
+            </div>
+          )}
+        </div>
+        <div className="flex -translate-y-8 flex-col space-y-4 rounded-2xl bg-primary-yellow/60 p-6 text-left backdrop-blur-md">
+          <h3 className="heading__3">{title}</h3>
+          <p className="paragraph">{description}</p>
+          <ButtonLink
+            text="Find out more"
+            ariaLabel=""
+            icon={"arrowRight"}
+            href={href}
+            type={"button"}
+            locale={true}
+          />
+        </div>
       </div>
-      <div className="flex -translate-y-8 flex-col space-y-4 rounded-2xl bg-primary-yellow/60 p-6 text-left backdrop-blur-md">
-        <h3 className="heading__3">{title}</h3>
-        <p className="paragraph">{description}</p>
-        <ButtonLink
-          text="Find out more"
-          ariaLabel=""
-          icon={"arrowRight"}
-          href={href}
-          type={"button"}
-          locale={true}
-        />
-      </div>
-    </div>
+    </>
   );
 }

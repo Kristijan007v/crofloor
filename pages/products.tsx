@@ -49,35 +49,76 @@ export default function Products() {
             <LinkDefault text="Jasen" href="" />
             <LinkDefault text="Jela" href="" />
           </div>
+          <div className="bg-white">
+            <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-3 pb-3 pr-2 pl-2 font-medium">
+              <LinkDefault
+                text="Morello Ricco"
+                href="#morello-ricco"
+                style="tab__special"
+              />
+              <LinkDefault text="Castro" href="#castro" style="tab__special" />
+              <LinkDefault
+                text="Morello Ottimo"
+                href="#morello-ottimo"
+                style="tab__special"
+              />
+              <LinkDefault
+                text="Multiplex"
+                href="#multiplex"
+                style="tab__special"
+              />
+              <LinkDefault
+                text="Riblja kost"
+                href="#multiplex"
+                style="tab__special"
+              />
+              <LinkDefault text="Pavone" href="#morello" style="tab__special" />
+              <LinkDefault
+                text="Gazišta"
+                href="#morello"
+                style="tab__special"
+              />
+            </div>
+          </div>
         </div>
       </ErrorBoundary>
-      <div className="">
-        <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-3 pb-3 pr-2 pl-2 font-medium">
-          <LinkDefault
-            text="Morello Ricco"
-            href="#morello"
-            style="tab__special"
-          />
-          <LinkDefault text="Castro" href="#morello" style="tab__special" />
-          <LinkDefault
-            text="Morello Ottimo"
-            href="#morello"
-            style="tab__special"
-          />
-          <LinkDefault text="Multiplex" href="#morello" style="tab__special" />
-          <LinkDefault
-            text="Riblja kost"
-            href="#morello"
-            style="tab__special"
-          />
-          <LinkDefault text="Pavone" href="#morello" style="tab__special" />
-          <LinkDefault text="Gazišta" href="#morello" style="tab__special" />
-        </div>
-      </div>
       <div className="p-6">
         <Card
-          id="morello"
+          id="morello-ricco"
           title="Morello Ricco"
+          imageURL="/images/morello-floor.jpg"
+          imageAlt=""
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
+          fugit voluptatibus consequuntur totam saepe odio assumenda beatae
+          mollitia voluptatum molestiae."
+          href=""
+          tagText="New collection"
+        />
+        <Card
+          id="castro"
+          title="Castro"
+          imageURL="/images/morello-floor.jpg"
+          imageAlt=""
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
+          fugit voluptatibus consequuntur totam saepe odio assumenda beatae
+          mollitia voluptatum molestiae."
+          href=""
+          tagText="New collection"
+        />
+        <Card
+          id="morello-ottimo"
+          title="Morello Ottimo"
+          imageURL="/images/morello-floor.jpg"
+          imageAlt=""
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
+          fugit voluptatibus consequuntur totam saepe odio assumenda beatae
+          mollitia voluptatum molestiae."
+          href=""
+          tagText="New collection"
+        />
+        <Card
+          id="multiplex"
+          title="Multiplex"
           imageURL="/images/morello-floor.jpg"
           imageAlt=""
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
