@@ -9,6 +9,49 @@ import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
 
+const products = [
+  {
+    id: "morello-ricco",
+    title: "Morello Ricco",
+    imageURL: "/images/morello-floor.jpg",
+    imageAlt: "",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
+    tagText: "XXL daske",
+    href: "",
+  },
+  {
+    id: "castro",
+    title: "Castro",
+    imageURL: "/images/morello-floor.jpg",
+    imageAlt: "",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
+    tagText: "Masivni seljački pod",
+    href: "",
+  },
+  {
+    id: "morello-ottimo",
+    title: "Morello Ottimo",
+    imageURL: "/images/morello-floor.jpg",
+    imageAlt: "",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
+    tagText: "Troslojni seljački pod",
+    href: "",
+  },
+  {
+    id: "multiplex",
+    title: "Multiplex",
+    imageURL: "/images/morello-floor.jpg",
+    imageAlt: "",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
+    tagText: "Dvoslojni parket",
+    href: "",
+  },
+];
+
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
@@ -83,50 +126,17 @@ export default function Products() {
         </div>
       </ErrorBoundary>
       <div className="p-6">
-        <Card
-          id="morello-ricco"
-          title="Morello Ricco"
-          imageURL="/images/morello-floor.jpg"
-          imageAlt=""
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          fugit voluptatibus consequuntur totam saepe odio assumenda beatae
-          mollitia voluptatum molestiae."
-          href=""
-          tagText="New collection"
-        />
-        <Card
-          id="castro"
-          title="Castro"
-          imageURL="/images/morello-floor.jpg"
-          imageAlt=""
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          fugit voluptatibus consequuntur totam saepe odio assumenda beatae
-          mollitia voluptatum molestiae."
-          href=""
-          tagText="New collection"
-        />
-        <Card
-          id="morello-ottimo"
-          title="Morello Ottimo"
-          imageURL="/images/morello-floor.jpg"
-          imageAlt=""
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          fugit voluptatibus consequuntur totam saepe odio assumenda beatae
-          mollitia voluptatum molestiae."
-          href=""
-          tagText="New collection"
-        />
-        <Card
-          id="multiplex"
-          title="Multiplex"
-          imageURL="/images/morello-floor.jpg"
-          imageAlt=""
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          fugit voluptatibus consequuntur totam saepe odio assumenda beatae
-          mollitia voluptatum molestiae."
-          href=""
-          tagText="New collection"
-        />
+        {products.map((product) => (
+          <Card
+            id={product.id}
+            title={product.title}
+            imageURL={product.imageURL}
+            imageAlt={product.imageAlt}
+            description={product.description}
+            href={product.href}
+            tagText={product.tagText}
+          />
+        ))}
       </div>
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
         Lokacije trgovina
