@@ -11,6 +11,7 @@ import nextI18NextConfig from "../next-i18next.config.js";
 
 const products = [
   {
+    key: 1,
     id: "morello-ricco",
     title: "Morello Ricco",
     imageURL: "/images/morello-floor.jpg",
@@ -21,6 +22,7 @@ const products = [
     href: "",
   },
   {
+    key: 2,
     id: "castro",
     title: "Castro",
     imageURL: "/images/morello-floor.jpg",
@@ -31,6 +33,7 @@ const products = [
     href: "",
   },
   {
+    key: 3,
     id: "morello-ottimo",
     title: "Morello Ottimo",
     imageURL: "/images/morello-floor.jpg",
@@ -41,6 +44,7 @@ const products = [
     href: "",
   },
   {
+    key: 4,
     id: "multiplex",
     title: "Multiplex",
     imageURL: "/images/morello-floor.jpg",
@@ -51,6 +55,7 @@ const products = [
     href: "",
   },
   {
+    key: 5,
     id: "riblja-kost",
     title: "Riblja kost",
     imageURL: "/images/morello-floor.jpg",
@@ -61,6 +66,7 @@ const products = [
     href: "",
   },
   {
+    key: 6,
     id: "pavone",
     title: "Pavone",
     imageURL: "/images/morello-floor.jpg",
@@ -71,6 +77,7 @@ const products = [
     href: "",
   },
   {
+    key: 7,
     id: "gazista",
     title: "Gazišta",
     imageURL: "/images/morello-floor.jpg",
@@ -158,6 +165,7 @@ export default function Products() {
       <div className="p-6">
         {products.map((product) => (
           <Card
+            key={product.key}
             id={product.id}
             title={product.title}
             imageURL={product.imageURL}
