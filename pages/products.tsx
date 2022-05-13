@@ -50,6 +50,36 @@ const products = [
     tagText: "Dvoslojni parket",
     href: "",
   },
+  {
+    id: "riblja-kost",
+    title: "Riblja kost",
+    imageURL: "/images/morello-floor.jpg",
+    imageAlt: "",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
+    tagText: "Dvoslojni parket",
+    href: "",
+  },
+  {
+    id: "pavone",
+    title: "Pavone",
+    imageURL: "/images/morello-floor.jpg",
+    imageAlt: "",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
+    tagText: "Dvoslojni parket",
+    href: "",
+  },
+  {
+    id: "gazista",
+    title: "Gazišta",
+    imageURL: "/images/morello-floor.jpg",
+    imageAlt: "",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
+    tagText: "Novo",
+    href: "",
+  },
 ];
 
 export async function getStaticProps({ locale }: any) {
@@ -112,13 +142,13 @@ export default function Products() {
               />
               <LinkDefault
                 text="Riblja kost"
-                href="#multiplex"
+                href="#riblja-kost"
                 style="tab__special"
               />
-              <LinkDefault text="Pavone" href="#morello" style="tab__special" />
+              <LinkDefault text="Pavone" href="#pavone" style="tab__special" />
               <LinkDefault
                 text="Gazišta"
-                href="#morello"
+                href="#gazista"
                 style="tab__special"
               />
             </div>
