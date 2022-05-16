@@ -81,7 +81,7 @@ export default function Blog({
               <>
                 {results.map((post) => (
                   <Link key={post.id} href={`/articles/${post.slug}`}>
-                    <div className="flex items-center justify-between rounded-xl bg-primary-bg p-3 shadow-sm">
+                    <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
                       <p className="font-medium">{post.title}</p>
                       <div className="flex items-center space-x-2">
                         <CalendarIcon />
@@ -92,7 +92,7 @@ export default function Blog({
                 ))}
               </>
             ) : (
-              <p className="tab__special text-center">
+              <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
                 {t("section-header.search.noresult")}
               </p>
             )}

@@ -10,11 +10,13 @@ import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
 import { useState } from "react";
 import Link from "next/link";
+import TagIcon from "../components/Icons/TagIcon";
 
 const products = [
   {
     key: 1,
     id: "morello-ricco",
+    category: "Hrast",
     title: "Morello Ricco",
     imageURL: "/images/morello-floor.jpg",
     imageAlt: "",
@@ -26,6 +28,7 @@ const products = [
   {
     key: 2,
     id: "castro",
+    category: "Hrast",
     title: "Castro",
     imageURL: "/images/morello-floor.jpg",
     imageAlt: "",
@@ -37,6 +40,7 @@ const products = [
   {
     key: 3,
     id: "morello-ottimo",
+    category: "Hrast",
     title: "Morello Ottimo",
     imageURL: "/images/morello-floor.jpg",
     imageAlt: "",
@@ -48,6 +52,7 @@ const products = [
   {
     key: 4,
     id: "multiplex",
+    category: "Hrast",
     title: "Multiplex",
     imageURL: "/images/morello-floor.jpg",
     imageAlt: "",
@@ -59,6 +64,7 @@ const products = [
   {
     key: 5,
     id: "riblja-kost",
+    category: "Hrast",
     title: "Riblja kost",
     imageURL: "/images/morello-floor.jpg",
     imageAlt: "",
@@ -70,6 +76,7 @@ const products = [
   {
     key: 6,
     id: "pavone",
+    category: "Hrast",
     title: "Pavone",
     imageURL: "/images/morello-floor.jpg",
     imageAlt: "",
@@ -81,6 +88,7 @@ const products = [
   {
     key: 7,
     id: "gazista",
+    category: "Hrast",
     title: "Gazišta",
     imageURL: "/images/morello-floor.jpg",
     imageAlt: "",
@@ -142,15 +150,19 @@ export default function Products() {
             {results.length > 0 ? (
               <>
                 {results.map((product) => (
-                  <Link key={product.key} href="/blog">
-                    <a className="rounded-xl bg-primary-bg p-3 shadow-sm">
-                      {product.title} - {product.tagText}
-                    </a>
-                  </Link>
+                  <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
+                    <Link key={product.key} href="/blog">
+                      <a className="ml-3">{product.title}</a>
+                    </Link>
+                    <div className="flex items-center space-x-2 p-3">
+                      <TagIcon />
+                      <span>{product.category}</span>
+                    </div>
+                  </div>
                 ))}
               </>
             ) : (
-              <p className="tab__special text-center">
+              <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
                 {t("section-header.search.noresult")}
               </p>
             )}
