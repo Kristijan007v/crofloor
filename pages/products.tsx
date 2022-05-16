@@ -143,6 +143,7 @@ export default function Products({ parket, kategorija }: Props) {
               href={`products/${product.slug}`}
               tagText={product.tags.nodes[0].name}
               description={product.parket.opis}
+              showButton={true}
             />
           ))}
 

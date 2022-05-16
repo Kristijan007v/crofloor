@@ -1,26 +1,27 @@
 import type { NextPage } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import HeroSection from "../components/HeroSection/HeroSection";
-import Skeleton from "../components/Skeleton/Skeleton";
-import nextI18NextConfig from "../next-i18next.config.js";
 import { useTranslation } from "next-i18next";
-import ButtonDefault from "../components/Buttons/ButtonDefault";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
-import ProductCard from "../components/ProductCard/ProductCard";
 import { useState } from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
-import PostCard from "../components/PostCard/PostCard";
-import { getPostByCategory, getPosts } from "../lib/backend/api";
-import formatDate from "../lib/utilities/formatDate";
+import ButtonLink from "../components/ButtonLink/ButtonLink";
+import Card from "../components/Card/Card";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import HeroSection from "../components/HeroSection/HeroSection";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
+import PostCard from "../components/PostCard/PostCard";
+import Skeleton from "../components/Skeleton/Skeleton";
+import { getPostByCategory, getPosts, getProducts } from "../lib/backend/api";
+import formatDate from "../lib/utilities/formatDate";
+import nextI18NextConfig from "../next-i18next.config.js";
 
 interface Props {
   posts: any;
+  parket: any;
   featuredArticle: any;
 }
 
-const Home: NextPage<Props> = ({ posts, featuredArticle }) => {
+const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
   const { t } = useTranslation("common");
 
   const [tab, setTab] = useState("hrast");
@@ -41,71 +42,60 @@ const Home: NextPage<Props> = ({ posts, featuredArticle }) => {
         </h2>
 
         <div className="mb-6 flex justify-center space-x-4 text-lg font-medium">
-          <p
+          <button
             className={`${tab === "hrast" ? "active__tab" : "tab__default"}`}
             onClick={() => {
               setTab("hrast");
             }}
           >
             {t("product-collection.tabs.hrast")}
-          </p>
-          <p
+          </button>
+          <button
             className={`${tab === "jasen" ? "active__tab" : "tab__default"}`}
             onClick={() => {
               setTab("jasen");
             }}
           >
             {t("product-collection.tabs.jasen")}
-          </p>
-          <p
+          </button>
+          <button
             className={`${tab === "jela" ? "active__tab" : "tab__default"}`}
             onClick={() => {
               setTab("jela");
             }}
           >
             {t("product-collection.tabs.jela")}
-          </p>
+          </button>
         </div>
 
-        {/* Hrast SECTION */}
-        {tab === "hrast" && (
-          <div>
-            <ProductCard
-              type={"primary"}
-              heading="Morello Ricco"
-              image="morello-floor.jpg"
-            />
-          </div>
-        )}
-
-        {/* Jasen SECTION */}
-        {tab === "jasen" && (
-          <div>
-            <ProductCard
-              type={"primary"}
-              heading="Jasen"
-              image="castro-floor.jpg"
-            />
-          </div>
-        )}
-
-        {/* Jela SECTION */}
-        {tab === "jela" && (
-          <div>
-            <ProductCard
-              type={"primary"}
-              heading="Jela"
-              image="morello-floor.jpg"
-            />
-          </div>
-        )}
-
-        <ButtonDefault
-          text={t("product-collection.button")}
-          ariaLabel={t("product-collection.button")}
-          icon="arrowRight"
-          style=""
-        />
+        {/* Products SECTION */}
+        <div className="flex flex-col">
+          {parket
+            .filter((product: any) =>
+              product.parket.kategorija
+                .toLowerCase()
+                .includes(`${tab}`.toLowerCase())
+            )
+            .map((product: any) => (
+              <Card
+                key={product.id}
+                id={product.slug}
+                title={product.title}
+                imageURL={product.featuredImage.node.sourceUrl}
+                imageAlt={product.featuredImage.node.altText}
+                href={`products/${product.slug}`}
+                tagText={product.tags.nodes[0].name}
+                description={product.parket.opis}
+              />
+            ))}
+          <ButtonLink
+            text={t("product-collection.button")}
+            ariaLabel={t("product-collection.button")}
+            icon="arrowRight"
+            type="button"
+            href="/products"
+          />
+        </div>
       </div>
 
       {/* BLOG SECTION */}
@@ -185,12 +175,14 @@ export default Home;
 
 export async function getStaticProps({ locale }: any) {
   const { posts } = (await getPosts(3)) || [];
+  const { parket } = (await getProducts(100)) || [];
   const featuredArticle = (await getPostByCategory("Featured")) || [];
 
   return {
     props: {
       posts,
       featuredArticle,
+      parket,
       ...(await serverSideTranslations(locale, [
         "common",
         "home",

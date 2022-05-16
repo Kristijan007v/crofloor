@@ -12,6 +12,7 @@ interface Props {
   description?: string;
   tagText?: string;
   href: string;
+  showButton?: boolean;
 }
 
 export default function Card({
@@ -23,6 +24,7 @@ export default function Card({
   description,
   tagText,
   href,
+  showButton,
 }: Props) {
   return (
     <div key={key}>
@@ -47,14 +49,16 @@ export default function Card({
         <div className="flex -translate-y-8 flex-col space-y-4 rounded-2xl bg-primary-yellow/60 p-6 text-left backdrop-blur-md">
           <h3 className="heading__3">{title}</h3>
           <p className="paragraph">{description}</p>
-          <ButtonLink
-            text="Find out more"
-            ariaLabel=""
-            icon={"arrowRight"}
-            href={href}
-            type={"button"}
-            locale={true}
-          />
+          {showButton && (
+            <ButtonLink
+              text="Find out more"
+              ariaLabel=""
+              icon={"arrowRight"}
+              href={href}
+              type={"button"}
+              locale={true}
+            />
+          )}
         </div>
       </div>
     </div>
