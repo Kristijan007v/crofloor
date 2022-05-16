@@ -9,7 +9,6 @@ import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
 import { useState } from "react";
-import { FaYenSign } from "react-icons/fa";
 
 const products = [
   {
@@ -140,7 +139,7 @@ export default function Products() {
             {results.length > 0 ? (
               <div className="flex flex-col space-y-2 p-6 text-left">
                 {results.map((product) => (
-                  <p className="tab__special">
+                  <p key={product.key} className="tab__special">
                     {product.title} - {product.tagText}
                   </p>
                 ))}
