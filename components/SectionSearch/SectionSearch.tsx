@@ -3,7 +3,7 @@ import SearchIcon from "../Icons/SearchIcon";
 interface Props {
   searchPlaceholder: string;
   sticky?: boolean;
-  onchange?: any;
+  onchange?: (e: any) => void;
 }
 
 export default function SectionSearch({

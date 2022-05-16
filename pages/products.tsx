@@ -9,6 +9,7 @@ import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
 import { useState } from "react";
+import Link from "next/link";
 
 const products = [
   {
@@ -132,16 +133,18 @@ export default function Products() {
           description={t("section-header.description")}
           search={true}
           searchPlaceholder={t("section-header.search.placeholder")}
-          onchange={(e: any) => searchProducts(e.target.value)}
+          onchange={(e) => searchProducts(e.target.value)}
         />
         {searchTerm && (
           <>
             {results.length > 0 ? (
               <div className="flex flex-col space-y-2 p-6 text-left">
                 {results.map((product) => (
-                  <p key={product.key} className="tab__special">
-                    {product.title} - {product.tagText}
-                  </p>
+                  <Link key={product.key} href="/blog">
+                    <a className="tab__special">
+                      {product.title} - {product.tagText}
+                    </a>
+                  </Link>
                 ))}
               </div>
             ) : (

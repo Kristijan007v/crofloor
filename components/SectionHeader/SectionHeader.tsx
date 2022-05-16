@@ -12,7 +12,7 @@ interface Props {
   search?: boolean;
   searchPlaceholder?: string;
   stickySearch?: boolean;
-  onchange?: any;
+  onchange?: (e: any) => void;
 }
 
 export default function SectionHeader({
