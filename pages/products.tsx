@@ -150,7 +150,7 @@ export default function Products() {
                 ))}
               </>
             ) : (
-              <p className="tab__special">
+              <p className="tab__special text-center">
                 {t("section-header.search.noresult")}
               </p>
             )}
@@ -204,7 +204,7 @@ export default function Products() {
       <div className="p-6">
         {products.map((product) => (
           <Card
-            key={product.key}
+            key={product.id}
             id={product.id}
             title={product.title}
             imageURL={product.imageURL}

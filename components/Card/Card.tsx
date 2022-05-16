@@ -5,7 +5,7 @@ import Tag from "../Tag/Tag";
 
 interface Props {
   id?: string;
-  key?: number;
+  key?: any;
   title: string;
   imageURL: string;
   imageAlt: string;

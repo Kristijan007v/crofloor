@@ -80,17 +80,19 @@ export default function Blog({
             {results.length > 0 ? (
               <>
                 {results.map((post) => (
-                  <Link key={post.id} href={`/articles/${post.slug}`}>
-                    <a className="border-b p-2">
-                      {post.title} - {formatDate(post.date)}
-                    </a>
-                  </Link>
+                  <div className="flex items-center justify-between border-b p-2">
+                    <Link key={post.id} href={`/articles/${post.slug}`}>
+                      <a className="font-medium">{post.title}</a>
+                    </Link>
+                    <div className="flex items-center space-x-2">
+                      <CalendarIcon />
+                      <span>{formatDate(post.date)}</span>
+                    </div>
+                  </div>
                 ))}
               </>
             ) : (
-              <p className="tab__special">
-                {t("section-header.search.noresult")}
-              </p>
+              <p className="p-2">{t("section-header.search.noresult")}</p>
             )}
           </div>
         )}
