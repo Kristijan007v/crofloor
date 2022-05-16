@@ -8,6 +8,8 @@ import LinkDefault from "../components/LinkDefault/LinkDefault";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
+import { useState } from "react";
+import { FaYenSign } from "react-icons/fa";
 
 const products = [
   {
@@ -107,6 +109,20 @@ export async function getStaticProps({ locale }: any) {
 export default function Products() {
   const { t } = useTranslation("products");
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [results, setResults] = useState(products);
+
+  const searchProducts = (searchTerm: string) => {
+    setSearchTerm(searchTerm);
+
+    const result = products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setResults(result);
+    console.log(result);
+  };
+
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
@@ -117,7 +133,26 @@ export default function Products() {
           description={t("section-header.description")}
           search={true}
           searchPlaceholder={t("section-header.search.placeholder")}
+          onchange={(e: any) => searchProducts(e.target.value)}
         />
+        {searchTerm && (
+          <>
+            {results.length > 0 ? (
+              <div className="flex flex-col space-y-2 p-6 text-left">
+                {results.map((product) => (
+                  <p className="tab__special">
+                    {product.title} - {product.tagText}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <div className="p-6">
+                <p className="tab__special">No results</p>
+              </div>
+            )}
+          </>
+        )}
+
         {/* Fixed product navbar */}
         <div className="sticky top-0 left-0 right-0 z-20 flex flex-col border-t">
           <div className="flex justify-center space-x-6 border-b bg-primary-yellow p-3 text-xl font-medium text-black">
