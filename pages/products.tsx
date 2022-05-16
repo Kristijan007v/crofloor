@@ -91,6 +91,7 @@ export default function Products({ parket }: Props) {
             <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-3 pb-3 pr-2 pl-2 font-medium">
               {parket.map((product: any) => (
                 <LinkDefault
+                  key={product.id}
                   text={product.title}
                   href={`#${product.slug}`}
                   style="tab__special"
@@ -103,7 +104,7 @@ export default function Products({ parket }: Props) {
       <div className="p-6">
         {parket.map((product: any) => (
           <Card
-            keyID={product.id}
+            key={product.id}
             id={product.slug}
             title={product.title}
             imageURL={product.featuredImage.node.sourceUrl}

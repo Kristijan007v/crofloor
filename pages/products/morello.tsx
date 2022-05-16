@@ -1,8 +1,8 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Gallery from "../../../components/Gallery/Gallery";
-import PageHeader from "../../../components/PageHeader/PageHeader";
-import Skeleton from "../../../components/Skeleton/Skeleton";
-import nextI18nextConfig from "../../../next-i18next.config";
+import Gallery from "../../components/Gallery/Gallery";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import Skeleton from "../../components/Skeleton/Skeleton";
+import nextI18nextConfig from "../../next-i18next.config";
 
 const images = [
   {
@@ -26,6 +26,7 @@ const images = [
     originalAlt: "Factory",
   },
 ];
+
 export default function MorreloRicco() {
   const MAIN_DOMAIN = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
 
