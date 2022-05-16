@@ -1,11 +1,12 @@
 import mailchimp from "@mailchimp/mailchimp_marketing";
+import { subscribe } from "graphql";
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
   server: process.env.MAILCHIMP_API_SERVER, // e.g. us1
 });
 
-export default async (req, res) => {
+export default subscribe = async (req, res) => {
   const { email } = req.body;
 
   if (!email) {
