@@ -11,6 +11,8 @@ import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
 import Link from "next/link";
 import SectionSearch from "../components/SectionSearch/SectionSearch";
+import Image from "next/image";
+import CalendarIcon from "../components/Icons/CalendarIcon";
 
 interface Props {
   posts: any;
@@ -68,7 +70,7 @@ export default function Blog({
       </ErrorBoundary>
 
       {/* Search results */}
-      <div className="sticky top-0 z-30 bg-white">
+      <div className="sticky top-0 z-20 bg-white">
         <SectionSearch
           searchPlaceholder="Search for articles"
           onchange={(e) => searchBlog(e.target.value)}
@@ -78,11 +80,32 @@ export default function Blog({
             {results.length > 0 ? (
               <div className="flex flex-col space-y-2 border-b p-6 text-center">
                 {results.map((post) => (
-                  <Link key={post.key} href={`/articles/${post.slug}`}>
-                    <a className="tab__special">
-                      {post.title} - {formatDate(post.date)}
-                    </a>
-                  </Link>
+                  <div className="flex items-center rounded-md bg-primary-bg">
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src={`${post.featuredImage.node.sourceUrl}`}
+                        layout="fill"
+                        objectFit="cover"
+                        placeholder="blur"
+                        blurDataURL={`${post.featuredImage.node.sourceUrl}`}
+                        className="rounded-md"
+                        alt={post.alt}
+                      />
+                    </div>
+                    <div className="flex flex-col space-y-2 p-2">
+                      <div className="flex items-center space-x-2">
+                        <CalendarIcon />
+                        <p>{formatDate(post.date)}</p>
+                      </div>
+                      <Link
+                        key={post.key}
+                        href={`/articles/${post.slug}`}
+                        className=""
+                      >
+                        <a>{post.title}</a>
+                      </Link>
+                    </div>
+                  </div>
                 ))}
               </div>
             ) : (

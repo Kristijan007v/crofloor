@@ -135,10 +135,12 @@ export default function Products() {
           searchPlaceholder={t("section-header.search.placeholder")}
           onchange={(e) => searchProducts(e.target.value)}
         />
+
+        {/* Search results */}
         {searchTerm && (
-          <>
+          <div className="flex flex-col space-y-2 pb-6 pr-6 pl-6 pt-2 text-left">
             {results.length > 0 ? (
-              <div className="flex flex-col space-y-2 p-6 text-left">
+              <>
                 {results.map((product) => (
                   <Link key={product.key} href="/blog">
                     <a className="tab__special">
@@ -146,17 +148,15 @@ export default function Products() {
                     </a>
                   </Link>
                 ))}
-              </div>
+              </>
             ) : (
-              <div className="p-6">
-                <p className="tab__special">No results</p>
-              </div>
+              <p className="tab__special">No results</p>
             )}
-          </>
+          </div>
         )}
 
         {/* Fixed product navbar */}
-        <div className="sticky top-0 left-0 right-0 z-20 flex flex-col border-t">
+        <div className="sticky top-0 left-0 right-0 z-20 flex flex-col border-b">
           <div className="flex justify-center space-x-6 border-b bg-primary-yellow p-3 text-xl font-medium text-black">
             <LinkDefault
               text="Hrast"
