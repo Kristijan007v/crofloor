@@ -48,7 +48,7 @@ export default function PostCard({
           : "bg-white"
       }`}
     >
-      <div className="relative h-72 w-full">
+      <div className="relative h-72 w-full rounded-xl border">
         <Image
           src={`${image}`}
           layout="fill"
