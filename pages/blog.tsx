@@ -72,7 +72,7 @@ export default function Blog({
       {/* Search results */}
       <div className="sticky top-0 z-20 bg-white">
         <SectionSearch
-          searchPlaceholder="Search for articles"
+          searchPlaceholder={t("section-header.search.placeholder")}
           onchange={(e) => searchBlog(e.target.value)}
         />
         {searchTerm && (
@@ -80,18 +80,15 @@ export default function Blog({
             {results.length > 0 ? (
               <>
                 {results.map((post) => (
-                  <div
-                    key={post.id}
-                    className="flex items-center justify-between border-b p-2"
-                  >
-                    <Link href={`/articles/${post.slug}`}>
-                      <a className="font-medium">{post.title}</a>
-                    </Link>
-                    <div className="flex items-center space-x-2">
-                      <CalendarIcon />
-                      <span>{formatDate(post.date)}</span>
+                  <Link key={post.id} href={`/articles/${post.slug}`}>
+                    <div className="flex items-center justify-between border-b p-2">
+                      <p className="font-medium">{post.title}</p>
+                      <div className="flex items-center space-x-2">
+                        <CalendarIcon />
+                        <span>{formatDate(post.date)}</span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </>
             ) : (
