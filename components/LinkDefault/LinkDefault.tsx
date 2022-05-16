@@ -7,12 +7,19 @@ interface Props {
   href: string;
   style?: string;
   props?: any;
+  onclick?: () => void;
 }
 
-export default function LinkDefault({ text, href, style, props }: Props) {
+export default function LinkDefault({
+  text,
+  href,
+  style,
+  props,
+  onclick,
+}: Props) {
   const router = useRouter();
   return (
-    <Link href={`${href}`} locale={router.locale}>
+    <Link onClick={onclick} href={`${href}`} locale={router.locale}>
       <a className={`${style}`} {...props}>
         {text}
       </a>

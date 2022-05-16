@@ -16,9 +16,10 @@ import nextI18NextConfig from "../next-i18next.config.js";
 
 interface Props {
   parket: any;
+  kategorija: "hrast" | "jasen" | "jela";
 }
 
-export default function Products({ parket }: Props) {
+export default function Products({ parket, kategorija }: Props) {
   const { t } = useTranslation("products");
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,6 +34,9 @@ export default function Products({ parket }: Props) {
     );
     setResults(result);
   };
+
+  //Tab switching
+  const [activeTab, setActiveTab] = useState("hrast");
 
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
@@ -79,41 +83,69 @@ export default function Products({ parket }: Props) {
         {/* Fixed product navbar */}
         <div className="flex flex-col border-b">
           <div className="flex justify-center space-x-6 border-b bg-primary-yellow p-3 text-xl font-medium text-black">
-            <LinkDefault
-              text="Hrast"
-              href="/products"
-              style="border-b-2 border-black font-semibold"
-            />
-            <LinkDefault text="Jasen" href="/products" />
-            <LinkDefault text="Jela" href="/products" />
+            <button
+              className={`${activeTab === "hrast" && "active__tab__special"}`}
+              onClick={() => setActiveTab("hrast")}
+            >
+              Hrast
+            </button>
+            <button
+              className={`${activeTab === "jasen" && "active__tab__special"}`}
+              onClick={() => setActiveTab("jasen")}
+            >
+              Jasen
+            </button>
+            <button
+              className={`${activeTab === "jela" && "active__tab__special"}`}
+              onClick={() => setActiveTab("jela")}
+            >
+              Jela
+            </button>
           </div>
           <div className="bg-white">
             <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-3 pb-3 pr-2 pl-2 font-medium">
-              {parket.map((product: any) => (
-                <LinkDefault
-                  key={product.id}
-                  text={product.title}
-                  href={`#${product.slug}`}
-                  style="tab__special"
-                />
-              ))}
+              {parket
+                .filter((product: any) =>
+                  product.parket.kategorija
+                    .toLowerCase()
+                    .includes(`${activeTab}`.toLowerCase())
+                )
+                .map((product: any) => (
+                  <LinkDefault
+                    key={product.id}
+                    text={product.title}
+                    href={`#${product.slug}`}
+                    style="tab__special"
+                  />
+                ))}
             </div>
           </div>
         </div>
       </ErrorBoundary>
+
+      {/* PRODUCTS */}
       <div className="p-6">
-        {parket.map((product: any) => (
-          <Card
-            key={product.id}
-            id={product.slug}
-            title={product.title}
-            imageURL={product.featuredImage.node.sourceUrl}
-            imageAlt={product.featuredImage.node.altText}
-            href={`products/${product.slug}`}
-            tagText={product.tags.nodes[0].name}
-            description={product.parket.opis}
-          />
-        ))}
+        {/* Hrast Products */}
+
+        {parket
+          .filter((product: any) =>
+            product.parket.kategorija
+              .toLowerCase()
+              .includes(`${activeTab}`.toLowerCase())
+          )
+          .map((product: any) => (
+            <Card
+              key={product.id}
+              id={product.slug}
+              title={product.title}
+              imageURL={product.featuredImage.node.sourceUrl}
+              imageAlt={product.featuredImage.node.altText}
+              href={`products/${product.slug}`}
+              tagText={product.tags.nodes[0].name}
+              description={product.parket.opis}
+            />
+          ))}
+
         <LinkDefault
           href="#section-top"
           style="flex justify-end"

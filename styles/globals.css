@@ -113,6 +113,10 @@ body {
   @apply border-b-2 border-black bg-primary-yellow pt-1 pb-1 pr-6 pl-6 font-semibold;
 }
 
+.active__tab__special {
+  @apply border-b-2 border-black font-semibold;
+}
+
 .tab__default {
   @apply cursor-pointer pt-1 pb-1 pr-6 pl-6 hover:bg-primary-yellow;
 }
