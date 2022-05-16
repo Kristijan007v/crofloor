@@ -9,6 +9,8 @@ import Skeleton from "../components/Skeleton/Skeleton";
 import { getPostByCategory, getPosts, getSearch } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
+import Link from "next/link";
+import SectionSearch from "../components/SectionSearch/SectionSearch";
 
 interface Props {
   posts: any;
@@ -36,6 +38,20 @@ export default function Blog({
     setShowRecommended(false);
   };
 
+  const [searchTerm, setSearchTerm] = React.useState("");
+
+  const [results, setResults] = React.useState([]);
+
+  const searchBlog = (searchTerm: string) => {
+    setSearchTerm(searchTerm);
+
+    const result = posts.filter((post: any) =>
+      post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setResults(result);
+    console.log(result);
+  };
+
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
@@ -44,11 +60,39 @@ export default function Blog({
           image="blog.jpg"
           alt={t("section-header.image.alt")}
           description={t("section-header.description")}
-          search={true}
+          /* search={true}
           searchPlaceholder={t("section-header.search.placeholder")}
           stickySearch={true}
+          onchange={(e) => searchBlog(e.target.value)} */
         />
       </ErrorBoundary>
+
+      {/* Search results */}
+      <div className="sticky top-0 z-30 bg-white">
+        <SectionSearch
+          searchPlaceholder="Search for articles"
+          onchange={(e) => searchBlog(e.target.value)}
+        />
+        {searchTerm && (
+          <>
+            {results.length > 0 ? (
+              <div className="flex flex-col space-y-2 border-b p-6 text-center">
+                {results.map((post) => (
+                  <Link href={`/articles/${post.slug}`}>
+                    <a className="tab__special">
+                      {post.title} - {formatDate(post.date)}
+                    </a>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="border-b p-6">
+                <p className="tab__special">No results</p>
+              </div>
+            )}
+          </>
+        )}
+      </div>
 
       {/* Featured ARTICLES */}
       {featuredArticle.featuredPost.length > 0 && (
