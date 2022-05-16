@@ -150,7 +150,9 @@ export default function Products() {
                 ))}
               </>
             ) : (
-              <p className="tab__special">No results</p>
+              <p className="tab__special">
+                {t("section-header.search.noresult")}
+              </p>
             )}
           </div>
         )}

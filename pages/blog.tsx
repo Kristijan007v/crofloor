@@ -76,44 +76,23 @@ export default function Blog({
           onchange={(e) => searchBlog(e.target.value)}
         />
         {searchTerm && (
-          <>
+          <div className="flex flex-col space-y-2 border-b pb-6 pr-6 pl-6 pt-2 text-left">
             {results.length > 0 ? (
-              <div className="flex flex-col space-y-2 border-b p-6 text-center">
+              <>
                 {results.map((post) => (
-                  <div className="flex items-center rounded-md bg-primary-bg">
-                    <div className="relative h-16 w-16">
-                      <Image
-                        src={`${post.featuredImage.node.sourceUrl}`}
-                        layout="fill"
-                        objectFit="cover"
-                        placeholder="blur"
-                        blurDataURL={`${post.featuredImage.node.sourceUrl}`}
-                        className="rounded-md"
-                        alt={post.alt}
-                      />
-                    </div>
-                    <div className="flex flex-col space-y-2 p-2">
-                      <div className="flex items-center space-x-2">
-                        <CalendarIcon />
-                        <p>{formatDate(post.date)}</p>
-                      </div>
-                      <Link
-                        key={post.key}
-                        href={`/articles/${post.slug}`}
-                        className=""
-                      >
-                        <a>{post.title}</a>
-                      </Link>
-                    </div>
-                  </div>
+                  <Link key={post.id} href={`/articles/${post.slug}`}>
+                    <a className="border-b p-2">
+                      {post.title} - {formatDate(post.date)}
+                    </a>
+                  </Link>
                 ))}
-              </div>
+              </>
             ) : (
-              <div className="border-b p-6">
-                <p className="tab__special">No results</p>
-              </div>
+              <p className="tab__special">
+                {t("section-header.search.noresult")}
+              </p>
             )}
-          </>
+          </div>
         )}
       </div>
 
