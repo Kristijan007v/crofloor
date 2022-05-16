@@ -80,8 +80,11 @@ export default function Blog({
             {results.length > 0 ? (
               <>
                 {results.map((post) => (
-                  <div className="flex items-center justify-between border-b p-2">
-                    <Link key={post.id} href={`/articles/${post.slug}`}>
+                  <div
+                    key={post.id}
+                    className="flex items-center justify-between border-b p-2"
+                  >
+                    <Link href={`/articles/${post.slug}`}>
                       <a className="font-medium">{post.title}</a>
                     </Link>
                     <div className="flex items-center space-x-2">
@@ -92,7 +95,9 @@ export default function Blog({
                 ))}
               </>
             ) : (
-              <p className="p-2">{t("section-header.search.noresult")}</p>
+              <p className="p-2 text-center">
+                {t("section-header.search.noresult")}
+              </p>
             )}
           </div>
         )}
