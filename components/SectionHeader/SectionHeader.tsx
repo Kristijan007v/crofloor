@@ -12,6 +12,7 @@ interface Props {
   search?: boolean;
   searchPlaceholder?: string;
   stickySearch?: boolean;
+  onchange?: any;
 }
 
 export default function SectionHeader({
@@ -24,6 +25,7 @@ export default function SectionHeader({
   search,
   searchPlaceholder,
   stickySearch,
+  onchange,
 }: Props) {
   return (
     <>
@@ -48,6 +50,7 @@ export default function SectionHeader({
         <SectionSearch
           searchPlaceholder={`${searchPlaceholder}`}
           sticky={stickySearch}
+          onchange={onchange}
         />
       )}
     </>

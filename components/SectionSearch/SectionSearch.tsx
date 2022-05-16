@@ -3,9 +3,14 @@ import SearchIcon from "../Icons/SearchIcon";
 interface Props {
   searchPlaceholder: string;
   sticky?: boolean;
+  onchange?: any;
 }
 
-export default function SectionSearch({ searchPlaceholder, sticky }: Props) {
+export default function SectionSearch({
+  searchPlaceholder,
+  sticky,
+  onchange,
+}: Props) {
   return (
     <div
       className={`${
@@ -17,6 +22,7 @@ export default function SectionSearch({ searchPlaceholder, sticky }: Props) {
           className="w-full bg-transparent p-1 placeholder-black focus:outline-none"
           type={"search"}
           placeholder={searchPlaceholder}
+          onChange={onchange}
         />
         <SearchIcon />
       </div>
