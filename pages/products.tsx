@@ -150,8 +150,11 @@ export default function Products() {
             {results.length > 0 ? (
               <>
                 {results.map((product) => (
-                  <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
-                    <Link key={product.key} href="/blog">
+                  <div
+                    key={product.key}
+                    className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm"
+                  >
+                    <Link href="/blog">
                       <a className="ml-3">{product.title}</a>
                     </Link>
                     <div className="flex items-center space-x-2 p-3">
