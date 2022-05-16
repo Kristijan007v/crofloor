@@ -92,7 +92,7 @@ export default function Blog({
                 ))}
               </>
             ) : (
-              <p className="p-2 text-center">
+              <p className="tab__special text-center">
                 {t("section-header.search.noresult")}
               </p>
             )}
