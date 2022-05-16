@@ -6,7 +6,7 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_API_SERVER, // e.g. us1
 });
 
-export default subscribe = async (req, res) => {
+export default async (req, res) => {
   const { email } = req.body;
 
   if (!email) {
