@@ -143,7 +143,7 @@ export default function Products() {
               <>
                 {results.map((product) => (
                   <Link key={product.key} href="/blog">
-                    <a className="tab__special">
+                    <a className="rounded-xl bg-primary-bg p-3 shadow-sm">
                       {product.title} - {product.tagText}
                     </a>
                   </Link>
