@@ -112,6 +112,7 @@ export default function Blog({
 
           {showFeatured && (
             <ArticleCard
+              key={featuredArticle.featuredPost[0].id}
               sectionType={t("section.featured-article")}
               heading={featuredArticle.featuredPost[0].title}
               imageArticle={
@@ -143,6 +144,7 @@ export default function Blog({
 
           {showRecommended && (
             <ArticleCard
+              key={recommendedArticle.featuredPost[0].id}
               sectionType={t("section.recommended-article")}
               heading={recommendedArticle.featuredPost[0].title}
               imageArticle={
