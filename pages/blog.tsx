@@ -1,18 +1,17 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Link from "next/link";
 import React from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import CalendarIcon from "../components/Icons/CalendarIcon";
 import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
+import SectionSearch from "../components/SectionSearch/SectionSearch";
 import Skeleton from "../components/Skeleton/Skeleton";
-import { getPostByCategory, getPosts, getSearch } from "../lib/backend/api";
+import { getPostByCategory, getPosts } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
-import Link from "next/link";
-import SectionSearch from "../components/SectionSearch/SectionSearch";
-import Image from "next/image";
-import CalendarIcon from "../components/Icons/CalendarIcon";
 
 interface Props {
   posts: any;
@@ -51,7 +50,6 @@ export default function Blog({
       post.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setResults(result);
-    console.log(result);
   };
 
   return (
@@ -62,10 +60,6 @@ export default function Blog({
           image="blog.jpg"
           alt={t("section-header.image.alt")}
           description={t("section-header.description")}
-          /* search={true}
-          searchPlaceholder={t("section-header.search.placeholder")}
-          stickySearch={true}
-          onchange={(e) => searchBlog(e.target.value)} */
         />
       </ErrorBoundary>
 
