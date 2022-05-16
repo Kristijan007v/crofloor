@@ -78,7 +78,7 @@ export default function Blog({
             {results.length > 0 ? (
               <div className="flex flex-col space-y-2 border-b p-6 text-center">
                 {results.map((post) => (
-                  <Link href={`/articles/${post.slug}`}>
+                  <Link key={post.key} href={`/articles/${post.slug}`}>
                     <a className="tab__special">
                       {post.title} - {formatDate(post.date)}
                     </a>
