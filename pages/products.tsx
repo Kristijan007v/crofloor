@@ -204,7 +204,7 @@ export default function Products() {
       <div className="p-6">
         {products.map((product) => (
           <Card
-            key={product.id}
+            key={product.key}
             id={product.id}
             title={product.title}
             imageURL={product.imageURL}
