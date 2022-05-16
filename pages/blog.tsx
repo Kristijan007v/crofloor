@@ -40,7 +40,7 @@ export default function Blog({
 
   const [searchTerm, setSearchTerm] = React.useState("");
 
-  const [results, setResults] = React.useState([]);
+  const [results, setResults] = React.useState<any[]>([]);
 
   const searchBlog = (searchTerm: string) => {
     setSearchTerm(searchTerm);
