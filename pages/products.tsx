@@ -49,32 +49,40 @@ export default function Products({ parket, kategorija }: Props) {
         />
 
         {/* Search results */}
-        <div className="sticky top-0 left-0 right-0 z-20 bg-white">
+        <div className="sticky top-0 left-0 right-0 z-20">
           <SectionSearch
             searchPlaceholder={t("section-header.search.placeholder")}
             onchange={(e) => searchProducts(e.target.value)}
           />
           {searchTerm && (
-            <div className="flex flex-col space-y-2 border-b pb-6 pr-6 pl-6 pt-2 text-left">
-              {results.length > 0 ? (
-                <>
-                  {results.map((product: any) => (
-                    <Link key={product.id} href={`#${product.slug}`}>
-                      <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
-                        <a className="ml-3">{product.title}</a>
-                        <div className="flex items-center space-x-2 p-3">
-                          <TagIcon />
-                          <span>{product.parket.kategorija}</span>
+            <div className="flex h-screen flex-col">
+              <div className="flex flex-col space-y-2 border-b bg-white pb-6 pr-6 pl-6 pt-2 text-left">
+                {results.length > 0 ? (
+                  <>
+                    {results.map((product: any) => (
+                      <Link key={product.id} href={`#${product.slug}`}>
+                        <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
+                          <a className="ml-3">{product.title}</a>
+                          <div className="flex items-center space-x-2 p-3">
+                            <TagIcon />
+                            <span>{product.parket.kategorija}</span>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))}
-                </>
-              ) : (
-                <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
-                  {t("section-header.search.noresult")}
-                </p>
-              )}
+                      </Link>
+                    ))}
+                  </>
+                ) : (
+                  <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
+                    {t("section-header.search.noresult")}
+                  </p>
+                )}
+              </div>
+              <div
+                className="grow bg-black/40 backdrop-blur-xl"
+                onClick={() => {
+                  setSearchTerm("");
+                }}
+              ></div>
             </div>
           )}
         </div>
