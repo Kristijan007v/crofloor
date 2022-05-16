@@ -127,3 +127,40 @@ export async function getPostByCategory(categoryName: string) {
     featuredPost: data?.posts.nodes,
   };
 }
+
+export async function getProducts(perPage: number) {
+  const { data } = await client.query({
+    query: gql`
+    query Products {
+      products(first: ${perPage}) {
+        nodes {
+          parket {
+            kategorija
+            opis
+            specifikacije {
+              sourceUrl
+            }
+          }
+          tags {
+            nodes {
+              name
+            }
+          }
+          slug
+          title
+          content
+          featuredImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+    `,
+  });
+  return {
+    parket: data?.products.nodes,
+  };
+}

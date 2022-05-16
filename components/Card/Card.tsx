@@ -5,18 +5,18 @@ import Tag from "../Tag/Tag";
 
 interface Props {
   id?: string;
-  key?: number;
+  keyID?: number;
   title: string;
-  imageURL: string;
-  imageAlt: string;
-  description: string;
+  imageURL?: string;
+  imageAlt?: string;
+  description?: string;
   tagText?: string;
   href: string;
 }
 
 export default function Card({
   id,
-  key,
+  keyID,
   title,
   imageURL,
   imageAlt,
@@ -25,9 +25,9 @@ export default function Card({
   href,
 }: Props) {
   return (
-    <>
+    <div key={keyID}>
       <div id={id} className="scroll-mt-32"></div>
-      <div className="" key={key}>
+      <div className="">
         <div className="relative h-72 w-full">
           <Image
             src={`${imageURL}`}
@@ -57,6 +57,6 @@ export default function Card({
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }

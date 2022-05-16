@@ -1,132 +1,34 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Link from "next/link";
+import { useState } from "react";
 import Card from "../components/Card/Card";
 import Dropdown from "../components/Dropdown/Dropdown";
 import DropdownItem from "../components/DropdownItem/DropdownItem";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import TagIcon from "../components/Icons/TagIcon";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
-import Skeleton from "../components/Skeleton/Skeleton";
-import nextI18NextConfig from "../next-i18next.config.js";
-import { useState } from "react";
-import Link from "next/link";
-import TagIcon from "../components/Icons/TagIcon";
 import SectionSearch from "../components/SectionSearch/SectionSearch";
-import ButtonLink from "../components/ButtonLink/ButtonLink";
+import Skeleton from "../components/Skeleton/Skeleton";
+import { getProducts } from "../lib/backend/api";
+import nextI18NextConfig from "../next-i18next.config.js";
 
-const products = [
-  {
-    key: 1,
-    id: "morello-ricco",
-    category: "Hrast",
-    title: "Morello Ricco",
-    imageURL: "/images/morello-floor.jpg",
-    imageAlt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
-    tagText: "XXL daske",
-    href: "",
-  },
-  {
-    key: 2,
-    id: "castro",
-    category: "Hrast",
-    title: "Castro",
-    imageURL: "/images/morello-floor.jpg",
-    imageAlt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
-    tagText: "Masivni seljački pod",
-    href: "",
-  },
-  {
-    key: 3,
-    id: "morello-ottimo",
-    category: "Hrast",
-    title: "Morello Ottimo",
-    imageURL: "/images/morello-floor.jpg",
-    imageAlt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
-    tagText: "Troslojni seljački pod",
-    href: "",
-  },
-  {
-    key: 4,
-    id: "multiplex",
-    category: "Hrast",
-    title: "Multiplex",
-    imageURL: "/images/morello-floor.jpg",
-    imageAlt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
-    tagText: "Dvoslojni parket",
-    href: "",
-  },
-  {
-    key: 5,
-    id: "riblja-kost",
-    category: "Hrast",
-    title: "Riblja kost",
-    imageURL: "/images/morello-floor.jpg",
-    imageAlt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
-    tagText: "Dvoslojni parket",
-    href: "",
-  },
-  {
-    key: 6,
-    id: "pavone",
-    category: "Hrast",
-    title: "Pavone",
-    imageURL: "/images/morello-floor.jpg",
-    imageAlt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
-    tagText: "Dvoslojni parket",
-    href: "",
-  },
-  {
-    key: 7,
-    id: "gazista",
-    category: "Hrast",
-    title: "Gazišta",
-    imageURL: "/images/morello-floor.jpg",
-    imageAlt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit voluptatibus consequuntur totam saepe odio assumenda beataemollitia voluptatum molestiae.",
-    tagText: "Novo",
-    href: "",
-  },
-];
-
-export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "menu",
-        "cookieBanner",
-        "footer",
-        "products",
-      ])),
-      nextI18NextConfig,
-    },
-  };
+interface Props {
+  parket: any;
 }
 
-export default function Products() {
+export default function Products({ parket }: Props) {
   const { t } = useTranslation("products");
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [results, setResults] = useState(products);
+  const [results, setResults] = useState(parket);
 
   const searchProducts = (searchTerm: string) => {
     setSearchTerm(searchTerm);
 
-    const result = products.filter((product) =>
+    const result = parket.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setResults(result);
@@ -152,13 +54,13 @@ export default function Products() {
             <div className="flex flex-col space-y-2 border-b pb-6 pr-6 pl-6 pt-2 text-left">
               {results.length > 0 ? (
                 <>
-                  {results.map((product) => (
-                    <Link key={product.key} href={`#${product.id}`}>
+                  {results.map((product: any) => (
+                    <Link key={product.id} href={`#${product.slug}`}>
                       <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
                         <a className="ml-3">{product.title}</a>
                         <div className="flex items-center space-x-2 p-3">
                           <TagIcon />
-                          <span>{product.category}</span>
+                          <span>{product.parket.kategorija}</span>
                         </div>
                       </div>
                     </Link>
@@ -179,56 +81,36 @@ export default function Products() {
           <div className="flex justify-center space-x-6 border-b bg-primary-yellow p-3 text-xl font-medium text-black">
             <LinkDefault
               text="Hrast"
-              href=""
+              href="/products"
               style="border-b-2 border-black font-semibold"
             />
-            <LinkDefault text="Jasen" href="" />
-            <LinkDefault text="Jela" href="" />
+            <LinkDefault text="Jasen" href="/products" />
+            <LinkDefault text="Jela" href="/products" />
           </div>
           <div className="bg-white">
             <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-3 pb-3 pr-2 pl-2 font-medium">
-              <LinkDefault
-                text="Morello Ricco"
-                href="#morello-ricco"
-                style="tab__special"
-              />
-              <LinkDefault text="Castro" href="#castro" style="tab__special" />
-              <LinkDefault
-                text="Morello Ottimo"
-                href="#morello-ottimo"
-                style="tab__special"
-              />
-              <LinkDefault
-                text="Multiplex"
-                href="#multiplex"
-                style="tab__special"
-              />
-              <LinkDefault
-                text="Riblja kost"
-                href="#riblja-kost"
-                style="tab__special"
-              />
-              <LinkDefault text="Pavone" href="#pavone" style="tab__special" />
-              <LinkDefault
-                text="Gazišta"
-                href="#gazista"
-                style="tab__special"
-              />
+              {parket.map((product: any) => (
+                <LinkDefault
+                  text={product.title}
+                  href={`#${product.slug}`}
+                  style="tab__special"
+                />
+              ))}
             </div>
           </div>
         </div>
       </ErrorBoundary>
       <div className="p-6">
-        {products.map((product) => (
+        {parket.map((product: any) => (
           <Card
-            key={product.key}
-            id={product.id}
+            keyID={product.id}
+            id={product.slug}
             title={product.title}
-            imageURL={product.imageURL}
-            imageAlt={product.imageAlt}
-            description={product.description}
-            href={product.href}
-            tagText={product.tagText}
+            imageURL={product.featuredImage.node.sourceUrl}
+            imageAlt={product.featuredImage.node.altText}
+            href={`products/${product.slug}`}
+            tagText={product.tags.nodes[0].name}
+            description={product.parket.opis}
           />
         ))}
         <LinkDefault
@@ -264,4 +146,21 @@ export default function Products() {
       </div>
     </Skeleton>
   );
+}
+
+export async function getStaticProps({ locale }: any) {
+  const { parket } = (await getProducts(10)) || [];
+  return {
+    props: {
+      parket,
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "menu",
+        "cookieBanner",
+        "footer",
+        "products",
+      ])),
+      nextI18NextConfig,
+    },
+  };
 }
