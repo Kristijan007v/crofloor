@@ -9,5 +9,8 @@
       "placeholder": "Search for products...",
       "noresult": "No results found"
     }
+  },
+  "body": {
+    "scroll-to-top": "Back to top"
   }
 }

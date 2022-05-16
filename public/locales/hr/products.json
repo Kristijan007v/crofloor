@@ -9,5 +9,8 @@
       "placeholder": "Pretraži proizvode...",
       "noresult": "Nema rezultata pretraživanja"
     }
+  },
+  "body": {
+    "scroll-to-top": "Povratak na vrh"
   }
 }

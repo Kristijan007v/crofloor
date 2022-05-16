@@ -12,6 +12,7 @@ import { useState } from "react";
 import Link from "next/link";
 import TagIcon from "../components/Icons/TagIcon";
 import SectionSearch from "../components/SectionSearch/SectionSearch";
+import ButtonLink from "../components/ButtonLink/ButtonLink";
 
 const products = [
   {
@@ -148,22 +149,19 @@ export default function Products() {
             onchange={(e) => searchProducts(e.target.value)}
           />
           {searchTerm && (
-            <div className="flex flex-col space-y-2 pb-6 pr-6 pl-6 pt-2 text-left">
+            <div className="flex flex-col space-y-2 border-b pb-6 pr-6 pl-6 pt-2 text-left">
               {results.length > 0 ? (
                 <>
                   {results.map((product) => (
-                    <div
-                      key={product.key}
-                      className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm"
-                    >
-                      <Link href="/blog">
+                    <Link key={product.key} href={`#${product.id}`}>
+                      <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
                         <a className="ml-3">{product.title}</a>
-                      </Link>
-                      <div className="flex items-center space-x-2 p-3">
-                        <TagIcon />
-                        <span>{product.category}</span>
+                        <div className="flex items-center space-x-2 p-3">
+                          <TagIcon />
+                          <span>{product.category}</span>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </>
               ) : (
@@ -175,6 +173,7 @@ export default function Products() {
           )}
         </div>
 
+        <div id="section-top" className="scroll-mt-32"></div>
         {/* Fixed product navbar */}
         <div className="flex flex-col border-b">
           <div className="flex justify-center space-x-6 border-b bg-primary-yellow p-3 text-xl font-medium text-black">
@@ -232,6 +231,11 @@ export default function Products() {
             tagText={product.tagText}
           />
         ))}
+        <LinkDefault
+          href="#section-top"
+          style="flex justify-end"
+          text={t("body.scroll-to-top")}
+        />
       </div>
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
         Lokacije trgovina
