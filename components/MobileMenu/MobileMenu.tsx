@@ -1,16 +1,17 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useState } from "react";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import dropInBottom from "../../lib/animations/dropInBottom";
 import ButtonDefault from "../Buttons/ButtonDefault";
 import ArrowDown from "../Icons/ArrowDown";
 import ArrowUp from "../Icons/ArrowUp";
 import CloseIcon from "../Icons/CloseIcon";
+import TagIcon from "../Icons/TagIcon";
 import WorldIcon from "../Icons/WorldIcon";
 import Overlay from "../Overlay/Overlay";
-import { AnimatePresence, motion } from "framer-motion";
-import dropInBottom from "../../lib/animations/dropInBottom";
-import useLocalStorage from "../../hooks/useLocalStorage";
 
 interface Props {
   closeMenu: () => void;
@@ -50,17 +51,28 @@ export default function MobileMenu({ closeMenu }: Props) {
 
   const { locale } = useRouter();
 
+  const [products, setProducts] = useState<any>();
+
+  /* Get all the products */
+  /* useEffect(() => {
+    async function fetchData() {
+      getProducts(100)
+        .then((res) => {
+          setProducts(res);
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    fetchData();
+    console.log(products);
+  }, []); */
+
   return (
     <Overlay type="primary">
       <div>
         <ul className="flex flex-col space-y-3 p-8 md:hidden">
-          {/* <li>
-            <Link href="/">
-              <a className={`link__menu ${asPath == "/" && "link__active"}`}>
-                {t("home")}
-              </a>
-            </Link>
-          </li> */}
           <li className="flex items-center justify-between">
             <Link href="/products">
               <a
@@ -78,16 +90,28 @@ export default function MobileMenu({ closeMenu }: Props) {
             )}
           </li>
           {dropDown && (
-            <div className="">
-              <ul className="flex flex-col space-y-1">
-                <li className="flex items-center justify-between rounded-2xl bg-primary-gray p-3">
+            <div>
+              <ul className="flex flex-col space-y-2">
+                <li>
                   <Link href="/products">
-                    <a className="link__product">Hrast</a>
+                    <div className="flex items-center justify-between rounded-xl bg-primary-bg">
+                      <a className="ml-3">Morello Ricco</a>
+                      <div className="flex items-center space-x-2 p-3">
+                        <TagIcon />
+                        <span>Hrast</span>
+                      </div>
+                    </div>
                   </Link>
                 </li>
-                <li className="flex items-center justify-between rounded-2xl bg-primary-gray p-3">
+                <li>
                   <Link href="/products">
-                    <a className="link__product">Hrast</a>
+                    <div className="flex items-center justify-between rounded-xl bg-primary-bg">
+                      <a className="ml-3">Castro</a>
+                      <div className="flex items-center space-x-2 p-3">
+                        <TagIcon />
+                        <span>Hrast</span>
+                      </div>
+                    </div>
                   </Link>
                 </li>
               </ul>
@@ -181,15 +205,6 @@ export default function MobileMenu({ closeMenu }: Props) {
                   {locale === "hr" ? "Croatian" : "Hrvatski"}
                 </option>
               </select>
-              {/* <div className="flex items-center justify-between p-4">
-              <p className="text-xl font-semibold">Current:</p>
-              <div className=" flex items-center justify-between space-x-6 rounded-full border-2 border-black bg-primary-gray pt-1 pl-6 pr-6 pb-1">
-                <WorldIcon />
-                <p className="text-lg font-medium">
-                  {locale === "hr" ? "Hrvatski" : "English"}
-                </p>
-              </div>
-            </div> */}
               <ButtonDefault
                 text={t("language-switcher.button")}
                 onclick={toogleLanguageSwitch}

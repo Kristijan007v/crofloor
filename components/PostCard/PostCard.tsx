@@ -40,7 +40,7 @@ export default function PostCard({
       initial="hidden"
       animate="visible"
       exit="exit"
-      className={`flex flex-col space-y-4 rounded-xl shadow-md ${
+      className={`flex flex-col space-y-4 rounded-xl shadow-sm ${
         type === "primary"
           ? "bg-primary-yellow"
           : type === "secondary"
