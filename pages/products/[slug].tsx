@@ -12,6 +12,8 @@ import { useTranslation } from "next-i18next";
 import SocialShare from "../../components/SocialShare/SocialShare";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
+import FileIcon from "../../components/Icons/FileIcon";
+import DownloadIcon from "../../components/Icons/DownloadIcon";
 
 const images = [
   {
@@ -116,8 +118,12 @@ export default function MorreloRicco({ product }: Props) {
             {t("product-certificates.title")}
           </h2>
           <div className="p-4">
-            <div>
-              <p></p>
+            <div className="flex items-center justify-between rounded-xl bg-primary-bg p-3">
+              <div className="flex items-center space-x-4">
+                <FileIcon />
+                <p>Product specifications</p>
+              </div>
+              <DownloadIcon />
             </div>
           </div>
           <SocialShare
