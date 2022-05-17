@@ -74,7 +74,7 @@ export default function MorreloRicco({ product }: Props) {
             featuredImage={product.featuredImage?.node.sourceUrl}
           />
 
-          <div className="flex justify-center p-4">
+          {/* <div className="flex justify-center p-4">
             <div className="mb-6 flex justify-center space-x-4 text-lg font-medium">
               <button
                 className={`${
@@ -105,7 +105,7 @@ export default function MorreloRicco({ product }: Props) {
                 {t("content-section.tabs.specifications")}
               </button>
             </div>
-          </div>
+          </div> */}
           <p>{product.content}</p>
 
           <h2 className="p-4 text-2xl font-semibold">

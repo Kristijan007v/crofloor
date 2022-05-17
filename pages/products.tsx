@@ -60,7 +60,7 @@ export default function Products({ parket, kategorija }: Props) {
               {results.length > 0 ? (
                 <div className="flex flex-col space-y-2">
                   {results.map((product: any) => (
-                    <Link key={product.id} href={`#${product.slug}`}>
+                    <Link key={product.id} href={`/products/${product.slug}`}>
                       <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
                         <a className="ml-3">{product.title}</a>
                         <div className="flex items-center space-x-2 p-3">
