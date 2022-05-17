@@ -62,6 +62,9 @@ export async function getPostBySlug(slug: string) {
               }
             }
           }
+          posts {
+            opis
+          }
           featuredImage {
             node {
               sourceUrl
