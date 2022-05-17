@@ -162,6 +162,7 @@ export default function Blog({
       <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-20">
         {posts.map((post: any) => (
           <PostCard
+            type={"secondary"}
             key={post.id}
             heading={post.title}
             image={post.featuredImage.node.sourceUrl}

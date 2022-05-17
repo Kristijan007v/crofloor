@@ -77,7 +77,7 @@ export default function PostCard({
       </div>
       <div className="flex flex-col space-y-4 pt-2 pb-10">
         <div className="ml-4 mr-4 flex flex-row-reverse flex-wrap justify-between">
-          <span className="rounded-xl bg-primary-yellow p-2 text-black">
+          <span className="rounded-xl p-2 text-black">
             {locale === "hr" ? "Autor" : "Author"}: {author}
           </span>
           <div className="flex items-center space-x-2">
