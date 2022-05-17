@@ -6,6 +6,7 @@ interface Props {
   title: string;
   image?: string;
   imageURL?: string;
+  avatarURL: string;
   alt: string;
   key?: number;
   author: string;
@@ -16,6 +17,7 @@ export default function ArticleHeader({
   title,
   image,
   imageURL,
+  avatarURL,
   alt,
   key,
   author,
@@ -42,9 +44,22 @@ export default function ArticleHeader({
             <CalendarIcon style="text-white" />
             <p className="font-medium text-white">{date}</p>
           </div>
-          <p className="absolute bottom-0 right-0 p-4 font-medium text-white">
-            {locale == "en" ? "Author" : "Autor"}: {author}
-          </p>
+          <div className="absolute bottom-0 right-0 flex items-center space-x-2 p-4 font-medium text-white">
+            <span>
+              <div className="relative h-7 w-7 rounded-full">
+                <Image
+                  src={`${avatarURL}`}
+                  layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL={`${avatarURL}`}
+                  className="rounded-full"
+                  alt={alt}
+                />
+              </div>
+            </span>
+            <span className="">{author}</span>
+          </div>
         </div>
       </div>
     </>

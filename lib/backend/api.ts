@@ -56,7 +56,10 @@ export async function getPostBySlug(slug: string) {
           slug
           author {
             node {
-              name
+              firstName
+              avatar {
+                url
+              }
             }
           }
           featuredImage {
