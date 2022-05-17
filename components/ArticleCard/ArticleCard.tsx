@@ -80,7 +80,7 @@ export default function ArticleCard({
         </div>
       </div>
       <h3 className="heading__3">{heading}</h3>
-      <p className="p__default pl-4 pr-4">{description}</p>
+      <p className="p__default">{description}</p>
       <ButtonLink
         text={locale === "hr" ? "Pročitaj više" : "Read more"}
         ariaLabel="Read more"
