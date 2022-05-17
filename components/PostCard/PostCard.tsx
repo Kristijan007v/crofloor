@@ -50,7 +50,7 @@ export default function PostCard({
           : "bg-white"
       }`}
     >
-      <div className="relative h-72 w-full rounded-xl">
+      <div className="relative h-64 w-full rounded-xl">
         <Image
           src={`${image}`}
           layout="fill"
@@ -60,7 +60,7 @@ export default function PostCard({
           className="rounded-tr-xl rounded-tl-xl"
           alt={alt}
         />
-        <div className="relative h-72 w-full rounded-tr-xl rounded-tl-xl bg-black/40">
+        <div className="relative h-64 w-full rounded-tr-xl rounded-tl-xl bg-black/40">
           <div className="absolute top-0 p-4">
             <Tag text={tagName} />
           </div>

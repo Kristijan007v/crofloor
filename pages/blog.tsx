@@ -91,7 +91,7 @@ export default function Blog({
               </p>
             )}
             <button
-              className="rounded-xl border-black  bg-primary-bg p-3 hover:border"
+              className="rounded-xl border border-black p-3"
               onClick={() => setSearchTerm("")}
             >
               {t("section-header.search.close-btn")}
