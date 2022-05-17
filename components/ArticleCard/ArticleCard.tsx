@@ -6,6 +6,7 @@ import ButtonLink from "../ButtonLink/ButtonLink";
 import CalendarIcon from "../Icons/CalendarIcon";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
 import ReadMore from "../ReadMore/ReadMore";
+import Image from "next/image";
 
 interface Props {
   sectionType: "recommended" | "featured";
@@ -15,6 +16,7 @@ interface Props {
   image?: string;
   imageArticle?: string;
   imageAlt?: string;
+  avatarURL: string;
   type?: "primary" | "secondary";
   date: string;
   author: string;
@@ -28,6 +30,7 @@ export default function ArticleCard({
   image,
   imageArticle,
   imageAlt,
+  avatarURL,
   type,
   date,
   author,
@@ -57,9 +60,22 @@ export default function ArticleCard({
             <CalendarIcon style="text-white" />
             <p className="font-medium text-white">{date}</p>
           </div>
-          <p className="absolute bottom-0 right-0 p-4 font-medium text-white">
-            {locale == "en" ? "Author" : "Autor"}: {author}
-          </p>
+          <div className="absolute bottom-0 right-0 flex items-center space-x-2 p-4 font-medium text-white">
+            <span>
+              <div className="relative h-7 w-7 rounded-full border border-black">
+                <Image
+                  src={`${avatarURL}`}
+                  layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL={`${avatarURL}`}
+                  className="rounded-full"
+                  alt={""}
+                />
+              </div>
+            </span>
+            <span>{author}</span>
+          </div>
         </div>
       </div>
       <h3 className="heading__3">{heading}</h3>

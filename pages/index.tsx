@@ -115,8 +115,9 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
               imageArticle={
                 featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
               }
+              avatarURL={featuredArticle.featuredPost[0].author.node.avatar.url}
               date={formatDate(featuredArticle.featuredPost[0].date)}
-              author={featuredArticle.featuredPost[0].author.node.name}
+              author={featuredArticle.featuredPost[0].author.node.firstName}
               imageAlt="About picture"
               href={`/articles/${featuredArticle.featuredPost[0].slug}`}
             />
@@ -145,7 +146,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
         <LinkDefault
           href="/blog"
           text={t("blog.view-all")}
-          style="flex justify-end"
+          style="flex justify-center"
         />
       </div>
 

@@ -115,8 +115,9 @@ export default function Blog({
               imageArticle={
                 featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
               }
+              avatarURL={featuredArticle.featuredPost[0].author.node.avatar.url}
               date={formatDate(featuredArticle.featuredPost[0].date)}
-              author={featuredArticle.featuredPost[0].author.node.name}
+              author={featuredArticle.featuredPost[0].author.node.firstName}
               imageAlt="About picture"
               href={`/articles/${featuredArticle.featuredPost[0].slug}`}
               type={"secondary"}
@@ -148,8 +149,11 @@ export default function Blog({
               imageArticle={
                 recommendedArticle.featuredPost[0].featuredImage.node.sourceUrl
               }
+              avatarURL={
+                recommendedArticle.featuredPost[0].author.node.avatar.url
+              }
               date={formatDate(recommendedArticle.featuredPost[0].date)}
-              author={recommendedArticle.featuredPost[0].author.node.name}
+              author={recommendedArticle.featuredPost[0].author.node.firstName}
               imageAlt="About picture"
               href={`/articles/${recommendedArticle.featuredPost[0].slug}`}
             />

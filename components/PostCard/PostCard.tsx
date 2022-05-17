@@ -93,7 +93,7 @@ export default function PostCard({
                 />
               </div>
             </span>
-            <span className="rounded-xl p-2 text-black">{author}</span>
+            <span className="p-2 text-black">{author}</span>
           </div>
           <div className="flex items-center space-x-2">
             <CalendarIcon />

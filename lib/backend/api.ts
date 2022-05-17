@@ -104,7 +104,7 @@ export async function getPostByCategory(categoryName: string) {
           title
           author {
             node {
-              name
+              firstName
               avatar {
                 url
               }
