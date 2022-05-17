@@ -14,7 +14,7 @@ export async function getPosts(perPage: number, page?: number) {
             title
             author {
               node {
-                name
+                firstName
                 avatar {
                   url
                 }

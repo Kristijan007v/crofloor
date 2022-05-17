@@ -77,9 +77,22 @@ export default function PostCard({
       </div>
       <div className="flex flex-col space-y-4 pt-2 pb-10">
         <div className="ml-4 mr-4 flex flex-row-reverse flex-wrap justify-between">
-          <span className="rounded-xl p-2 text-black">
-            {locale === "hr" ? "Autor" : "Author"}: {author}
-          </span>
+          <div className="flex items-center">
+            <span>
+              <div className="relative h-7 w-7 rounded-full">
+                <Image
+                  src={`${avatarURL}`}
+                  layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL={`${avatarURL}`}
+                  className="rounded-full"
+                  alt={alt}
+                />
+              </div>
+            </span>
+            <span className="rounded-xl p-2 text-black">{author}</span>
+          </div>
           <div className="flex items-center space-x-2">
             <CalendarIcon />
             <p>{createdAt}</p>

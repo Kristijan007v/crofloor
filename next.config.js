@@ -7,11 +7,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const MEDIA_DOMAIN = process.env.MEDIA_DOMAIN;
-
-const nextConfig = {
-  i18n,
-  reactStrictMode: true,
-};
+const AVATAR_DOMAIN = process.env.AVATAR_DOMAIN;
 
 module.exports = withPlugins([
   [withBundleAnalyzer],
@@ -24,7 +20,7 @@ module.exports = withPlugins([
     i18n,
     reactStrictMode: true,
     images: {
-      domains: ["localhost", MEDIA_DOMAIN],
+      domains: ["localhost", MEDIA_DOMAIN, AVATAR_DOMAIN],
     },
   }),
 ]);

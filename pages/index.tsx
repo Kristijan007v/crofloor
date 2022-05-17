@@ -131,10 +131,11 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
             key={post.id}
             heading={post.title}
             image={post.featuredImage.node.sourceUrl}
+            avatarURL={post.author.node.avatar.url}
             alt={post.featuredImage.node.altText}
             href={`/articles/${post.slug}`}
             createdAt={formatDate(post.date)}
-            author={post.author.node.name}
+            author={post.author.node.firstName}
             tagName={post.tags.nodes.map((tag: any) => tag.name)}
             type={"secondary"}
           />
