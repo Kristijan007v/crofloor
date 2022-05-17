@@ -104,7 +104,7 @@ export default function MorreloRicco({ product }: Props) {
           {activeTab === "description" && (
             <div className="flex justify-center pt-4 pb-6 pr-6 pl-6">
               <div
-                className="p__default"
+                className="p__default rounded-xl bg-primary-bg p-6"
                 dangerouslySetInnerHTML={createMarkup(`${product.content}`)}
               />
             </div>
