@@ -1,19 +1,18 @@
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ErrorPage from "next/error";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import DownloadCard from "../../components/DownloadCard/DownloadCard";
 import Gallery from "../../components/Gallery/Gallery";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Skeleton from "../../components/Skeleton/Skeleton";
+import SocialShare from "../../components/SocialShare/SocialShare";
 import {
   getAllProductsWithSlug,
   getProductBySlug,
 } from "../../lib/backend/api";
 import nextI18nextConfig from "../../next-i18next.config";
-import { useState } from "react";
-import { useTranslation } from "next-i18next";
-import SocialShare from "../../components/SocialShare/SocialShare";
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-import FileIcon from "../../components/Icons/FileIcon";
-import DownloadIcon from "../../components/Icons/DownloadIcon";
 
 interface Props {
   product: any;
@@ -26,7 +25,11 @@ export default function MorreloRicco({ product }: Props) {
 
   const { t } = useTranslation("productPage");
 
-  const [tab, setTab] = useState("hrast");
+  const [activeTab, setActiveTab] = useState("description");
+
+  function createMarkup(content: any) {
+    return { __html: `${content}` };
+  }
 
   if (!router.isFallback && !product?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -61,58 +64,63 @@ export default function MorreloRicco({ product }: Props) {
             featuredImage={product.featuredImage?.node.sourceUrl}
           />
 
-          {/* <div className="flex justify-center p-4">
-            <div className="mb-6 flex justify-center space-x-4 text-lg font-medium">
+          {/* Main content */}
+          <div className="mt-4 p-4">
+            <div className="flex items-center justify-center space-x-4 text-xl font-medium text-black">
               <button
                 className={`${
-                  tab === "hrast" ? "active__tab" : "tab__default"
+                  activeTab === "description" && "active__tab__special"
                 }`}
-                onClick={() => {
-                  setTab("hrast");
-                }}
+                onClick={() => setActiveTab("description")}
               >
                 {t("content-section.tabs.description")}
               </button>
               <button
                 className={`${
-                  tab === "jasen" ? "active__tab" : "tab__default"
+                  activeTab === "gallery" && "active__tab__special"
                 }`}
-                onClick={() => {
-                  setTab("jasen");
-                }}
+                onClick={() => setActiveTab("gallery")}
               >
                 {t("content-section.tabs.gallery")}
               </button>
               <button
-                className={`${tab === "jela" ? "active__tab" : "tab__default"}`}
-                onClick={() => {
-                  setTab("jela");
-                }}
+                className={`${
+                  activeTab === "specifications" && "active__tab__special"
+                }`}
+                onClick={() => setActiveTab("specifications")}
               >
                 {t("content-section.tabs.specifications")}
               </button>
             </div>
-          </div> */}
-          <p>{product.content}</p>
+          </div>
 
-          {/* Product Gallery */}
-          <h2 className="p-4 text-2xl font-semibold">
-            {t("product-gallery.title")}
-          </h2>
-          <Gallery images={gallery} />
+          {/* Description */}
+          {activeTab === "description" && (
+            <div className="p-4 text-center">
+              <div
+                dangerouslySetInnerHTML={createMarkup(`${product.content}`)}
+              />
+            </div>
+          )}
 
           {/* Product specifications */}
-          <h2 className="p-4 text-2xl font-semibold">
-            {t("product-certificates.title")}
-          </h2>
-          <div className="p-4">
-            <div className="flex items-center justify-between rounded-xl bg-primary-bg p-3">
-              <div className="flex items-center space-x-4">
-                <FileIcon />
-                <p>Product specifications</p>
+          {activeTab === "specifications" && (
+            <>
+              <div className="p-4">
+                <DownloadCard
+                  text="Product specifications"
+                  downloadURL={`${product?.parket.specifikacije.sourceUrl}`}
+                />
               </div>
-              <DownloadIcon />
-            </div>
+            </>
+          )}
+
+          {/* Product Gallery */}
+          <div className="mb-8 flex flex-col space-y-4 p-4">
+            <h2 className="text-2xl font-semibold">
+              {t("product-gallery.title")}
+            </h2>
+            <Gallery images={gallery} />
           </div>
 
           <SocialShare

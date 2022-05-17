@@ -4,9 +4,10 @@ import { AiOutlineDownload } from "react-icons/ai";
 
 interface Props {
   style?: string;
+  onclick?: () => void;
 }
 
-export default function DownloadIcon({ style }: Props) {
+export default function DownloadIcon({ style, onclick }: Props) {
   return (
     <>
       <IconContext.Provider
@@ -14,7 +15,7 @@ export default function DownloadIcon({ style }: Props) {
           className: `text-xl ${style}`,
         }}
       >
-        <AiOutlineDownload />
+        <AiOutlineDownload onClick={onclick} />
       </IconContext.Provider>
     </>
   );

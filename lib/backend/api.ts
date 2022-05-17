@@ -208,6 +208,9 @@ export async function getProductBySlug(slug: string) {
             sourceUrl
             altText
           }
+          specifikacije {
+            sourceUrl
+          }
         }
         featuredImage {
           node {
@@ -216,6 +219,7 @@ export async function getProductBySlug(slug: string) {
         }
         slug
         title
+        content
       }
     }
     `,
