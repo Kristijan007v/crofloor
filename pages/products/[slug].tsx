@@ -65,7 +65,7 @@ export default function MorreloRicco({ product }: Props) {
             description={product.parket.opis}
             backgroundImage={product.parket.pozadinskaSlika?.sourceUrl}
             featuredImage={product.featuredImage?.node.sourceUrl}
-            galleryAnchor={product.slug}
+            galleryAnchor={`gallery-${product.slug}`}
             detailsAnchor={product.id}
           />
 
@@ -153,7 +153,7 @@ export default function MorreloRicco({ product }: Props) {
           )}
 
           {/* Product Gallery */}
-          <div id={`${product.slug}`} className="scroll-mt-4"></div>
+          <div id={`gallery-${product.slug}`} className="scroll-mt-4"></div>
           <div className="mb-8 flex flex-col space-y-4 p-6">
             <h2 className="text-2xl font-semibold">
               {t("product-gallery.title")}
