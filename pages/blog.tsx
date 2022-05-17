@@ -119,7 +119,7 @@ export default function Blog({
               heading={featuredArticle.featuredPost[0].title}
               description={featuredArticle.featuredPost[0].posts.opis}
               imageArticle={
-                featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
+                featuredArticle.featuredPost[0].featuredImage?.node.sourceUrl
               }
               avatarURL={featuredArticle.featuredPost[0].author.node.avatar.url}
               date={formatDate(featuredArticle.featuredPost[0].date)}
@@ -153,7 +153,7 @@ export default function Blog({
               heading={recommendedArticle.featuredPost[0].title}
               description={recommendedArticle.featuredPost[0].posts.opis}
               imageArticle={
-                recommendedArticle.featuredPost[0].featuredImage.node.sourceUrl
+                recommendedArticle.featuredPost[0].featuredImage?.node.sourceUrl
               }
               avatarURL={
                 recommendedArticle.featuredPost[0].author.node.avatar.url
@@ -178,9 +178,9 @@ export default function Blog({
             key={post.id}
             heading={post.title}
             description={post.posts.opis}
-            image={post.featuredImage.node.sourceUrl}
+            image={post.featuredImage?.node.sourceUrl}
             avatarURL={post.author.node.avatar.url}
-            alt={post.featuredImage.node.altText}
+            alt={post.featuredImage?.node.altText}
             href={`/articles/${post.slug}`}
             createdAt={formatDate(post.date)}
             author={post.author.node.firstName}
