@@ -7,7 +7,8 @@
     "description": "Dobrodošli na naš blog! Ovdje ćete moći saznati o našim najnovijim donacijama ili novostima iz tvrtke.",
     "search": {
       "placeholder": "Pretraži članke...",
-      "noresult": "Nema rezultata pretraživanja"
+      "noresult": "Nema rezultata pretraživanja",
+      "close-btn": "Zatvori pretragu"
     }
   },
   "section": {

@@ -70,7 +70,7 @@ export default function Blog({
           onchange={(e) => searchBlog(e.target.value)}
         />
         {searchTerm && (
-          <div className="flex flex-col space-y-2 border-b pb-6 pr-6 pl-6 pt-2 text-left">
+          <div className="flex flex-col space-y-4 border-b pb-3 pr-6 pl-6 pt-2 text-left">
             {results.length > 0 ? (
               <>
                 {results.map((post) => (
@@ -90,6 +90,12 @@ export default function Blog({
                 {t("section-header.search.noresult")}
               </p>
             )}
+            <button
+              className="rounded-xl border-black  bg-primary-bg p-3 hover:border"
+              onClick={() => setSearchTerm("")}
+            >
+              {t("section-header.search.close-btn")}
+            </button>
           </div>
         )}
       </div>
