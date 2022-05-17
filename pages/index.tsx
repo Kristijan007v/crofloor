@@ -146,7 +146,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
         <LinkDefault
           href="/blog"
           text={t("blog.view-all")}
-          style="flex justify-center"
+          style="flex justify-center hover:border border-black p-3 rounded-xl bg-primary-bg"
         />
       </div>
 
