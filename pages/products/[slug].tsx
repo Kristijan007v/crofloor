@@ -53,7 +53,7 @@ export default function MorreloRicco({ product }: Props) {
       navigation={false}
       metaTitle={`${product?.title} - ${product?.parket.kategorija}`}
       metaShareDescription={`See this amazing product on ${MAIN_DOMAIN}`}
-      metaImageURL={"/icons/icon-192x192.png"}
+      metaImageURL={`${product.featuredImage?.node.sourceUrl}`}
     >
       {router.isFallback ? (
         <p className="p-6 text-center">Loading product...</p>
