@@ -173,3 +173,50 @@ export async function getProducts(perPage: number) {
     parket: data?.products.nodes,
   };
 }
+
+export async function getAllProductsWithSlug() {
+  const { data } = await client.query({
+    query: gql`
+      query ProductBySlug {
+        products {
+          nodes {
+            slug
+          }
+        }
+      }
+    `,
+  });
+  return {
+    products: data?.products.nodes,
+  };
+}
+
+export async function getProductBySlug(slug: string) {
+  const data = await client.query({
+    query: gql`
+    query Product {
+      product(id: "${slug}", idType: SLUG) {
+        parket {
+          fieldGroupName
+          kategorija
+          opis
+          pozadinskaSlika
+          {
+            sourceUrl
+          }
+        }
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        slug
+        title
+      }
+    }
+    `,
+  });
+  return {
+    data,
+  };
+}

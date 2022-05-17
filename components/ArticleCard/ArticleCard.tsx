@@ -63,7 +63,7 @@ export default function ArticleCard({
           </div>
           <div className="absolute bottom-0 right-0 flex items-center space-x-2 p-4 font-medium text-white">
             <span>
-              <div className="relative h-7 w-7 rounded-full border border-black">
+              <div className="relative h-7 w-7 rounded-full">
                 <Image
                   src={`${avatarURL}`}
                   layout="fill"

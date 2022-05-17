@@ -2,6 +2,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Gallery from "../../components/Gallery/Gallery";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Skeleton from "../../components/Skeleton/Skeleton";
+import {
+  getAllProductsWithSlug,
+  getProductBySlug,
+} from "../../lib/backend/api";
 import nextI18nextConfig from "../../next-i18next.config";
 
 const images = [
@@ -27,8 +31,14 @@ const images = [
   },
 ];
 
-export default function MorreloRicco() {
+interface Props {
+  product: any;
+}
+
+export default function MorreloRicco({ product }: Props) {
   const MAIN_DOMAIN = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
+
+  console.log(product);
 
   return (
     <Skeleton
@@ -39,22 +49,15 @@ export default function MorreloRicco() {
       metaShareDescription={`See this amazing product on ${MAIN_DOMAIN}`}
       metaImageURL={"/icons/icon-192x192.png"}
     >
-      <PageHeader />
+      <PageHeader
+        title={product.title}
+        alt=""
+        description={product.parket.opis}
+        backgroundImage={product.parket.pozadinskaSlika?.sourceUrl}
+        featuredImage={product.featuredImage?.node.sourceUrl}
+      />
 
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-        exercitationem dicta voluptatum deserunt, dolorum corporis velit
-        cupiditate eligendi nostrum nisi delectus error quisquam ipsa autem
-        numquam, consectetur unde dignissimos labore beatae perspiciatis dolor
-        sit obcaecati hic totam! Amet dolorem similique quod, repudiandae, quam
-        consequatur delectus facere illo, iste corrupti excepturi molestias
-        velit earum voluptatem. Adipisci, maiores similique facere eligendi
-        laboriosam architecto? Repudiandae deleniti inventore at animi aperiam
-        mollitia, fugiat ratione sapiente culpa doloribus corrupti tempora rem
-        placeat commodi dolorem. Ipsum delectus recusandae temporibus aliquam,
-        dolores magnam at harum, molestias quos ex labore molestiae similique
-        numquam reiciendis soluta quisquam? Ut, numquam!
-      </p>
+      <p>{product.content}</p>
 
       <h2 className="p-4 text-2xl font-semibold">Product Gallery</h2>
       <Gallery images={images} />
@@ -64,9 +67,24 @@ export default function MorreloRicco() {
   );
 }
 
+export async function getStaticPaths() {
+  const paths = await getAllProductsWithSlug();
+  return {
+    paths: paths.products.map((path: any) => ({
+      params: {
+        slug: path.slug,
+      },
+    })),
+    fallback: true,
+  };
+}
+
 export async function getStaticProps({ locale, params }: any) {
+  const { data } = (await getProductBySlug(params.slug)) || {};
+  console.log(data);
   return {
     props: {
+      product: data.data.product,
       ...(await serverSideTranslations(locale, [
         "common",
         "menu",
