@@ -28,8 +28,8 @@ export default function Article({ post }: Props) {
 
   return (
     <Skeleton
-      title=""
-      metaDescription=""
+      title={`${post?.title}`}
+      metaDescription={``}
       navigation={true}
       metaTitle={"Crofloor"}
       metaShareDescription={`Read this article on ${MAIN_DOMAIN}`}

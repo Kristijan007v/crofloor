@@ -48,10 +48,10 @@ export default function MorreloRicco({ product }: Props) {
 
   return (
     <Skeleton
-      title=""
-      metaDescription=""
+      title={`${product?.title} - ${product?.parket.kategorija}`}
+      metaDescription={`${product?.parket.opis}`}
       navigation={false}
-      metaTitle={"Crofloor"}
+      metaTitle={`${product?.title} - ${product?.parket.kategorija}`}
       metaShareDescription={`See this amazing product on ${MAIN_DOMAIN}`}
       metaImageURL={"/icons/icon-192x192.png"}
     >
@@ -121,7 +121,7 @@ export default function MorreloRicco({ product }: Props) {
                       ? "Product specifications"
                       : "Specifikacije proizvoda"
                   }
-                  downloadURL={`${product?.parket.specifikacije.sourceUrl}`}
+                  downloadURL={`${product?.parket.specifikacije.mediaItemUrl}`}
                 />
               </div>
             </>
@@ -142,7 +142,7 @@ export default function MorreloRicco({ product }: Props) {
                       ? "Product certificates"
                       : "Certifikati proizvoda"
                   }
-                  downloadURL={`${product?.parket.specifikacije.sourceUrl}`}
+                  downloadURL={`${product?.parket.specifikacije.mediaItemUrl}`}
                 />
               </div>
             </>

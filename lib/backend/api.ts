@@ -209,7 +209,7 @@ export async function getProductBySlug(slug: string) {
             altText
           }
           specifikacije {
-            sourceUrl
+            mediaItemUrl
           }
         }
         featuredImage {
