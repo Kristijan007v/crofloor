@@ -31,7 +31,7 @@ export default function Article({ post }: Props) {
       title={`${post?.title}`}
       metaDescription={`${post?.posts.opis}`}
       navigation={true}
-      metaTitle={"Crofloor"}
+      metaTitle={`${post?.title} - by ${post?.author.node.firstName}`}
       metaShareDescription={`Read this article on ${MAIN_DOMAIN}`}
       metaImageURL={"/icons/icon-192x192.png"}
     >
