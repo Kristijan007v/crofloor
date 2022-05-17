@@ -18,7 +18,8 @@
   "blog": {
     "heading": "Blog",
     "featured-articles": "Featured articles",
-    "latest-articles": "Latest articles"
+    "latest-articles": "Latest articles",
+    "view-all": "View all"
   },
   "about-section": {
     "heading": "About Us"

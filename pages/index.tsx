@@ -138,7 +138,11 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
             tagName={post.tags.nodes.map((tag: any) => tag.name)}
           />
         ))}
-        <LinkDefault href="/blog" text="VIEW ALL" />
+        <LinkDefault
+          href="/blog"
+          text={t("blog.view-all")}
+          style="flex justify-end"
+        />
       </div>
 
       {/* About SECTION */}
