@@ -27,7 +27,7 @@ export default function PageHeader({
 
   return (
     <>
-      <div className="relative h-screen w-full">
+      <div>
         <Image
           src={`${backgroundImage}`}
           alt={alt}
