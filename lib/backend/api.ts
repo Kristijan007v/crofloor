@@ -220,6 +220,7 @@ export async function getProductBySlug(slug: string) {
             sourceUrl
           }
         }
+        id
         slug
         title
         content
