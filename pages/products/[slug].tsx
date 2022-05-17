@@ -8,6 +8,7 @@ import Gallery from "../../components/Gallery/Gallery";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import SocialShare from "../../components/SocialShare/SocialShare";
+import useLocale from "../../hooks/useLocale";
 import {
   getAllProductsWithSlug,
   getProductBySlug,
@@ -20,6 +21,8 @@ interface Props {
 
 export default function MorreloRicco({ product }: Props) {
   const router = useRouter();
+
+  const lang = useLocale();
 
   const MAIN_DOMAIN = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
 
@@ -65,8 +68,8 @@ export default function MorreloRicco({ product }: Props) {
           />
 
           {/* Main content */}
-          <div className="mt-4 p-4">
-            <div className="flex items-center justify-center space-x-4 text-xl font-medium text-black">
+          <div className="mt-4 pl-4 pb-2 pt-4 pr-4">
+            <div className="flex flex-wrap items-center justify-center space-x-4 text-xl font-medium text-black">
               <button
                 className={`${
                   activeTab === "description" && "active__tab__special"
@@ -77,19 +80,19 @@ export default function MorreloRicco({ product }: Props) {
               </button>
               <button
                 className={`${
-                  activeTab === "gallery" && "active__tab__special"
-                }`}
-                onClick={() => setActiveTab("gallery")}
-              >
-                {t("content-section.tabs.gallery")}
-              </button>
-              <button
-                className={`${
                   activeTab === "specifications" && "active__tab__special"
                 }`}
                 onClick={() => setActiveTab("specifications")}
               >
                 {t("content-section.tabs.specifications")}
+              </button>
+              <button
+                className={`${
+                  activeTab === "certificates " && "active__tab__special"
+                }`}
+                onClick={() => setActiveTab("certificates ")}
+              >
+                {t("content-section.tabs.certificates")}
               </button>
             </div>
           </div>
@@ -106,9 +109,39 @@ export default function MorreloRicco({ product }: Props) {
           {/* Product specifications */}
           {activeTab === "specifications" && (
             <>
-              <div className="p-4">
+              <div className="flex flex-col space-y-4 p-4">
+                <p className="p__default">
+                  {lang === "en"
+                    ? "Download the product specifications in PDF format."
+                    : "Preuzmite specifikacije proizvoda u PDF formatu."}
+                </p>
                 <DownloadCard
-                  text="Product specifications"
+                  text={
+                    lang === "en"
+                      ? "Product specifications"
+                      : "Specifikacije proizvoda"
+                  }
+                  downloadURL={`${product?.parket.specifikacije.sourceUrl}`}
+                />
+              </div>
+            </>
+          )}
+
+          {/* Product certificates */}
+          {activeTab === "certificates " && (
+            <>
+              <div className="flex flex-col space-y-4 p-4">
+                <p className="p__default">
+                  {lang === "en"
+                    ? "See all the certificates our products have by downloading the PDF file."
+                    : "Pogledajte koje sve certifikate naši proizvodi imaju preuzimanjem PDF datoteke."}
+                </p>
+                <DownloadCard
+                  text={
+                    lang === "en"
+                      ? "Product certificates"
+                      : "Certifikati proizvoda"
+                  }
                   downloadURL={`${product?.parket.specifikacije.sourceUrl}`}
                 />
               </div>
