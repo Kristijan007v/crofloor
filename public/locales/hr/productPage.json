@@ -1,0 +1,21 @@
+{
+  "fallback": {
+    "text": "Učitavanje proizvoda"
+  },
+  "content-section": {
+    "tabs": {
+      "description": "Opis",
+      "gallery": "Galerija",
+      "specifications": "Specifikacije"
+    }
+  },
+  "product-gallery": {
+    "title": "Galerija proizvoda"
+  },
+  "product-certificates": {
+    "title": "Certifikati proizvoda"
+  },
+  "social-share": {
+    "text": "Podijeli proizvod"
+  }
+}

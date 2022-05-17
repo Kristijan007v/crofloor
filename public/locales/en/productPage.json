@@ -1,0 +1,21 @@
+{
+  "fallback": {
+    "text": "Loading product"
+  },
+  "content-section": {
+    "tabs": {
+      "description": "Description",
+      "gallery": "Gallery",
+      "specifications": "Specifications"
+    }
+  },
+  "product-gallery": {
+    "title": "Product Gallery"
+  },
+  "product-certificates": {
+    "title": "Product Certificates"
+  },
+  "social-share": {
+    "text": "Share product"
+  }
+}

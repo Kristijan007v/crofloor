@@ -53,6 +53,7 @@ export default function Article({ post }: Props) {
             <div dangerouslySetInnerHTML={createMarkup(`${post.content}`)} />
           </div>
           <SocialShare
+            text="Podijeli članak"
             url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
             iconSize={"md"}
           />

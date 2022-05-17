@@ -7,6 +7,11 @@ import {
   getProductBySlug,
 } from "../../lib/backend/api";
 import nextI18nextConfig from "../../next-i18next.config";
+import { useState } from "react";
+import { useTranslation } from "next-i18next";
+import SocialShare from "../../components/SocialShare/SocialShare";
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
 
 const images = [
   {
@@ -36,9 +41,17 @@ interface Props {
 }
 
 export default function MorreloRicco({ product }: Props) {
+  const router = useRouter();
+
   const MAIN_DOMAIN = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
 
-  console.log(product);
+  const { t } = useTranslation("productPage");
+
+  const [tab, setTab] = useState("hrast");
+
+  if (!router.isFallback && !product?.slug) {
+    return <ErrorPage statusCode={404} />;
+  }
 
   return (
     <Skeleton
@@ -49,20 +62,66 @@ export default function MorreloRicco({ product }: Props) {
       metaShareDescription={`See this amazing product on ${MAIN_DOMAIN}`}
       metaImageURL={"/icons/icon-192x192.png"}
     >
-      <PageHeader
-        title={product.title}
-        alt=""
-        description={product.parket.opis}
-        backgroundImage={product.parket.pozadinskaSlika?.sourceUrl}
-        featuredImage={product.featuredImage?.node.sourceUrl}
-      />
+      {router.isFallback ? (
+        <p className="p-6 text-center">Loading product...</p>
+      ) : (
+        <>
+          <PageHeader
+            title={product.title}
+            alt=""
+            description={product.parket.opis}
+            backgroundImage={product.parket.pozadinskaSlika?.sourceUrl}
+            featuredImage={product.featuredImage?.node.sourceUrl}
+          />
 
-      <p>{product.content}</p>
+          <div className="flex justify-center p-4">
+            <div className="mb-6 flex justify-center space-x-4 text-lg font-medium">
+              <button
+                className={`${
+                  tab === "hrast" ? "active__tab" : "tab__default"
+                }`}
+                onClick={() => {
+                  setTab("hrast");
+                }}
+              >
+                {t("content-section.tabs.description")}
+              </button>
+              <button
+                className={`${
+                  tab === "jasen" ? "active__tab" : "tab__default"
+                }`}
+                onClick={() => {
+                  setTab("jasen");
+                }}
+              >
+                {t("content-section.tabs.gallery")}
+              </button>
+              <button
+                className={`${tab === "jela" ? "active__tab" : "tab__default"}`}
+                onClick={() => {
+                  setTab("jela");
+                }}
+              >
+                {t("content-section.tabs.specifications")}
+              </button>
+            </div>
+          </div>
+          <p>{product.content}</p>
 
-      <h2 className="p-4 text-2xl font-semibold">Product Gallery</h2>
-      <Gallery images={images} />
-      <h2 className="p-4 text-2xl font-semibold">Product Certificates</h2>
-      <div className="p-6"></div>
+          <h2 className="p-4 text-2xl font-semibold">
+            {t("product-gallery.title")}
+          </h2>
+          <Gallery images={images} />
+          <h2 className="p-4 text-2xl font-semibold">
+            {t("product-certificates.title")}
+          </h2>
+          <SocialShare
+            text={t("social-share.text")}
+            url={`https://${MAIN_DOMAIN}/articles/${product.slug}`}
+            iconSize={"md"}
+          />
+        </>
+      )}
     </Skeleton>
   );
 }
@@ -81,7 +140,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ locale, params }: any) {
   const { data } = (await getProductBySlug(params.slug)) || {};
-  console.log(data);
   return {
     props: {
       product: data.data.product,
@@ -90,6 +148,7 @@ export async function getStaticProps({ locale, params }: any) {
         "menu",
         "cookieBanner",
         "footer",
+        "productPage",
       ])),
       nextI18nextConfig,
     },
