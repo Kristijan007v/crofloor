@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Navigation from "../Navigation/Navigation";
 import Tag from "../Tag/Tag";
+import useLocale from "../../hooks/useLocale";
 
 interface Props {
   title: string;
@@ -22,6 +23,8 @@ export default function PageHeader({
   detailsAnchor,
   galleryAnchor,
 }: Props) {
+  const lang = useLocale();
+
   return (
     <>
       <div className="relative h-screen w-full">
@@ -52,7 +55,7 @@ export default function PageHeader({
             </div>
             <div className="absolute bottom-0 left-0 p-4">
               <Tag
-                text="Gallery"
+                text={`${lang === "en" ? "Gallery" : "Galerija"}`}
                 onclick={() => {
                   window.location.href = `#${galleryAnchor}`;
                 }}
@@ -60,7 +63,7 @@ export default function PageHeader({
             </div>
             <div className="absolute bottom-0 right-0 p-4">
               <Tag
-                text="Details"
+                text={`${lang === "en" ? "Details" : "Detalji"}`}
                 onclick={() => {
                   window.location.href = `#${detailsAnchor}`;
                 }}
