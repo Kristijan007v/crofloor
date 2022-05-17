@@ -149,28 +149,35 @@ export default function Footer() {
               <YoutubeIcon />
             </ButtonLink>
           </div>
-          <ul className="flex justify-between rounded-2xl bg-primary-gray p-3">
-            <li>
-              <Link href="/products">
-                <a>{t("navigation.products")}</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact-us">
-                <a>{t("navigation.contact")}</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog">
-                <a>{t("navigation.blog")}</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <a>{t("navigation.about")}</a>
-              </Link>
-            </li>
-          </ul>
+          <div className="">
+            <ul className="hide-scrollbar flex justify-between space-x-4 overflow-x-auto rounded-2xl bg-primary-gray p-3">
+              <li>
+                <Link href="/">
+                  <a>{t("navigation.homepage")}</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/products">
+                  <a>{t("navigation.products")}</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact-us">
+                  <a>{t("navigation.contact")}</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  <a>{t("navigation.blog")}</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about">
+                  <a>{t("navigation.about")}</a>
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Footer bottom */}
