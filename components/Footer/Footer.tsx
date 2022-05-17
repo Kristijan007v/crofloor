@@ -150,7 +150,7 @@ export default function Footer() {
             </ButtonLink>
           </div>
           <div className="">
-            <ul className="hide-scrollbar flex justify-between space-x-4 overflow-x-auto rounded-2xl bg-primary-gray p-3">
+            <ul className="hide-scrollbar flex justify-between space-x-4 overflow-x-auto whitespace-nowrap rounded-2xl bg-primary-gray p-3">
               <li>
                 <Link href="/">
                   <a>{t("navigation.homepage")}</a>
