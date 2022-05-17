@@ -40,7 +40,7 @@ export default function PostCard({
       initial="hidden"
       animate="visible"
       exit="exit"
-      className={`flex flex-col space-y-4 rounded-xl shadow-sm ${
+      className={`flex flex-col space-y-4 rounded-xl shadow-md ${
         type === "primary"
           ? "bg-primary-yellow"
           : type === "secondary"
@@ -48,7 +48,7 @@ export default function PostCard({
           : "bg-white"
       }`}
     >
-      <div className="relative h-72 w-full rounded-xl border">
+      <div className="relative h-72 w-full rounded-xl">
         <Image
           src={`${image}`}
           layout="fill"
@@ -77,7 +77,7 @@ export default function PostCard({
       </div>
       <div className="flex flex-col space-y-4 pt-2 pb-10">
         <div className="ml-4 mr-4 flex flex-row-reverse flex-wrap justify-between">
-          <span className="rounded-xl bg-primary-bg p-2 text-black">
+          <span className="rounded-xl bg-primary-yellow p-2 text-black">
             {locale === "hr" ? "Autor" : "Author"}: {author}
           </span>
           <div className="flex items-center space-x-2">

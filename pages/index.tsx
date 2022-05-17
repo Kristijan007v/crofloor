@@ -136,6 +136,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
             createdAt={formatDate(post.date)}
             author={post.author.node.name}
             tagName={post.tags.nodes.map((tag: any) => tag.name)}
+            type={"secondary"}
           />
         ))}
         <LinkDefault
