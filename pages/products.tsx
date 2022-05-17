@@ -55,34 +55,26 @@ export default function Products({ parket, kategorija }: Props) {
             onchange={(e) => searchProducts(e.target.value)}
           />
           {searchTerm && (
-            <div
-              className="h-screen bg-black/40 backdrop-blur-xl"
-              onClick={() => {
-                setSearchTerm("");
-              }}
-            >
-              <div className="flex flex-col space-y-2 pb-6 pr-6 pl-6 pt-6 text-left">
-                {results.length > 0 ? (
-                  <>
-                    {results.map((product: any) => (
-                      <Link key={product.id} href={`#${product.slug}`}>
-                        <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
-                          <a className="ml-3">{product.title}</a>
-                          <div className="flex items-center space-x-2 p-3">
-                            <TagIcon />
-                            <span>{product.parket.kategorija}</span>
-                          </div>
+            <div className="bg-white pb-6 pr-6 pl-6 pt-2 text-left">
+              {results.length > 0 ? (
+                <div className="flex flex-col space-y-2">
+                  {results.map((product: any) => (
+                    <Link key={product.id} href={`#${product.slug}`}>
+                      <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
+                        <a className="ml-3">{product.title}</a>
+                        <div className="flex items-center space-x-2 p-3">
+                          <TagIcon />
+                          <span>{product.parket.kategorija}</span>
                         </div>
-                      </Link>
-                    ))}
-                  </>
-                ) : (
-                  <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
-                    {t("section-header.search.noresult")}
-                  </p>
-                )}
-              </div>
-              <div className=""></div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
+                  {t("section-header.search.noresult")}
+                </p>
+              )}
             </div>
           )}
         </div>
