@@ -40,8 +40,8 @@ export default function HeroSection() {
               ariaLabel={t("button")}
               href="/products"
               icon="arrowRight"
-              locale={true}
               type="button"
+              locale={true}
             />
           </div>
         </div>

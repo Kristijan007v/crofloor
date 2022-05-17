@@ -30,13 +30,11 @@ export default function ButtonLink({
 }: Props) {
   const lang = useLocale();
 
-  const localeLink = `/${href}`;
-
   const visitLink = () => {
     {
       newTab
-        ? window.open(locale ? localeLink : href, "_blank")
-        : (window.location.href = `${locale ? localeLink : href}`);
+        ? window.open(locale ? `/${lang}/${href}` : href, "_blank")
+        : (window.location.href = `${locale ? `/${lang}/${href}` : href}`);
     }
   };
   return (

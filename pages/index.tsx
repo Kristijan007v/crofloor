@@ -30,7 +30,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
       title={t("pages.homepage.title")}
       metaDescription={t("pages.homepage.meta-description")}
     >
-      {/* HERO SECTIOn */}
+      {/* HERO SECTION */}
       <ErrorBoundary>
         <HeroSection />
       </ErrorBoundary>

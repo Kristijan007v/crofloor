@@ -64,13 +64,13 @@ export default function Blog({
       </ErrorBoundary>
 
       {/* Search results */}
-      <div className="sticky top-0 z-20 bg-white">
+      <div className="sticky top-0 z-20 border-b bg-white">
         <SectionSearch
           searchPlaceholder={t("section-header.search.placeholder")}
           onchange={(e) => searchBlog(e.target.value)}
         />
         {searchTerm && (
-          <div className="flex flex-col space-y-4 border-b pb-3 pr-6 pl-6 pt-2 text-left">
+          <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
             {results.length > 0 ? (
               <>
                 {results.map((post) => (
