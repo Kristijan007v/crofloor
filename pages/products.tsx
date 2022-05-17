@@ -55,8 +55,13 @@ export default function Products({ parket, kategorija }: Props) {
             onchange={(e) => searchProducts(e.target.value)}
           />
           {searchTerm && (
-            <div className="flex h-screen flex-col">
-              <div className="flex flex-col space-y-2 border-b bg-white pb-6 pr-6 pl-6 pt-2 text-left">
+            <div
+              className="h-screen bg-black/40 backdrop-blur-xl"
+              onClick={() => {
+                setSearchTerm("");
+              }}
+            >
+              <div className="flex flex-col space-y-2 pb-6 pr-6 pl-6 pt-6 text-left">
                 {results.length > 0 ? (
                   <>
                     {results.map((product: any) => (
@@ -77,12 +82,7 @@ export default function Products({ parket, kategorija }: Props) {
                   </p>
                 )}
               </div>
-              <div
-                className="grow bg-black/40 backdrop-blur-xl"
-                onClick={() => {
-                  setSearchTerm("");
-                }}
-              ></div>
+              <div className=""></div>
             </div>
           )}
         </div>
