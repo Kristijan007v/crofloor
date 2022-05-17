@@ -65,10 +65,13 @@ export default function MorreloRicco({ product }: Props) {
             description={product.parket.opis}
             backgroundImage={product.parket.pozadinskaSlika?.sourceUrl}
             featuredImage={product.featuredImage?.node.sourceUrl}
+            galleryAnchor={product.slug}
+            detailsAnchor={product.id}
           />
 
           {/* Main content */}
-          <div className="mt-4 pl-4 pb-2 pt-4 pr-4">
+          <div id={`${product.id}`} className=""></div>
+          <div className="mt-4 pl-4 pt-4 pr-4">
             <div className="flex flex-wrap items-center justify-center space-x-4 text-xl font-medium text-black">
               <button
                 className={`${
@@ -99,8 +102,9 @@ export default function MorreloRicco({ product }: Props) {
 
           {/* Description */}
           {activeTab === "description" && (
-            <div className="p-4 text-center">
+            <div className="flex justify-center pt-4 pb-6 pr-6 pl-6">
               <div
+                className="p__default"
                 dangerouslySetInnerHTML={createMarkup(`${product.content}`)}
               />
             </div>
@@ -109,7 +113,7 @@ export default function MorreloRicco({ product }: Props) {
           {/* Product specifications */}
           {activeTab === "specifications" && (
             <>
-              <div className="flex flex-col space-y-4 p-4">
+              <div className="flex flex-col space-y-4 pt-4 pb-6 pr-6 pl-6">
                 <p className="p__default">
                   {lang === "en"
                     ? "Download the product specifications in PDF format."
@@ -130,7 +134,7 @@ export default function MorreloRicco({ product }: Props) {
           {/* Product certificates */}
           {activeTab === "certificates " && (
             <>
-              <div className="flex flex-col space-y-4 p-4">
+              <div className="flex flex-col space-y-4 pt-4 pb-6 pr-6 pl-6">
                 <p className="p__default">
                   {lang === "en"
                     ? "See all the certificates our products have by downloading the PDF file."
@@ -149,7 +153,8 @@ export default function MorreloRicco({ product }: Props) {
           )}
 
           {/* Product Gallery */}
-          <div className="mb-8 flex flex-col space-y-4 p-4">
+          <div id={`${product.slug}`} className="scroll-mt-4"></div>
+          <div className="mb-8 flex flex-col space-y-4 p-6">
             <h2 className="text-2xl font-semibold">
               {t("product-gallery.title")}
             </h2>

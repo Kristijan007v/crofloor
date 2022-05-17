@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Navigation from "../Navigation/Navigation";
+import Tag from "../Tag/Tag";
 
 interface Props {
   title: string;
@@ -8,6 +9,8 @@ interface Props {
   featuredImage?: string;
   alt: string;
   description: string;
+  detailsAnchor: string;
+  galleryAnchor: string;
 }
 
 export default function PageHeader({
@@ -16,6 +19,8 @@ export default function PageHeader({
   featuredImage,
   alt,
   description,
+  detailsAnchor,
+  galleryAnchor,
 }: Props) {
   return (
     <>
@@ -43,6 +48,22 @@ export default function PageHeader({
                 objectFit="cover"
                 className="opacity-85 rounded-md"
                 priority={true}
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 p-4">
+              <Tag
+                text="Gallery"
+                onclick={() => {
+                  window.location.href = `#${galleryAnchor}`;
+                }}
+              />
+            </div>
+            <div className="absolute bottom-0 right-0 p-4">
+              <Tag
+                text="Details"
+                onclick={() => {
+                  window.location.href = `#${detailsAnchor}`;
+                }}
               />
             </div>
             <p className="paragraph rounded-md bg-primary-bg p-4">
