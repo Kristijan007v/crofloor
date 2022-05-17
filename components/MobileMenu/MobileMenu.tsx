@@ -51,6 +51,9 @@ export default function MobileMenu({ closeMenu }: Props) {
 
   const { locale } = useRouter();
 
+  //Tab switching
+  const [activeTab, setActiveTab] = useState("hrast");
+
   const [products, setProducts] = useState<any>();
 
   /* Get all the products */
@@ -90,7 +93,33 @@ export default function MobileMenu({ closeMenu }: Props) {
             )}
           </li>
           {dropDown && (
-            <div>
+            <div className="flex flex-col space-y-3">
+              <div className="flex justify-center space-x-6 rounded-xl border-b bg-primary-bg p-3 text-xl font-medium text-black">
+                <button
+                  className={`${
+                    activeTab === "hrast" && "active__tab__special"
+                  }`}
+                  onClick={() => setActiveTab("hrast")}
+                >
+                  Hrast
+                </button>
+                <button
+                  className={`${
+                    activeTab === "jasen" && "active__tab__special"
+                  }`}
+                  onClick={() => setActiveTab("jasen")}
+                >
+                  Jasen
+                </button>
+                <button
+                  className={`${
+                    activeTab === "jela" && "active__tab__special"
+                  }`}
+                  onClick={() => setActiveTab("jela")}
+                >
+                  Jela
+                </button>
+              </div>
               <ul className="flex flex-col space-y-2">
                 <li>
                   <Link href="/products">
