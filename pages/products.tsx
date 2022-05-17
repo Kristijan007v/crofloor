@@ -2,6 +2,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { useState } from "react";
+import ButtonDefault from "../components/Buttons/ButtonDefault";
 import Card from "../components/Card/Card";
 import Dropdown from "../components/Dropdown/Dropdown";
 import DropdownItem from "../components/DropdownItem/DropdownItem";
@@ -49,13 +50,13 @@ export default function Products({ parket, kategorija }: Props) {
         />
 
         {/* Search results */}
-        <div className="sticky top-0 left-0 right-0 z-20">
+        <div className="sticky top-0 left-0 right-0 z-20 border-b">
           <SectionSearch
             searchPlaceholder={t("section-header.search.placeholder")}
             onchange={(e) => searchProducts(e.target.value)}
           />
           {searchTerm && (
-            <div className="bg-white pb-6 pr-6 pl-6 pt-2 text-left">
+            <div className="flex flex-col space-y-4 bg-white pb-3 pr-6 pl-6 pt-2 text-left">
               {results.length > 0 ? (
                 <div className="flex flex-col space-y-2">
                   {results.map((product: any) => (
@@ -75,6 +76,12 @@ export default function Products({ parket, kategorija }: Props) {
                   {t("section-header.search.noresult")}
                 </p>
               )}
+              <button
+                className="rounded-xl border-black p-3 hover:border"
+                onClick={() => setSearchTerm("")}
+              >
+                {t("section-header.search.close-btn")}
+              </button>
             </div>
           )}
         </div>

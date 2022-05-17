@@ -7,7 +7,8 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "search": {
       "placeholder": "Pretraži proizvode...",
-      "noresult": "Nema rezultata pretraživanja"
+      "noresult": "Nema rezultata pretraživanja",
+      "close-btn": "Zatvori pretragu"
     }
   },
   "body": {
