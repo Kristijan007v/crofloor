@@ -36,7 +36,7 @@ export default function PageHeader({
           className="opacity-85"
           priority={true}
         />
-        <div className="relative flex h-screen w-full flex-col bg-black/40">
+        <div className="relative h-screen w-full bg-black/40">
           <Navigation />
           <div className="flex flex-col items-center justify-center space-y-6  p-6">
             <h1 className="h1 uppercase text-white">
