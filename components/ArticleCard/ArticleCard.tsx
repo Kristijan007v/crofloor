@@ -10,6 +10,7 @@ import ReadMore from "../ReadMore/ReadMore";
 interface Props {
   sectionType: "recommended" | "featured";
   heading: string;
+  description: string;
   href: string;
   image?: string;
   imageArticle?: string;
@@ -22,6 +23,7 @@ interface Props {
 export default function ArticleCard({
   sectionType,
   heading,
+  description,
   href,
   image,
   imageArticle,
@@ -59,21 +61,9 @@ export default function ArticleCard({
             {locale == "en" ? "Author" : "Autor"}: {author}
           </p>
         </div>
-        {/* <Image
-          src={`/images/about.jpg`}
-          alt={"Ovo je test"}
-          layout="fill"
-          objectFit="cover"
-          className="opacity-85"
-          priority={true}
-        /> */}
       </div>
       <h3 className="heading__3">{heading}</h3>
-      <ReadMore
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore neque
-        dolorem porro eveniet dolor consectetur, natus rerum aperiam! Ab, omnis?"
-        maxLength={100}
-      />
+      <p className="p__default pl-4 pr-4">{description}</p>
       <ButtonLink
         text={locale === "hr" ? "Pročitaj više" : "Read more"}
         ariaLabel="Read more"

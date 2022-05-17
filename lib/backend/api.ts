@@ -25,6 +25,9 @@ export async function getPosts(perPage: number, page?: number) {
                 name
               }
             }
+            posts {
+              opis
+            }
             featuredImage {
               node {
                 sourceUrl(size: MEDIUM)
@@ -111,6 +114,9 @@ export async function getPostByCategory(categoryName: string) {
             nodes {
               name
             }
+          }
+          posts {
+            opis
           }
           featuredImage {
             node {

@@ -111,6 +111,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
             <ArticleCard
               sectionType={`featured`}
               heading={featuredArticle.featuredPost[0].title}
+              description={featuredArticle.featuredPost[0].posts.opis}
               imageArticle={
                 featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
               }
@@ -130,6 +131,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
           <PostCard
             key={post.id}
             heading={post.title}
+            description={post.posts.opis}
             image={post.featuredImage.node.sourceUrl}
             avatarURL={post.author.node.avatar.url}
             alt={post.featuredImage.node.altText}

@@ -111,6 +111,7 @@ export default function Blog({
               key={featuredArticle.featuredPost[0].id}
               sectionType={t("section.featured-article")}
               heading={featuredArticle.featuredPost[0].title}
+              description={featuredArticle.featuredPost[0].posts.opis}
               imageArticle={
                 featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
               }
@@ -143,6 +144,7 @@ export default function Blog({
               key={recommendedArticle.featuredPost[0].id}
               sectionType={t("section.recommended-article")}
               heading={recommendedArticle.featuredPost[0].title}
+              description={recommendedArticle.featuredPost[0].posts.opis}
               imageArticle={
                 recommendedArticle.featuredPost[0].featuredImage.node.sourceUrl
               }
@@ -165,6 +167,7 @@ export default function Blog({
             type={"secondary"}
             key={post.id}
             heading={post.title}
+            description={post.posts.opis}
             image={post.featuredImage.node.sourceUrl}
             avatarURL={post.author.node.avatar.url}
             alt={post.featuredImage.node.altText}

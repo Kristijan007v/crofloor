@@ -19,6 +19,7 @@ interface Props {
   createdAt?: string;
   tagName: string;
   alt: string;
+  description: string;
 }
 
 export default function PostCard({
@@ -31,6 +32,7 @@ export default function PostCard({
   createdAt,
   tagName,
   alt,
+  description,
 }: Props) {
   const locale = useLocale();
 
@@ -101,15 +103,9 @@ export default function PostCard({
         <Link href={`${href}`}>
           <a className="text-center text-xl font-semibold">{heading}</a>
         </Link>
-        <ReadMore
-          maxLength={100}
-          text={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,enim."
-          }
-          style={"pl-4 pr-4"}
-        />
+        {/* <ReadMore maxLength={150} text={description} style={"pl-4 pr-4"} /> */}
 
-        {/* <p className="pl-4 pr-4"></p> */}
+        <p className="p__default pl-4 pr-4">{description}</p>
       </div>
     </motion.div>
   );
