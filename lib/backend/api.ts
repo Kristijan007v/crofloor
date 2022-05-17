@@ -204,6 +204,10 @@ export async function getProductBySlug(slug: string) {
           {
             sourceUrl
           }
+          galerija {
+            sourceUrl
+            altText
+          }
         }
         featuredImage {
           node {

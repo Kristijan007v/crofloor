@@ -15,29 +15,6 @@ import ErrorPage from "next/error";
 import FileIcon from "../../components/Icons/FileIcon";
 import DownloadIcon from "../../components/Icons/DownloadIcon";
 
-const images = [
-  {
-    original: "/images/factory_1.jpg",
-    thumbnail: "/images/factory_1.jpg",
-    originalAlt: "Factory",
-  },
-  {
-    original: "/images/factory_2.jpg",
-    thumbnail: "/images/factory_2.jpg",
-    originalAlt: "Factory",
-  },
-  {
-    original: "/images/factory_3.jpg",
-    thumbnail: "/images/factory_3.jpg",
-    originalAlt: "Factory",
-  },
-  {
-    original: "/images/factory_5.jpg",
-    thumbnail: "/images/factory_5.jpg",
-    originalAlt: "Factory",
-  },
-];
-
 interface Props {
   product: any;
 }
@@ -54,6 +31,14 @@ export default function MorreloRicco({ product }: Props) {
   if (!router.isFallback && !product?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  const gallery = product.parket.galerija.map((image: any) => {
+    return {
+      original: image.sourceUrl,
+      thumbnail: image.sourceUrl,
+      originalAlt: image.altText,
+    };
+  });
 
   return (
     <Skeleton
@@ -110,10 +95,13 @@ export default function MorreloRicco({ product }: Props) {
           </div> */}
           <p>{product.content}</p>
 
+          {/* Product Gallery */}
           <h2 className="p-4 text-2xl font-semibold">
             {t("product-gallery.title")}
           </h2>
-          <Gallery images={images} />
+          <Gallery images={gallery} />
+
+          {/* Product specifications */}
           <h2 className="p-4 text-2xl font-semibold">
             {t("product-certificates.title")}
           </h2>
@@ -126,6 +114,7 @@ export default function MorreloRicco({ product }: Props) {
               <DownloadIcon />
             </div>
           </div>
+
           <SocialShare
             text={t("social-share.text")}
             url={`https://${MAIN_DOMAIN}/products/${product.slug}`}
