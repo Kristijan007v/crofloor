@@ -32,11 +32,11 @@ export default function MorreloRicco({ product }: Props) {
     return <ErrorPage statusCode={404} />;
   }
 
-  const gallery = product.map((image: any) => {
+  const gallery = product.parket?.galerija.map((image: any) => {
     return {
-      original: image.parket.galerija.sourceUrl,
-      thumbnail: image.parket.galerija.sourceUrl,
-      originalAlt: image.parket.galerija.altText,
+      original: image.sourceUrl,
+      thumbnail: image.sourceUrl,
+      originalAlt: image.altText,
     };
   });
 
