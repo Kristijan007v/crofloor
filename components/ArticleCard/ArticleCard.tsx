@@ -49,13 +49,14 @@ export default function ArticleCard({
       <h2 className="text-center text-lg font-semibold uppercase">
         {sectionType}
       </h2>
-      <div className="relative h-48 w-full">
+      <div className="relative h-56 w-full rounded-xl">
         <ImageWithFallback
           src={`${imageArticle ? imageArticle : "/images/" + image}`}
           fallBackSrc={`/images/image-error.jpg`}
           alt={`${imageAlt}`}
+          style={"rounded-xl"}
         />
-        <div className="relative h-48 w-full bg-black/40">
+        <div className="relative h-56 w-full rounded-xl bg-black/40">
           <div className="absolute bottom-0 flex items-center justify-center space-x-2 p-4">
             <CalendarIcon style="text-white" />
             <p className="font-medium text-white">{date}</p>
