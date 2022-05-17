@@ -115,9 +115,14 @@ export default function MorreloRicco({ product }: Props) {
           <h2 className="p-4 text-2xl font-semibold">
             {t("product-certificates.title")}
           </h2>
+          <div className="p-4">
+            <div>
+              <p></p>
+            </div>
+          </div>
           <SocialShare
             text={t("social-share.text")}
-            url={`https://${MAIN_DOMAIN}/articles/${product.slug}`}
+            url={`https://${MAIN_DOMAIN}/products/${product.slug}`}
             iconSize={"md"}
           />
         </>
