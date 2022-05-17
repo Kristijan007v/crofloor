@@ -33,6 +33,7 @@ export default function Article({ post }: Props) {
       navigation={true}
       metaTitle={`${post?.title} - by ${post?.author.node.firstName}`}
       metaShareDescription={`Read this article on ${MAIN_DOMAIN}`}
+      metaImageURL={`${post?.featuredImage.node.sourceUrl}`}
     >
       {router.isFallback ? (
         <p className="p-6 text-center">Loading article…</p>
