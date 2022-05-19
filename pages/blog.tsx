@@ -75,25 +75,25 @@ export default function Blog({
         {searchTerm && (
           <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
             {results.length > 0 ? (
-              <>
+              <motion.div
+                variants={dropInLeft}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="flex flex-col space-y-4"
+              >
                 {results.map((post) => (
                   <Link key={post.id} href={`/articles/${post.slug}`}>
-                    <motion.div
-                      variants={dropInLeft}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm"
-                    >
+                    <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
                       <p className="font-medium">{post.title}</p>
                       <div className="flex items-center space-x-2">
                         <CalendarIcon />
                         <span>{formatDate(post.date)}</span>
                       </div>
-                    </motion.div>
+                    </div>
                   </Link>
                 ))}
-              </>
+              </motion.div>
             ) : (
               <motion.p
                 variants={dropInLeft}

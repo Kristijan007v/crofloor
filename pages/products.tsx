@@ -14,6 +14,8 @@ import SectionSearch from "../components/SectionSearch/SectionSearch";
 import Skeleton from "../components/Skeleton/Skeleton";
 import { getProducts } from "../lib/backend/api";
 import nextI18NextConfig from "../next-i18next.config.js";
+import { AnimatePresence, motion } from "framer-motion";
+import dropInLeft from "../lib/animations/dropInLeft";
 
 interface Props {
   parket: any;
@@ -58,7 +60,13 @@ export default function Products({ parket, kategorija }: Props) {
           {searchTerm && (
             <div className="flex flex-col space-y-4 bg-white pb-3 pr-6 pl-6 pt-2 text-left">
               {results.length > 0 ? (
-                <div className="flex flex-col space-y-2">
+                <motion.div
+                  variants={dropInLeft}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="flex flex-col space-y-2"
+                >
                   {results.map((product: any) => (
                     <Link key={product.id} href={`/products/${product.slug}`}>
                       <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
@@ -70,11 +78,11 @@ export default function Products({ parket, kategorija }: Props) {
                       </div>
                     </Link>
                   ))}
-                </div>
+                </motion.div>
               ) : (
-                <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
+                <motion.p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
                   {t("section-header.search.noresult")}
-                </p>
+                </motion.p>
               )}
               <button
                 className="rounded-xl border-black p-3 hover:border"
