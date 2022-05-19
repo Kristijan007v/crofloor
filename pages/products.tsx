@@ -1,8 +1,8 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { useState } from "react";
-import ButtonDefault from "../components/Buttons/ButtonDefault";
 import Card from "../components/Card/Card";
 import Dropdown from "../components/Dropdown/Dropdown";
 import DropdownItem from "../components/DropdownItem/DropdownItem";
@@ -14,8 +14,6 @@ import SectionSearch from "../components/SectionSearch/SectionSearch";
 import Skeleton from "../components/Skeleton/Skeleton";
 import { getProducts } from "../lib/backend/api";
 import nextI18NextConfig from "../next-i18next.config.js";
-import { AnimatePresence, motion } from "framer-motion";
-import dropInLeft from "../lib/animations/dropInLeft";
 
 interface Props {
   parket: any;
@@ -57,41 +55,65 @@ export default function Products({ parket, kategorija }: Props) {
             searchPlaceholder={t("section-header.search.placeholder")}
             onchange={(e) => searchProducts(e.target.value)}
           />
-          {searchTerm && (
-            <div className="flex flex-col space-y-4 bg-white pb-3 pr-6 pl-6 pt-2 text-left">
-              {results.length > 0 ? (
-                <motion.div
-                  variants={dropInLeft}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="flex flex-col space-y-2"
+          <AnimatePresence>
+            {searchTerm && (
+              <div className="flex flex-col space-y-4 bg-white pb-3 pr-6 pl-6 pt-2 text-left">
+                {results.length > 0 ? (
+                  <div className="flex flex-col space-y-2">
+                    {results.map((product: any) => (
+                      <Link key={product.id} href={`/products/${product.slug}`}>
+                        <motion.div
+                          animate={{
+                            opacity: 1,
+                            scale: 1,
+                            transition: { duration: 0.4 },
+                          }}
+                          initial={{ opacity: 0, scale: 0.5 }}
+                          exit={{
+                            opacity: 0,
+                            scale: 0,
+                            transition: { duration: 0.3 },
+                          }}
+                          layout
+                          className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm"
+                        >
+                          <a className="ml-3">{product.title}</a>
+                          <div className="flex items-center space-x-2 p-3">
+                            <TagIcon />
+                            <span>{product.parket.kategorija}</span>
+                          </div>
+                        </motion.div>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <motion.p
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      transition: { duration: 0.4 },
+                    }}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0,
+                      transition: { duration: 0.3 },
+                    }}
+                    layout
+                    className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
+                  >
+                    {t("section-header.search.noresult")}
+                  </motion.p>
+                )}
+                <button
+                  className="rounded-xl border-black p-3 hover:border"
+                  onClick={() => setSearchTerm("")}
                 >
-                  {results.map((product: any) => (
-                    <Link key={product.id} href={`/products/${product.slug}`}>
-                      <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
-                        <a className="ml-3">{product.title}</a>
-                        <div className="flex items-center space-x-2 p-3">
-                          <TagIcon />
-                          <span>{product.parket.kategorija}</span>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </motion.div>
-              ) : (
-                <motion.p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
-                  {t("section-header.search.noresult")}
-                </motion.p>
-              )}
-              <button
-                className="rounded-xl border-black p-3 hover:border"
-                onClick={() => setSearchTerm("")}
-              >
-                {t("section-header.search.close-btn")}
-              </button>
-            </div>
-          )}
+                  {t("section-header.search.close-btn")}
+                </button>
+              </div>
+            )}
+          </AnimatePresence>
         </div>
 
         <div id="section-top" className="scroll-mt-32"></div>

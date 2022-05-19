@@ -72,47 +72,57 @@ export default function Blog({
           searchPlaceholder={t("section-header.search.placeholder")}
           onchange={(e) => searchBlog(e.target.value)}
         />
-        {searchTerm && (
-          <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
-            {results.length > 0 ? (
-              <motion.div
-                variants={dropInLeft}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="flex flex-col space-y-4"
-              >
-                {results.map((post) => (
-                  <Link key={post.id} href={`/articles/${post.slug}`}>
-                    <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
-                      <p className="font-medium">{post.title}</p>
-                      <div className="flex items-center space-x-2">
-                        <CalendarIcon />
-                        <span>{formatDate(post.date)}</span>
+        <AnimatePresence>
+          {searchTerm && (
+            <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
+              {results.length > 0 ? (
+                <motion.div
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 0.4 },
+                  }}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  exit={{ opacity: 0, scale: 0, transition: { duration: 0.3 } }}
+                  layout
+                  className="flex flex-col space-y-4"
+                >
+                  {results.map((post) => (
+                    <Link key={post.id} href={`/articles/${post.slug}`}>
+                      <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
+                        <p className="font-medium">{post.title}</p>
+                        <div className="flex items-center space-x-2">
+                          <CalendarIcon />
+                          <span>{formatDate(post.date)}</span>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
-              </motion.div>
-            ) : (
-              <motion.p
-                variants={dropInLeft}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
+                    </Link>
+                  ))}
+                </motion.div>
+              ) : (
+                <motion.p
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 0.4 },
+                  }}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  exit={{ opacity: 0, scale: 0, transition: { duration: 0.3 } }}
+                  layout
+                  className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
+                >
+                  {t("section-header.search.noresult")}
+                </motion.p>
+              )}
+              <button
+                className="rounded-xl border-black p-3 hover:border"
+                onClick={() => setSearchTerm("")}
               >
-                {t("section-header.search.noresult")}
-              </motion.p>
-            )}
-            <button
-              className="rounded-xl border-black p-3 hover:border"
-              onClick={() => setSearchTerm("")}
-            >
-              {t("section-header.search.close-btn")}
-            </button>
-          </div>
-        )}
+                {t("section-header.search.close-btn")}
+              </button>
+            </div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Featured ARTICLES */}
