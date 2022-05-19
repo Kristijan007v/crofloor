@@ -38,7 +38,7 @@ export default function PageHeader({
         />
         <div className="relative h-screen w-full bg-black/40">
           <Navigation />
-          <div className="flex flex-col items-center justify-center space-y-6  p-6">
+          <div className="flex flex-col items-center justify-center space-y-6 p-6">
             <h1 className="h1 uppercase text-white">
               {title}
               {/* <span className="text-gray-800"> RICCO</span> */}
