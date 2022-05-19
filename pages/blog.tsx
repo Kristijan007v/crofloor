@@ -12,6 +12,9 @@ import Skeleton from "../components/Skeleton/Skeleton";
 import { getPostByCategory, getPosts } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
+import { AnimatePresence, motion } from "framer-motion";
+import dropInLeft from "../lib/animations/dropInLeft";
+import dropIn from "../lib/animations/dropIn";
 
 interface Props {
   posts: any;
@@ -75,20 +78,32 @@ export default function Blog({
               <>
                 {results.map((post) => (
                   <Link key={post.id} href={`/articles/${post.slug}`}>
-                    <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
+                    <motion.div
+                      variants={dropInLeft}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm"
+                    >
                       <p className="font-medium">{post.title}</p>
                       <div className="flex items-center space-x-2">
                         <CalendarIcon />
                         <span>{formatDate(post.date)}</span>
                       </div>
-                    </div>
+                    </motion.div>
                   </Link>
                 ))}
               </>
             ) : (
-              <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
+              <motion.p
+                variants={dropInLeft}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
+              >
                 {t("section-header.search.noresult")}
-              </p>
+              </motion.p>
             )}
             <button
               className="rounded-xl border-black p-3 hover:border"
