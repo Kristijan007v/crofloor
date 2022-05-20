@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import useLocale from "../../hooks/useLocale";
-import dropInLeft from "../../lib/animations/dropInLeft";
 import CalendarIcon from "../Icons/CalendarIcon";
 import LinkIcon from "../Icons/LinkIcon";
-import ReadMore from "../ReadMore/ReadMore";
 import Tag from "../Tag/Tag";
 
 interface Props {
@@ -36,12 +33,27 @@ export default function PostCard({
 }: Props) {
   const locale = useLocale();
 
+  const animation = {
+    initial: {
+      x: -100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <motion.div
-      variants={dropInLeft}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
+      variants={animation}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
       className={`flex flex-col space-y-4 rounded-xl shadow-sm ${
         type === "primary"
           ? "bg-primary-yellow"

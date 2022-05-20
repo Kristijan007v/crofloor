@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import ButtonLink from "../ButtonLink/ButtonLink";
-import ButtonDefault from "../Buttons/ButtonDefault";
 import Tag from "../Tag/Tag";
 
 interface Props {
@@ -26,8 +26,29 @@ export default function Card({
   href,
   showButton,
 }: Props) {
+  const animation = {
+    initial: {
+      x: -100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <div key={key}>
+    <motion.div
+      variants={animation}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      key={key}
+    >
       <div id={id} className="scroll-mt-32"></div>
       <div className="">
         <div className="relative h-72 w-full">
@@ -61,6 +82,6 @@ export default function Card({
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

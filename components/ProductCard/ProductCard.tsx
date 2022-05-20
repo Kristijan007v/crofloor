@@ -1,7 +1,5 @@
-import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import dropInLeft from "../../lib/animations/dropInLeft";
+import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
@@ -11,12 +9,27 @@ interface Props {
 }
 
 export default function ProductCard({ heading, type, image }: Props) {
+  const animation = {
+    initial: {
+      x: -100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <motion.div
-      variants={dropInLeft}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
+      variants={animation}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
       className={`flex flex-col space-y-4 rounded-xl text-center shadow-sm ${
         type === "primary"
           ? "bg-primary-yellow"

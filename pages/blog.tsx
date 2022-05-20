@@ -55,6 +55,26 @@ export default function Blog({
     setResults(result);
   };
 
+  //Animations
+  const container = {
+    hidden: { y: -100, opacity: 0 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delayChildren: 1,
+        duration: 1,
+      },
+    },
+    exit: {
+      y: -100,
+      opacity: 0,
+      trastition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
@@ -72,7 +92,7 @@ export default function Blog({
           searchPlaceholder={t("section-header.search.placeholder")}
           onchange={(e) => searchBlog(e.target.value)}
         />
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {searchTerm && (
             <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
               {results.length > 0 ? (
@@ -83,19 +103,17 @@ export default function Blog({
                     transition: { duration: 0.4 },
                   }}
                   initial={{ opacity: 0, scale: 0.5 }}
-                  exit={{ opacity: 0, scale: 0, transition: { duration: 0.3 } }}
-                  layout
                   className="flex flex-col space-y-4"
                 >
                   {results.map((post) => (
                     <Link key={post.id} href={`/articles/${post.slug}`}>
-                      <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
+                      <motion.div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
                         <p className="font-medium">{post.title}</p>
                         <div className="flex items-center space-x-2">
                           <CalendarIcon />
                           <span>{formatDate(post.date)}</span>
                         </div>
-                      </div>
+                      </motion.div>
                     </Link>
                   ))}
                 </motion.div>
