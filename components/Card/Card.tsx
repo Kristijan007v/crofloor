@@ -28,14 +28,14 @@ export default function Card({
 }: Props) {
   const animation = {
     initial: {
-      x: -100,
+      scale: 0.8,
     },
     animate: {
-      x: 0,
+      scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
         type: "spring",
-        stiffness: 100,
+        stiffness: 150,
       },
     },
   };
