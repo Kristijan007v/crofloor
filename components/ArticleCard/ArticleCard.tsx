@@ -1,9 +1,10 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import useLocale from "../../hooks/useLocale";
+import dropInLeft from "../../lib/animations/dropInLeft";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import CalendarIcon from "../Icons/CalendarIcon";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
-import { motion } from "framer-motion";
 
 interface Props {
   sectionType: "recommended" | "featured";
@@ -33,12 +34,13 @@ export default function ArticleCard({
   author,
 }: Props) {
   const locale = useLocale();
+
   return (
     <motion.article
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
+      variants={dropInLeft}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       className={`flex flex-col space-y-4 p-6 ${
         type === "secondary" ? "bg-primary-bg" : "bg-primary-yellow "
       }`}
