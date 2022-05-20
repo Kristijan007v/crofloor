@@ -68,10 +68,6 @@ export default function Products({ parket, kategorija }: Props) {
                             transition: { duration: 0.4 },
                           }}
                           initial={{ scale: 0.6 }}
-                          /* exit={{
-                            scale: 0,
-                            transition: { duration: 0.4 },
-                          }} */
                           layout
                           className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm"
                         >
@@ -91,10 +87,6 @@ export default function Products({ parket, kategorija }: Props) {
                       transition: { duration: 0.4 },
                     }}
                     initial={{ scale: 0.6 }}
-                    exit={{
-                      scale: 0,
-                      transition: { duration: 0.4 },
-                    }}
                     layout
                     className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
                   >

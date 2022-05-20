@@ -102,7 +102,7 @@ export default function Blog({
                     scale: 1,
                     transition: { duration: 0.4 },
                   }}
-                  initial={{ opacity: 0, scale: 0.5 }}
+                  initial={{ opacity: 0, scale: 0.6 }}
                   className="flex flex-col space-y-4"
                 >
                   {results.map((post) => (
@@ -124,8 +124,7 @@ export default function Blog({
                     scale: 1,
                     transition: { duration: 0.4 },
                   }}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  exit={{ opacity: 0, scale: 0, transition: { duration: 0.3 } }}
+                  initial={{ opacity: 0, scale: 0.6 }}
                   layout
                   className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
                 >
