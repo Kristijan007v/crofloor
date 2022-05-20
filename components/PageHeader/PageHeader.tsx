@@ -50,7 +50,7 @@ export default function PageHeader({
                 layout="fill"
                 objectFit="cover"
                 className="opacity-85 rounded-md"
-                priority={true}
+                priority
               />
             </div>
             <div className="absolute bottom-0 left-0 p-4">
