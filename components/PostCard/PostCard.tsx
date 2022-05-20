@@ -40,7 +40,7 @@ export default function PostCard({
     animate: {
       scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 1,
         type: "spring",
       },
     },
