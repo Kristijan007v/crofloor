@@ -34,7 +34,7 @@ export default function ArticleHeader({
           layout="fill"
           objectFit="cover"
           className="opacity-85"
-          priority={true}
+          priority
         />
 
         <div className="relative h-48 w-full bg-black/40">

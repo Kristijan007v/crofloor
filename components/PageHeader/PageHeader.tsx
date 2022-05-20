@@ -34,7 +34,7 @@ export default function PageHeader({
           layout="fill"
           objectFit="cover"
           className="opacity-85"
-          priority={true}
+          priority
         />
         <div className="relative h-screen w-full bg-black/40">
           <Navigation />
