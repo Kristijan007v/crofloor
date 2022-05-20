@@ -1,12 +1,8 @@
-import { motion } from "framer-motion";
-import React from "react";
+import Image from "next/image";
 import useLocale from "../../hooks/useLocale";
-import dropInLeft from "../../lib/animations/dropInLeft";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import CalendarIcon from "../Icons/CalendarIcon";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
-import ReadMore from "../ReadMore/ReadMore";
-import Image from "next/image";
 
 interface Props {
   sectionType: "recommended" | "featured";
@@ -37,11 +33,7 @@ export default function ArticleCard({
 }: Props) {
   const locale = useLocale();
   return (
-    <motion.article
-      variants={dropInLeft}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
+    <article
       className={`flex flex-col space-y-4 p-6 ${
         type === "secondary" ? "bg-primary-bg" : "bg-primary-yellow "
       }`}
@@ -88,6 +80,6 @@ export default function ArticleCard({
         type={"button"}
         icon={"arrowRight"}
       />
-    </motion.article>
+    </article>
   );
 }
