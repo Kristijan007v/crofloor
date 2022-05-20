@@ -211,26 +211,36 @@ export default function Blog({
       )}
 
       {/* Latest articles */}
-      <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
-        {t("section.latest")}
-      </h3>
-      <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-20">
-        {posts.map((post: any) => (
-          <PostCard
-            type={"secondary"}
-            key={post.id}
-            heading={post.title}
-            description={post.posts.opis}
-            image={post.featuredImage?.node.sourceUrl}
-            avatarURL={post.author.node.avatar.url}
-            alt={post.featuredImage?.node.altText}
-            href={`/articles/${post.slug}`}
-            createdAt={formatDate(post.date)}
-            author={post.author.node.firstName}
-            tagName={post.tags.nodes.map((tag: any) => tag.name)}
-          />
-        ))}
-      </div>
+      {posts.length > 0 ? (
+        <>
+          <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
+            {t("section.latest")}
+          </h3>
+          <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-20">
+            {posts.map((post: any) => (
+              <PostCard
+                type={"secondary"}
+                key={post.id}
+                heading={post.title}
+                description={post.posts.opis}
+                image={post.featuredImage?.node.sourceUrl}
+                avatarURL={post.author.node.avatar.url}
+                alt={post.featuredImage?.node.altText}
+                href={`/articles/${post.slug}`}
+                createdAt={formatDate(post.date)}
+                author={post.author.node.firstName}
+                tagName={post.tags.nodes.map((tag: any) => tag.name)}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <h3 className="pt-10 pl-6 pr-6 text-center text-xl font-semibold uppercase">
+            {t("section.latest-empty")}
+          </h3>
+        </>
+      )}
     </Skeleton>
   );
 }

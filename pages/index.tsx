@@ -69,33 +69,35 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
         </div>
 
         {/* Products SECTION */}
-        <div className="flex flex-col">
-          {parket
-            .filter((product: any) =>
-              product.parket.kategorija
-                .toLowerCase()
-                .includes(`${tab}`.toLowerCase())
-            )
-            .map((product: any) => (
-              <Card
-                key={product.id}
-                id={product.slug}
-                title={product.title}
-                imageURL={product.featuredImage.node.sourceUrl}
-                imageAlt={product.featuredImage.node.altText}
-                href={`products/${product.slug}`}
-                tagText={product.tags.nodes[0].name}
-                description={product.parket.opis}
-              />
-            ))}
-          <ButtonLink
-            text={t("product-collection.button")}
-            ariaLabel={t("product-collection.button")}
-            icon="arrowRight"
-            type="button"
-            href="/products"
-          />
-        </div>
+        {parket.length > 0 && (
+          <div className="flex flex-col">
+            {parket
+              .filter((product: any) =>
+                product.parket.kategorija
+                  .toLowerCase()
+                  .includes(`${tab}`.toLowerCase())
+              )
+              .map((product: any) => (
+                <Card
+                  key={product.id}
+                  id={product.slug}
+                  title={product.title}
+                  imageURL={product.featuredImage.node.sourceUrl}
+                  imageAlt={product.featuredImage.node.altText}
+                  href={`products/${product.slug}`}
+                  tagText={product.tags.nodes[0].name}
+                  description={product.parket.opis}
+                />
+              ))}
+            <ButtonLink
+              text={t("product-collection.button")}
+              ariaLabel={t("product-collection.button")}
+              icon="arrowRight"
+              type="button"
+              href="/products"
+            />
+          </div>
+        )}
       </div>
 
       {/* BLOG SECTION */}
@@ -124,31 +126,37 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
           </div>
         </>
       )}
-      <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
-        {t("blog.latest-articles")}
-      </h3>
-      <div className="flex flex-col space-y-8 p-6">
-        {posts.map((post: any) => (
-          <PostCard
-            key={post.id}
-            heading={post.title}
-            description={post.posts.opis}
-            image={post.featuredImage?.node.sourceUrl}
-            avatarURL={post.author.node.avatar.url}
-            alt={post.featuredImage?.node.altText}
-            href={`/articles/${post.slug}`}
-            createdAt={formatDate(post.date)}
-            author={post.author.node.firstName}
-            tagName={post.tags.nodes.map((tag: any) => tag.name)}
-            type={"secondary"}
-          />
-        ))}
-        <LinkDefault
-          href="/blog"
-          text={t("blog.view-all")}
-          style="flex justify-center hover:border border-black p-3 rounded-xl bg-primary-bg"
-        />
-      </div>
+
+      {/* ARTICLES SECTION */}
+      {posts.length > 0 && (
+        <>
+          <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
+            {t("blog.latest-articles")}
+          </h3>
+          <div className="flex flex-col space-y-8 p-6">
+            {posts.map((post: any) => (
+              <PostCard
+                key={post.id}
+                heading={post.title}
+                description={post.posts.opis}
+                image={post.featuredImage?.node.sourceUrl}
+                avatarURL={post.author.node.avatar.url}
+                alt={post.featuredImage?.node.altText}
+                href={`/articles/${post.slug}`}
+                createdAt={formatDate(post.date)}
+                author={post.author.node.firstName}
+                tagName={post.tags.nodes.map((tag: any) => tag.name)}
+                type={"secondary"}
+              />
+            ))}
+            <LinkDefault
+              href="/blog"
+              text={t("blog.view-all")}
+              style="flex justify-center hover:border border-black p-3 rounded-xl bg-primary-bg"
+            />
+          </div>
+        </>
+      )}
 
       {/* About SECTION */}
       <div className="relative h-80 w-full">

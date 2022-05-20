@@ -16,6 +16,7 @@
     "featured-article": "Istaknuti članak",
     "recommended": "Preporučeno",
     "recommended-article": "Preporučeni članak",
-    "latest": "Nedavne objave"
+    "latest": "Nedavne objave",
+    "latest-empty": "Trenutno nema novih članaka"
   }
 }

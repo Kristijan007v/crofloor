@@ -160,36 +160,39 @@ export default function Products({ parket, kategorija }: Props) {
         </div>
       </ErrorBoundary>
 
-      {/* PRODUCTS */}
-      <div className="p-6">
-        {/* Hrast Products */}
+      {parket.length > 0 && (
+        <>
+          {/* PRODUCTS */}
+          <div className="p-6">
+            {/* Hrast Products */}
+            {parket
+              .filter((product: any) =>
+                product.parket.kategorija
+                  .toLowerCase()
+                  .includes(`${activeTab}`.toLowerCase())
+              )
+              .map((product: any) => (
+                <Card
+                  key={product.id}
+                  id={product.slug}
+                  title={product.title}
+                  imageURL={product.featuredImage.node.sourceUrl}
+                  imageAlt={product.featuredImage.node.altText}
+                  href={`products/${product.slug}`}
+                  tagText={product.tags.nodes[0].name}
+                  description={product.parket.opis}
+                  showButton={true}
+                />
+              ))}
 
-        {parket
-          .filter((product: any) =>
-            product.parket.kategorija
-              .toLowerCase()
-              .includes(`${activeTab}`.toLowerCase())
-          )
-          .map((product: any) => (
-            <Card
-              key={product.id}
-              id={product.slug}
-              title={product.title}
-              imageURL={product.featuredImage.node.sourceUrl}
-              imageAlt={product.featuredImage.node.altText}
-              href={`products/${product.slug}`}
-              tagText={product.tags.nodes[0].name}
-              description={product.parket.opis}
-              showButton={true}
+            <LinkDefault
+              href="#section-top"
+              style="flex justify-end"
+              text={t("body.scroll-to-top")}
             />
-          ))}
-
-        <LinkDefault
-          href="#section-top"
-          style="flex justify-end"
-          text={t("body.scroll-to-top")}
-        />
-      </div>
+          </div>
+        </>
+      )}
       <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
         Lokacije trgovina
       </h3>

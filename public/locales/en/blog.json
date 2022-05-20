@@ -16,6 +16,7 @@
     "featured-article": "Featured Article",
     "recommended": "Recommended",
     "recommended-article": "Recommended Article",
-    "latest": "Latest articles"
+    "latest": "Latest articles",
+    "latest-empty": "There are currently no new articles"
   }
 }

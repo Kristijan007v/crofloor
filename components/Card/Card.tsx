@@ -35,7 +35,6 @@ export default function Card({
       transition: {
         duration: 0.8,
         type: "spring",
-        stiffness: 150,
       },
     },
   };
