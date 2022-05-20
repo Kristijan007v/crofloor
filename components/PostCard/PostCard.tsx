@@ -35,12 +35,12 @@ export default function PostCard({
 
   const animation = {
     initial: {
-      scale: 0.8,
+      scale: 0.6,
     },
     animate: {
       scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         type: "spring",
       },
     },
