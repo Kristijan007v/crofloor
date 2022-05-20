@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
@@ -12,9 +13,6 @@ import Skeleton from "../components/Skeleton/Skeleton";
 import { getPostByCategory, getPosts } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
-import { AnimatePresence, motion } from "framer-motion";
-import dropInLeft from "../lib/animations/dropInLeft";
-import dropIn from "../lib/animations/dropIn";
 
 interface Props {
   posts: any;
@@ -53,26 +51,6 @@ export default function Blog({
       post.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setResults(result);
-  };
-
-  //Animations
-  const container = {
-    hidden: { y: -100, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        delayChildren: 1,
-        duration: 1,
-      },
-    },
-    exit: {
-      y: -100,
-      opacity: 0,
-      trastition: {
-        duration: 0.5,
-      },
-    },
   };
 
   return (
