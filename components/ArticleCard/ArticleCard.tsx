@@ -3,6 +3,7 @@ import useLocale from "../../hooks/useLocale";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import CalendarIcon from "../Icons/CalendarIcon";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
+import { motion } from "framer-motion";
 
 interface Props {
   sectionType: "recommended" | "featured";
@@ -33,7 +34,11 @@ export default function ArticleCard({
 }: Props) {
   const locale = useLocale();
   return (
-    <article
+    <motion.article
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
       className={`flex flex-col space-y-4 p-6 ${
         type === "secondary" ? "bg-primary-bg" : "bg-primary-yellow "
       }`}
@@ -80,6 +85,6 @@ export default function ArticleCard({
         type={"button"}
         icon={"arrowRight"}
       />
-    </article>
+    </motion.article>
   );
 }
