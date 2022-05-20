@@ -33,7 +33,7 @@ export default function Card({
     animate: {
       scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 1,
         type: "spring",
       },
     },

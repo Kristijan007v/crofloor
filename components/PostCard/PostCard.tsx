@@ -35,7 +35,7 @@ export default function PostCard({
 
   const animation = {
     initial: {
-      scale: 0.6,
+      scale: 0.8,
     },
     animate: {
       scale: 1,
