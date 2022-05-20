@@ -94,6 +94,7 @@ export default function Footer() {
               className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-2 text-sm focus:bg-primary-gray focus:outline-none focus:placeholder:text-black"
               type="email"
               id="email"
+              disabled={isSubmitting ? true : false}
               placeholder={t("newsletter.placeholder")}
               {...register("email", {
                 required: "Name is required",
