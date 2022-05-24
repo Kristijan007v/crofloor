@@ -22,11 +22,11 @@ export default function CopyToClipboard({ textToCopy, size }: Props) {
     }
   }
   return (
-    <>
+    <div className="hover:cursor-pointer">
       <ClipboardIcon
         onclick={() => copyTextToClipboard(textToCopy)}
         size={size}
       />
-    </>
+    </div>
   );
 }

@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
       <Skeleton title="" metaDescription="">
         <Navigation style="bg-black" />
         <SectionHeading heading={t("heading")} />
-        <div className="p-10 lg:p-12">
+        <div className="pt-10 pr-10 pl-10 pb-20 lg:pt-12 lg:pr-12 lg:pl-12 lg:pb-28">
           <p className="paragraph p__responsive m-auto w-full md:w-5/6 lg:w-4/6">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
             iste dolores omnis unde, impedit nulla ab odit temporibus asperiores

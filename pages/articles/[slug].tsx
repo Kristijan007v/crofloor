@@ -52,7 +52,7 @@ export default function Article({ post }: Props) {
           />
 
           {/* Article content */}
-          <div className="md: flex flex-col space-y-4 bg-primary-yellow p-6 md:bg-white md:p-10">
+          <div className="md: flex flex-col space-y-4 bg-primary-yellow pt-6 pr-6 pl-6 pb-16 md:bg-white md:pt-10 md:pr-10 md:pl-10 md:pb-24">
             <div
               className="p__responsive m-auto w-full md:w-5/6 lg:w-4/6"
               dangerouslySetInnerHTML={createMarkup(`${post.content}`)}

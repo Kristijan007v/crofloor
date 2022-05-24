@@ -56,11 +56,11 @@ export default function ArticleHeader({
             />
           </div>
 
-          <div className="absolute top-0 flex items-center justify-center space-x-2 p-4">
+          <div className="absolute top-0 right-0 flex items-center justify-center space-x-2 p-4">
             <CalendarIcon style="text-white" />
             <p className="p__responsive font-medium text-white">{date}</p>
           </div>
-          <div className="absolute top-0 right-0 flex items-center space-x-2 p-4 font-medium text-white">
+          <div className="absolute top-0 left-0 flex items-center space-x-2 p-4 font-medium text-white">
             <span>
               <div className="relative h-7 w-7 rounded-full">
                 <Image

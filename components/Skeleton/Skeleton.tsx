@@ -61,7 +61,7 @@ const Skeleton = ({
               borderRadius: "10px",
               background: "rgb(0, 0, 0)",
               color: "#fff",
-              border: "0.5px solid white",
+              border: "1px solid white",
             },
           }}
         />
