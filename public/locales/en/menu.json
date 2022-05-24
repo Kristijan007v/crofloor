@@ -4,6 +4,12 @@
   "contact": "Contact",
   "blog": "Blog",
   "about": "About",
+  "desktop": {
+    "products": "Products",
+    "contact": "Contact",
+    "blog": "Blog",
+    "about": "About"
+  },
   "language-switcher": {
     "heading": "Choose Language",
     "options": {

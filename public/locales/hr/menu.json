@@ -4,6 +4,12 @@
   "contact": "Kontaktiraj nas",
   "blog": "Blog",
   "about": "O nama",
+  "desktop": {
+    "products": "Proizvodi",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "about": "O nama"
+  },
   "language-switcher": {
     "heading": "Izaberi jezik",
     "options": {

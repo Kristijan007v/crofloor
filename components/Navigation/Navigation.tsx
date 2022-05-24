@@ -1,12 +1,12 @@
-import React, { useState, createContext } from "react";
-import MobileMenu from "../MobileMenu/MobileMenu";
-import Link from "next/link";
-import MenuIcon from "../Icons/MenuIcon";
 import { AnimatePresence } from "framer-motion";
-import WorldIcon from "../Icons/WorldIcon";
-import ButtonDefault from "../Buttons/ButtonDefault";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import MenuIcon from "../Icons/MenuIcon";
+import WorldIcon from "../Icons/WorldIcon";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 interface Props {
   style?: string;
@@ -19,12 +19,16 @@ export default function Navigation({ style }: Props) {
     setMobileMenu(!mobileMenu);
   };
 
+  const { t } = useTranslation("menu");
+
   const [language, setLanguage] = useLocalStorage("language", "en");
 
   const [languageSwitch, setLanguageSwitch] = useState(false);
 
   //Change Langugae logic
   const router = useRouter();
+
+  const locale = router.locale;
 
   const toogleLanguageSwitch = () => {
     setLanguageSwitch(!languageSwitch);
@@ -47,29 +51,46 @@ export default function Navigation({ style }: Props) {
       <ul className="hidden space-x-4 md:flex">
         <li>
           <Link href="/products">
-            <a className="link__menu__desktop">Products</a>
+            <a className="link__menu__desktop">{t("desktop.products")}</a>
           </Link>
         </li>
         <li>
           <Link href="/contact-us">
-            <a className="link__menu__desktop">Contact</a>
+            <a className="link__menu__desktop">{t("desktop.contact")}</a>
           </Link>
         </li>
         <li>
           <Link href="/blog">
-            <a className="link__menu__desktop">Blog</a>
+            <a className="link__menu__desktop">{t("desktop.blog")}</a>
           </Link>
         </li>
         <li>
           <Link href="/about">
-            <a className="link__menu__desktop">About</a>
+            <a className="link__menu__desktop">{t("desktop.about")}</a>
           </Link>
         </li>
       </ul>
-      <div className="hidden rounded-full bg-primary-bg pt-2 pb-2 pr-8 pl-8 md:block">
+      <div className="hidden rounded-full bg-primary-bg pt-2 pb-2 pr-6 pl-6 md:block">
         <span className="flex items-center justify-center space-x-3">
           <WorldIcon />
-          <p>Hrvatski</p>
+          <select
+            onChange={handleLocaleChange}
+            value={router.locale}
+            className="bg-transparent"
+          >
+            <option
+              className="rounded-2xl bg-gray-100 p-6 text-center text-lg font-semibold"
+              value="en"
+            >
+              {locale === "hr" ? "English" : "Engleski"}
+            </option>
+            <option
+              className="rounded-2xl bg-gray-100 p-6 text-center text-lg font-semibold"
+              value="hr"
+            >
+              {locale === "hr" ? "Croatian" : "Hrvatski"}
+            </option>
+          </select>
         </span>
       </div>
       <span className="block md:hidden">

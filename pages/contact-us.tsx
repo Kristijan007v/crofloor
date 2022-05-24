@@ -42,9 +42,9 @@ export default function ContactUs() {
         />
       </ErrorBoundary>
 
-      <div className="m-auto flex w-full flex-col space-y-8 lg:mb-16 lg:mt-16 lg:w-5/6 lg:flex-row lg:space-x-6 2xl:w-4/6">
+      <div className="m-auto flex w-full flex-col space-y-8 md:mb-8 md:mt-8 md:flex-row md:space-x-6 lg:mb-16 lg:mt-16 lg:w-5/6 2xl:w-4/6">
         <form
-          className="flex flex-grow flex-col bg-primary-yellow p-4 lg:bg-white"
+          className="flex flex-grow flex-col bg-primary-yellow p-4 md:bg-white"
           method="POST"
           action="https://getform.io/f/bca9d5f9-ce66-41be-b858-03656b93a86d"
         >
