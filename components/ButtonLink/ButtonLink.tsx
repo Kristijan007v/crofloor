@@ -54,8 +54,12 @@ export default function ButtonLink({
           {icon == "arrowRight" ? <ArrowRight /> : null}
         </button>
       ) : (
-        <button className={`${style}`} onClick={visitLink}>
-          {children}
+        <button
+          className={`${style}`}
+          onClick={visitLink}
+          aria-label={ariaLabel}
+        >
+          <span aria-hidden="true">{children}</span>
         </button>
       )}
     </>
