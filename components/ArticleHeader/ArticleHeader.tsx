@@ -41,8 +41,10 @@ export default function ArticleHeader({
         />
 
         <div className="relative h-48 w-full bg-black/40 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
-          <h1 className="h1__white h1__responsive absolute p-4">{title}</h1>
-          <div className="absolute top-0 right-0 hidden md:block">
+          <h1 className="h1__white h1__responsive absolute bottom-0 p-4">
+            {title}
+          </h1>
+          <div className="absolute bottom-0 right-0 hidden md:block">
             <SocialShare
               iconSize="lg"
               url={`${url}`}
@@ -51,11 +53,11 @@ export default function ArticleHeader({
             />
           </div>
 
-          <div className="absolute bottom-0 flex items-center justify-center space-x-2 p-4">
+          <div className="absolute top-0 flex items-center justify-center space-x-2 p-4">
             <CalendarIcon style="text-white" />
             <p className="p__responsive font-medium text-white">{date}</p>
           </div>
-          <div className="absolute bottom-0 right-0 flex items-center space-x-2 p-4 font-medium text-white">
+          <div className="absolute top-0 right-0 flex items-center space-x-2 p-4 font-medium text-white">
             <span>
               <div className="relative h-7 w-7 rounded-full">
                 <Image
