@@ -3,6 +3,10 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 import Link from "next/link";
 import MenuIcon from "../Icons/MenuIcon";
 import { AnimatePresence } from "framer-motion";
+import WorldIcon from "../Icons/WorldIcon";
+import ButtonDefault from "../Buttons/ButtonDefault";
+import { useRouter } from "next/router";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 interface Props {
   style?: string;
@@ -13,6 +17,26 @@ export default function Navigation({ style }: Props) {
 
   const toogleMenu = () => {
     setMobileMenu(!mobileMenu);
+  };
+
+  const [language, setLanguage] = useLocalStorage("language", "en");
+
+  const [languageSwitch, setLanguageSwitch] = useState(false);
+
+  //Change Langugae logic
+  const router = useRouter();
+
+  const toogleLanguageSwitch = () => {
+    setLanguageSwitch(!languageSwitch);
+  };
+
+  const handleLocaleChange = (event: any) => {
+    const value = event.target.value;
+    setLanguage(value);
+
+    router.push(router.route, router.asPath, {
+      locale: value,
+    });
   };
 
   return (
@@ -42,6 +66,12 @@ export default function Navigation({ style }: Props) {
           </Link>
         </li>
       </ul>
+      <div className="hidden rounded-full bg-primary-bg pt-2 pb-2 pr-8 pl-8 md:block">
+        <span className="flex items-center justify-center space-x-3">
+          <WorldIcon />
+          <p>Hrvatski</p>
+        </span>
+      </div>
       <span className="block md:hidden">
         <MenuIcon onclick={toogleMenu} />
       </span>
