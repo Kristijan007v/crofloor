@@ -196,7 +196,7 @@ export default function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className=" flex flex-col items-center justify-between bg-black p-4 md:flex-row">
+        <div className=" flex flex-col items-center justify-between bg-black p-6 md:flex-row">
           <div className="flex flex-col items-center justify-center md:flex-row md:space-x-4">
             <Link href={"/legal/privacy-policy"} locale={router.locale}>
               <a className="text-lg uppercase text-white underline-offset-4 hover:underline">
