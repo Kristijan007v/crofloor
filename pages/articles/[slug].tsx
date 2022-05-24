@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import ArticleHeader from "../../components/ArticleHeader/ArticleHeader";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import SocialShare from "../../components/SocialShare/SocialShare";
+import useLocale from "../../hooks/useLocale";
 import { getAllPostsWithSlug, getPostBySlug } from "../../lib/backend/api";
 import formatDate from "../../lib/utilities/formatDate";
 import nextI18nextConfig from "../../next-i18next.config";
@@ -15,6 +16,8 @@ interface Props {
 
 export default function Article({ post }: Props) {
   const router = useRouter();
+
+  const locale = useLocale();
 
   const MAIN_DOMAIN = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
 
@@ -57,7 +60,9 @@ export default function Article({ post }: Props) {
             />
           </div>
           <SocialShare
-            text="Podijeli članak"
+            text={`${
+              locale === "en" ? "Share the article" : "Podijeli članak"
+            }`}
             url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
             iconSize={"md"}
             style="block md:hidden"

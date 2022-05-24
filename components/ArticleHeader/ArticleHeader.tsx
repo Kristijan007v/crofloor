@@ -46,6 +46,9 @@ export default function ArticleHeader({
           </h1>
           <div className="absolute bottom-0 right-0 hidden md:block">
             <SocialShare
+              text={`${
+                locale === "en" ? "Share the article" : "Podijeli članak"
+              }`}
               iconSize="lg"
               url={`${url}`}
               bgColor="bg-transparent"
