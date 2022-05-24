@@ -26,7 +26,10 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      <Skeleton title="" metaDescription="">
+      <Skeleton
+        title="Privacy policy"
+        metaDescription="Our Privacy Policy is available here and explains in detail what information we collect, how we use it and what we disclose to third parties."
+      >
         <Navigation style="bg-black" />
         <SectionHeading heading={t("heading")} />
         <div className="pt-10 pr-10 pl-10 pb-20 lg:pt-12 lg:pr-12 lg:pl-12 lg:pb-28">

@@ -26,7 +26,10 @@ export default function Terms() {
 
   return (
     <>
-      <Skeleton title="" metaDescription="">
+      <Skeleton
+        title="Terms & Conditions"
+        metaDescription="The terms & conditions of the Požgaj Grupa website."
+      >
         <Navigation style="bg-black" />
         <SectionHeading heading={t("heading")} />
         <div className="pt-10 pr-10 pl-10 pb-20 lg:pb-28 lg:pt-12 lg:pr-12 lg:pl-12">
