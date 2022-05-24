@@ -41,7 +41,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
           {t("product-collection.heading")}
         </h2>
 
-        <div className="mb-6 flex justify-center space-x-4 text-lg font-medium">
+        <div className="mb-6 flex flex-wrap items-center justify-center space-x-4 text-lg font-medium">
           <button
             className={`${tab === "hrast" ? "active__tab" : "tab__default"}`}
             onClick={() => {
@@ -109,7 +109,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
       {/* Featured ARTICLES */}
       {featuredArticle.featuredPost.length > 0 && (
         <>
-          <div>
+          <div className="">
             <ArticleCard
               sectionType={`featured`}
               heading={featuredArticle.featuredPost[0].title}
@@ -129,11 +129,11 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
       {/* ARTICLES SECTION */}
       {posts.length > 0 && (
-        <>
+        <div className="mb-8">
           <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
             {t("blog.latest-articles")}
           </h3>
-          <div className="flex flex-col space-y-8 p-6">
+          <div className="grid grid-cols-1 gap-8 p-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {posts.map((post: any) => (
               <PostCard
                 key={post.id}
@@ -149,17 +149,17 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                 type={"secondary"}
               />
             ))}
-            <LinkDefault
-              href="/blog"
-              text={t("blog.view-all")}
-              style="flex justify-center hover:border border-black p-3 rounded-xl bg-primary-bg"
-            />
           </div>
-        </>
+          <LinkDefault
+            href="/blog"
+            text={t("blog.view-all")}
+            style="flex justify-center hover:border border-black p-3 rounded-xl bg-primary-bg"
+          />
+        </div>
       )}
 
       {/* About SECTION */}
-      <div className="relative h-80 w-full">
+      <div className="relative h-80 w-full md:h-96">
         <Image
           src="/images/about-us.jpg"
           layout="fill"
@@ -168,20 +168,22 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
           placeholder="blur"
           blurDataURL="/images/about-us.jpg"
         />
-        <div className="absolute flex h-80 w-full flex-col space-y-2 bg-gray-500/60 p-6">
-          <h2 className="text-2xl font-semibold text-yellow-special">
-            {t("about-section.heading")}
-          </h2>
-          <p className="font-medium text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            assumenda sed, iste voluptates quo voluptatum, nulla sint maxime
-            repellendus quia laboriosam! Cupiditate totam dolores eligendi ab
-            ullam accusantium minima autem consectetur, molestiae ipsam culpa
-            voluptatum?
-          </p>
-          <p className="font-bold text-yellow-special">
-            Pozgaj Group CEO - Name Surname
-          </p>
+        <div className="absolute flex h-80 w-full flex-col space-y-2 bg-gray-500/60 p-6 md:h-96">
+          <div className="m-auto flex w-full flex-col space-y-4 md:w-5/6 lg:w-4/6 xl:w-3/6">
+            <h2 className="text-2xl font-semibold text-yellow-special">
+              {t("about-section.heading")}
+            </h2>
+            <p className="font-medium text-white">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+              assumenda sed, iste voluptates quo voluptatum, nulla sint maxime
+              repellendus quia laboriosam! Cupiditate totam dolores eligendi ab
+              ullam accusantium minima autem consectetur, molestiae ipsam culpa
+              voluptatum?
+            </p>
+            <p className="font-bold text-yellow-special">
+              Pozgaj Group CEO - Name Surname
+            </p>
+          </div>
         </div>
       </div>
     </Skeleton>

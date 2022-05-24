@@ -44,6 +44,7 @@ export default function Faq({ question, answer }: Props) {
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
+      layoutId={question}
       ref={containerRef}
       className="flex flex-col space-y-2"
     >
