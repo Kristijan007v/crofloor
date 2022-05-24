@@ -5,6 +5,7 @@ import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import Gallery from "../components/Gallery/Gallery";
 import LocationContainer from "../components/LocationContainer/LocationContainer";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
+import SectionHeading from "../components/SectionHeading/SectionHeading";
 import Skeleton from "../components/Skeleton/Skeleton";
 import useLocale from "../hooks/useLocale";
 import nextI18NextConfig from "../next-i18next.config.js";
@@ -55,14 +56,15 @@ export default function About() {
   return (
     <Skeleton title="" metaDescription="" navigation={true}>
       <ErrorBoundary moduleName="SectionHeader">
-        <SectionHeader
+        {/* <SectionHeader
           title={t("section-header.title")}
           image="about.jpg"
           alt={t("section-header.image.alt")}
           description={t("section-header.description")}
-        />
+        /> */}
+        <SectionHeading heading={t("section-header.title")} />
       </ErrorBoundary>
-      <div className="mt-4 flex flex-col space-y-4 bg-primary-bg p-8 text-left md:mt-12 md:bg-white md:text-center">
+      <div className="mt-4 flex flex-col space-y-4 bg-white p-8 text-left md:mt-12 md:bg-white md:text-center">
         <h2 className="h2__responsive font-semibold uppercase">
           {t("section.locations.heading")}
         </h2>

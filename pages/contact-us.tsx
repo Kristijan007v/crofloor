@@ -99,7 +99,7 @@ export default function ContactUs() {
             ></iframe>
           </div>
           {/* Contact and address info */}
-          <div className="items-left m-6 flex flex-col justify-center space-y-2 pb-8">
+          <div className="items-left m-6 flex flex-col justify-center space-y-3 pb-8">
             <p className="heading__4 h4__responsive">
               {t("contact-details.title")}
             </p>
@@ -108,19 +108,21 @@ export default function ContactUs() {
                 "https://www.google.com/maps/place/Dravska+ul.+40,+42231,+Veliki+Bukovec/@46.2869072,16.7099287,17z/data=!4m2!3m1!1s0x4768a18575c182bf:0xfbb76f3cb4d6b219"
               }
             >
-              <a>Dravska 40, 42 231 Veliki Bukovec</a>
+              <a className="p__responsive">Dravska 40, 42 231 Veliki Bukovec</a>
             </Link>
-            <p>
+            <p className="p__responsive">
               {t("info.phone")}{" "}
               <a href="tel:+385 42 406 600">+385 42 406 600</a>
             </p>
-            <p>
+            <p className="p__responsive">
               {t("info.email")}{" "}
               <a href="mailto:pozgaj@pozgaj.com">pozgaj@pozgaj.com</a>
             </p>
             <p className="heading__4 h4__responsive">{t("work-hours.title")}</p>
-            <p>{t("work-hours.monday-friday")}: 08h-17h</p>
-            <p>{t("work-hours.saturday")}: 08h-17h</p>
+            <p className="p__responsive">
+              {t("work-hours.monday-friday")}: 08h-17h
+            </p>
+            <p className="p__responsive">{t("work-hours.saturday")}: 08h-17h</p>
           </div>
         </div>
       </div>
