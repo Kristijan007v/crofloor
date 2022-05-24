@@ -20,7 +20,7 @@ export default function Faq({ question, answer }: Props) {
         className="flex items-center justify-between"
         onClick={() => toogle()}
       >
-        <p className="text-lg">{question}</p>
+        <p className="p__responsive">{question}</p>
         {isOpen ? <ArrowUp /> : <ArrowDown />}
       </div>
 
