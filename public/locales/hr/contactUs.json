@@ -16,6 +16,9 @@
     "phone": "Telefon:",
     "email": "E-mail:"
   },
+  "contact-details": {
+    "title": "Kontakt detalji"
+  },
   "work-hours": {
     "title": "Radno vrijeme",
     "monday-friday": "Pon-Pet",

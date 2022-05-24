@@ -16,6 +16,9 @@
     "phone": "Phone:",
     "email": "E-mail:"
   },
+  "contact-details": {
+    "title": "Contact details"
+  },
   "work-hours": {
     "title": "Work hours",
     "monday-friday": "Mon-Fri",

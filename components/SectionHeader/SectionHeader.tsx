@@ -29,7 +29,7 @@ export default function SectionHeader({
 }: Props) {
   return (
     <>
-      <div className="relative h-48 w-full">
+      <div className="relative h-48 w-full md:h-60 lg:h-72 xl:h-80 2xl:h-96">
         <Image
           src={`${imageURL ? imageURL : `/images/${image}`}`}
           alt={alt}
@@ -39,8 +39,10 @@ export default function SectionHeader({
           priority
         />
 
-        <div className="relative h-48 w-full bg-black/40">
-          <h1 className="h1__white absolute bottom-0 p-4">{title}</h1>
+        <div className="relative h-48 w-full bg-black/40 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
+          <h1 className="h1__responsive absolute bottom-0 p-4 font-semibold text-white">
+            {title}
+          </h1>
         </div>
       </div>
       {description && (

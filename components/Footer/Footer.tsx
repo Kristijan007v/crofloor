@@ -59,7 +59,7 @@ export default function Footer() {
       <footer className="relative flex flex-col">
         {/* FAQ */}
         <div className="flex flex-col lg:flex-row-reverse">
-          <div className="flex flex-grow flex-col space-y-4 bg-primary-bg p-6 md:flex-col-reverse">
+          <div className="flex flex-grow flex-col space-y-4 bg-primary-bg p-6 lg:flex-col-reverse">
             <ButtonLink
               href="/documents/catalogue.pdf"
               newTab={true}
@@ -88,18 +88,18 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-grow flex-col space-y-4 bg-primary-yellow p-6">
+          <div className="flex flex-grow flex-col space-y-2 bg-primary-yellow p-6 lg:bg-primary-bg">
             <p className="heading__4">{t("newsletter.title")}</p>
             {errors?.name && errors.name.message}
 
             <form
               onSubmit={handleSubmit(subscribe)}
-              className="flex flex-col space-y-4"
+              className="flex flex-col space-y-2"
             >
-              <p>
+              {/* <p>
                 Apply for our newsletter and get the latest news and updates on
                 our products, services and new donations.
-              </p>
+              </p> */}
               <div className="flex overflow-x-auto">
                 <input
                   className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-2 text-sm focus:bg-primary-gray focus:outline-none focus:placeholder:text-black md:grow-0"
@@ -196,7 +196,7 @@ export default function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className=" flex flex-col items-center justify-between bg-black p-6 md:flex-row">
+        <div className=" flex flex-col items-center justify-between bg-black p-5 md:flex-row">
           <div className="flex flex-col items-center justify-center md:flex-row md:space-x-4">
             <Link href={"/legal/privacy-policy"} locale={router.locale}>
               <a className="text-lg uppercase text-white underline-offset-4 hover:underline">
