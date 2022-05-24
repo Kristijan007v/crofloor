@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import Tag from "../Tag/Tag";
@@ -26,29 +25,10 @@ export default function Card({
   href,
   showButton,
 }: Props) {
-  const animation = {
-    initial: {
-      scale: 0.8,
-    },
-    animate: {
-      scale: 1,
-      transition: {
-        duration: 1,
-        type: "spring",
-      },
-    },
-  };
-
   return (
-    <motion.div
-      variants={animation}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true }}
-      key={key}
-    >
+    <div key={key}>
       <div id={id} className="scroll-mt-32"></div>
-      <div className="">
+      <div className="flex flex-col items-center justify-center md:flex-row">
         <div className="relative h-72 w-full">
           <Image
             src={`${imageURL}`}
@@ -65,7 +45,7 @@ export default function Card({
             </div>
           )}
         </div>
-        <div className="flex -translate-y-8 flex-col space-y-4 rounded-2xl bg-primary-yellow/60 p-6 text-left backdrop-blur-md">
+        <div className="flex w-full -translate-y-8 -translate-x-0 flex-col space-y-4 rounded-2xl bg-primary-yellow/60 p-6 text-left backdrop-blur-md md:-translate-y-0 md:-translate-x-10">
           <h3 className="heading__3">{title}</h3>
           <p className="paragraph">{description}</p>
           {showButton && (
@@ -80,6 +60,6 @@ export default function Card({
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

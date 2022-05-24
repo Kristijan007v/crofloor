@@ -70,7 +70,7 @@ body {
 }
 
 .link__menu__desktop {
-  @apply text-lg font-medium text-white;
+  @apply text-lg font-medium text-white underline-offset-4 hover:underline;
 }
 
 .link__logo {
@@ -139,4 +139,13 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+/* Responsive font */
+.h2__responsive {
+  @apply text-xl md:text-3xl lg:text-4xl;
+}
+
+.p__responsive {
+  @apply text-base md:text-lg lg:text-lg xl:text-xl;
 }

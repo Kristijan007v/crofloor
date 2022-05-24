@@ -10,7 +10,10 @@ export default function GoUp() {
   };
 
   return (
-    <span className="absolute bottom-0 right-0 bg-white" onClick={scrollToTop}>
+    <span
+      className="absolute bottom-0 right-0 block bg-white md:hidden"
+      onClick={scrollToTop}
+    >
       <ArrowUp />
     </span>
   );

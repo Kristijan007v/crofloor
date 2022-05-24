@@ -59,7 +59,7 @@ export default function Footer() {
       <footer className="relative flex flex-col">
         {/* FAQ */}
         <div className="flex flex-col lg:flex-row-reverse">
-          <div className="flex flex-grow flex-col space-y-4 bg-primary-bg p-6">
+          <div className="flex flex-grow flex-col space-y-4 bg-primary-bg p-6 md:flex-col-reverse">
             <ButtonLink
               href="/documents/catalogue.pdf"
               newTab={true}
@@ -67,30 +67,39 @@ export default function Footer() {
               type="button"
               color="special"
             />
-            <p className="heading__3 text-center">FAQ</p>
-            <Faq
-              question="Kako proizvodite parkete?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Kako provjeravate kvalitetu?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Tko su vam glavni dobavljači?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Što je s garancijom za parket?"
-              answer="A blockchain is a distributed ledger of information."
-            />
+            <div className="flex flex-grow flex-col space-y-4">
+              <p className="heading__3 text-center">FAQ</p>
+              <Faq
+                question="Kako proizvodite parkete?"
+                answer="A blockchain is a distributed ledger of information."
+              />
+              <Faq
+                question="Kako provjeravate kvalitetu?"
+                answer="A blockchain is a distributed ledger of information."
+              />
+              <Faq
+                question="Tko su vam glavni dobavljači?"
+                answer="A blockchain is a distributed ledger of information."
+              />
+              <Faq
+                question="Što je s garancijom za parket?"
+                answer="A blockchain is a distributed ledger of information."
+              />
+            </div>
           </div>
 
           <div className="flex flex-grow flex-col space-y-4 bg-primary-yellow p-6">
             <p className="heading__4">{t("newsletter.title")}</p>
             {errors?.name && errors.name.message}
 
-            <form onSubmit={handleSubmit(subscribe)}>
+            <form
+              onSubmit={handleSubmit(subscribe)}
+              className="flex flex-col space-y-4"
+            >
+              <p>
+                Apply for our newsletter and get the latest news and updates on
+                our products, services and new donations.
+              </p>
               <div className="flex overflow-x-auto">
                 <input
                   className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-2 text-sm focus:bg-primary-gray focus:outline-none focus:placeholder:text-black md:grow-0"
@@ -187,21 +196,21 @@ export default function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className=" flex flex-col items-center justify-between bg-black p-4 md:flex-row-reverse">
+        <div className=" flex flex-col items-center justify-between bg-black p-4 md:flex-row">
           <div className="flex flex-col items-center justify-center md:flex-row md:space-x-4">
             <Link href={"/legal/privacy-policy"} locale={router.locale}>
-              <a className="text-lg uppercase text-white">
+              <a className="text-lg uppercase text-white underline-offset-4 hover:underline">
                 {t("footer.privacy-policy")}
               </a>
             </Link>
             <Link href={"/legal/terms"} locale={router.locale}>
-              <a className="text-lg uppercase text-white">
+              <a className="text-lg uppercase text-white underline-offset-4 hover:underline">
                 {t("footer.terms")}
               </a>
             </Link>
           </div>
           <p className="text-sm text-gray-400">
-            © {t("info.title")}. {t("footer.copyright")}
+            © 2022 {t("info.title")}. {t("footer.copyright")}
           </p>
         </div>
         <GoUp />

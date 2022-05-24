@@ -48,7 +48,7 @@ export default function ArticleCard({
       {/* <h2 className="text-center text-lg font-semibold uppercase">
         {sectionType}
       </h2> */}
-      <div className="m-auto flex w-full flex-col space-y-4 p-6 md:w-5/6 md:flex-row md:items-center md:space-x-8 lg:w-4/6 xl:w-3/6">
+      <div className="m-auto flex w-full flex-col space-y-4 p-6 md:w-5/6 md:flex-row md:items-center md:space-x-8 lg:w-4/6 2xl:w-3/6">
         <div className="relative h-56 w-full rounded-xl">
           <ImageWithFallback
             src={`${imageArticle ? imageArticle : "/images/" + image}`}

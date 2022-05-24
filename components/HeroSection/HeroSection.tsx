@@ -22,12 +22,12 @@ export default function HeroSection() {
         <div className="relative h-full w-full bg-black/40">
           <Navigation />
 
-          <div className="flex flex-col space-y-4 p-6">
-            <h1 className="flex flex-col space-y-2 text-4xl font-semibold text-yellow-special">
+          <div className="m-auto flex w-full flex-col space-y-4 p-6 md:w-5/6 lg:w-4/6">
+            <h1 className="flex flex-col space-y-2 text-4xl font-semibold text-yellow-special md:text-5xl lg:text-6xl xl:text-7xl">
               <span>Looks</span>
               <span>Expensive.</span>
             </h1>
-            <h1 className="flex flex-col space-y-2 text-4xl font-semibold text-white">
+            <h1 className="flex flex-col space-y-2 text-4xl font-semibold text-white md:text-5xl lg:text-6xl xl:text-7xl">
               <span>Feels</span>
               <span>Expensive.</span>
             </h1>

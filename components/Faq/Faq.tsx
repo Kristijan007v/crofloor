@@ -1,8 +1,6 @@
-import React, { useRef, useState } from "react";
-import { useDimensions } from "../../hooks/useDimensions";
+import { useState } from "react";
 import ArrowDown from "../Icons/ArrowDown";
 import ArrowUp from "../Icons/ArrowUp";
-import { motion, useCycle } from "framer-motion";
 
 interface Props {
   question: string;
@@ -10,57 +8,27 @@ interface Props {
 }
 
 export default function Faq({ question, answer }: Props) {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { height } = useDimensions(containerRef);
-
-  /* const toogleAnswer = () => {
+  const toogle = () => {
     setIsOpen(!isOpen);
-  }; */
-
-  const sidebar = {
-    open: (height = 1000) => ({
-      transition: {
-        type: "spring",
-        stiffness: 20,
-        restDelta: 2,
-      },
-    }),
-    closed: {
-      transition: {
-        delay: 0.5,
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-      },
-    },
   };
 
   return (
-    <motion.div
-      variants={sidebar}
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      custom={height}
-      layoutId={question}
-      ref={containerRef}
-      className="flex flex-col space-y-2"
-    >
+    <div className="flex cursor-pointer flex-col space-y-2">
       <div
         className="flex items-center justify-between"
-        onClick={() => toggleOpen()}
+        onClick={() => toogle()}
       >
         <p className="text-lg">{question}</p>
         {isOpen ? <ArrowUp /> : <ArrowDown />}
       </div>
 
       {isOpen && (
-        <motion.div className="rounded-2xl bg-primary-gray p-4">
+        <div className="rounded-2xl bg-primary-gray p-4">
           <p>{answer}</p>
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 }
