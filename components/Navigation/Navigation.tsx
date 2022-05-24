@@ -48,7 +48,7 @@ export default function Navigation({ style }: Props) {
       <Link href="/">
         <a className="link__logo">CF</a>
       </Link>
-      <ul className="hidden space-x-4 md:flex">
+      <ul className="hidden space-x-6 md:flex md:items-center">
         <li>
           <Link href="/products">
             <a className="link__menu__desktop">{t("desktop.products")}</a>
@@ -69,30 +69,30 @@ export default function Navigation({ style }: Props) {
             <a className="link__menu__desktop">{t("desktop.about")}</a>
           </Link>
         </li>
+        <div className="hidden rounded-full bg-primary-bg pt-2 pb-2 pr-6 pl-6 md:block">
+          <span className="flex items-center justify-center space-x-3">
+            <WorldIcon />
+            <select
+              onChange={handleLocaleChange}
+              value={router.locale}
+              className="bg-transparent"
+            >
+              <option
+                className="rounded-2xl bg-gray-100 p-6 text-center text-lg font-semibold"
+                value="en"
+              >
+                {locale === "hr" ? "English" : "Engleski"}
+              </option>
+              <option
+                className="rounded-2xl bg-gray-100 p-6 text-center text-lg font-semibold"
+                value="hr"
+              >
+                {locale === "hr" ? "Croatian" : "Hrvatski"}
+              </option>
+            </select>
+          </span>
+        </div>
       </ul>
-      <div className="hidden rounded-full bg-primary-bg pt-2 pb-2 pr-6 pl-6 md:block">
-        <span className="flex items-center justify-center space-x-3">
-          <WorldIcon />
-          <select
-            onChange={handleLocaleChange}
-            value={router.locale}
-            className="bg-transparent"
-          >
-            <option
-              className="rounded-2xl bg-gray-100 p-6 text-center text-lg font-semibold"
-              value="en"
-            >
-              {locale === "hr" ? "English" : "Engleski"}
-            </option>
-            <option
-              className="rounded-2xl bg-gray-100 p-6 text-center text-lg font-semibold"
-              value="hr"
-            >
-              {locale === "hr" ? "Croatian" : "Hrvatski"}
-            </option>
-          </select>
-        </span>
-      </div>
       <span className="block md:hidden">
         <MenuIcon onclick={toogleMenu} />
       </span>
