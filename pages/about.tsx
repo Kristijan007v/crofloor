@@ -1,10 +1,12 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import DownloadCard from "../components/DownloadCard/DownloadCard";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import Gallery from "../components/Gallery/Gallery";
 import LocationContainer from "../components/LocationContainer/LocationContainer";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
+import useLocale from "../hooks/useLocale";
 import nextI18NextConfig from "../next-i18next.config.js";
 
 export async function getStaticProps({ locale }: any) {
@@ -24,6 +26,8 @@ export async function getStaticProps({ locale }: any) {
 
 export default function About() {
   const { t } = useTranslation("about");
+
+  const lang = useLocale();
 
   const images = [
     {
@@ -58,53 +62,68 @@ export default function About() {
           description={t("section-header.description")}
         />
       </ErrorBoundary>
-      <div className="mt-4 flex flex-col space-y-4 bg-primary-bg p-6">
-        <h2 className="text-xl font-semibold uppercase">
+      <div className="mt-4 flex flex-col space-y-4 bg-primary-bg p-8 text-left md:mt-12 md:bg-white md:text-center">
+        <h2 className="h2__responsive font-semibold uppercase">
           {t("section.locations.heading")}
         </h2>
-        <p className="paragraph">{t("section.locations.description")}</p>
+        <p className="paragraph p__responsive">
+          {t("section.locations.description")}
+        </p>
         <div></div>
       </div>
-      <LocationContainer
-        image="zagreb-location.jpg"
-        cityName="Zagreb"
-        address={t("section.locations.tag")}
-        href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
-        cityPosition="right"
-      />
-      <LocationContainer
-        image="split-location.jpg"
-        cityName="Split"
-        address={t("section.locations.tag")}
-        href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
-        tagPosition="right"
-      />
-      <LocationContainer
-        image="varazdin-location.jpg"
-        cityName="Varaždin"
-        address={t("section.locations.tag")}
-        href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
-        cityPosition="right"
-      />
-      <div className="flex flex-col space-y-2 bg-primary-yellow p-6">
-        <h2 className="text-xl font-semibold uppercase">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="md:col-span-2">
+          <LocationContainer
+            image="varazdin-location.jpg"
+            cityName="Varaždin"
+            address={t("section.locations.tag")}
+            href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
+            cityPosition="right"
+          />
+        </div>
+        <LocationContainer
+          image="zagreb-location.jpg"
+          cityName="Zagreb"
+          address={t("section.locations.tag")}
+          href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
+          cityPosition="left"
+          tagPosition="right"
+        />
+        <LocationContainer
+          image="split-location.jpg"
+          cityName="Split"
+          address={t("section.locations.tag")}
+          href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
+          cityPosition="right"
+        />
+      </div>
+      <div className="flex flex-col space-y-2 bg-primary-yellow p-8 text-left md:text-center">
+        <h2 className="h2__responsive font-semibold uppercase">
           {t("section.our-motivation.heading")}
         </h2>
-        <p className="paragraph">{t("section.our-motivation.description")}</p>
-        <p className="font-semibold text-gray-600">
+        <p className="paragraph p__responsive">
+          {t("section.our-motivation.description")}
+        </p>
+        <p className="p__responsive font-semibold text-gray-600">
           {t("section.our-motivation.ceo")}
         </p>
       </div>
-      <div className="flex flex-col space-y-2 bg-white p-6">
-        <h2 className="text-xl font-semibold uppercase">
-          {t("section.factory.heading")}
-        </h2>
+      <div className="m-auto w-full md:w-5/6 lg:w-4/6 xl:w-3/6">
+        <div className="flex flex-col space-y-2 bg-white p-8">
+          <h2 className="h2__responsive text-left font-semibold uppercase md:text-center">
+            {t("section.factory.heading")}
+          </h2>
+        </div>
+        <Gallery images={images} />
       </div>
-      <Gallery images={images} />
-      <div className="flex flex-col space-y-2 bg-white p-6">
-        <h2 className="text-xl font-semibold uppercase">
+      <div className="m-auto flex w-full flex-col space-y-6 bg-white p-8 md:w-5/6 lg:w-4/6 xl:w-3/6">
+        <h2 className="h2__responsive font-semibold uppercase">
           {t("section.certificate.heading")}
         </h2>
+        <DownloadCard
+          text={lang === "en" ? "Certificates file" : "Datoteka certifikata"}
+          downloadURL={`/files/specifications.pdf`}
+        />
       </div>
     </Skeleton>
   );

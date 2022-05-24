@@ -24,7 +24,11 @@ export default function LocationContainer({
 }: Props) {
   return (
     <ErrorBoundary moduleName="LocationContainer">
-      <div className={`relative w-full ${height ? height : "h-48"}`}>
+      <div
+        className={`relative w-full ${
+          height ? height : "h-48 md:h-60 lg:h-72 xl:h-80 2xl:h-96"
+        }`}
+      >
         <Image
           src={`/images/${image}`}
           layout="fill"
@@ -34,7 +38,7 @@ export default function LocationContainer({
           blurDataURL={`/images/${image}`}
         />
 
-        <div className="relative h-48 w-full bg-black/20">
+        <div className="relative h-48 w-full bg-black/20 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
           <div
             className={`absolute top-0 ${
               tagPosition === "right" ? "right-0" : "left-0"
