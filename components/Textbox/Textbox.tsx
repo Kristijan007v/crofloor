@@ -8,7 +8,7 @@ interface TextboxProps {
 export default function Textbox({ children, style }: TextboxProps) {
   return (
     <div className={`${style}`}>
-      <p className="p__default">{children}</p>
+      <p className="p__responsive">{children}</p>
     </div>
   );
 }

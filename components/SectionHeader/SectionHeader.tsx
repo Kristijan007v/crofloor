@@ -45,16 +45,18 @@ export default function SectionHeader({
           </h1>
         </div>
       </div>
-      {description && (
-        <Textbox style="pt-6 pl-6 pr-6 pb-2">{description}</Textbox>
-      )}
-      {search && (
-        <SectionSearch
-          searchPlaceholder={`${searchPlaceholder}`}
-          sticky={stickySearch}
-          onchange={onchange}
-        />
-      )}
+      <div className="flex flex-col md:flex-row">
+        {description && (
+          <Textbox style="pt-6 pl-6 pr-6 pb-2">{description}</Textbox>
+        )}
+        {search && (
+          <SectionSearch
+            searchPlaceholder={`${searchPlaceholder}`}
+            sticky={stickySearch}
+            onchange={onchange}
+          />
+        )}
+      </div>
     </>
   );
 }
