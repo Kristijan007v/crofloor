@@ -46,16 +46,21 @@ export default function Article({ post }: Props) {
             alt={post.featuredImage?.node.altText}
             author={post.author.node.firstName}
             date={formatDate(post.date)}
+            url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
           />
 
           {/* Article content */}
-          <div className="flex flex-col space-y-4 bg-primary-yellow p-6">
-            <div dangerouslySetInnerHTML={createMarkup(`${post.content}`)} />
+          <div className="md: flex flex-col space-y-4 bg-primary-yellow p-6 md:bg-white md:p-10">
+            <div
+              className="p__responsive m-auto w-full md:w-5/6 lg:w-4/6"
+              dangerouslySetInnerHTML={createMarkup(`${post.content}`)}
+            />
           </div>
           <SocialShare
             text="Podijeli članak"
             url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
             iconSize={"md"}
+            style="block md:hidden"
           />
         </>
       )}

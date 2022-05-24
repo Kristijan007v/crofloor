@@ -10,16 +10,28 @@ import TwitterIcon from "../Icons/TwitterIcon";
 import WhatsappIcon from "../Icons/WhatsappIcon";
 
 interface Props {
-  text: string;
+  text?: string;
   url: string;
   iconSize?: "sm" | "md" | "lg" | "xl";
+  style?: string;
+  bgColor?: string;
 }
 
-export default function SocialShare({ text, url, iconSize }: Props) {
+export default function SocialShare({
+  text,
+  url,
+  iconSize,
+  style,
+  bgColor,
+}: Props) {
   const locale = useLocale();
 
   return (
-    <div className="flex items-center justify-between bg-primary-gray p-5">
+    <div
+      className={`flex items-center justify-between ${
+        bgColor ? bgColor : "bg-primary-gray"
+      } p-5 ${style}`}
+    >
       <p className="font-medium">{text}</p>
       <div className="flex space-x-4">
         <FacebookShareButton
