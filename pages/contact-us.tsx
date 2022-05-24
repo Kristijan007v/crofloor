@@ -48,24 +48,9 @@ export default function ContactUs() {
           method="POST"
           action="https://getform.io/f/bca9d5f9-ce66-41be-b858-03656b93a86d"
         >
-          <FormField
-            label={t("form.name")}
-            type="text"
-            name="name"
-            htmlFor="name"
-          />
-          <FormField
-            label={t("form.email")}
-            htmlFor="email"
-            type="text"
-            name="email"
-          />
-          <FormField
-            label={t("form.message")}
-            htmlFor="message"
-            type="textarea"
-            name="message"
-          />
+          <FormField label={t("form.name")} type="text" />
+          <FormField label={t("form.email")} type="text" />
+          <FormField label={t("form.message")} type="textarea" />
           <span className="flex items-center space-x-4 p-4">
             <input type={"checkbox"} name={"terms"} id={"terms"} required />
             <label className="font-medium" htmlFor="terms">

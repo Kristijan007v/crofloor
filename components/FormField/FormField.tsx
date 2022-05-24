@@ -2,7 +2,7 @@ import React, { useId } from "react";
 
 interface Props {
   label: string;
-  htmlFor: string;
+  htmlFor?: string;
   type:
     | "text"
     | "textarea"
@@ -11,7 +11,7 @@ interface Props {
     | "checkbox"
     | "radio"
     | "number";
-  name: string;
+  name?: string;
   id?: string;
   required?: false;
   onChange?: (e: any) => void;
@@ -29,14 +29,14 @@ export default function FormField({
 
   return (
     <div className="flex flex-col space-y-2 p-4">
-      <label className="label__default" htmlFor={htmlFor}>
+      <label className="label__default" htmlFor={uniqueID}>
         {label}
       </label>
       {type === "text" ? (
         <input
           className="input__default"
           type={type}
-          name={name}
+          name={uniqueID}
           id={uniqueID}
           onChange={onChange}
           required
@@ -44,7 +44,7 @@ export default function FormField({
       ) : (
         <textarea
           className="input__textarea"
-          name={name}
+          name={uniqueID}
           id={uniqueID}
           required
           cols={30}
