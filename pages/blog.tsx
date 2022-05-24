@@ -54,7 +54,11 @@ export default function Blog({
   };
 
   return (
-    <Skeleton title="" metaDescription="" navigation={true}>
+    <Skeleton
+      title="Blog"
+      metaDescription="See latest news about Požgaj Grupa company, products updates and our donations."
+      navigation={true}
+    >
       <ErrorBoundary moduleName="SectionHeader">
         <SectionHeader
           title={t("section-header.title")}
