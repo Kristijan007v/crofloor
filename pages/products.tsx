@@ -50,7 +50,7 @@ export default function Products({ parket, kategorija }: Props) {
         />
 
         {/* Search results */}
-        <div className="sticky top-0 left-0 right-0 z-20 flex justify-center border-b bg-white">
+        <div className="sticky top-0 left-0 right-0 z-20 border-b bg-white">
           <div>
             <SectionSearch
               searchPlaceholder={t("section-header.search.placeholder")}

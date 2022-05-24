@@ -122,14 +122,14 @@ export default function Blog({
 
       {/* Featured ARTICLES */}
       {featuredArticle.featuredPost.length > 0 && (
-        <>
+        <div className="block md:hidden">
           <div
             className={`${
               showFeatured ? "bg-black text-white" : "bg-primary-bg text-black "
             } p-3 text-right font-medium`}
             onClick={toogleFeatured}
           >
-            <p>{t("section.featured")}</p>
+            <p className="p__responsive">{t("section.featured")}</p>
           </div>
 
           {showFeatured && (
@@ -149,12 +149,12 @@ export default function Blog({
               type={"secondary"}
             />
           )}
-        </>
+        </div>
       )}
 
       {/* RECOMMENDED ARTICLES */}
       {recommendedArticle.featuredPost.length > 0 && (
-        <>
+        <div className="block md:hidden">
           <div
             className={`${
               showRecommended
@@ -163,7 +163,7 @@ export default function Blog({
             } p-3 text-left font-medium`}
             onClick={toogleRecommended}
           >
-            <p>{t("section.recommended")}</p>
+            <p className="p__responsive">{t("section.recommended")}</p>
           </div>
 
           {showRecommended && (
@@ -184,16 +184,16 @@ export default function Blog({
               href={`/articles/${recommendedArticle.featuredPost[0].slug}`}
             />
           )}
-        </>
+        </div>
       )}
 
       {/* Latest articles */}
       {posts.length > 0 ? (
         <>
-          <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
+          <h3 className="h3__responsive pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
             {t("section.latest")}
           </h3>
-          <div className="flex flex-col space-y-8 pr-6 pl-6 pt-6 pb-20">
+          <div className="grid grid-cols-1 gap-8 p-6 pr-6 pl-6 pt-6 pb-20 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {posts.map((post: any) => (
               <PostCard
                 type={"secondary"}
