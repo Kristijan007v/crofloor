@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 
 interface Props {
   label: string;
@@ -12,7 +12,7 @@ interface Props {
     | "radio"
     | "number";
   name: string;
-  id: string;
+  id?: string;
   required?: false;
   onChange?: (e: any) => void;
 }
@@ -25,6 +25,8 @@ export default function FormField({
   id,
   onChange,
 }: Props) {
+  const uniqueID = useId();
+
   return (
     <div className="flex flex-col space-y-2 p-4">
       <label className="label__default" htmlFor={htmlFor}>
@@ -35,7 +37,7 @@ export default function FormField({
           className="input__default"
           type={type}
           name={name}
-          id={id}
+          id={uniqueID}
           onChange={onChange}
           required
         />
@@ -43,7 +45,7 @@ export default function FormField({
         <textarea
           className="input__textarea"
           name={name}
-          id={id}
+          id={uniqueID}
           required
           cols={30}
           rows={10}

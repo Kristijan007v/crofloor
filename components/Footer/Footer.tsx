@@ -58,7 +58,7 @@ export default function Footer() {
     <footer className="relative flex flex-col">
       {/* FAQ */}
       <div className="flex flex-col lg:flex-row-reverse">
-        <div className="flex flex-grow flex-col space-y-4 bg-primary-bg p-6 lg:flex-col-reverse">
+        <div className="flex flex-grow flex-col space-y-4 bg-primary-bg p-6 lg:flex-col-reverse lg:bg-primary-yellow">
           <ButtonLink
             href="/documents/catalogue.pdf"
             newTab={true}
@@ -87,7 +87,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-grow flex-col space-y-4 bg-primary-yellow p-6 lg:bg-primary-bg">
+        <div className="flex flex-grow flex-col space-y-4 bg-primary-yellow p-6 ">
           <p className="heading__4 h4__responsive">{t("newsletter.title")}</p>
           {errors?.name && errors.name.message}
 
@@ -150,16 +150,32 @@ export default function Footer() {
           <p className="p__responsive">{t("work-hours.saturday")}: 08h-17h</p>
           {/* Social links */}
           <div className="justify-left flex flex-wrap items-center space-x-4">
-            <ButtonLink href="https://facebook.com" newTab={true}>
+            <ButtonLink
+              href="https://facebook.com"
+              newTab={true}
+              ariaLabel="Link to Facebook profile"
+            >
               <FacebookIcon />
             </ButtonLink>
-            <ButtonLink href="https://instagram.com" newTab={true}>
+            <ButtonLink
+              href="https://instagram.com"
+              newTab={true}
+              ariaLabel="Link to Instagram profile"
+            >
               <InstagramIcon />
             </ButtonLink>
-            <ButtonLink href="https://linkedin.com" newTab={true}>
+            <ButtonLink
+              href="https://linkedin.com"
+              newTab={true}
+              ariaLabel="Link to Linkedin profile"
+            >
               <LinkedinIcon />
             </ButtonLink>
-            <ButtonLink href="https://youtube.com" newTab={true}>
+            <ButtonLink
+              href="https://youtube.com"
+              newTab={true}
+              ariaLabel="Link to Youtube profile"
+            >
               <YoutubeIcon />
             </ButtonLink>
           </div>

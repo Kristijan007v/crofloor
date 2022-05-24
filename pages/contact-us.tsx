@@ -52,7 +52,6 @@ export default function ContactUs() {
             label={t("form.name")}
             type="text"
             name="name"
-            id="name"
             htmlFor="name"
           />
           <FormField
@@ -60,14 +59,12 @@ export default function ContactUs() {
             htmlFor="email"
             type="text"
             name="email"
-            id="email"
           />
           <FormField
             label={t("form.message")}
             htmlFor="message"
             type="textarea"
             name="message"
-            id="message"
           />
           <span className="flex items-center space-x-4 p-4">
             <input type={"checkbox"} name={"terms"} id={"terms"} required />
@@ -85,11 +82,12 @@ export default function ContactUs() {
           </button>
         </form>
         <div className="flex-grow">
-          <h3 className="h3__responsive pt-2 pl-6 pr-6 text-center font-semibold">
+          <h2 className="h3__responsive pt-2 pl-6 pr-6 text-center font-semibold">
             {t("map.title")}
-          </h3>
+          </h2>
           <div className="m-4 rounded-2xl border border-black">
             <iframe
+              title="Map location of Požgaj Group headquarters"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2777.4923100866913!2d16.17125381574605!3d45.88146601352417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476676c82e1c57a5%3A0x16294928bda8e9b6!2sBOHOR%20d.o.o.!5e0!3m2!1sen!2shr!4v1651139897150!5m2!1sen!2shr"
               className="rounded-2xl"
               width={"100%"}
