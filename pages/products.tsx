@@ -40,7 +40,11 @@ export default function Products({ parket, kategorija }: Props) {
   const [activeTab, setActiveTab] = useState("hrast");
 
   return (
-    <Skeleton title="" metaDescription="" navigation={true}>
+    <Skeleton
+      title="Products"
+      metaDescription="Požgaj Grupa, the leading Croatian flooring manufacturer, presents its latest collection of parquet floors."
+      navigation={true}
+    >
       <ErrorBoundary moduleName="SectionHeader">
         <SectionHeader
           title={t("section-header.title")}

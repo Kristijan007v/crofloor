@@ -194,9 +194,9 @@ export default function Blog({
       {/* Latest articles */}
       {posts.length > 0 ? (
         <>
-          <h3 className="h3__responsive pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
+          <h2 className="h3__responsive pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
             {t("section.latest")}
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 gap-8 p-6 pr-6 pl-6 pt-6 pb-20 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {posts.map((post: any) => (
               <PostCard
