@@ -71,7 +71,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
         {/* Products SECTION */}
         {parket.length > 0 && (
-          <div className="m-auto flex flex-col space-y-10 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
+          <div className="m-auto flex w-full flex-col space-y-2 md:space-y-12 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
             {parket
               .filter((product: any) =>
                 product.parket.kategorija
@@ -131,7 +131,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
       {/* ARTICLES SECTION */}
       {posts.length > 0 && (
-        <div className="mt-8 mb-8 mr-8 ml-8 md:mb-28 md:mr-10 md:ml-10 md:mt-10">
+        <div className="mt-4 mb-8 md:mb-28 md:mr-10 md:ml-10 md:mt-10">
           <h3 className="h3__responsive pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
             {t("blog.latest-articles")}
           </h3>
