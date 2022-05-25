@@ -2,6 +2,7 @@ import React from "react";
 import useLocale from "../../hooks/useLocale";
 import ArrowLeft from "../Icons/ArrowLeft";
 import ArrowRight from "../Icons/ArrowRight";
+import { motion } from "framer-motion";
 
 interface Props {
   children?: React.ReactNode;
@@ -40,7 +41,21 @@ export default function ButtonLink({
   return (
     <>
       {type === "button" ? (
-        <button
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            transition: {
+              duration: 0.2,
+              ease: "easeInOut",
+            },
+          }}
+          whileTap={{
+            scale: 0.9,
+            transition: {
+              duration: 0.2,
+              ease: "easeInOut",
+            },
+          }}
           className={`btn__basic flex items-center justify-center ${
             color === "special"
               ? "border border-black bg-transparent text-black hover:bg-black hover:text-white"
@@ -52,7 +67,7 @@ export default function ButtonLink({
           {icon == "arrowLeft" ? <ArrowLeft /> : null}
           {text}
           {icon == "arrowRight" ? <ArrowRight /> : null}
-        </button>
+        </motion.button>
       ) : (
         <button
           className={`${style}`}

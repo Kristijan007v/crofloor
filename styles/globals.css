@@ -70,7 +70,7 @@ body {
 }
 
 .link__menu__desktop {
-  @apply text-lg font-medium text-white underline-offset-4 hover:underline lg:text-xl;
+  @apply text-lg font-medium text-white underline-offset-4 hover:underline hover:transition-all hover:duration-300 lg:text-xl;
 }
 
 .link__logo {
