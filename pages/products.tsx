@@ -168,8 +168,9 @@ export default function Products({ parket, kategorija }: Props) {
                   .toLowerCase()
                   .includes(`${activeTab}`.toLowerCase())
               )
-              .map((product: any) => (
+              .map((product: any, index: number) => (
                 <Card
+                  index={index}
                   key={product.id}
                   id={product.slug}
                   title={product.title}

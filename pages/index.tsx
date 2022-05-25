@@ -71,15 +71,16 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
         {/* Products SECTION */}
         {parket.length > 0 && (
-          <div className="flex flex-col space-y-10">
+          <div className="m-auto flex flex-col space-y-10 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
             {parket
               .filter((product: any) =>
                 product.parket.kategorija
                   .toLowerCase()
                   .includes(`${tab}`.toLowerCase())
               )
-              .map((product: any) => (
+              .map((product: any, index: number) => (
                 <Card
+                  index={index}
                   key={product.id}
                   id={product.slug}
                   title={product.title}
@@ -130,8 +131,8 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
       {/* ARTICLES SECTION */}
       {posts.length > 0 && (
-        <div className="mb-8">
-          <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
+        <div className="mt-8 mb-8 mr-8 ml-8 md:mb-28 md:mr-10 md:ml-10 md:mt-10">
+          <h3 className="h3__responsive pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
             {t("blog.latest-articles")}
           </h3>
           <div className="grid grid-cols-1 gap-8 p-6 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
@@ -150,12 +151,12 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                 type={"secondary"}
               />
             ))}
+            <LinkDefault
+              href="/blog"
+              text={t("blog.view-all")}
+              style="flex justify-center items-center h3__responsive hover:border border-black p-3 rounded-xl bg-primary-bg"
+            />
           </div>
-          <LinkDefault
-            href="/blog"
-            text={t("blog.view-all")}
-            style="flex justify-center hover:border border-black p-3 rounded-xl bg-primary-bg"
-          />
         </div>
       )}
 
