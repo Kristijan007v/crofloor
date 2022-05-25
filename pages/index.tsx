@@ -11,6 +11,7 @@ import HeroSection from "../components/HeroSection/HeroSection";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
 import PostCard from "../components/PostCard/PostCard";
 import Skeleton from "../components/Skeleton/Skeleton";
+import useLocale from "../hooks/useLocale";
 import { getPostByCategory, getPosts, getProducts } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
@@ -25,6 +26,8 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
   const { t } = useTranslation("common");
 
   const [tab, setTab] = useState("hrast");
+
+  const lang = useLocale();
 
   return (
     <Skeleton
@@ -113,7 +116,9 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
         <>
           <div className="">
             <ArticleCard
-              sectionType={`featured`}
+              sectionType={`${
+                lang === "en" ? "featured article" : "istaknuti članak"
+              }`}
               heading={featuredArticle.featuredPost[0].title}
               description={featuredArticle.featuredPost[0].posts.opis}
               imageArticle={
