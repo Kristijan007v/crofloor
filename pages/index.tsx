@@ -159,7 +159,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
             <LinkDefault
               href="/blog"
               text={t("blog.view-all")}
-              style="flex justify-center items-center h3__responsive hover:border border-black p-3 rounded-xl bg-primary-bg"
+              style="flex justify-center items-center h4__responsive hover:border border-black p-3 rounded-xl bg-primary-bg"
             />
           </div>
         </div>

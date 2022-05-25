@@ -31,9 +31,11 @@ export default function HeroSection() {
               <span>Feels</span>
               <span>Expensive.</span>
             </h1>
-            <p className="p__white pb-32">
+            <p className="p__responsive pb-32 text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             </p>
             <ButtonLink
               text={t("button")}
@@ -41,6 +43,7 @@ export default function HeroSection() {
               href="/products"
               icon="arrowRight"
               type="button"
+              style=""
               locale={true}
             />
           </div>
