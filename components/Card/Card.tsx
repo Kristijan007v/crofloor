@@ -44,7 +44,11 @@ export default function Card({
             alt={imageAlt}
           />
           {tagText && (
-            <div className="absolute top-0 p-4">
+            <div
+              className={`absolute top-0 ${
+                index % 2 == 0 ? "left-0" : "right-0"
+              } p-4`}
+            >
               <Tag text={tagText} />
             </div>
           )}
