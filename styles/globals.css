@@ -146,6 +146,10 @@ body {
   @apply text-4xl xl:text-5xl 2xl:text-6xl;
 }
 
+.h2s__responsive {
+  @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
+}
+
 .h2__responsive {
   @apply text-2xl md:text-3xl lg:text-4xl;
 }

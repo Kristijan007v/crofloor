@@ -41,7 +41,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
       {/* Product collection SECTION */}
       <div className="flex flex-col space-y-6 p-6">
-        <h2 className="h1__responsive mt-8 text-left font-semibold md:text-center">
+        <h2 className="h2s__responsive mt-8 text-left font-semibold md:text-center">
           {t("product-collection.heading")}
         </h2>
 
@@ -106,7 +106,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
       </div>
 
       {/* BLOG SECTION */}
-      <h2 className="h1__responsive p-4 font-semibold">{t("blog.heading")}</h2>
+      <h2 className="h2s__responsive p-4 font-semibold">{t("blog.heading")}</h2>
       {/* <h3 className="p-4 text-center text-xl font-semibold uppercase">
         FEATURED ARTICLE
       </h3> */}
