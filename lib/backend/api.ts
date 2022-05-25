@@ -158,6 +158,7 @@ export async function getProducts(perPage: number) {
               name
             }
           }
+          id
           slug
           title
           content

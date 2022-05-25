@@ -4,7 +4,6 @@ import Tag from "../Tag/Tag";
 
 interface Props {
   id?: string;
-  key?: number;
   title: string;
   imageURL?: string;
   imageAlt?: string;
@@ -16,7 +15,6 @@ interface Props {
 
 export default function Card({
   id,
-  key,
   title,
   imageURL,
   imageAlt,
@@ -26,7 +24,7 @@ export default function Card({
   showButton,
 }: Props) {
   return (
-    <div key={key}>
+    <div>
       <div id={id} className="scroll-mt-32"></div>
       <div className="flex flex-col items-center justify-center md:flex-row">
         <div className="relative h-72 w-full">

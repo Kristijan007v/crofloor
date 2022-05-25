@@ -25,6 +25,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
   const { t } = useTranslation("common");
 
   const [tab, setTab] = useState("hrast");
+
   return (
     <Skeleton
       title={t("pages.homepage.title")}
