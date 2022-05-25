@@ -1,6 +1,7 @@
 import React from "react";
 import ArrowLeft from "../Icons/ArrowLeft";
 import ArrowRight from "../Icons/ArrowRight";
+import { motion } from "framer-motion";
 
 interface Props {
   onclick?: () => void;
@@ -20,7 +21,21 @@ export default function ButtonDefault({
   style,
 }: Props) {
   return (
-    <button
+    <motion.button
+      whileHover={{
+        scale: 1.05,
+        transition: {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      }}
+      whileTap={{
+        scale: 0.9,
+        transition: {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      }}
       className={`btn__basic flex items-center justify-center ${
         color === "special"
           ? "bg-primary-bg text-black"
@@ -32,6 +47,6 @@ export default function ButtonDefault({
       {icon == "arrowLeft" ? <ArrowLeft /> : null}
       {text}
       {icon == "arrowRight" ? <ArrowRight /> : null}
-    </button>
+    </motion.button>
   );
 }

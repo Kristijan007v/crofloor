@@ -56,7 +56,7 @@ export default function ButtonLink({
               ease: "easeInOut",
             },
           }}
-          className={`btn__basic flex items-center justify-center ${
+          className={`btn__basic flex items-center justify-center space-x-2 ${
             color === "special"
               ? "border border-black bg-transparent text-black hover:bg-black hover:text-white"
               : "bg-black text-white"
@@ -64,9 +64,9 @@ export default function ButtonLink({
           onClick={visitLink}
           aria-label={ariaLabel}
         >
-          {icon == "arrowLeft" ? <ArrowLeft /> : null}
-          {text}
-          {icon == "arrowRight" ? <ArrowRight /> : null}
+          <span>{icon == "arrowLeft" ? <ArrowLeft /> : null}</span>
+          <span>{text}</span>
+          <span>{icon == "arrowRight" ? <ArrowRight /> : null}</span>
         </motion.button>
       ) : (
         <button

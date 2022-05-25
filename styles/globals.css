@@ -26,7 +26,7 @@ body {
 
 /* Button styles */
 .btn__basic {
-  @apply rounded-full p-3 font-medium;
+  @apply rounded-3xl pt-3 pb-3 pl-8 pr-8 text-base font-medium md:text-lg lg:text-lg;
 }
 
 .btn__default {
