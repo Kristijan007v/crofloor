@@ -37,16 +37,16 @@ export default function HeroSection() {
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
+            <ButtonLink
+              text={t("button")}
+              ariaLabel={t("button")}
+              href="/products"
+              icon="arrowRight"
+              type="button"
+              style=""
+              locale={true}
+            />
           </div>
-          <ButtonLink
-            text={t("button")}
-            ariaLabel={t("button")}
-            href="/products"
-            icon="arrowRight"
-            type="button"
-            style=""
-            locale={true}
-          />
         </div>
       </div>
     </ErrorBoundary>
