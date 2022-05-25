@@ -45,7 +45,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
           {t("product-collection.heading")}
         </h2>
 
-        <div className="p__responsive mb-6 flex flex-wrap items-center justify-center space-x-4 font-medium">
+        <div className="tab__responsive mb-6 flex flex-wrap items-center justify-center space-x-4 font-medium">
           <button
             className={`${tab === "hrast" ? "active__tab" : "tab__default"}`}
             onClick={() => {
