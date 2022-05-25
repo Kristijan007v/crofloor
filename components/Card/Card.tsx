@@ -58,7 +58,7 @@ export default function Card({
             index % 2 == 0 ? "md:-translate-x-10" : "md:translate-x-10"
           } `}
         >
-          <p className="heading__3">{title}</p>
+          <p className="h4__responsive font-semibold">{title}</p>
           <p className="paragraph">{description}</p>
           {showButton && (
             <ButtonLink

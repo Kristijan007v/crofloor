@@ -36,7 +36,7 @@ export default function ButtonDefault({
           ease: "easeInOut",
         },
       }}
-      className={`btn__basic flex items-center justify-center ${
+      className={`btn__basic flex w-full items-center justify-center md:w-3/6 ${
         color === "special"
           ? "bg-primary-bg text-black"
           : "bg-black text-white hover:bg-gray-900"

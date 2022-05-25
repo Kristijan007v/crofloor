@@ -82,7 +82,7 @@ export default function ArticleCard({
           </div>
         </div>
         <span className="flex flex-col space-y-4">
-          <h3 className="heading__3">{heading}</h3>
+          <p className="h4__responsive font-semibold">{heading}</p>
           <p className="p__default">{description}</p>
           <ButtonLink
             text={locale === "hr" ? "Pročitaj više" : "Read more"}

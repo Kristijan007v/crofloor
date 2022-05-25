@@ -111,7 +111,7 @@ export default function PostCard({
           </div>
         </div>
         <Link href={`${href}`}>
-          <a className="text-center text-xl font-semibold">{heading}</a>
+          <a className="h4__responsive text-center font-semibold">{heading}</a>
         </Link>
         {/* <ReadMore maxLength={150} text={description} style={"pl-4 pr-4"} /> */}
 
