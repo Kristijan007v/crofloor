@@ -206,7 +206,7 @@ export default function Blog({
                 description={post.posts.opis}
                 image={post.featuredImage?.node.sourceUrl}
                 avatarURL={post.author.node.avatar.url}
-                alt={post.featuredImage?.node.altText}
+                alt={`${post.title}`}
                 href={`/articles/${post.slug}`}
                 createdAt={formatDate(post.date)}
                 author={post.author.node.firstName}
