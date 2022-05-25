@@ -46,7 +46,7 @@ export default function Card({
           )}
         </div>
         <div className="flex w-full -translate-y-8 -translate-x-0 flex-col space-y-4 rounded-2xl bg-primary-yellow/60 p-6 text-left backdrop-blur-md md:-translate-y-0 md:-translate-x-10">
-          <h3 className="heading__3">{title}</h3>
+          <h4 className="heading__3">{title}</h4>
           <p className="paragraph">{description}</p>
           {showButton && (
             <ButtonLink
