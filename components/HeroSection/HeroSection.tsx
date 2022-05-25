@@ -4,9 +4,23 @@ import React from "react";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Navigation from "../Navigation/Navigation";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   const { t } = useTranslation("heroSection");
+
+  const animation = {
+    initial: {
+      scale: 0.8,
+    },
+    animate: {
+      scale: 1,
+      transition: {
+        duration: 1,
+        type: "spring",
+      },
+    },
+  };
 
   return (
     <ErrorBoundary moduleName="ButtonLink">

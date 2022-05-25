@@ -47,11 +47,7 @@ export default function PostCard({
   };
 
   return (
-    <motion.div
-      variants={animation}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true }}
+    <div
       className={`flex flex-col space-y-4 rounded-xl shadow-sm ${
         type === "primary"
           ? "bg-primary-yellow"
@@ -117,6 +113,6 @@ export default function PostCard({
 
         <p className="p__default pl-4 pr-4">{description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
