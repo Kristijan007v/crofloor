@@ -2,6 +2,7 @@ import React from "react";
 import useLocale from "../../hooks/useLocale";
 import ArrowLeft from "../Icons/ArrowLeft";
 import ArrowRight from "../Icons/ArrowRight";
+import { motion } from "framer-motion";
 
 interface Props {
   children?: React.ReactNode;
@@ -40,8 +41,22 @@ export default function ButtonLink({
   return (
     <>
       {type === "button" ? (
-        <button
-          className={`btn__basic flex items-center justify-center ${
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            transition: {
+              duration: 0.2,
+              ease: "easeInOut",
+            },
+          }}
+          whileTap={{
+            scale: 0.9,
+            transition: {
+              duration: 0.2,
+              ease: "easeInOut",
+            },
+          }}
+          className={`btn__basic flex w-full items-center justify-center space-x-2 md:w-3/6 ${
             color === "special"
               ? "border border-black bg-transparent text-black hover:bg-black hover:text-white"
               : "bg-black text-white"
@@ -49,10 +64,10 @@ export default function ButtonLink({
           onClick={visitLink}
           aria-label={ariaLabel}
         >
-          {icon == "arrowLeft" ? <ArrowLeft /> : null}
-          {text}
-          {icon == "arrowRight" ? <ArrowRight /> : null}
-        </button>
+          <span>{icon == "arrowLeft" ? <ArrowLeft /> : null}</span>
+          <span>{text}</span>
+          <span>{icon == "arrowRight" ? <ArrowRight /> : null}</span>
+        </motion.button>
       ) : (
         <button
           className={`${style}`}

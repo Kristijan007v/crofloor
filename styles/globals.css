@@ -26,7 +26,7 @@ body {
 
 /* Button styles */
 .btn__basic {
-  @apply rounded-full p-3 font-medium;
+  @apply rounded-3xl pt-2 pb-2 pl-6 pr-6 text-base font-medium md:text-lg lg:text-lg;
 }
 
 .btn__default {
@@ -70,7 +70,7 @@ body {
 }
 
 .link__menu__desktop {
-  @apply text-lg font-medium text-white underline-offset-4 hover:underline lg:text-xl;
+  @apply text-lg font-medium text-white underline-offset-4 hover:underline hover:transition-all hover:duration-300 lg:text-xl;
 }
 
 .link__logo {
@@ -146,6 +146,10 @@ body {
   @apply text-4xl xl:text-5xl 2xl:text-6xl;
 }
 
+.h2s__responsive {
+  @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+}
+
 .h2__responsive {
   @apply text-2xl md:text-3xl lg:text-4xl;
 }
@@ -160,4 +164,8 @@ body {
 
 .p__responsive {
   @apply text-base md:text-lg lg:text-lg xl:text-xl;
+}
+
+.tab__responsive {
+  @apply text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl;
 }

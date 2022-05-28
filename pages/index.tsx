@@ -11,6 +11,7 @@ import HeroSection from "../components/HeroSection/HeroSection";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
 import PostCard from "../components/PostCard/PostCard";
 import Skeleton from "../components/Skeleton/Skeleton";
+import useLocale from "../hooks/useLocale";
 import { getPostByCategory, getPosts, getProducts } from "../lib/backend/api";
 import formatDate from "../lib/utilities/formatDate";
 import nextI18NextConfig from "../next-i18next.config.js";
@@ -25,6 +26,9 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
   const { t } = useTranslation("common");
 
   const [tab, setTab] = useState("hrast");
+
+  const lang = useLocale();
+
   return (
     <Skeleton
       title={t("pages.homepage.title")}
@@ -37,11 +41,11 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
       {/* Product collection SECTION */}
       <div className="flex flex-col space-y-6 p-6">
-        <h2 className="h2__responsive mt-8 text-left font-semibold md:text-center">
+        <h2 className="h2s__responsive mt-8 text-left font-semibold md:text-center">
           {t("product-collection.heading")}
         </h2>
 
-        <div className="p__responsive mb-6 flex flex-wrap items-center justify-center space-x-4 font-medium">
+        <div className="tab__responsive mb-6 flex flex-wrap items-center justify-center space-x-4 font-medium">
           <button
             className={`${tab === "hrast" ? "active__tab" : "tab__default"}`}
             onClick={() => {
@@ -70,15 +74,16 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
         {/* Products SECTION */}
         {parket.length > 0 && (
-          <div className="flex flex-col space-y-10">
+          <div className="m-auto flex w-full flex-col space-y-2 md:space-y-12 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
             {parket
               .filter((product: any) =>
                 product.parket.kategorija
                   .toLowerCase()
                   .includes(`${tab}`.toLowerCase())
               )
-              .map((product: any) => (
+              .map((product: any, index: number) => (
                 <Card
+                  index={index}
                   key={product.id}
                   id={product.slug}
                   title={product.title}
@@ -101,7 +106,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
       </div>
 
       {/* BLOG SECTION */}
-      <h2 className="h2__responsive p-4 font-semibold">{t("blog.heading")}</h2>
+      <h2 className="h2s__responsive p-4 font-semibold">{t("blog.heading")}</h2>
       {/* <h3 className="p-4 text-center text-xl font-semibold uppercase">
         FEATURED ARTICLE
       </h3> */}
@@ -111,7 +116,9 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
         <>
           <div className="">
             <ArticleCard
-              sectionType={`featured`}
+              sectionType={`${
+                lang === "en" ? "featured article" : "istaknuti članak"
+              }`}
               heading={featuredArticle.featuredPost[0].title}
               description={featuredArticle.featuredPost[0].posts.opis}
               imageArticle={
@@ -120,7 +127,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
               avatarURL={featuredArticle.featuredPost[0].author.node.avatar.url}
               date={formatDate(featuredArticle.featuredPost[0].date)}
               author={featuredArticle.featuredPost[0].author.node.firstName}
-              imageAlt="About picture"
+              imageAlt={`${featuredArticle.featuredPost[0].title}`}
               href={`/articles/${featuredArticle.featuredPost[0].slug}`}
             />
           </div>
@@ -129,8 +136,8 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
       {/* ARTICLES SECTION */}
       {posts.length > 0 && (
-        <div className="mb-8">
-          <h3 className="pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
+        <div className="mt-4 mb-8 md:mb-28 md:mr-10 md:ml-10 md:mt-10">
+          <h3 className="h3__responsive pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
             {t("blog.latest-articles")}
           </h3>
           <div className="grid grid-cols-1 gap-8 p-6 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
@@ -141,7 +148,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                 description={post.posts.opis}
                 image={post.featuredImage?.node.sourceUrl}
                 avatarURL={post.author.node.avatar.url}
-                alt={post.featuredImage?.node.altText}
+                alt={`${post.title}`}
                 href={`/articles/${post.slug}`}
                 createdAt={formatDate(post.date)}
                 author={post.author.node.firstName}
@@ -149,12 +156,12 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                 type={"secondary"}
               />
             ))}
+            <LinkDefault
+              href="/blog"
+              text={t("blog.view-all")}
+              style="flex justify-center items-center h4__responsive hover:border border-black p-3 rounded-xl bg-primary-bg"
+            />
           </div>
-          <LinkDefault
-            href="/blog"
-            text={t("blog.view-all")}
-            style="flex justify-center hover:border border-black p-3 rounded-xl bg-primary-bg"
-          />
         </div>
       )}
 

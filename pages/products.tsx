@@ -116,7 +116,7 @@ export default function Products({ parket, kategorija }: Props) {
         <div id="section-top" className="scroll-mt-32"></div>
         {/* Fixed product navbar */}
         <div className="flex flex-col border-b">
-          <div className="p__responsive flex flex-wrap justify-center space-x-6 border-b bg-primary-yellow p-3 font-medium text-black">
+          <div className="tab__responsive flex flex-wrap justify-center space-x-6 border-b bg-primary-yellow p-3 font-medium text-black">
             <button
               className={`${activeTab === "hrast" && "active__tab__special"}`}
               onClick={() => setActiveTab("hrast")}
@@ -168,8 +168,9 @@ export default function Products({ parket, kategorija }: Props) {
                   .toLowerCase()
                   .includes(`${activeTab}`.toLowerCase())
               )
-              .map((product: any) => (
+              .map((product: any, index: number) => (
                 <Card
+                  index={index}
                   key={product.id}
                   id={product.slug}
                   title={product.title}

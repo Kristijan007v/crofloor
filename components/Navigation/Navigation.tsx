@@ -48,27 +48,29 @@ export default function Navigation({ style }: Props) {
       <Link href="/">
         <a className="link__logo">CF</a>
       </Link>
-      <ul className="hidden space-x-6 md:flex md:items-center">
-        <li>
-          <Link href="/products">
-            <a className="link__menu__desktop">{t("desktop.products")}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact-us">
-            <a className="link__menu__desktop">{t("desktop.contact")}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/blog">
-            <a className="link__menu__desktop">{t("desktop.blog")}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/about">
-            <a className="link__menu__desktop">{t("desktop.about")}</a>
-          </Link>
-        </li>
+      <ul className="md: hidden items-center md:flex md:space-x-6">
+        <div className="flex space-x-6">
+          <li>
+            <Link href="/products">
+              <a className="link__menu__desktop">{t("desktop.products")}</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact-us">
+              <a className="link__menu__desktop">{t("desktop.contact")}</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/blog">
+              <a className="link__menu__desktop">{t("desktop.blog")}</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a className="link__menu__desktop">{t("desktop.about")}</a>
+            </Link>
+          </li>
+        </div>
         <div className="hidden rounded-full bg-primary-bg pt-2 pb-2 pr-6 pl-6 md:block">
           <span className="flex items-center justify-center space-x-3">
             <WorldIcon />

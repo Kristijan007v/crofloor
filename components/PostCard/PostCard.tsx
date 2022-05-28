@@ -47,11 +47,7 @@ export default function PostCard({
   };
 
   return (
-    <motion.div
-      variants={animation}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true }}
+    <div
       className={`flex flex-col space-y-4 rounded-xl shadow-sm ${
         type === "primary"
           ? "bg-primary-yellow"
@@ -111,12 +107,12 @@ export default function PostCard({
           </div>
         </div>
         <Link href={`${href}`}>
-          <a className="text-center text-xl font-semibold">{heading}</a>
+          <a className="h4__responsive text-center font-semibold">{heading}</a>
         </Link>
         {/* <ReadMore maxLength={150} text={description} style={"pl-4 pr-4"} /> */}
 
         <p className="p__default pl-4 pr-4">{description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
