@@ -120,7 +120,7 @@ export default function About() {
         </div>
         <Gallery images={images} />
       </div>
-      <div className="m-auto flex w-full flex-col space-y-6 bg-white p-8 pb-24 md:w-5/6 lg:w-4/6 lg:pb-32 2xl:w-3/6">
+      <div className="m-auto mt-10 flex w-full flex-col space-y-6 bg-white p-8 pb-24 md:w-5/6 lg:w-4/6 lg:pb-32 2xl:w-3/6">
         <h2 className="h2__responsive font-semibold uppercase">
           {t("section.certificate.heading")}
         </h2>
