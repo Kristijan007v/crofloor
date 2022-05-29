@@ -269,7 +269,7 @@ export default function Blog({
                       </p>
                     )}
                     <button
-                      className="rounded-xl p-3"
+                      className="rounded-xl p-3 focus:outline-none"
                       onClick={() => setShowSearch(!showSearch)}
                     >
                       {t("section-header.search.close-btn")}

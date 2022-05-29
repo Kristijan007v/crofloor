@@ -169,3 +169,8 @@ body {
 .tab__responsive {
   @apply text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl;
 }
+
+/* GLOBAL */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
