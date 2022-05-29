@@ -19,7 +19,7 @@ export default function OverlayNew({ children, closeOverlay, style }: Props) {
   }, []);
   return (
     <div
-      className="fixed top-0 bottom-0 right-0 left-0 z-30 bg-black/60 backdrop-blur-md"
+      className="fixed top-0 bottom-0 right-0 left-0 z-30 bg-black/60 backdrop-blur-sm"
       onClick={closeOverlay}
     >
       <AnimatePresence exitBeforeEnter>
@@ -31,7 +31,7 @@ export default function OverlayNew({ children, closeOverlay, style }: Props) {
           }}
           initial={{ opacity: 0, scale: 0.6 }}
           exit={{ opacity: 0, scale: 0.6 }}
-          className="z-40 m-3"
+          className="z-40 m-2"
         >
           {children}
         </motion.div>
