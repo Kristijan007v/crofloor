@@ -159,7 +159,7 @@ export default function Blog({
               </span>
             </button>
           </div>
-          <div className="grid grid-cols-1 gap-8 p-6 pr-6 pl-6 pt-16 pb-32 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 p-6 pr-6 pl-6 pt-12 pb-32 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {posts.map((post: any) => (
               <PostCard
                 type={"secondary"}
