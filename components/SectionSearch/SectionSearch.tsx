@@ -7,6 +7,7 @@ interface Props {
   sticky?: boolean;
   onchange?: (e: any) => void;
   style?: string;
+  searchHistory?: string;
 }
 
 export default function SectionSearch({
@@ -14,6 +15,7 @@ export default function SectionSearch({
   sticky,
   onchange,
   style,
+  searchHistory,
 }: Props) {
   return (
     <motion.div className={`rounded-xl bg-white p-4 ${style}`}>
@@ -23,6 +25,7 @@ export default function SectionSearch({
           type={"search"}
           placeholder={searchPlaceholder}
           onChange={onchange}
+          value={searchHistory}
         />
         <SearchIcon />
       </div>

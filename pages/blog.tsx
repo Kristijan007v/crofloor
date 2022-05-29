@@ -235,15 +235,16 @@ export default function Blog({
           <>
             {/* Desktop search overlay */}
             <OverlayNew
-            // closeOverlay={() => {
-            //   setShowSearch(false);
-            // }}
+              closeOverlay={() => {
+                setShowSearch(false);
+              }}
             >
               {/* Search results */}
               <div className="m-auto mt-6 w-full rounded-xl bg-white md:mt-12 md:w-4/6 lg:w-3/6 xl:w-2/6">
                 <SectionSearch
                   searchPlaceholder={t("section-header.search.placeholder")}
                   onchange={(e) => searchBlog(e.target.value)}
+                  searchHistory={searchTerm}
                 />
 
                 {searchTerm && (
