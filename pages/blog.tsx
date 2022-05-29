@@ -207,9 +207,9 @@ export default function Blog({
                 />
 
                 {searchTerm && (
-                  <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
+                  <div className="flex max-h-56 flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left md:max-h-64 lg:max-h-72 xl:max-h-80 2xl:max-h-96">
                     {results.length > 0 ? (
-                      <div className="flex flex-col space-y-4">
+                      <div className="hide-scrollbar flex flex-col space-y-4 overflow-y-auto border-b border-gray-400">
                         {results.map((post) => (
                           <Link key={post.id} href={`/articles/${post.slug}`}>
                             <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm hover:cursor-pointer">
