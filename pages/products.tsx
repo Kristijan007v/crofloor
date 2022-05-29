@@ -59,39 +59,6 @@ export default function Products({ parket, kategorija }: Props) {
         />
 
         <div id="section-top" className="scroll-mt-32"></div>
-        {/* Current products names displayed by choosen category */}
-        <div className=" sticky top-0 z-20 flex items-center justify-between border-b bg-white">
-          <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-4 pb-4 pr-2 pl-2 font-medium">
-            {parket
-              .filter((product: any) =>
-                product.parket.kategorija
-                  .toLowerCase()
-                  .includes(`${activeTab}`.toLowerCase())
-              )
-              .map((product: any) => (
-                <LinkDefault
-                  key={product.id}
-                  text={product.title}
-                  href={`#${product.slug}`}
-                  style="tab__special"
-                />
-              ))}
-          </div>
-          <div className="border-l border-black bg-white pr-3 pl-3">
-            <button
-              onClick={() => setShowSearch(!showSearch)}
-              aria-label="Search for articles"
-              className="rounded-xl bg-black pt-2 pb-2 pr-2 pl-2 text-white shadow-lg md:rounded-xl md:pl-6 md:pr-6"
-            >
-              <span className="flex items-center space-x-2">
-                <SearchIcon style="hover:cursor-pointer text-2xl" />
-                <span className="hidden md:block">
-                  {t("section-header.search.button-text")}
-                </span>
-              </span>
-            </button>
-          </div>
-        </div>
         {/* Fixed product navbar */}
         <div className="tab__responsive flex flex-wrap items-center justify-center space-x-4 bg-primary-yellow p-4 font-medium md:p-6">
           <button
@@ -112,6 +79,39 @@ export default function Products({ parket, kategorija }: Props) {
           >
             Jela
           </button>
+        </div>
+        {/* Current products names displayed by choosen category */}
+        <div className=" sticky top-0 z-20 flex items-center justify-between border-b bg-white">
+          <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-4 pb-4 pr-2 pl-2 font-medium">
+            {parket
+              .filter((product: any) =>
+                product.parket.kategorija
+                  .toLowerCase()
+                  .includes(`${activeTab}`.toLowerCase())
+              )
+              .map((product: any) => (
+                <LinkDefault
+                  key={product.id}
+                  text={product.title}
+                  href={`#${product.slug}`}
+                  style="tab__special"
+                />
+              ))}
+          </div>
+          <div className="border-l border-gray-500 bg-white pr-3 pl-3">
+            <button
+              onClick={() => setShowSearch(!showSearch)}
+              aria-label="Search for articles"
+              className="rounded-xl bg-black pt-2 pb-2 pr-2 pl-2 text-white shadow-lg md:rounded-xl md:pl-6 md:pr-6"
+            >
+              <span className="flex items-center space-x-2">
+                <SearchIcon style="hover:cursor-pointer text-2xl" />
+                <span className="hidden md:block">
+                  {t("section-header.search.button-text")}
+                </span>
+              </span>
+            </button>
+          </div>
         </div>
       </ErrorBoundary>
 

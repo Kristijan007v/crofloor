@@ -167,7 +167,7 @@ body {
 }
 
 .tab__responsive {
-  @apply text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl;
+  @apply text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl;
 }
 
 /* GLOBAL */
