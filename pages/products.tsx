@@ -35,8 +35,12 @@ export default function Products({ parket, kategorija }: Props) {
   const searchProducts = (searchTerm: string) => {
     setSearchTerm(searchTerm);
 
-    const result = parket.filter((product: any) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const result = parket.filter(
+      (product: any) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.parket.kategorija
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase())
     );
     setResults(result);
   };
@@ -152,7 +156,7 @@ export default function Products({ parket, kategorija }: Props) {
       <h4 className="h3__responsive pt-10 pl-6 pr-6 text-left font-semibold uppercase md:text-center">
         Lokacije trgovina
       </h4>
-      <div className="m-auto flex flex-col md:mb-16 md:mt-8 md:flex-row md:space-x-6 lg:mb-16 lg:mt-6 lg:w-5/6 2xl:w-4/6">
+      <div className="m-auto flex flex-col md:mb-16 md:mt-8 md:flex-row md:space-x-6 lg:mb-32 lg:mt-6 lg:w-5/6 2xl:w-4/6">
         <div className="m-4 flex-grow rounded-2xl border border-black">
           <iframe
             title="Crofloor store locations"
