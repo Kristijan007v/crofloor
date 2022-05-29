@@ -66,7 +66,7 @@ body {
 
 /* Link styles */
 .link__menu {
-  @apply rounded-xl p-2 text-4xl font-normal hover:font-semibold;
+  @apply rounded-xl pr-4 pl-4 pt-1 pb-1 text-4xl font-normal;
 }
 
 .link__menu__desktop {
@@ -78,7 +78,7 @@ body {
 }
 
 .link__active {
-  @apply font-bold text-black;
+  @apply rounded-xl bg-white text-black;
 }
 
 /* Overlay styles */
