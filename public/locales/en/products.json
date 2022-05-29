@@ -6,6 +6,7 @@
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "search": {
+      "button-text": "Search",
       "placeholder": "Search for products...",
       "noresult": "No results found",
       "close-btn": "Close search"

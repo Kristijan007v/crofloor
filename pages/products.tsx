@@ -7,8 +7,11 @@ import Card from "../components/Card/Card";
 import Dropdown from "../components/Dropdown/Dropdown";
 import DropdownItem from "../components/DropdownItem/DropdownItem";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import SearchIcon from "../components/Icons/SearchIcon";
 import TagIcon from "../components/Icons/TagIcon";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
+import Overlay from "../components/Overlay/Overlay";
+import OverlayNew from "../components/OverlayNew/OverlayNew";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import SectionSearch from "../components/SectionSearch/SectionSearch";
 import Skeleton from "../components/Skeleton/Skeleton";
@@ -26,6 +29,8 @@ export default function Products({ parket, kategorija }: Props) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [results, setResults] = useState(parket);
+
+  const [showSearch, setShowSearch] = useState(false);
 
   const searchProducts = (searchTerm: string) => {
     setSearchTerm(searchTerm);
@@ -55,7 +60,7 @@ export default function Products({ parket, kategorija }: Props) {
 
         <div id="section-top" className="scroll-mt-32"></div>
         {/* Current products names displayed by choosen category */}
-        <div className=" sticky top-0 z-20 border-b bg-white">
+        <div className=" sticky top-0 z-20 flex items-center justify-between border-b bg-white">
           <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-4 pb-4 pr-2 pl-2 font-medium">
             {parket
               .filter((product: any) =>
@@ -71,6 +76,20 @@ export default function Products({ parket, kategorija }: Props) {
                   style="tab__special"
                 />
               ))}
+          </div>
+          <div className="border-l border-black bg-white pr-3 pl-3">
+            <button
+              onClick={() => setShowSearch(!showSearch)}
+              aria-label="Search for articles"
+              className="rounded-xl bg-black pt-2 pb-2 pr-2 pl-2 text-white shadow-lg md:rounded-xl md:pl-6 md:pr-6"
+            >
+              <span className="flex items-center space-x-2">
+                <SearchIcon style="hover:cursor-pointer text-2xl" />
+                <span className="hidden md:block">
+                  {t("section-header.search.button-text")}
+                </span>
+              </span>
+            </button>
           </div>
         </div>
         {/* Fixed product navbar */}
@@ -158,6 +177,61 @@ export default function Products({ parket, kategorija }: Props) {
           </Dropdown>
         </div>
       </div>
+
+      {/* Search overlay */}
+      <AnimatePresence exitBeforeEnter>
+        {showSearch && (
+          <OverlayNew
+            closeOverlay={() => {
+              setShowSearch(false);
+            }}
+          >
+            {/* Search results */}
+            <div className="sticky top-0 left-0 right-0 z-20 m-auto mt-6 w-full rounded-xl border-b bg-white md:mt-12 md:w-4/6 lg:w-3/6 xl:w-2/6">
+              <div>
+                <SectionSearch
+                  searchPlaceholder={t("section-header.search.placeholder")}
+                  onchange={(e) => searchProducts(e.target.value)}
+                />
+                {searchTerm && (
+                  <div className="flex flex-col space-y-4 rounded-xl bg-white pb-3 pr-6 pl-6 pt-2 text-left">
+                    {results.length > 0 ? (
+                      <div className="flex flex-col space-y-2 md:space-y-3">
+                        {results.map((product: any) => (
+                          <Link
+                            key={product.id}
+                            href={`/products/${product.slug}`}
+                          >
+                            <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
+                              <a className="ml-3">{product.title}</a>
+                              <div className="flex items-center space-x-2 p-3">
+                                <TagIcon />
+                                <span>{product.parket.kategorija}</span>
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
+                        {t("section-header.search.noresult")}
+                      </p>
+                    )}
+                    <button
+                      className="rounded-xl p-3"
+                      onClick={() => {
+                        setShowSearch(false);
+                      }}
+                    >
+                      {t("section-header.search.close-btn")}
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </OverlayNew>
+        )}
+      </AnimatePresence>
     </Skeleton>
   );
 }
