@@ -230,54 +230,56 @@ export default function Blog({
         </>
       )}
 
-      {showSearch && (
-        <>
-          {/* Desktop search overlay */}
-          <OverlayNew
-          // closeOverlay={() => {
-          //   setShowSearch(false);
-          // }}
-          >
-            {/* Search results */}
-            <div className="m-auto mt-6 w-full rounded-xl bg-white md:mt-12 md:w-4/6 lg:w-3/6 xl:w-2/6">
-              <SectionSearch
-                searchPlaceholder={t("section-header.search.placeholder")}
-                onchange={(e) => searchBlog(e.target.value)}
-              />
+      <AnimatePresence exitBeforeEnter>
+        {showSearch && (
+          <>
+            {/* Desktop search overlay */}
+            <OverlayNew
+            // closeOverlay={() => {
+            //   setShowSearch(false);
+            // }}
+            >
+              {/* Search results */}
+              <div className="m-auto mt-6 w-full rounded-xl bg-white md:mt-12 md:w-4/6 lg:w-3/6 xl:w-2/6">
+                <SectionSearch
+                  searchPlaceholder={t("section-header.search.placeholder")}
+                  onchange={(e) => searchBlog(e.target.value)}
+                />
 
-              {searchTerm && (
-                <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
-                  {results.length > 0 ? (
-                    <div className="flex flex-col space-y-4">
-                      {results.map((post) => (
-                        <Link key={post.id} href={`/articles/${post.slug}`}>
-                          <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
-                            <p className="font-medium">{post.title}</p>
-                            <div className="flex items-center space-x-2">
-                              <CalendarIcon />
-                              <span>{formatDate(post.date)}</span>
+                {searchTerm && (
+                  <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
+                    {results.length > 0 ? (
+                      <div className="flex flex-col space-y-4">
+                        {results.map((post) => (
+                          <Link key={post.id} href={`/articles/${post.slug}`}>
+                            <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
+                              <p className="font-medium">{post.title}</p>
+                              <div className="flex items-center space-x-2">
+                                <CalendarIcon />
+                                <span>{formatDate(post.date)}</span>
+                              </div>
                             </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
-                      {t("section-header.search.noresult")}
-                    </p>
-                  )}
-                  <button
-                    className="rounded-xl p-3"
-                    onClick={() => setShowSearch(!showSearch)}
-                  >
-                    {t("section-header.search.close-btn")}
-                  </button>
-                </div>
-              )}
-            </div>
-          </OverlayNew>
-        </>
-      )}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm">
+                        {t("section-header.search.noresult")}
+                      </p>
+                    )}
+                    <button
+                      className="rounded-xl p-3"
+                      onClick={() => setShowSearch(!showSearch)}
+                    >
+                      {t("section-header.search.close-btn")}
+                    </button>
+                  </div>
+                )}
+              </div>
+            </OverlayNew>
+          </>
+        )}
+      </AnimatePresence>
     </Skeleton>
   );
 }

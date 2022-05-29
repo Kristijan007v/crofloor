@@ -22,20 +22,18 @@ export default function OverlayNew({ children, closeOverlay, style }: Props) {
       className="fixed top-0 bottom-0 right-0 left-0 z-30 bg-black/60 backdrop-blur-sm"
       onClick={closeOverlay}
     >
-      <AnimatePresence exitBeforeEnter>
-        <motion.div
-          animate={{
-            opacity: 1,
-            scale: 1,
-            transition: { duration: 0.4 },
-          }}
-          initial={{ opacity: 0, scale: 0.6 }}
-          exit={{ opacity: 0, scale: 0.6 }}
-          className="z-40 m-2"
-        >
-          {children}
-        </motion.div>
-      </AnimatePresence>
+      <motion.div
+        animate={{
+          opacity: 1,
+          scale: 1,
+          transition: { duration: 0.4 },
+        }}
+        initial={{ opacity: 0, scale: 0.6 }}
+        exit={{ y: "-100vh", transition: { duration: 0.4 } }}
+        className="z-40 m-2"
+      >
+        {children}
+      </motion.div>
     </div>
   );
 }
