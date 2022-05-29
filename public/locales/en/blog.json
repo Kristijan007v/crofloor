@@ -6,6 +6,7 @@
     },
     "description": "Welcome to our blog! Here you will be able to find out about our latest donations or news from the company.",
     "search": {
+      "button-text": "Search",
       "placeholder": "Search for articles...",
       "noresult": "No results found",
       "close-btn": "Close search"

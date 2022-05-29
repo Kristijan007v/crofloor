@@ -155,7 +155,9 @@ export default function Blog({
             >
               <span className="flex items-center space-x-2">
                 <SearchIcon style="hover:cursor-pointer text-2xl" />
-                <span className="hidden md:block">Search</span>
+                <span className="hidden md:block">
+                  {t("section-header.search.button-text")}
+                </span>
               </span>
             </button>
           </div>
