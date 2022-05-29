@@ -198,9 +198,9 @@ export default function Products({ parket, kategorija }: Props) {
                   onchange={(e) => searchProducts(e.target.value)}
                 />
                 {searchTerm && (
-                  <div className="flex flex-col space-y-4 rounded-xl bg-white pb-3 pr-6 pl-6 pt-2 text-left">
+                  <div className="flex max-h-56 flex-col space-y-4 rounded-xl bg-white pb-3 pr-6 pl-6 pt-2 text-left md:max-h-64 lg:max-h-72 xl:max-h-80 2xl:max-h-96">
                     {results.length > 0 ? (
-                      <div className="flex flex-col space-y-2 md:space-y-3">
+                      <div className="hide-scrollbar  flex flex-col space-y-2 overflow-y-auto border-b border-gray-400 pb-6 md:space-y-3">
                         {results.map((product: any) => (
                           <Link
                             key={product.id}
