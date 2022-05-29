@@ -36,6 +36,7 @@ export default function LocationContainer({
           className="opacity-85"
           placeholder="blur"
           blurDataURL={`/images/${image}`}
+          alt="Location City Image"
         />
 
         <div className="relative h-48 w-full bg-black/20 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
@@ -52,13 +53,13 @@ export default function LocationContainer({
               }}
             />
           </div>
-          <h4
+          <p
             className={`absolute bottom-0 ${
               cityPosition === "right" ? "right-0" : "left-0"
             } p-4 text-3xl font-semibold text-white`}
           >
             {cityName}
-          </h4>
+          </p>
         </div>
       </div>
     </ErrorBoundary>

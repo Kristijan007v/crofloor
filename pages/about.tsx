@@ -54,7 +54,11 @@ export default function About() {
   ];
 
   return (
-    <Skeleton title="" metaDescription="" navigation={true}>
+    <Skeleton
+      title="About us"
+      metaDescription="Find out everything about Požgaj Group, our locations and what certificates we own."
+      navigation={true}
+    >
       <ErrorBoundary moduleName="SectionHeader">
         {/* <SectionHeader
           title={t("section-header.title")}
