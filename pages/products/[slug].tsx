@@ -61,6 +61,7 @@ export default function MorreloRicco({ product }: Props) {
         <>
           <PageHeader
             title={product.title}
+            category={product.parket.kategorija}
             alt=""
             description={product.parket.opis}
             backgroundImage={product.parket.pozadinskaSlika?.sourceUrl}
@@ -71,7 +72,7 @@ export default function MorreloRicco({ product }: Props) {
 
           {/* Main content */}
           <div id={`${product.id}`} className=""></div>
-          <div className="mt-4 pl-4 pt-4 pr-4">
+          <div className="mt-4 pl-4 pt-4 pr-4 md:mt-8">
             <div className="flex flex-wrap items-center justify-center space-x-4 text-xl font-medium text-black">
               <button
                 className={`${
@@ -102,7 +103,7 @@ export default function MorreloRicco({ product }: Props) {
 
           {/* Description */}
           {activeTab === "description" && (
-            <div className="flex justify-center pt-4 pb-6 pr-6 pl-6">
+            <div className="m-auto mt-3 flex w-full justify-center pt-4 pb-6 pr-6 pl-6 md:mt-4 md:w-5/6 lg:w-4/6 xl:w-3/6">
               <div
                 className="p__default rounded-xl bg-primary-bg p-6"
                 dangerouslySetInnerHTML={createMarkup(`${product.content}`)}
@@ -113,20 +114,22 @@ export default function MorreloRicco({ product }: Props) {
           {/* Product specifications */}
           {activeTab === "specifications" && (
             <>
-              <div className="flex flex-col space-y-4 pt-4 pb-6 pr-6 pl-6">
+              <div className="m-auto mt-3 flex w-full flex-col space-y-4 pt-4 pb-6 pr-6 pl-6 md:mt-4 md:w-5/6 lg:w-4/6 xl:w-3/6">
                 <p className="p__default">
                   {lang === "en"
                     ? "Download the product specifications in PDF format."
                     : "Preuzmite specifikacije proizvoda u PDF formatu."}
                 </p>
-                <DownloadCard
-                  text={
-                    lang === "en"
-                      ? "Product specifications"
-                      : "Specifikacije proizvoda"
-                  }
-                  downloadURL={`${product?.parket.specifikacije.mediaItemUrl}`}
-                />
+                <div className="w-full md:w-5/6 lg:w-4/6 xl:w-3/6">
+                  <DownloadCard
+                    text={
+                      lang === "en"
+                        ? "Product specifications"
+                        : "Specifikacije proizvoda"
+                    }
+                    downloadURL={`${product?.parket.specifikacije.mediaItemUrl}`}
+                  />
+                </div>
               </div>
             </>
           )}
@@ -134,38 +137,41 @@ export default function MorreloRicco({ product }: Props) {
           {/* Product certificates */}
           {activeTab === "certificates " && (
             <>
-              <div className="flex flex-col space-y-4 pt-4 pb-6 pr-6 pl-6">
+              <div className="m-auto mt-3 flex w-full flex-col space-y-4 pt-4 pb-6 pr-6 pl-6 md:mt-4 md:w-5/6 lg:w-4/6 xl:w-3/6">
                 <p className="p__default">
                   {lang === "en"
                     ? "See all the certificates our products have by downloading the PDF file."
                     : "Pogledajte koje sve certifikate naši proizvodi imaju preuzimanjem PDF datoteke."}
                 </p>
-                <DownloadCard
-                  text={
-                    lang === "en"
-                      ? "Product certificates"
-                      : "Certifikati proizvoda"
-                  }
-                  downloadURL={`${product?.parket.specifikacije.mediaItemUrl}`}
-                />
+                <div className="w-full md:w-5/6 lg:w-4/6 xl:w-3/6">
+                  <DownloadCard
+                    text={
+                      lang === "en"
+                        ? "Product certificates"
+                        : "Certifikati proizvoda"
+                    }
+                    downloadURL={`${product?.parket.specifikacije.mediaItemUrl}`}
+                  />
+                </div>
               </div>
             </>
           )}
 
           {/* Product Gallery */}
           <div id={`gallery-${product.slug}`} className="scroll-mt-4"></div>
-          <div className="mb-8 flex flex-col space-y-4 p-6">
+          <div className="m-auto mb-8 mt-10 flex w-full flex-col space-y-4 p-6 pb-10 md:mb-24 md:w-5/6 lg:w-4/6 xl:w-3/6">
             <h2 className="text-2xl font-semibold">
               {t("product-gallery.title")}
             </h2>
             <Gallery images={gallery} />
           </div>
-
-          <SocialShare
-            text={t("social-share.text")}
-            url={`https://${MAIN_DOMAIN}/products/${product.slug}`}
-            iconSize={"md"}
-          />
+          <div className="md:flex md:justify-end">
+            <SocialShare
+              text={t("social-share.text")}
+              url={`https://${MAIN_DOMAIN}/products/${product.slug}`}
+              iconSize={"md"}
+            />
+          </div>
         </>
       )}
     </Skeleton>
