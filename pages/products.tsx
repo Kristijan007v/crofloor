@@ -54,56 +54,52 @@ export default function Products({ parket, kategorija }: Props) {
         />
 
         <div id="section-top" className="scroll-mt-32"></div>
-
+        {/* Current products names displayed by choosen category */}
+        <div className=" sticky top-0 z-20 border-b bg-white">
+          <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-4 pb-4 pr-2 pl-2 font-medium">
+            {parket
+              .filter((product: any) =>
+                product.parket.kategorija
+                  .toLowerCase()
+                  .includes(`${activeTab}`.toLowerCase())
+              )
+              .map((product: any) => (
+                <LinkDefault
+                  key={product.id}
+                  text={product.title}
+                  href={`#${product.slug}`}
+                  style="tab__special"
+                />
+              ))}
+          </div>
+        </div>
         {/* Fixed product navbar */}
-        <div className="sticky top-0 z-20 flex flex-col border-b">
-          <div className="tab__responsive flex flex-wrap justify-center space-x-6 border-b bg-primary-yellow p-3 font-medium text-black">
-            <button
-              className={`${activeTab === "hrast" && "active__tab__special"}`}
-              onClick={() => setActiveTab("hrast")}
-            >
-              Hrast
-            </button>
-            <button
-              className={`${activeTab === "jasen" && "active__tab__special"}`}
-              onClick={() => setActiveTab("jasen")}
-            >
-              Jasen
-            </button>
-            <button
-              className={`${activeTab === "jela" && "active__tab__special"}`}
-              onClick={() => setActiveTab("jela")}
-            >
-              Jela
-            </button>
-          </div>
-
-          {/* Current products names displayed by choosen category */}
-          <div className=" bg-white">
-            <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-3 pb-3 pr-2 pl-2 font-medium">
-              {parket
-                .filter((product: any) =>
-                  product.parket.kategorija
-                    .toLowerCase()
-                    .includes(`${activeTab}`.toLowerCase())
-                )
-                .map((product: any) => (
-                  <LinkDefault
-                    key={product.id}
-                    text={product.title}
-                    href={`#${product.slug}`}
-                    style="tab__special"
-                  />
-                ))}
-            </div>
-          </div>
+        <div className="tab__responsive flex flex-wrap justify-center space-x-6 border-b bg-primary-yellow p-3 font-medium text-black">
+          <button
+            className={`${activeTab === "hrast" && "active__tab__special"}`}
+            onClick={() => setActiveTab("hrast")}
+          >
+            Hrast
+          </button>
+          <button
+            className={`${activeTab === "jasen" && "active__tab__special"}`}
+            onClick={() => setActiveTab("jasen")}
+          >
+            Jasen
+          </button>
+          <button
+            className={`${activeTab === "jela" && "active__tab__special"}`}
+            onClick={() => setActiveTab("jela")}
+          >
+            Jela
+          </button>
         </div>
       </ErrorBoundary>
 
       {parket.length > 0 && (
         <>
           {/* PRODUCTS */}
-          <div className="m-auto mt-10 flex flex-col space-y-10 p-8 lg:w-5/6 2xl:w-4/6">
+          <div className="m-auto mt-4 flex flex-col space-y-2 p-8 md:space-y-12 lg:w-5/6 2xl:w-4/6">
             {/* Hrast Products */}
             {parket
               .filter((product: any) =>
