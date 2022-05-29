@@ -6,6 +6,7 @@ import React from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import CalendarIcon from "../components/Icons/CalendarIcon";
+import SearchIcon from "../components/Icons/SearchIcon";
 import OverlayNew from "../components/OverlayNew/OverlayNew";
 import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
@@ -223,6 +224,14 @@ export default function Blog({
           </>
         )}
       </AnimatePresence>
+
+      {/* Fixed buttons */}
+      <span className="fixed bottom-4 right-4 z-20 rounded-full bg-black p-2 shadow-md">
+        <SearchIcon
+          style="text-white hover:cursor-pointer text-3xl"
+          onclick={() => setShowSearch(!showSearch)}
+        />
+      </span>
     </Skeleton>
   );
 }

@@ -56,7 +56,7 @@ export default function Products({ parket, kategorija }: Props) {
         <div id="section-top" className="scroll-mt-32"></div>
 
         {/* Fixed product navbar */}
-        <div className="flex flex-col border-b">
+        <div className="sticky top-0 z-20 flex flex-col border-b">
           <div className="tab__responsive flex flex-wrap justify-center space-x-6 border-b bg-primary-yellow p-3 font-medium text-black">
             <button
               className={`${activeTab === "hrast" && "active__tab__special"}`}
@@ -79,7 +79,7 @@ export default function Products({ parket, kategorija }: Props) {
           </div>
 
           {/* Current products names displayed by choosen category */}
-          <div className="bg-white">
+          <div className=" bg-white">
             <div className="hide-scrollbar flex space-x-2 overflow-x-auto whitespace-nowrap pt-3 pb-3 pr-2 pl-2 font-medium">
               {parket
                 .filter((product: any) =>

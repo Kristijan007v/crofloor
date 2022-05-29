@@ -29,7 +29,7 @@ export default function SocialShare({
   return (
     <div
       className={`flex items-center justify-between space-x-4 ${
-        bgColor ? bgColor : "bg-primary-gray"
+        bgColor ? bgColor : "bg-transparent"
       } p-5 ${style}`}
     >
       <p className="font-medium">{text}</p>

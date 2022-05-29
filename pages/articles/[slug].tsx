@@ -65,6 +65,7 @@ export default function Article({ post }: Props) {
             url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
             iconSize={"md"}
             style="block md:hidden"
+            bgColor="bg-primary-yellow"
           />
         </>
       )}
