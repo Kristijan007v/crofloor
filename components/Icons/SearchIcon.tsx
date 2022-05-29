@@ -12,7 +12,7 @@ export default function SearchIcon({ onclick, style }: Props) {
     <>
       <IconContext.Provider
         value={{
-          className: "text-3xl",
+          className: `${style ? style : "text-3xl"}`,
         }}
       >
         <MdSearch onClick={onclick} />

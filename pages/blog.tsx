@@ -6,6 +6,8 @@ import React from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import CalendarIcon from "../components/Icons/CalendarIcon";
+import Overlay from "../components/Overlay/Overlay";
+import OverlayNew from "../components/OverlayNew/OverlayNew";
 import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import SectionSearch from "../components/SectionSearch/SectionSearch";
@@ -44,6 +46,8 @@ export default function Blog({
 
   const [results, setResults] = React.useState<any[]>([]);
 
+  const [showSearch, setShowSearch] = React.useState(false);
+
   const searchBlog = (searchTerm: string) => {
     setSearchTerm(searchTerm);
 
@@ -65,14 +69,17 @@ export default function Blog({
           image="blog.jpg"
           alt={t("section-header.image.alt")}
           description={t("section-header.description")}
+          search={true}
+          searchOnclick={() => setShowSearch(!showSearch)}
         />
       </ErrorBoundary>
 
       {/* Search results */}
-      <div className="sticky top-0 z-20 border-b bg-white">
+      {/* <div className="sticky top-0 z-20 block border-b bg-white md:hidden">
         <SectionSearch
           searchPlaceholder={t("section-header.search.placeholder")}
           onchange={(e) => searchBlog(e.target.value)}
+          style={"rounded-tr-xl rounded-tl-xl"}
         />
         <AnimatePresence exitBeforeEnter>
           {searchTerm && (
@@ -122,7 +129,7 @@ export default function Blog({
             </div>
           )}
         </AnimatePresence>
-      </div>
+      </div> */}
 
       {/* Featured ARTICLES */}
       {featuredArticle.featuredPost.length > 0 && (
@@ -220,6 +227,73 @@ export default function Blog({
           <h3 className="pt-10 pl-6 pr-6 text-center text-xl font-semibold uppercase">
             {t("section.latest-empty")}
           </h3>
+        </>
+      )}
+
+      {showSearch && (
+        <>
+          {/* Desktop search overlay */}
+          <OverlayNew
+          // closeOverlay={() => {
+          //   setShowSearch(false);
+          // }}
+          >
+            {/* Search results */}
+            <div className="m-auto mt-12 w-full rounded-xl bg-white md:w-4/6 lg:w-3/6 xl:w-2/6">
+              <SectionSearch
+                searchPlaceholder={t("section-header.search.placeholder")}
+                onchange={(e) => searchBlog(e.target.value)}
+              />
+              <AnimatePresence exitBeforeEnter>
+                {searchTerm && (
+                  <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
+                    {results.length > 0 ? (
+                      <motion.div
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                          transition: { duration: 0.4 },
+                        }}
+                        initial={{ opacity: 0, scale: 0.6 }}
+                        className="flex flex-col space-y-4"
+                      >
+                        {results.map((post) => (
+                          <Link key={post.id} href={`/articles/${post.slug}`}>
+                            <motion.div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
+                              <p className="font-medium">{post.title}</p>
+                              <div className="flex items-center space-x-2">
+                                <CalendarIcon />
+                                <span>{formatDate(post.date)}</span>
+                              </div>
+                            </motion.div>
+                          </Link>
+                        ))}
+                      </motion.div>
+                    ) : (
+                      <motion.p
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                          transition: { duration: 0.4 },
+                        }}
+                        initial={{ opacity: 0, scale: 0.6 }}
+                        layout
+                        className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
+                      >
+                        {t("section-header.search.noresult")}
+                      </motion.p>
+                    )}
+                    <button
+                      className="rounded-xl border-black p-3 hover:border"
+                      onClick={() => setShowSearch(!showSearch)}
+                    >
+                      {t("section-header.search.close-btn")}
+                    </button>
+                  </div>
+                )}
+              </AnimatePresence>
+            </div>
+          </OverlayNew>
         </>
       )}
     </Skeleton>
