@@ -48,7 +48,7 @@ export default function PageHeader({
                 {/* <span className="text-gray-800"> RICCO</span> */}
               </h1>
 
-              <div className="relative h-36 w-4/5 md:h-44 lg:h-52 xl:h-56 2xl:h-64">
+              <div className="lg:h-58 relative h-36 w-4/5 md:h-56 xl:h-60 2xl:h-64">
                 <Image
                   src={`${featuredImage}`}
                   alt={alt}
