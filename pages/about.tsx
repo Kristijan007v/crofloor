@@ -73,14 +73,15 @@ export default function About() {
         </p>
         <div></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="md:col-span-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        <div className="md:col-span-2 xl:col-span-1">
           <LocationContainer
             image="varazdin-location.jpg"
             cityName="Varaždin"
             address={t("section.locations.tag")}
             href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
-            cityPosition="right"
+            cityPosition="left"
+            tagPosition="right"
           />
         </div>
         <LocationContainer
@@ -96,7 +97,8 @@ export default function About() {
           cityName="Split"
           address={t("section.locations.tag")}
           href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
-          cityPosition="right"
+          cityPosition="left"
+          tagPosition="right"
         />
       </div>
       <div className="flex flex-col space-y-2 bg-primary-yellow p-8 text-left md:text-center">
@@ -118,14 +120,16 @@ export default function About() {
         </div>
         <Gallery images={images} />
       </div>
-      <div className="m-auto flex w-full flex-col space-y-6 bg-white p-8 md:w-5/6 lg:w-4/6 xl:w-3/6">
+      <div className="m-auto flex w-full flex-col space-y-6 bg-white p-8 pb-24 md:w-5/6 lg:w-4/6 lg:pb-32 xl:w-3/6">
         <h2 className="h2__responsive font-semibold uppercase">
           {t("section.certificate.heading")}
         </h2>
-        <DownloadCard
-          text={lang === "en" ? "Certificates file" : "Datoteka certifikata"}
-          downloadURL={`/files/specifications.pdf`}
-        />
+        <div className="w-full md:w-5/6 lg:w-4/6 xl:w-3/6">
+          <DownloadCard
+            text={lang === "en" ? "Certificates file" : "Datoteka certifikata"}
+            downloadURL={`/files/specifications.pdf`}
+          />
+        </div>
       </div>
     </Skeleton>
   );
