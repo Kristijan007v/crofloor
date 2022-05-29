@@ -53,66 +53,6 @@ export default function Products({ parket, kategorija }: Props) {
           description={t("section-header.description")}
         />
 
-        {/* Search results */}
-        <div className="sticky top-0 left-0 right-0 z-20 border-b bg-white">
-          <div>
-            <SectionSearch
-              searchPlaceholder={t("section-header.search.placeholder")}
-              onchange={(e) => searchProducts(e.target.value)}
-            />
-            <AnimatePresence>
-              {searchTerm && (
-                <div className="flex flex-col space-y-4 bg-white pb-3 pr-6 pl-6 pt-2 text-left">
-                  {results.length > 0 ? (
-                    <div className="flex flex-col space-y-2">
-                      {results.map((product: any) => (
-                        <Link
-                          key={product.id}
-                          href={`/products/${product.slug}`}
-                        >
-                          <motion.div
-                            animate={{
-                              scale: 1,
-                              transition: { duration: 0.4 },
-                            }}
-                            initial={{ scale: 0.6 }}
-                            layout
-                            className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm"
-                          >
-                            <a className="ml-3">{product.title}</a>
-                            <div className="flex items-center space-x-2 p-3">
-                              <TagIcon />
-                              <span>{product.parket.kategorija}</span>
-                            </div>
-                          </motion.div>
-                        </Link>
-                      ))}
-                    </div>
-                  ) : (
-                    <motion.p
-                      animate={{
-                        scale: 1,
-                        transition: { duration: 0.4 },
-                      }}
-                      initial={{ scale: 0.6 }}
-                      layout
-                      className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
-                    >
-                      {t("section-header.search.noresult")}
-                    </motion.p>
-                  )}
-                  <button
-                    className="rounded-xl border-black p-3 hover:border"
-                    onClick={() => setSearchTerm("")}
-                  >
-                    {t("section-header.search.close-btn")}
-                  </button>
-                </div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-
         <div id="section-top" className="scroll-mt-32"></div>
 
         {/* Fixed product navbar */}

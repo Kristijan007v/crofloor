@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SearchIcon from "../Icons/SearchIcon";
+import SectionSearch from "../SectionSearch/SectionSearch";
 import Textbox from "../Textbox/Textbox";
 
 interface Props {

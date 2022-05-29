@@ -195,7 +195,7 @@ export default function Blog({
                       <div className="flex flex-col space-y-4">
                         {results.map((post) => (
                           <Link key={post.id} href={`/articles/${post.slug}`}>
-                            <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-md">
+                            <div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
                               <p className="font-medium">{post.title}</p>
                               <div className="flex items-center space-x-2">
                                 <CalendarIcon />
