@@ -48,14 +48,6 @@ export default function SectionHeader({
               <h1 className="h1__responsive font-semibold">{title}</h1>
               {description && <Textbox>{description}</Textbox>}
             </div>
-            {search && (
-              <div className="absolute bottom-0 right-0 hidden p-4 md:block">
-                <SearchIcon
-                  style="text-white hover:cursor-pointer text-4xl md:text-5xl"
-                  onclick={searchOnclick}
-                />
-              </div>
-            )}
           </div>
         </div>
       </div>

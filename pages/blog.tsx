@@ -226,12 +226,16 @@ export default function Blog({
       </AnimatePresence>
 
       {/* Fixed buttons */}
-      <span className="fixed bottom-4 right-4 z-20 rounded-full bg-black p-2 shadow-md">
-        <SearchIcon
-          style="text-white hover:cursor-pointer text-3xl"
-          onclick={() => setShowSearch(!showSearch)}
-        />
-      </span>
+      <button
+        aria-label="Search for articles"
+        className="fixed right-4 bottom-4 rounded-xl bg-black pt-2 pb-2 pr-2 pl-2 text-white shadow-lg md:rounded-xl md:pl-6 md:pr-6"
+        onClick={() => setShowSearch(!showSearch)}
+      >
+        <span className="flex items-center space-x-2">
+          <SearchIcon style="hover:cursor-pointer text-3xl" />
+          <span className="hidden md:block">Search</span>
+        </span>
+      </button>
     </Skeleton>
   );
 }
