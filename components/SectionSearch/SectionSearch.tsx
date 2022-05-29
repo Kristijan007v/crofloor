@@ -1,6 +1,5 @@
-import SearchIcon from "../Icons/SearchIcon";
 import { motion } from "framer-motion";
-import dropIn from "../../lib/animations/dropIn";
+import SearchIcon from "../Icons/SearchIcon";
 
 interface Props {
   searchPlaceholder: string;

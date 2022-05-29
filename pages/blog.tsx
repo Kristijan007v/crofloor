@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
@@ -6,7 +6,6 @@ import React from "react";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import CalendarIcon from "../components/Icons/CalendarIcon";
-import Overlay from "../components/Overlay/Overlay";
 import OverlayNew from "../components/OverlayNew/OverlayNew";
 import PostCard from "../components/PostCard/PostCard";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
@@ -73,63 +72,6 @@ export default function Blog({
           searchOnclick={() => setShowSearch(!showSearch)}
         />
       </ErrorBoundary>
-
-      {/* Search results */}
-      {/* <div className="sticky top-0 z-20 block border-b bg-white md:hidden">
-        <SectionSearch
-          searchPlaceholder={t("section-header.search.placeholder")}
-          onchange={(e) => searchBlog(e.target.value)}
-          style={"rounded-tr-xl rounded-tl-xl"}
-        />
-        <AnimatePresence exitBeforeEnter>
-          {searchTerm && (
-            <div className="flex flex-col space-y-4 pb-3 pr-6 pl-6 pt-2 text-left">
-              {results.length > 0 ? (
-                <motion.div
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                    transition: { duration: 0.4 },
-                  }}
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  className="flex flex-col space-y-4"
-                >
-                  {results.map((post) => (
-                    <Link key={post.id} href={`/articles/${post.slug}`}>
-                      <motion.div className="flex items-center justify-between rounded-lg bg-primary-bg p-3 shadow-sm">
-                        <p className="font-medium">{post.title}</p>
-                        <div className="flex items-center space-x-2">
-                          <CalendarIcon />
-                          <span>{formatDate(post.date)}</span>
-                        </div>
-                      </motion.div>
-                    </Link>
-                  ))}
-                </motion.div>
-              ) : (
-                <motion.p
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                    transition: { duration: 0.4 },
-                  }}
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  layout
-                  className="rounded-xl bg-primary-bg p-3 text-center font-medium shadow-sm"
-                >
-                  {t("section-header.search.noresult")}
-                </motion.p>
-              )}
-              <button
-                className="rounded-xl border-black p-3 hover:border"
-                onClick={() => setSearchTerm("")}
-              >
-                {t("section-header.search.close-btn")}
-              </button>
-            </div>
-          )}
-        </AnimatePresence>
-      </div> */}
 
       {/* Featured ARTICLES */}
       {featuredArticle.featuredPost.length > 0 && (
