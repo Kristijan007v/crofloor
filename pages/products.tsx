@@ -93,7 +93,7 @@ export default function Products({ parket, kategorija }: Props) {
           </div>
         </div>
         {/* Fixed product navbar */}
-        <div className="tab__responsive flex flex-wrap justify-center space-x-6 border-b bg-primary-yellow p-3 font-medium text-black">
+        <div className="tab__responsive flex flex-wrap items-center justify-center space-x-4 bg-primary-yellow p-4 font-medium md:p-6">
           <button
             className={`${activeTab === "hrast" && "active__tab__special"}`}
             onClick={() => setActiveTab("hrast")}
@@ -143,7 +143,7 @@ export default function Products({ parket, kategorija }: Props) {
 
             <LinkDefault
               href="#section-top"
-              style="flex justify-end"
+              style="flex justify-end h4__responsive"
               text={t("body.scroll-to-top")}
             />
           </div>
