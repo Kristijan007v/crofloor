@@ -37,6 +37,7 @@ export default function LocationContainer({
           placeholder="blur"
           blurDataURL={`/images/${image}`}
           alt="Location City Image"
+          priority
         />
 
         <div className="relative h-48 w-full bg-black/20 md:h-60 lg:h-72 xl:h-80 2xl:h-96">

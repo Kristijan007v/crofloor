@@ -34,22 +34,30 @@ export default function About() {
     {
       original: "/images/factory_1.jpg",
       thumbnail: "/images/factory_1.jpg",
-      originalAlt: "Factory",
+      originalAlt: "Factory image",
+      thumbnailAlt: "Factory image",
+      originalTitle: "Factory image",
     },
     {
       original: "/images/factory_2.jpg",
       thumbnail: "/images/factory_2.jpg",
-      originalAlt: "Factory",
+      originalAlt: "Factory image",
+      thumbnailAlt: "Factory image",
+      originalTitle: "Factory image",
     },
     {
       original: "/images/factory_3.jpg",
       thumbnail: "/images/factory_3.jpg",
-      originalAlt: "Factory",
+      originalAlt: "Factory image",
+      thumbnailAlt: "Factory image",
+      originalTitle: "Factory image",
     },
     {
       original: "/images/factory_5.jpg",
       thumbnail: "/images/factory_5.jpg",
-      originalAlt: "Factory",
+      originalAlt: "Factory image",
+      thumbnailAlt: "Factory image",
+      originalTitle: "Factory image",
     },
   ];
 
