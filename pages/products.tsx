@@ -122,7 +122,7 @@ export default function Products({ parket, kategorija }: Props) {
       {parket.length > 0 && (
         <>
           {/* PRODUCTS */}
-          <div className="m-auto mt-4 flex flex-col space-y-2 p-8 md:space-y-12 lg:w-5/6 2xl:w-4/6">
+          <div className="m-auto mt-4 flex flex-col space-y-2 p-8 md:space-y-12 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
             {/* Hrast Products */}
             {parket
               .filter((product: any) =>
