@@ -43,6 +43,8 @@ export default function MorreloRicco({ product }: Props) {
       original: image.sourceUrl,
       thumbnail: image.sourceUrl,
       originalAlt: image.altText,
+      thumbnailAlt: image.altText,
+      originalTitle: image.altText,
     };
   });
 
