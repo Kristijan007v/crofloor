@@ -51,8 +51,10 @@ export default function Blog({
   const searchBlog = (searchTerm: string) => {
     setSearchTerm(searchTerm);
 
-    const result = posts.filter((post: any) =>
-      post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const result = posts.filter(
+      (post: any) =>
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.content.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setResults(result);
   };
