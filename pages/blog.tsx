@@ -144,10 +144,22 @@ export default function Blog({
       {/* Latest articles */}
       {posts.length > 0 ? (
         <>
-          <h2 className="h3__responsive pt-10 pl-6 pr-6 text-left text-xl font-semibold uppercase">
-            {t("section.latest")}
-          </h2>
-          <div className="grid grid-cols-1 gap-8 p-6 pr-6 pl-6 pt-6 pb-20 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+          <div className="mt-6 flex w-full items-center justify-between border-b bg-white pt-3 pb-3 pl-6 pr-6 md:mt-14 md:pt-4 md:pb-4">
+            <h2 className="h3__responsive text-xl font-semibold uppercase">
+              {t("section.latest")}
+            </h2>
+            <button
+              aria-label="Search for articles"
+              className="rounded-xl bg-black pt-2 pb-2 pr-2 pl-2 text-white shadow-lg md:rounded-xl md:pl-6 md:pr-6"
+              onClick={() => setShowSearch(!showSearch)}
+            >
+              <span className="flex items-center space-x-2">
+                <SearchIcon style="hover:cursor-pointer text-2xl" />
+                <span className="hidden md:block">Search</span>
+              </span>
+            </button>
+          </div>
+          <div className="grid grid-cols-1 gap-8 p-6 pr-6 pl-6 pt-16 pb-32 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {posts.map((post: any) => (
               <PostCard
                 type={"secondary"}
@@ -226,7 +238,7 @@ export default function Blog({
       </AnimatePresence>
 
       {/* Fixed buttons */}
-      <button
+      {/* <button
         aria-label="Search for articles"
         className="fixed right-4 bottom-4 rounded-xl bg-black pt-2 pb-2 pr-2 pl-2 text-white shadow-lg md:rounded-xl md:pl-6 md:pr-6"
         onClick={() => setShowSearch(!showSearch)}
@@ -235,7 +247,7 @@ export default function Blog({
           <SearchIcon style="hover:cursor-pointer text-3xl" />
           <span className="hidden md:block">Search</span>
         </span>
-      </button>
+      </button> */}
     </Skeleton>
   );
 }
