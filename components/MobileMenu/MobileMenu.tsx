@@ -6,10 +6,7 @@ import { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import dropInBottom from "../../lib/animations/dropInBottom";
 import ButtonDefault from "../Buttons/ButtonDefault";
-import ArrowDown from "../Icons/ArrowDown";
-import ArrowUp from "../Icons/ArrowUp";
 import CloseIcon from "../Icons/CloseIcon";
-import TagIcon from "../Icons/TagIcon";
 import WorldIcon from "../Icons/WorldIcon";
 import Overlay from "../Overlay/Overlay";
 
@@ -51,32 +48,11 @@ export default function MobileMenu({ closeMenu }: Props) {
 
   const { locale } = useRouter();
 
-  //Tab switching
-  const [activeTab, setActiveTab] = useState("hrast");
-
-  const [products, setProducts] = useState<any>();
-
-  /* Get all the products */
-  /* useEffect(() => {
-    async function fetchData() {
-      getProducts(100)
-        .then((res) => {
-          setProducts(res);
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    fetchData();
-    console.log(products);
-  }, []); */
-
   return (
     <Overlay type="primary">
       <div>
         <ul className="flex flex-col space-y-3 p-8 md:hidden">
-          <li className="flex items-center justify-between">
+          <li>
             <Link href="/products">
               <a
                 className={`link__menu ${
@@ -86,66 +62,7 @@ export default function MobileMenu({ closeMenu }: Props) {
                 {t("products")}
               </a>
             </Link>
-            {dropDown ? (
-              <ArrowUp onclick={toogleDropdown} />
-            ) : (
-              <ArrowDown onclick={toogleDropdown} />
-            )}
           </li>
-          {dropDown && (
-            <div className="flex flex-col space-y-3">
-              <div className="flex justify-center space-x-6 rounded-xl border-b bg-primary-bg p-3 text-xl font-medium text-black">
-                <button
-                  className={`${
-                    activeTab === "hrast" && "active__tab__special"
-                  }`}
-                  onClick={() => setActiveTab("hrast")}
-                >
-                  Hrast
-                </button>
-                <button
-                  className={`${
-                    activeTab === "jasen" && "active__tab__special"
-                  }`}
-                  onClick={() => setActiveTab("jasen")}
-                >
-                  Jasen
-                </button>
-                <button
-                  className={`${
-                    activeTab === "jela" && "active__tab__special"
-                  }`}
-                  onClick={() => setActiveTab("jela")}
-                >
-                  Jela
-                </button>
-              </div>
-              <ul className="flex flex-col space-y-2">
-                <li>
-                  <Link href="/products">
-                    <div className="flex items-center justify-between rounded-xl bg-primary-bg">
-                      <a className="ml-3">Morello Ricco</a>
-                      <div className="flex items-center space-x-2 p-3">
-                        <TagIcon />
-                        <span>Hrast</span>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/products">
-                    <div className="flex items-center justify-between rounded-xl bg-primary-bg">
-                      <a className="ml-3">Castro</a>
-                      <div className="flex items-center space-x-2 p-3">
-                        <TagIcon />
-                        <span>Hrast</span>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          )}
           <li>
             <Link href="/contact-us">
               <a
