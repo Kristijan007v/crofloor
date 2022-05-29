@@ -207,7 +207,7 @@ export default function Products({ parket, kategorija }: Props) {
                             key={product.id}
                             href={`/products/${product.slug}`}
                           >
-                            <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm">
+                            <div className="flex items-center justify-between rounded-xl bg-primary-bg font-medium shadow-sm hover:cursor-pointer">
                               <a className="ml-3">{product.title}</a>
                               <div className="flex items-center space-x-2 p-3">
                                 <TagIcon />
