@@ -66,7 +66,7 @@ body {
 
 /* Link styles */
 .link__menu {
-  @apply rounded-xl pr-4 pl-4 pt-1 pb-1 text-4xl font-normal;
+  @apply rounded-xl p-2 text-4xl font-normal;
 }
 
 .link__menu__desktop {
@@ -78,7 +78,7 @@ body {
 }
 
 .link__active {
-  @apply rounded-xl bg-white text-black;
+  @apply font-semibold text-black;
 }
 
 /* Overlay styles */
