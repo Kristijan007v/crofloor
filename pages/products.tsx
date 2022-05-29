@@ -194,6 +194,7 @@ export default function Products({ parket, kategorija }: Props) {
             <div className="sticky top-0 left-0 right-0 z-20 m-auto mt-6 w-full rounded-xl border-b bg-white md:mt-12 md:w-4/6 lg:w-3/6 xl:w-2/6">
               <div>
                 <SectionSearch
+                  searchHistory={searchTerm}
                   searchPlaceholder={t("section-header.search.placeholder")}
                   onchange={(e) => searchProducts(e.target.value)}
                 />
