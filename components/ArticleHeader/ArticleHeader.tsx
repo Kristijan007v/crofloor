@@ -30,7 +30,7 @@ export default function ArticleHeader({
 
   return (
     <>
-      <div className="relative h-48 w-full md:h-60 lg:h-72 xl:h-80 2xl:h-96">
+      <div className="relative h-56 w-full md:h-60 lg:h-72 xl:h-80 2xl:h-96">
         <Image
           src={`${imageURL ? imageURL : `/images/${image}`}`}
           alt={alt}
@@ -40,9 +40,11 @@ export default function ArticleHeader({
           priority
         />
 
-        <div className="relative h-48 w-full bg-black/40 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
+        <div className="relative h-56 w-full bg-black/40 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
           <div className="absolute bottom-0 flex w-full items-end justify-between">
-            <h1 className="h1__white h1__responsive p-4">{title}</h1>
+            <h1 className="h1a__responsive p-4 font-semibold text-white ">
+              {title}
+            </h1>
             <div className="right-0 hidden md:block">
               <SocialShare
                 text={`${
