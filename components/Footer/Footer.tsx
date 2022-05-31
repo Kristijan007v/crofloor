@@ -57,7 +57,7 @@ export default function Footer() {
   return (
     <footer className="relative flex flex-col">
       {/* NEWSLETTER */}
-      <div className="grid auto-cols-max grid-cols-1 gap-6 p-6 md:grid-cols-2 md:p-8 lg:pt-12 lg:pb-12 lg:pr-8 lg:pl-8 2xl:grid-cols-3">
+      <div className="grid auto-cols-max grid-cols-1 gap-6 bg-primary-yellow p-6 md:grid-cols-2 md:p-8 lg:pt-12 lg:pb-12 lg:pr-8 lg:pl-8 2xl:grid-cols-3">
         <div className="flex flex-grow flex-col space-y-4">
           <p className="heading__4 h4__responsive">{t("newsletter.title")}</p>
           {errors?.name && errors.name.message}
