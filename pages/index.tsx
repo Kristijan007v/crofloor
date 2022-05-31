@@ -74,7 +74,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
         {/* Products SECTION */}
         {parket.length > 0 && (
-          <div className="m-auto flex w-full flex-col space-y-2 md:space-y-12 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
+          <div className="m-auto flex w-full flex-col space-y-2 md:space-y-24 lg:w-5/6 xl:w-4/6 2xl:w-3/6">
             {parket
               .filter((product: any) =>
                 product.parket.kategorija

@@ -34,9 +34,7 @@ export default function Faq({ question, answer }: Props) {
 
       {isOpen && (
         <div className="overflow-y-auto rounded-md bg-primary-gray p-4">
-          <div className="">
-            <p className="faq__responsive">{answer}</p>
-          </div>
+          <p className="faq__responsive">{answer}</p>
         </div>
       )}
     </div>
