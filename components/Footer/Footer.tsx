@@ -106,7 +106,7 @@ export default function Footer() {
               </p> */}
             <div className="flex overflow-x-auto">
               <input
-                className="focus:placeholder:text-blac w-full rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-2 text-sm focus:bg-primary-gray focus:outline-none sm:w-3/6 md:w-5/6 lg:w-4/6 xl:w-3/6"
+                className="w-full rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-2 text-sm focus:bg-primary-gray focus:outline-none focus:placeholder:text-black sm:w-3/6 md:w-5/6 lg:w-4/6 xl:w-3/6"
                 type="email"
                 id="email"
                 disabled={isSubmitting ? true : false}
