@@ -55,7 +55,7 @@ export default function MorreloRicco({ product }: Props) {
       navigation={false}
       metaTitle={`${product?.title} - ${product?.parket.kategorija}`}
       metaShareDescription={`See this amazing product on ${MAIN_DOMAIN}`}
-      metaImageURL={`${product?.featuredImage.node.sourceUrl}`}
+      metaImageURL={`${product?.parket.naslovnaslika.sourceUrl}`}
     >
       {router.isFallback ? (
         <p className="p-6 text-center">Loading product...</p>
@@ -67,7 +67,7 @@ export default function MorreloRicco({ product }: Props) {
             alt=""
             description={product.parket.opis}
             backgroundImage={product.parket.pozadinskaSlika?.sourceUrl}
-            featuredImage={product.featuredImage?.node.sourceUrl}
+            featuredImage={product.parket.naslovnaslika?.sourceUrl}
             galleryAnchor={`gallery-${product.slug}`}
             detailsAnchor={product.id}
           />

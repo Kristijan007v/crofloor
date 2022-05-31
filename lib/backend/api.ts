@@ -148,7 +148,12 @@ export async function getProducts(perPage: number) {
         nodes {
           parket {
             kategorija
+            detaljniOpis
             opis
+            naslovnaslika {
+              altText
+              sourceUrl
+            }
             specifikacije {
               sourceUrl
             }
@@ -161,13 +166,6 @@ export async function getProducts(perPage: number) {
           id
           slug
           title
-          content
-          featuredImage {
-            node {
-              altText
-              sourceUrl
-            }
-          }
         }
       }
     }
@@ -204,6 +202,11 @@ export async function getProductBySlug(slug: string) {
           fieldGroupName
           kategorija
           opis
+          detaljniOpis
+          naslovnaslika {
+            altText
+            sourceUrl
+          }
           pozadinskaSlika
           {
             sourceUrl
@@ -216,19 +219,14 @@ export async function getProductBySlug(slug: string) {
             mediaItemUrl
           }
         }
-        featuredImage {
-          node {
-            sourceUrl
-          }
-        }
         id
         slug
         title
-        content
       }
     }
     `,
   });
+  console.log(data);
   return {
     data,
   };

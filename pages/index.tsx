@@ -29,6 +29,13 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
   const lang = useLocale();
 
+  console.log(parket);
+
+  parket.map((item: any) => {
+    console.log(`Url od parketa je ${item.parket.naslovnaslika.sourceUrl}`);
+    console.log(`Alt tekst od parketa je ${item.parket.naslovnaslikaaltText}`);
+  });
+
   return (
     <Skeleton
       title={t("pages.homepage.title")}
@@ -87,8 +94,8 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                   key={product.id}
                   id={product.slug}
                   title={product.title}
-                  imageURL={product.featuredImage.node.sourceUrl}
-                  imageAlt={product.featuredImage.node.altText}
+                  imageURL={"/images/about-us.jpg"}
+                  imageAlt={"test"}
                   href={`products/${product.slug}`}
                   tagText={product.tags.nodes[0].name}
                   description={product.parket.opis}

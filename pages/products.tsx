@@ -136,8 +136,8 @@ export default function Products({ parket, kategorija }: Props) {
                   key={product.id}
                   id={product.slug}
                   title={product.title}
-                  imageURL={product.featuredImage.node.sourceUrl}
-                  imageAlt={product.featuredImage.node.altText}
+                  imageURL={product.parket.naslovnaslika.sourceUrl}
+                  imageAlt={product.parket.naslovnaslika.altText}
                   href={`products/${product.slug}`}
                   tagText={product.tags.nodes[0].name}
                   description={product.parket.opis}
