@@ -42,9 +42,7 @@ export default function Article({ post }: Props) {
       ) : (
         <>
           <ArticleHeader
-            title={
-              "Vrijeme darivanja je tu – ove godine darujte sebe i svoj dom!"
-            }
+            title={post?.title}
             imageURL={post.featuredImage?.node.sourceUrl}
             avatarURL={post.author.node.avatar.url}
             alt={post.featuredImage?.node.altText}
