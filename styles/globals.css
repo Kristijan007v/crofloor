@@ -170,6 +170,10 @@ body {
   @apply text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl;
 }
 
+.faq__responsive {
+  @apply text-base md:text-lg lg:text-lg;
+}
+
 /* GLOBAL */
 button {
   -webkit-tap-highlight-color: transparent;

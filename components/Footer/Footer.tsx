@@ -63,7 +63,9 @@ export default function Footer() {
             <p className="heading__3 h3__responsive text-center">FAQ</p>
             <Faq
               question="Kako proizvodite parkete?"
-              answer="A blockchain is a distributed ledger of information."
+              answer="We offer wide choice and alternatives when it comes to wood specie, parquet size, lacquered or oiled surfaces and natural appearance of the wood (so called grading). Since for many years oak represents the most popular wood specie when it comes to parquet flooring, we are especially proud of our engineered parquet made of SLAVONIA OAK, worldwide famous for its exceptional quality and beauty.
+
+              As a producer, we are dedicated to high quality and continuous improvements of our products, as well as following world trends. All parquets in our assortment are carefully developed and produced from high quality materials in order to satisfy demands regarding durability, resistance and harmlessness. Therefore, they represent perfect choice for everyone who wants to incorporate permanent quality to their premises. 2-layer and 3-layer parquet is convenient for installation on floor heating, which will additionally contribute to the comfortable living in your house or apartment."
             />
             <Faq
               question="Kako provjeravate kvalitetu?"
@@ -186,7 +188,7 @@ export default function Footer() {
             </ButtonLink>
           </div>
           <div className="xl:3/6 w-full sm:w-4/6 md:w-5/6 lg:w-4/6">
-            <ul className="hide-scrollbar flex justify-between space-x-4 overflow-x-auto whitespace-nowrap rounded-2xl bg-primary-gray p-3">
+            <ul className="hide-scrollbar faq__responsive flex justify-between space-x-4 overflow-x-auto whitespace-nowrap rounded-2xl bg-primary-gray p-3">
               <li>
                 <Link href="/">
                   <a>{t("navigation.homepage")}</a>
@@ -222,7 +224,9 @@ export default function Footer() {
             <p className="heading__3 h3__responsive text-center">FAQ</p>
             <Faq
               question="Kako proizvodite parkete?"
-              answer="A blockchain is a distributed ledger of information."
+              answer="We offer wide choice and alternatives when it comes to wood specie, parquet size, lacquered or oiled surfaces and natural appearance of the wood (so called grading). Since for many years oak represents the most popular wood specie when it comes to parquet flooring, we are especially proud of our engineered parquet made of SLAVONIA OAK, worldwide famous for its exceptional quality and beauty.
+
+              As a producer, we are dedicated to high quality and continuous improvements of our products, as well as following world trends. All parquets in our assortment are carefully developed and produced from high quality materials in order to satisfy demands regarding durability, resistance and harmlessness. Therefore, they represent perfect choice for everyone who wants to incorporate permanent quality to their premises. 2-layer and 3-layer parquet is convenient for installation on floor heating, which will additionally contribute to the comfortable living in your house or apartment."
             />
             <Faq
               question="Kako provjeravate kvalitetu?"
