@@ -41,19 +41,19 @@ export default function ArticleHeader({
         />
 
         <div className="relative h-48 w-full bg-black/40 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
-          <h1 className="h1__white h1__responsive absolute bottom-0 p-4">
-            {title}
-          </h1>
-          <div className="absolute bottom-0 right-0 hidden md:block">
-            <SocialShare
-              text={`${
-                locale === "en" ? "Share the article" : "Podijeli članak"
-              }`}
-              iconSize="lg"
-              url={`${url}`}
-              bgColor="bg-transparent"
-              style="text-white"
-            />
+          <div className="absolute bottom-0 flex w-full items-end justify-between">
+            <h1 className="h1__white h1__responsive p-4">{title}</h1>
+            <div className="right-0 hidden md:block">
+              <SocialShare
+                text={`${
+                  locale === "en" ? "Share the article" : "Podijeli članak"
+                }`}
+                iconSize="lg"
+                url={`${url}`}
+                bgColor="bg-transparent"
+                style="text-white"
+              />
+            </div>
           </div>
 
           <div className="absolute top-0 right-0 flex items-center justify-center space-x-2 p-4">

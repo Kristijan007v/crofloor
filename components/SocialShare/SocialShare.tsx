@@ -32,7 +32,7 @@ export default function SocialShare({
         bgColor ? bgColor : "bg-transparent"
       } p-5 ${style}`}
     >
-      <p className="font-medium">{text}</p>
+      <p className="whitespace-nowrap font-medium">{text}</p>
       <div className="flex space-x-4">
         <FacebookShareButton
           quote="20.456 People have brought the light to UA. Join them."

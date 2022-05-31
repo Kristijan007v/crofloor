@@ -8,11 +8,7 @@
 /* GLOBAL STYLES */
 html,
 body {
-  @apply scroll-smooth font-poppins;
-}
-
-body {
-  @apply bg-white;
+  @apply scroll-smooth bg-white font-poppins;
 }
 
 /* CONTAINER STYLE */
