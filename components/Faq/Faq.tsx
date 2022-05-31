@@ -16,7 +16,7 @@ export default function Faq({ question, answer }: Props) {
 
   return (
     <div
-      className={`ontap-remove space-y-2" flex max-h-48 cursor-pointer flex-col `}
+      className={`ontap-remove space-y-2" flex max-h-56 cursor-pointer flex-col `}
     >
       <div
         className="flex items-center justify-between"
