@@ -2,8 +2,10 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import React from "react";
+import ButtonDefault from "../components/Buttons/ButtonDefault";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import FormField from "../components/FormField/FormField";
+import MailIcon from "../components/Icons/MailIcon";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
@@ -57,15 +59,10 @@ export default function ContactUs() {
               {t("form.terms")}
             </label>
           </span>
-          {/* <ButtonDefault
-            text={t("form.submit")}
-            ariaLabel={t("form.submit")}
-            style="mt-4"
-          /> */}
-          <button className="btn__basic bg-black text-white" type={"submit"}>
-            {t("form.submit")}
-          </button>
+
+          <ButtonDefault text={t("form.submit")} ariaLabel="" icon={"mail"} />
         </form>
+
         <div className="flex-grow">
           <h2 className="h3__responsive pt-2 pl-6 pr-6 text-center font-semibold">
             {t("map.title")}
