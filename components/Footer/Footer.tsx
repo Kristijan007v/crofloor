@@ -56,8 +56,40 @@ export default function Footer() {
 
   return (
     <footer className="relative flex flex-col">
-      {/* NEWSLETTER */}
       <div className="grid auto-cols-max grid-cols-1 gap-6 bg-primary-yellow p-6 md:grid-cols-2 md:p-8 lg:pt-12 lg:pb-12 lg:pr-8 lg:pl-8 2xl:grid-cols-3">
+        {/* FAQs MOBILE */}
+        <div className="flex flex-col space-y-4 md:col-span-2 md:hidden 2xl:col-span-1">
+          <div className="flex flex-grow flex-col space-y-3">
+            <p className="heading__3 h3__responsive text-center">FAQ</p>
+            <Faq
+              question="Kako proizvodite parkete?"
+              answer="A blockchain is a distributed ledger of information."
+            />
+            <Faq
+              question="Kako provjeravate kvalitetu?"
+              answer="A blockchain is a distributed ledger of information."
+            />
+            <Faq
+              question="Tko su vam glavni dobavljači?"
+              answer="A blockchain is a distributed ledger of information."
+            />
+            <Faq
+              question="Što je s garancijom za parket?"
+              answer="A blockchain is a distributed ledger of information."
+            />
+          </div>
+          <div className="flex justify-center 2xl:justify-start">
+            <ButtonLink
+              href="/documents/catalogue.pdf"
+              newTab={true}
+              text={t("button-catalogue")}
+              type="button"
+              color="special"
+            />
+          </div>
+        </div>
+
+        {/* NEWSLETTER */}
         <div className="flex flex-grow flex-col space-y-4">
           <p className="heading__4 h4__responsive">{t("newsletter.title")}</p>
           {errors?.name && errors.name.message}
@@ -114,7 +146,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Grid COL 3 */}
+        {/* COMPANY INFO AND SECOND NAV */}
         <div className="flex flex-col space-y-4">
           {/* Work hours INFO */}
           <p className="heading__4 h4__responsive">{t("work-hours.title")}</p>
@@ -185,7 +217,7 @@ export default function Footer() {
         </div>
 
         {/* FAQs */}
-        <div className="flex flex-col space-y-4 md:col-span-2 2xl:col-span-1">
+        <div className="hidden flex-col space-y-4 md:col-span-2 md:flex 2xl:col-span-1">
           <div className="flex flex-grow flex-col space-y-3">
             <p className="heading__3 h3__responsive text-center">FAQ</p>
             <Faq
