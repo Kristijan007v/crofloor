@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.5",
+    "@apollo/client": "^3.6.6",
     "@mailchimp/mailchimp_marketing": "^3.0.75",
     "@next/bundle-analyzer": "^12.1.6",
     "@types/i18next": "^13.0.0",
     "body-scroll-lock": "^4.0.0-beta.0",
     "csstype": "^3.1.0",
-    "framer-motion": "^6.3.5",
+    "framer-motion": "^6.3.6",
     "graphql": "^16.5.0",
     "moment": "^2.29.3",
     "next": "12.1.6",
