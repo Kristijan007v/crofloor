@@ -56,38 +56,9 @@ export default function Footer() {
 
   return (
     <footer className="relative flex flex-col">
-      {/* FAQ */}
-      <div className="flex flex-col lg:flex-row-reverse">
-        <div className="flex flex-grow flex-col space-y-4 bg-primary-bg p-6 lg:flex-col-reverse lg:bg-primary-yellow">
-          <ButtonLink
-            href="/documents/catalogue.pdf"
-            newTab={true}
-            text={t("button-catalogue")}
-            type="button"
-            color="special"
-          />
-          <div className="flex flex-grow flex-col space-y-3">
-            <p className="heading__3 h3__responsive text-center">FAQ</p>
-            <Faq
-              question="Kako proizvodite parkete?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Kako provjeravate kvalitetu?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Tko su vam glavni dobavljači?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Što je s garancijom za parket?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-grow flex-col space-y-4 bg-primary-yellow p-6 ">
+      {/* NEWSLETTER */}
+      <div className="grid auto-cols-max grid-cols-1 gap-6 p-6 md:grid-cols-2 md:p-8 lg:pt-12 lg:pb-12 lg:pr-8 lg:pl-8 2xl:grid-cols-3">
+        <div className="flex flex-grow flex-col space-y-4">
           <p className="heading__4 h4__responsive">{t("newsletter.title")}</p>
           {errors?.name && errors.name.message}
 
@@ -101,7 +72,7 @@ export default function Footer() {
               </p> */}
             <div className="flex overflow-x-auto">
               <input
-                className="grow rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-2 text-sm focus:bg-primary-gray focus:outline-none focus:placeholder:text-black md:grow-0"
+                className="focus:placeholder:text-blac w-full rounded-tl-2xl rounded-bl-2xl border-2 border-black pl-2 text-sm focus:bg-primary-gray focus:outline-none sm:w-3/6 md:w-5/6 lg:w-4/6 xl:w-3/6"
                 type="email"
                 id="email"
                 disabled={isSubmitting ? true : false}
@@ -113,7 +84,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="rounded-tr-2xl rounded-br-2xl bg-black p-2 text-white"
+                className="whitespace-nowrap rounded-tr-2xl rounded-br-2xl bg-black p-2 text-white"
                 disabled={isSubmitting ? true : false}
               >
                 {isSubmitting ? (
@@ -141,7 +112,10 @@ export default function Footer() {
             {t("info.email")}{" "}
             <a href="mailto:pozgaj@pozgaj.com">pozgaj@pozgaj.com</a>
           </p>
+        </div>
 
+        {/* Grid COL 3 */}
+        <div className="flex flex-col space-y-4">
           {/* Work hours INFO */}
           <p className="heading__4 h4__responsive">{t("work-hours.title")}</p>
           <p className="p__responsive">
@@ -179,7 +153,7 @@ export default function Footer() {
               <YoutubeIcon />
             </ButtonLink>
           </div>
-          <div className="w-full md:w-3/6">
+          <div className="xl:3/6 w-full sm:w-4/6 md:w-5/6 lg:w-4/6">
             <ul className="hide-scrollbar flex justify-between space-x-4 overflow-x-auto whitespace-nowrap rounded-2xl bg-primary-gray p-3">
               <li>
                 <Link href="/">
@@ -207,6 +181,38 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* FAQs */}
+        <div className="flex flex-col space-y-4 md:col-span-2 2xl:col-span-1">
+          <div className="flex flex-grow flex-col space-y-3">
+            <p className="heading__3 h3__responsive text-center">FAQ</p>
+            <Faq
+              question="Kako proizvodite parkete?"
+              answer="A blockchain is a distributed ledger of information."
+            />
+            <Faq
+              question="Kako provjeravate kvalitetu?"
+              answer="A blockchain is a distributed ledger of information."
+            />
+            <Faq
+              question="Tko su vam glavni dobavljači?"
+              answer="A blockchain is a distributed ledger of information."
+            />
+            <Faq
+              question="Što je s garancijom za parket?"
+              answer="A blockchain is a distributed ledger of information."
+            />
+          </div>
+          <div className="flex justify-center 2xl:justify-start">
+            <ButtonLink
+              href="/documents/catalogue.pdf"
+              newTab={true}
+              text={t("button-catalogue")}
+              type="button"
+              color="special"
+            />
           </div>
         </div>
       </div>
