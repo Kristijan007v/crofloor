@@ -178,3 +178,7 @@ body {
 button {
   -webkit-tap-highlight-color: transparent;
 }
+
+.ontap-remove {
+  -webkit-tap-highlight-color: transparent;
+}

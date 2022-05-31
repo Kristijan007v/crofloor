@@ -15,7 +15,9 @@ export default function Faq({ question, answer }: Props) {
   };
 
   return (
-    <div className={`space-y-2" flex max-h-48 cursor-pointer flex-col`}>
+    <div
+      className={`ontap-remove space-y-2" flex max-h-48 cursor-pointer flex-col`}
+    >
       <div
         className="flex items-center justify-between"
         onClick={() => toogle()}
@@ -26,7 +28,9 @@ export default function Faq({ question, answer }: Props) {
 
       {isOpen && (
         <div className="overflow-y-auto rounded-2xl bg-primary-gray p-4">
-          <p className="faq__responsive">{answer}</p>
+          <div className="">
+            <p className="faq__responsive">{answer}</p>
+          </div>
         </div>
       )}
     </div>
