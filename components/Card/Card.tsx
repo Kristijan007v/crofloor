@@ -1,4 +1,5 @@
 import Image from "next/image";
+import useLocale from "../../hooks/useLocale";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import Tag from "../Tag/Tag";
 
@@ -25,6 +26,8 @@ export default function Card({
   showButton,
   index,
 }: Props) {
+  const lang = useLocale();
+
   return (
     <div>
       <div id={id} className="scroll-mt-32"></div>
@@ -62,7 +65,7 @@ export default function Card({
           <p className="paragraph">{description}</p>
           {showButton && (
             <ButtonLink
-              text="Find out more"
+              text={lang === "en" ? "Find out more" : "Saznaj više"}
               ariaLabel=""
               icon={"arrowRight"}
               href={href}

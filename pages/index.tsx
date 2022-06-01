@@ -94,8 +94,8 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                   key={product.id}
                   id={product.slug}
                   title={product.title}
-                  imageURL={"/images/about-us.jpg"}
-                  imageAlt={"test"}
+                  imageURL={product.parket.naslovnaslika.sourceUrl}
+                  imageAlt={product.parket.naslovnaslika.altText}
                   href={`products/${product.slug}`}
                   tagText={product.tags.nodes[0].name}
                   description={product.parket.opis}
@@ -108,6 +108,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                 icon="arrowRight"
                 type="button"
                 href="/products"
+                locale={true}
               />
             </div>
           </div>
