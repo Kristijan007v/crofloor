@@ -37,7 +37,7 @@ export default function ButtonDefault({
           ease: "easeInOut",
         },
       }}
-      className={`btn__basic flex ${
+      className={`btn__basic flex flex-wrap overflow-auto ${
         icon == "mail" && "space-x-3"
       } w-full items-center justify-center md:w-3/6 ${
         color === "special"

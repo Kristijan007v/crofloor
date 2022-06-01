@@ -56,7 +56,7 @@ export default function ButtonLink({
               ease: "easeInOut",
             },
           }}
-          className={`btn__basic flex w-full flex-nowrap items-center justify-center space-x-2 whitespace-nowrap md:w-3/6 ${
+          className={`btn__basic flex w-full flex-wrap items-center justify-center space-x-2 overflow-auto whitespace-nowrap md:w-3/6 ${
             color === "special"
               ? "border border-black bg-transparent text-black hover:bg-black hover:text-white"
               : "bg-black text-white"
