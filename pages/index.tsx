@@ -101,22 +101,27 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                   description={product.parket.opis}
                 />
               ))}
-            <ButtonLink
-              text={t("product-collection.button")}
-              ariaLabel={t("product-collection.button")}
-              icon="arrowRight"
-              type="button"
-              href="/products"
-            />
+            <div className="m-auto flex w-full justify-center sm:w-3/6 md:w-4/6">
+              <ButtonLink
+                text={t("product-collection.button")}
+                ariaLabel={t("product-collection.button")}
+                icon="arrowRight"
+                type="button"
+                href="/products"
+              />
+            </div>
           </div>
         )}
       </div>
 
       {/* BLOG SECTION */}
-      <h2 className="h2s__responsive p-4 font-semibold">{t("blog.heading")}</h2>
-      {/* <h3 className="p-4 text-center text-xl font-semibold uppercase">
-        FEATURED ARTICLE
-      </h3> */}
+      {posts.length > 0 ? (
+        <h2 className="h2s__responsive p-4 font-semibold">
+          {t("blog.heading")}
+        </h2>
+      ) : (
+        <div className="pb-24"></div>
+      )}
 
       {/* Featured ARTICLES */}
       {featuredArticle.featuredPost.length > 0 && (

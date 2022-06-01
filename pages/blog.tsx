@@ -182,11 +182,11 @@ export default function Blog({
           </div>
         </>
       ) : (
-        <>
-          <h3 className="pt-10 pl-6 pr-6 text-center text-xl font-semibold uppercase">
+        <div className="pb-96">
+          <h3 className="h2__responsive pt-10 pl-6 pr-6 text-center font-medium">
             {t("section.latest-empty")}
           </h3>
-        </>
+        </div>
       )}
 
       <AnimatePresence exitBeforeEnter>

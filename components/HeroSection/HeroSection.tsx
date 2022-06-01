@@ -45,21 +45,23 @@ export default function HeroSection() {
               <span>Feels</span>
               <span>Expensive.</span>
             </h1>
-            <p className="p__responsive pb-32 text-white">
+            <p className="p__responsive mb-36 text-white md:mb-16">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <ButtonLink
-              text={t("button")}
-              ariaLabel={t("button")}
-              href="/products"
-              icon="arrowRight"
-              type="button"
-              style=""
-              locale={true}
-            />
+            <div className="absolute bottom-8 left-0 right-0 m-auto flex w-full justify-center p-8 sm:w-3/6 md:w-4/6 xl:w-3/6 2xl:w-2/6">
+              <ButtonLink
+                text={t("button")}
+                ariaLabel={t("button")}
+                href="/products"
+                icon="arrowRight"
+                type="button"
+                style=""
+                locale={true}
+              />
+            </div>
           </div>
         </div>
       </div>
