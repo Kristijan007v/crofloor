@@ -95,12 +95,12 @@ export default function Blog({
               heading={featuredArticle.featuredPost[0].title}
               description={featuredArticle.featuredPost[0].posts.opis}
               imageArticle={
-                featuredArticle.featuredPost[0].featuredImage?.node.sourceUrl
+                featuredArticle.featuredPost[0].posts.naslovnaslika.sourceUrl
               }
               avatarURL={featuredArticle.featuredPost[0].author.node.avatar.url}
               date={formatDate(featuredArticle.featuredPost[0].date)}
               author={featuredArticle.featuredPost[0].author.node.firstName}
-              imageAlt="About picture"
+              imageAlt={featuredArticle.featuredPost[0].title}
               href={`/articles/${featuredArticle.featuredPost[0].slug}`}
               type={"secondary"}
             />
@@ -129,14 +129,14 @@ export default function Blog({
               heading={recommendedArticle.featuredPost[0].title}
               description={recommendedArticle.featuredPost[0].posts.opis}
               imageArticle={
-                recommendedArticle.featuredPost[0].featuredImage?.node.sourceUrl
+                recommendedArticle.featuredPost[0].posts.naslovnaslika.sourceUrl
               }
               avatarURL={
                 recommendedArticle.featuredPost[0].author.node.avatar.url
               }
               date={formatDate(recommendedArticle.featuredPost[0].date)}
               author={recommendedArticle.featuredPost[0].author.node.firstName}
-              imageAlt="About picture"
+              imageAlt={recommendedArticle.featuredPost[0].title}
               href={`/articles/${recommendedArticle.featuredPost[0].slug}`}
             />
           )}
@@ -170,7 +170,7 @@ export default function Blog({
                 key={post.id}
                 heading={post.title}
                 description={post.posts.opis}
-                image={post.featuredImage?.node.sourceUrl}
+                image={post.posts.naslovnaslika.sourceUrl}
                 avatarURL={post.author.node.avatar.url}
                 alt={`${post.title}`}
                 href={`/articles/${post.slug}`}

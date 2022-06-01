@@ -35,7 +35,7 @@ export default function Article({ post }: Props) {
       navigation={true}
       metaTitle={`${post?.title} - by ${post?.author.node.firstName}`}
       metaShareDescription={`Read this article on ${MAIN_DOMAIN}`}
-      metaImageURL={`${post?.featuredImage.node.sourceUrl}`}
+      metaImageURL={`${post?.posts.naslovnaslika.sourceUrl}`}
     >
       {router.isFallback ? (
         <p className="p-6 text-center">Loading article…</p>
@@ -43,9 +43,9 @@ export default function Article({ post }: Props) {
         <>
           <ArticleHeader
             title={post?.title}
-            imageURL={post.featuredImage?.node.sourceUrl}
+            imageURL={post.posts.naslovnaslika.sourceUrl}
             avatarURL={post.author.node.avatar.url}
-            alt={post.featuredImage?.node.altText}
+            alt={post.posts.naslovnaslika.altText}
             author={post.author.node.firstName}
             date={formatDate(post.date)}
             url={`https://${MAIN_DOMAIN}/articles/${post.slug}`}
@@ -55,7 +55,7 @@ export default function Article({ post }: Props) {
           <div className="md: flex flex-col space-y-4 bg-white pt-6 pr-6 pl-6 pb-12 md:pt-10 md:pr-10 md:pl-10 md:pb-24">
             <div
               className="p__responsive m-auto w-full md:w-5/6 lg:w-4/6"
-              dangerouslySetInnerHTML={createMarkup(`${post.content}`)}
+              dangerouslySetInnerHTML={createMarkup(`${post.posts.content}`)}
             />
           </div>
           <SocialShare

@@ -135,7 +135,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
               heading={featuredArticle.featuredPost[0].title}
               description={featuredArticle.featuredPost[0].posts.opis}
               imageArticle={
-                featuredArticle.featuredPost[0].featuredImage.node.sourceUrl
+                featuredArticle.featuredPost[0].posts.naslovnaslika.sourceUrl
               }
               avatarURL={featuredArticle.featuredPost[0].author.node.avatar.url}
               date={formatDate(featuredArticle.featuredPost[0].date)}
@@ -159,7 +159,7 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
                 key={post.id}
                 heading={post.title}
                 description={post.posts.opis}
-                image={post.featuredImage?.node.sourceUrl}
+                image={post.posts.naslovnaslika.sourceUrl}
                 avatarURL={post.author.node.avatar.url}
                 alt={`${post.title}`}
                 href={`/articles/${post.slug}`}

@@ -8,7 +8,6 @@ export async function getPosts(perPage: number, page?: number) {
         posts(first: ${perPage}) {
           nodes {
             id
-            content
             date
             slug
             title
@@ -27,12 +26,11 @@ export async function getPosts(perPage: number, page?: number) {
             }
             posts {
               opis
-            }
-            featuredImage {
-              node {
-                sourceUrl(size: MEDIUM)
+              naslovnaslika{
+                sourceUrl
                 altText
               }
+              content
             }
           }
         }
@@ -51,7 +49,6 @@ export async function getPostBySlug(slug: string) {
         post(id: "${slug}", idType: SLUG) {
           id
           title
-          content
           date
           slug
           author {
@@ -64,12 +61,11 @@ export async function getPostBySlug(slug: string) {
           }
           posts {
             opis
-          }
-          featuredImage {
-            node {
+            naslovnaslika{
               sourceUrl
               altText
             }
+            content
           }
         }
       }
@@ -123,12 +119,11 @@ export async function getPostByCategory(categoryName: string) {
           }
           posts {
             opis
-          }
-          featuredImage {
-            node {
-              sourceUrl(size: MEDIUM)
+            naslovnaslika{
+              sourceUrl
               altText
             }
+            content
           }
         }
       }
