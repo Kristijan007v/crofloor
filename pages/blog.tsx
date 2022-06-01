@@ -54,7 +54,7 @@ export default function Blog({
     const result = posts.filter(
       (post: any) =>
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.content.toLowerCase().includes(searchTerm.toLowerCase())
+        post.posts.content.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setResults(result);
   };
