@@ -6,9 +6,15 @@ interface Props {
   children: JSX.Element;
   closeOverlay?: () => void;
   style?: string;
+  position?: "center" | "left" | "right";
 }
 
-export default function OverlayNew({ children, closeOverlay, style }: Props) {
+export default function OverlayNew({
+  children,
+  closeOverlay,
+  style,
+  position,
+}: Props) {
   //Disable body scroll when overlay is open and enable when closed
   useEffect(() => {
     disableBodyScroll(document.body);
@@ -30,7 +36,13 @@ export default function OverlayNew({ children, closeOverlay, style }: Props) {
         }}
         initial={{ opacity: 0, scale: 0.6 }}
         exit={{ y: "-100vh", transition: { duration: 0.4 } }}
-        className="z-40 m-2"
+        className={`z-40 m-2 flex ${
+          position == "center"
+            ? "justify-center"
+            : position == "right"
+            ? "justify-end"
+            : "justify-start"
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         {children}

@@ -24,5 +24,25 @@
       "heading": "Naši certifikati",
       "description": "Certificirani smo prema europskoj normi EN ISO 9001:2008 i EN ISO 14001:2004."
     }
+  },
+  "location-info": {
+    "section": {
+      "contact": {
+        "title": "Kontakt",
+        "address": "Adresa",
+        "phone": "Mobitel:",
+        "email": "E-mail:"
+      },
+      "work-hours": {
+        "title": "Radno vrijeme",
+        "monday": "Pon",
+        "tuesday": "Uto",
+        "wednesday": "Sri",
+        "thursday": "Čet",
+        "friday": "Pet",
+        "saturday": "Sub",
+        "sunday": "Ned"
+      }
+    }
   }
 }

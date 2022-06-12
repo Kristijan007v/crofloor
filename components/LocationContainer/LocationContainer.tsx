@@ -11,6 +11,7 @@ interface Props {
   cityPosition?: "left" | "right";
   tagPosition?: "left" | "right";
   href?: string;
+  onclick?: () => void;
 }
 
 export default function LocationContainer({
@@ -21,6 +22,7 @@ export default function LocationContainer({
   cityPosition,
   tagPosition,
   href,
+  onclick,
 }: Props) {
   return (
     <ErrorBoundary moduleName="LocationContainer">
@@ -46,13 +48,7 @@ export default function LocationContainer({
               tagPosition === "right" ? "right-0" : "left-0"
             } p-4`}
           >
-            <Tag
-              text={address}
-              icon={"location"}
-              onclick={() => {
-                window.location.href = `${href}`;
-              }}
-            />
+            <Tag text={address} icon={"location"} onclick={onclick} />
           </div>
           <p
             className={`absolute bottom-0 ${

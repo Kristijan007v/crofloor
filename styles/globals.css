@@ -182,3 +182,7 @@ button {
 .ontap-remove {
   -webkit-tap-highlight-color: transparent;
 }
+
+.debug {
+  @apply border-2 border-red-600;
+}
