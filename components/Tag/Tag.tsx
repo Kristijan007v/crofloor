@@ -1,10 +1,11 @@
 import React from "react";
+import InfoIcon from "../Icons/InfoIcon";
 import LocationIcon from "../Icons/LocationIcon";
 
 interface Props {
   onclick?: () => void;
   text: string;
-  icon?: "location";
+  icon?: "location" | "info";
   style?: string;
 }
 
@@ -18,6 +19,7 @@ export default function Tag({ onclick, text, icon, style }: Props) {
       onClick={onclick}
     >
       {icon === "location" && <LocationIcon />}
+      {icon === "info" && <InfoIcon />}
       <p>{text}</p>
     </div>
   );

@@ -48,7 +48,7 @@ export default function LocationContainer({
               tagPosition === "right" ? "right-0" : "left-0"
             } p-4`}
           >
-            <Tag text={address} icon={"location"} onclick={onclick} />
+            <Tag text={"Info"} icon={"location"} onclick={onclick} />
           </div>
           <p
             className={`absolute bottom-0 ${
