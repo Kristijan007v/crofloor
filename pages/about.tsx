@@ -11,6 +11,7 @@ import OverlayNew from "../components/OverlayNew/OverlayNew";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import SectionHeading from "../components/SectionHeading/SectionHeading";
 import Skeleton from "../components/Skeleton/Skeleton";
+import Tag from "../components/Tag/Tag";
 import useLocale from "../hooks/useLocale";
 import nextI18NextConfig from "../next-i18next.config.js";
 
@@ -179,7 +180,7 @@ export default function About() {
               setLocationInfo(false);
             }}
           >
-            <div className="h-screen w-full rounded-sm bg-primary-yellow p-6 md:w-4/6 lg:w-3/6">
+            <div className="hide-scrollbar h-screen w-full overflow-y-auto rounded-sm bg-primary-yellow p-6 md:w-4/6 lg:w-3/6">
               <div className="">
                 {locations.map((location, index) => (
                   <div key={index} className="flex flex-col space-y-4">
@@ -243,9 +244,9 @@ export default function About() {
                       className="w-full rounded-2xl md:w-5/6"
                       width={"100%"}
                       height={"300"}
-                      loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
+                    <Tag text="See location on Google Maps" />
                   </div>
                 ))}
               </div>
