@@ -108,7 +108,9 @@ export default function MorreloRicco({ product }: Props) {
             <div className="m-auto mt-3 flex w-full justify-center pt-4 pb-6 pr-6 pl-6 md:mt-4 md:w-5/6 lg:w-4/6 xl:w-3/6">
               <div
                 className="p__default rounded-xl bg-primary-bg p-6"
-                dangerouslySetInnerHTML={createMarkup(`${product.content}`)}
+                dangerouslySetInnerHTML={createMarkup(
+                  `${product?.parket.detaljniOpis}`
+                )}
               />
             </div>
           )}
