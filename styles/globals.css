@@ -190,3 +190,10 @@ button {
 .height__100vh {
   height: calc(100vh - 72px);
 }
+
+/* MEDIA QUERIES */
+@media (min-width: 640px) {
+  .height__100vh {
+    height: 100vh;
+  }
+}
