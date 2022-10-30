@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 
 interface Props {
-  children: JSX.Element;
+  children: React.ReactNode;
   closeOverlay?: () => void;
   style?: string;
   position?: "center" | "left" | "right";
