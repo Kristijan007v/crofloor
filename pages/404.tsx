@@ -25,7 +25,7 @@ export default function Custom404() {
 
   return (
     <Skeleton title="404" navigation={true}>
-      <div className="height__100vh m-6 flex flex-col items-center justify-center space-y-4 text-center">
+      <div className="height__100vh__special m-6 flex flex-col items-center justify-center space-y-4 text-center">
         <p>
           <span className="text-8xl font-extrabold lg:text-9xl">4</span>
           <span className="text-8xl font-extrabold text-yellow-special lg:text-9xl">

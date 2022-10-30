@@ -197,3 +197,14 @@ button {
     height: 100vh;
   }
 }
+
+.height__100vh__special {
+  height: calc(100vh - 88px);
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 640px) {
+  .height__100vh__special {
+    height: 100vh;
+  }
+}
