@@ -18,7 +18,7 @@
     "framer-motion": "7.6.2",
     "graphql": "^16.6.0",
     "moment": "^2.29.4",
-    "next": "12.2.3",
+    "next": "12.3.1",
     "next-compose-plugins": "^2.2.1",
     "next-i18next": "^11.3.0",
     "next-pwa": "5.5.6",
