@@ -6,9 +6,9 @@
     "button-message": "Prijava...",
     "placeholder": "E-mail adresa",
     "error-message": "Već ste se prijavili. 😎",
+    "required-message": "Molimo Vad unesite svoj e-mail adresu.",
     "success-message": "Uspjeh! 🎉 Sada ste prijavljeni na naš Newsletter."
   },
-
   "info": {
     "title": "Požgaj Grupa",
     "phone": "Telefon:",
@@ -26,7 +26,6 @@
     "blog": "Blog",
     "about": "O nama"
   },
-
   "footer": {
     "privacy-policy": "Politika privatnosti",
     "terms": "Uvjeti korištenja",

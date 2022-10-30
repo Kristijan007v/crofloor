@@ -94,7 +94,12 @@ export default function Footer() {
         {/* NEWSLETTER */}
         <div className="flex flex-grow flex-col space-y-4">
           <p className="heading__4 h4__responsive">{t("newsletter.title")}</p>
-          {errors?.name && errors.name.message}
+          {errors?.name && (
+            <p>
+              {errors?.name?.type === "required" &&
+                t("newsletter.error-message")}
+            </p>
+          )}
 
           <form
             onSubmit={handleSubmit(subscribe)}

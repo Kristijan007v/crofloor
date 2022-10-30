@@ -6,6 +6,7 @@
     "button-message": "Subscribing...",
     "placeholder": "E-mail address",
     "error-message": "You are already subscribed. 😎",
+    "required-message": "Please enter your e-mail address.",
     "success-message": "Success! 🎉 You are now subscribed to the newsletter."
   },
   "info": {
