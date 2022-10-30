@@ -9,7 +9,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const MEDIA_DOMAIN = process.env.MEDIA_DOMAIN;
 const AVATAR_DOMAIN = process.env.AVATAR_DOMAIN;
 
-module.exports = withPlugins([
+const nextConfig = withPlugins([
   [withBundleAnalyzer],
   withPWA({
     pwa: {
@@ -24,3 +24,5 @@ module.exports = withPlugins([
     },
   }),
 ]);
+
+module.exports = nextConfig;
