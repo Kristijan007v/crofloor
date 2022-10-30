@@ -97,11 +97,11 @@ body {
 }
 
 .input__default {
-  @apply border-b-2 border-black bg-transparent p-2 focus:border-b-4 focus:bg-primary-gray focus:outline-none active:bg-slate-400;
+  @apply border-b-2 border-black bg-transparent p-2 focus:border-b-4 focus:bg-white focus:outline-none active:bg-slate-400;
 }
 
 .input__textarea {
-  @apply border-b-2 border-black bg-transparent p-2 focus:border-b-4 focus:bg-primary-gray focus:outline-none;
+  @apply border-b-2 border-black bg-transparent p-2 focus:border-b-4 focus:bg-white focus:outline-none;
 }
 
 /* Other styles */

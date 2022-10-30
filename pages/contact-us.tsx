@@ -54,7 +54,13 @@ export default function ContactUs() {
           <FormField label={t("form.email")} type="text" />
           <FormField label={t("form.message")} type="textarea" />
           <span className="flex items-center space-x-4 p-4">
-            <input type={"checkbox"} name={"terms"} id={"terms"} required />
+            <input
+              type={"checkbox"}
+              className="accent-black"
+              name={"terms"}
+              id={"terms"}
+              required
+            />
             <label className="font-medium" htmlFor="terms">
               {t("form.terms")}
             </label>
