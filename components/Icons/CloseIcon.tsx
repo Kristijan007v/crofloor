@@ -12,7 +12,7 @@ export default function CloseIcon({ onclick, style }: Props) {
     <>
       <IconContext.Provider
         value={{
-          className: "icon__default",
+          className: "text-5xl",
         }}
       >
         <MdClose onClick={onclick} />

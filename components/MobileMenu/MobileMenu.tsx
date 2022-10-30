@@ -51,7 +51,10 @@ export default function MobileMenu({ closeMenu }: Props) {
   return (
     <Overlay type="primary">
       <div>
-        <ul className="flex flex-col space-y-3 p-8 md:hidden">
+        <div className="flex justify-end p-2">
+          <CloseIcon onclick={closeMenu} />
+        </div>
+        <ul className="flex flex-col space-y-3 pr-8 pl-8 md:hidden">
           <li>
             <Link href="/products">
               <a
@@ -94,7 +97,6 @@ export default function MobileMenu({ closeMenu }: Props) {
           </li>
         </ul>
         <div className="absolute bottom-0 flex items-center justify-between space-x-20 p-8">
-          <CloseIcon onclick={closeMenu} />
           {/* Language switcher */}
           <div
             onClick={toogleLanguageSwitch}

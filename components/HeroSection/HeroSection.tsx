@@ -24,7 +24,7 @@ export default function HeroSection() {
 
   return (
     <ErrorBoundary moduleName="ButtonLink">
-      <div className="relative h-screen w-full overflow-auto">
+      <div className="height__100vh relative w-full overflow-auto">
         <Image
           src="/images/hero-image.jpg"
           alt="Hero image"

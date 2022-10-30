@@ -37,13 +37,7 @@ export default function ButtonDefault({
           ease: "easeInOut",
         },
       }}
-      className={`btn__basic flex ${
-        icon == "mail" && "space-x-3"
-      } w-full items-center justify-center md:w-3/6 ${
-        color === "special"
-          ? "bg-primary-bg text-black"
-          : "bg-black text-white hover:bg-gray-900"
-      } ${style}`}
+      className={`btn-wide btn rounded-full bg-black text-white`}
       onClick={onclick}
       aria-label={ariaLabel}
     >

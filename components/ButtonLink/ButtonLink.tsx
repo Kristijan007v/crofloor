@@ -56,11 +56,7 @@ export default function ButtonLink({
               ease: "easeInOut",
             },
           }}
-          className={`btn__basic flex w-full items-center justify-center space-x-2 whitespace-nowrap  ${
-            color === "special"
-              ? "border border-black bg-transparent text-black hover:bg-black hover:text-white"
-              : "bg-black text-white"
-          } ${style}`}
+          className={`btn-wide btn flex items-center justify-center rounded-full bg-black text-lg text-white`}
           onClick={visitLink}
           aria-label={ariaLabel}
         >
