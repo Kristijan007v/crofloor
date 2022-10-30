@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
+    "@apollo/client": "^3.7.1",
     "@mailchimp/mailchimp_marketing": "^3.0.78",
     "@next/bundle-analyzer": "^12.2.3",
     "@types/i18next": "^13.0.0",
