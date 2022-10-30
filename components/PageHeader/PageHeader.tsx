@@ -30,7 +30,7 @@ export default function PageHeader({
 
   return (
     <>
-      <div className="relative h-screen w-full">
+      <div className="height__100vh relative w-full">
         <Image
           src={`${backgroundImage}`}
           alt={alt}
@@ -39,7 +39,7 @@ export default function PageHeader({
           className="opacity-85"
           priority
         />
-        <div className="relative h-screen w-full bg-black/40">
+        <div className="height__100vh relative w-full bg-black/40">
           <Navigation />
           <div className="m-auto w-full md:w-5/6 lg:w-4/6 xl:w-3/6">
             <div className="flex flex-col items-center justify-center space-y-4 p-6">

@@ -29,12 +29,12 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
 
   const lang = useLocale();
 
-  console.log(parket);
+  // console.log(parket);
 
-  parket.map((item: any) => {
-    console.log(`Url od parketa je ${item.parket.naslovnaslika.sourceUrl}`);
-    console.log(`Alt tekst od parketa je ${item.parket.naslovnaslikaaltText}`);
-  });
+  // parket.map((item: any) => {
+  //   console.log(`Url od parketa je ${item.parket.naslovnaslika.sourceUrl}`);
+  //   console.log(`Alt tekst od parketa je ${item.parket.naslovnaslikaaltText}`);
+  // });
 
   return (
     <Skeleton

@@ -221,7 +221,7 @@ export async function getProductBySlug(slug: string) {
     }
     `,
   });
-  console.log(data);
+  // console.log(data);
   return {
     data,
   };
