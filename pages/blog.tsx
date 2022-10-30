@@ -189,7 +189,7 @@ export default function Blog({
         </div>
       )}
 
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {showSearch && (
           <>
             {/* Desktop search overlay */}

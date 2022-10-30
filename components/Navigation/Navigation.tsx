@@ -105,7 +105,7 @@ export default function Navigation({ style }: Props) {
         // Only render one component at a time.
         // The exiting component will finish its exit
         // animation before entering component is rendered
-        exitBeforeEnter={true}
+        mode="wait"
         // Fires when all exiting nodes have completed animating out
         onExitComplete={() => null}
       >

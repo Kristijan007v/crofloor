@@ -183,7 +183,7 @@ export default function Products({ parket, kategorija }: Props) {
       </div>
 
       {/* Search overlay */}
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {showSearch && (
           <OverlayNew
             closeOverlay={() => {
