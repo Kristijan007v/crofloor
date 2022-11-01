@@ -28,10 +28,23 @@ export const useStoresStore = create<StoresState>((set) => ({
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2893.586926381489!2d16.47831191570543!3d43.51095206963502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13355f4e1a282843%3A0x60960a6a7ab2b933!2sPo%C5%BEgaj%20Grupa%20-%20prodajni%20salon!5e0!3m2!1sen!2shr!4v1667310190956!5m2!1sen!2shr",
     },
   ],
+  active: "Zagreb",
   googleMaps:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.288822899135!2d15.995049615760072!3d45.74535542265931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d58973f415f3%3A0xac6045f06d3a4bd2!2sPo%C5%BEgaj%20Grupa%20-%20prodajni%20salon!5e0!3m2!1sen!2shr!4v1667307863690!5m2!1sen!2shr",
-  setLocationMap: (googleMaps) => {
-    set({ googleMaps });
+
+  //set active = city and googleMaps = googleMaps
+  setActive: (city, googleMaps) => {
+    set((state) => ({
+      active: city,
+      googleMaps: googleMaps,
+      locations: state.locations.map((location) => {
+        if (location.city === city) {
+          return { ...location, selected: true };
+        } else {
+          return { ...location, selected: false };
+        }
+      }),
+    }));
   },
 }));
 

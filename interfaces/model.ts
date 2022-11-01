@@ -36,8 +36,9 @@ export interface StoresState {
     selected: boolean;
     googleMaps: string;
   }[];
+  active: string;
   googleMaps: string;
-  setLocationMap: (googleMaps: string) => void;
+  setActive: (city: string, googleMaps: string) => void;
 }
 
 export interface Locations {

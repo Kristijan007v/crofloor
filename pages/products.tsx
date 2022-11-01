@@ -164,9 +164,13 @@ export default function Products({ parket, kategorija }: Props) {
         {stores.locations.map((store, index) => (
           <button
             key={store.city + index}
-            className={`w-36 rounded-full border-2 border-dashed border-black bg-transparent p-1.5 text-black hover:bg-black hover:text-white`}
+            className={`${
+              store.selected
+                ? "bg-black text-white"
+                : "bg-transparent text-black"
+            } w-36 rounded-full border-2 border-dashed border-black  p-1.5 hover:bg-black hover:text-white`}
             onClick={() => {
-              useStoresStore.setState({ googleMaps: store.googleMaps });
+              stores.setActive(store.city, store.googleMaps);
             }}
           >
             {store.city}
