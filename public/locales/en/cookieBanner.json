@@ -1,6 +1,9 @@
 {
   "title": "This website uses cookies.",
-  "description": "We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assumethat you are happy with it.",
+  "description": "We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.",
   "button-accept": "Fine by me, I Accept",
-  "button-settings": "Settings"
+  "button-settings": "Settings",
+  "button-decline": "No, I don't accept",
+  "aria-accept": "Accept cookies consent",
+  "aria-decline": "Decline cookies consent"
 }

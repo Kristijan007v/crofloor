@@ -5,6 +5,8 @@ import CookieBanner from "../CookieBanner/CookieBanner";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
+import CookieConsent, { Cookies } from "react-cookie-consent";
+import { useTranslation } from "next-i18next";
 
 interface SkeletonProps {
   children?: React.ReactNode;
@@ -25,6 +27,7 @@ const Skeleton = ({
   metaImageURL,
   navigation,
 }: SkeletonProps) => {
+  const { t } = useTranslation("cookieBanner");
   return (
     <>
       <Head>
@@ -49,7 +52,33 @@ const Skeleton = ({
 
       {/* Cookies banner */}
       <ErrorBoundary>
-        <CookieBanner />
+        {/* <CookieBanner /> */}
+        <CookieConsent
+          flipButtons={true}
+          overlay
+          acceptOnScroll={true}
+          enableDeclineButton
+          ariaAcceptLabel={t("aria-accept")}
+          ariaDeclineLabel={t("aria-decline")}
+          buttonText={t("button-accept")}
+          declineButtonText={t("button-decline")}
+          declineButtonStyle={{
+            color: "#000",
+            backgroundColor: "#fff",
+            border: "dashed 2px black",
+          }}
+          style={{
+            background: "#fff",
+            color: "#000",
+          }}
+          buttonStyle={{
+            color: "#fff",
+            backgroundColor: "#000",
+            border: "solid 2px black",
+          }}
+        >
+          {t("description")}
+        </CookieConsent>
       </ErrorBoundary>
 
       {/* Notification toaster */}

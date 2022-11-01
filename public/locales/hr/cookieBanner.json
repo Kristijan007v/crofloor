@@ -1,6 +1,9 @@
 {
   "title": "Ova web stranica koristi kolačiće.",
-  "description": "Koristimo kolačiće kako bismo vam pružili najbolje iskustvo na našoj web stranici. Ako nastavite koristiti ovu stranicu, pretpostavit ćemo da ste s njom zadovoljni.",
+  "description": "Koristimo kolačiće kako bismo vam pružili najbolje iskustvo na našoj web stranici. Ako nastavite koristiti ovu stranicu, automatski prihvaćate našu upotrebu kolačića.",
   "button-accept": "U redu, prihvaćam",
-  "button-settings": "Postavke"
+  "button-settings": "Postavke",
+  "button-decline": "Ne, hvala",
+  "aria-accept": "Prihvaćam kolačiće",
+  "aria-decline": "Odbijam kolačiće"
 }
