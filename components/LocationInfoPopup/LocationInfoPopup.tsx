@@ -79,7 +79,7 @@ export default function LocationInfoPopup({
             />
           </div>
           <p className="paragraph p__responsive">
-            {t(`location-info.descriptions.${title.toLocaleLowerCase()}`)}
+            {t(`location-info.descriptions.${description.toLocaleLowerCase()}`)}
           </p>
           <div className="flex flex-col space-y-2">
             <p className="heading__4 h4__responsive">
@@ -90,7 +90,7 @@ export default function LocationInfoPopup({
               {contactInfo.address}
             </a>
             <a
-              href={`tel:${"+385" + contactInfo.phone}`}
+              href={`tel:${contactInfo.phone}`}
               className="paragraph p__responsive"
             >
               {t("location-info.section.contact.phone")} {contactInfo.phone}

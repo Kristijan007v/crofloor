@@ -72,21 +72,23 @@ const locations: Locations[] = [
     locationInfo: {
       image: "varazdin-location.jpg",
       title: "Varaždin",
-      description: "Ovo je test",
+      description: "varazdin",
       contactInfo: {
-        address: "Varaždin, Croatia",
-        email: "pozgaj@pozgaj,com",
-        phone: "+385 99 9999999",
+        address: "Miroslava Krleže 1/1, 42000 Varaždin",
+        email: "varazdin@pozgaj.com",
+        phone: "+385 042-210-555",
       },
       workingHours: {
-        monday: "9:00 - 18:00",
-        tuesday: "9:00 - 18:00",
-        wednesday: "9:00 - 18:00",
-        thursday: "9:00 - 18:00",
-        friday: "9:00 - 18:00",
+        monday: "9:00 - 17:00",
+        tuesday: "9:00 - 17:00",
+        wednesday: "9:00 - 17:00",
+        thursday: "9:00 - 17:00",
+        friday: "9:00 - 17:00",
+        saturday: "po dogovoru",
       },
-      googleMaps: "https://goo.gl/maps/DyaoKQmL34nuvJ8B7",
-      googleMapsLink: "https://goo.gl/maps/DyaoKQmL34nuvJ8B7",
+      googleMaps: "https://goo.gl/maps/bocx2nCmG2TcT7jFA",
+      googleMapsLink:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2756.608845719314!2d16.33428111577399!3d46.29774458545724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4768ab85106ecb87%3A0x1aec5ba3e0166be7!2sPO%C5%BDGAJ%20Grupa!5e0!3m2!1sen!2shr!4v1667309900302!5m2!1sen!2shr",
     },
   },
   {
@@ -99,7 +101,7 @@ const locations: Locations[] = [
     locationInfo: {
       image: "zagreb-location.jpg",
       title: "Zagreb",
-      description: "Ovo je test",
+      description: "zagreb",
       contactInfo: {
         address: "Buzinski prilaz 36, 10 010 Zagreb (Buzin)",
         email: "zagreb@pozgaj.com",
@@ -128,21 +130,51 @@ const locations: Locations[] = [
     locationInfo: {
       image: "split-location.jpg",
       title: "Split",
-      description: "Ovo je test",
+      description: "split",
       contactInfo: {
-        address: "Varaždin, Croatia",
-        email: "pozgaj@pozgaj,com",
-        phone: "+385 99 9999999",
+        address: "Poljička cesta 71, 21 000 Split",
+        email: "split@pozgaj.com",
+        phone: "+385 021-656-530",
       },
       workingHours: {
-        monday: "9:00 - 18:00",
-        tuesday: "9:00 - 18:00",
-        wednesday: "9:00 - 18:00",
-        thursday: "9:00 - 18:00",
-        friday: "9:00 - 18:00",
+        monday: "8:00 - 19:00",
+        tuesday: "8:00 - 19:00",
+        wednesday: "8:00 - 19:00",
+        thursday: "8:00 - 19:00",
+        friday: "8:00 - 19:00",
+        saturday: "8:00 - 12:30",
       },
-      googleMaps: "https://goo.gl/maps/DyaoKQmL34nuvJ8B7",
-      googleMapsLink: "https://goo.gl/maps/DyaoKQmL34nuvJ8B7",
+      googleMaps: "https://goo.gl/maps/dTEhbXCghMpSuYGB9",
+      googleMapsLink:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2893.586926381489!2d16.47831191570543!3d43.51095206963502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13355f4e1a282843%3A0x60960a6a7ab2b933!2sPo%C5%BEgaj%20Grupa%20-%20prodajni%20salon!5e0!3m2!1sen!2shr!4v1667310190956!5m2!1sen!2shr",
+    },
+  },
+  {
+    image: "osijek-location.jpg",
+    cityName: "Osijek",
+    address: "section.locations.tag",
+    href: "https://goo.gl/maps/DyaoKQmL34nuvJ8B7",
+    cityPosition: "left",
+    tagPosition: "right",
+    locationInfo: {
+      image: "osijek-location.jpg",
+      title: "osijek",
+      description: "osijek",
+      contactInfo: {
+        address: "Josipa Jurja Strossmayera 217, 31000 Osijek",
+        email: "osijek@pozgaj.com",
+        phone: "+385 031-544-030",
+      },
+      workingHours: {
+        monday: "10:00 - 18:00",
+        tuesday: "10:00 - 18:00",
+        wednesday: "10:00 - 18:00",
+        thursday: "10:00 - 18:00",
+        friday: "10:00 - 18:00",
+      },
+      googleMaps: "https://goo.gl/maps/p6Dd4L3JjGZK9DU16",
+      googleMapsLink:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.294196174025!2d18.648890715755517!3d45.564522134764395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475ce716a0c72373%3A0x1b7c2ab04848344b!2sPo%C5%BEgaj%20Grupa%20-%20prodajni%20salon!5e0!3m2!1sen!2shr!4v1667310530171!5m2!1sen!2shr",
     },
   },
 ];
@@ -183,9 +215,9 @@ export default function About() {
         </p>
         <div></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
         {locations.map((location, index) => (
-          <div className="md:col-span-2 xl:col-span-1" key={index}>
+          <div className="" key={index}>
             <LocationContainer
               image={location.image}
               cityName={location.cityName}
