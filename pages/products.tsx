@@ -1,17 +1,13 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { useState } from "react";
-import ButtonDefault from "../components/Buttons/ButtonDefault";
 import Card from "../components/Card/Card";
-import Dropdown from "../components/Dropdown/Dropdown";
-import DropdownItem from "../components/DropdownItem/DropdownItem";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import SearchIcon from "../components/Icons/SearchIcon";
 import TagIcon from "../components/Icons/TagIcon";
 import LinkDefault from "../components/LinkDefault/LinkDefault";
-import Overlay from "../components/Overlay/Overlay";
 import OverlayNew from "../components/OverlayNew/OverlayNew";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import SectionSearch from "../components/SectionSearch/SectionSearch";

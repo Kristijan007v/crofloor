@@ -1,9 +1,8 @@
-import React from "react";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ButtonDefault from "../components/Buttons/ButtonDefault";
 import Skeleton from "../components/Skeleton/Skeleton";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import nextI18NextConfig from "../next-i18next.config.js";
-import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }: any) {
   return {

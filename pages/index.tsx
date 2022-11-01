@@ -184,9 +184,8 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
           src="/images/about-us.jpg"
           layout="fill"
           objectFit="cover"
+          loading="lazy"
           className="opacity-85"
-          placeholder="blur"
-          blurDataURL="/images/about-us.jpg"
           alt="Team photo"
         />
         <div className="absolute flex h-80 w-full flex-col space-y-2 bg-gray-500/60 p-6 md:h-96">

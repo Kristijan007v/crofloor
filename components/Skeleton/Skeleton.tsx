@@ -1,12 +1,11 @@
+import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import React from "react";
+import CookieConsent from "react-cookie-consent";
 import { Toaster } from "react-hot-toast";
-import CookieBanner from "../CookieBanner/CookieBanner";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
-import CookieConsent, { Cookies } from "react-cookie-consent";
-import { useTranslation } from "next-i18next";
 
 interface SkeletonProps {
   children?: React.ReactNode;
