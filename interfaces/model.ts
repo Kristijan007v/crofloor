@@ -18,6 +18,7 @@ type LocationInfo = {
     wednesday: string;
     thursday: string;
     friday: string;
+    saturday?: string;
   };
   googleMaps: string;
   googleMapsLink: string;

@@ -9,13 +9,13 @@
   "section": {
     "locations": {
       "heading": "Lokacije",
-      "description": "Imamo urede u Zagrebu, Varaždinu, Rijeci i Splitu.",
+      "description": "Imamo urede u Zagrebu, Varaždinu, Osijeku i Splitu.",
       "tag": "Lokacija"
     },
     "our-motivation": {
       "heading": "Naša motivacija",
       "description": "Mi smo strastveni oko parketa i uvijek smo u potrazi za novim načinima poboljšanja naših proizvoda i usluga.",
-      "ceo": "POŽGAJ GROUP  CEO  - Name Surname"
+      "ceo": "Izvršni direktor Požgaj Grupe - Nikola Požgaj"
     },
     "factory": {
       "heading": "Tvornica"
@@ -26,6 +26,13 @@
     }
   },
   "location-info": {
+    "heading": "Lokacija",
+    "descriptions": {
+      "zagreb": "Posjetite naš prodajni salon u Zagrebu.",
+      "split": "Posjetite nas u Splitu",
+      "osijek": "Posjetite nas u Osijeku",
+      "varazdin": "Posjetite naš prodajni salon u Varaždinu."
+    },
     "section": {
       "contact": {
         "title": "Kontakt",
@@ -43,6 +50,7 @@
         "saturday": "Sub",
         "sunday": "Ned"
       }
-    }
+    },
+    "google-maps": "Vidi lokaciju na Google Maps-u"
   }
 }

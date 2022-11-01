@@ -9,13 +9,13 @@
   "section": {
     "locations": {
       "heading": "Locations",
-      "description": "We have offices in Zagreb, Varaždin, RIjeka and Split.",
+      "description": "We have offices in Zagreb, Varaždin, Osijek and Split.",
       "tag": "Location"
     },
     "our-motivation": {
       "heading": "Our motivation",
       "description": "We are passionate about parquet and we are always looking for new ways to improve our products and services.",
-      "ceo": "POŽGAJ GROUP  CEO  - Name Surname"
+      "ceo": "POŽGAJ GROUP  CEO  - Nikola Požgaj"
     },
     "factory": {
       "heading": "Factory"
@@ -26,6 +26,13 @@
     }
   },
   "location-info": {
+    "heading": "Location",
+    "descriptions": {
+      "zagreb": "Visit our showroom in Zagreb.",
+      "split": "Come and visit us in Split.",
+      "osijek": "Come and visit us in Osijek.",
+      "varazdin": "Visit our showroom in Varaždin."
+    },
     "section": {
       "contact": {
         "title": "Contact",
@@ -43,6 +50,7 @@
         "saturday": "Saturday",
         "sunday": "Sunday"
       }
-    }
+    },
+    "google-maps": "See location on Google Maps"
   }
 }
