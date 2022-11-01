@@ -1,12 +1,10 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
 import { appWithTranslation, useTranslation } from "next-i18next";
-import Maintenance from "./maintenance";
-import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import CookieConsent from "react-cookie-consent";
+import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useEffect } from "react";
-import process from "process";
+import CookieConsent from "react-cookie-consent";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { t } = useTranslation("cookieBanner");
