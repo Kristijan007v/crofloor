@@ -1,6 +1,7 @@
 declare global {
   namespace NodeJS {
     export interface ProcessEnv {
+      SITE_URL: string;
       NODE_ENV: "development" | "production" | "test";
       MEDIA_DOMAIN: string;
       WORDPRESS_URL: string;

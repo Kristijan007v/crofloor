@@ -54,8 +54,10 @@ const Skeleton = ({
       <ErrorBoundary>
         {/* <CookieBanner /> */}
         <CookieConsent
+          debug={true}
           flipButtons={true}
           overlay
+          expires={90}
           acceptOnScroll={true}
           enableDeclineButton
           ariaAcceptLabel={t("aria-accept")}

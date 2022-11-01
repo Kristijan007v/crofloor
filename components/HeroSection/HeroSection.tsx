@@ -46,10 +46,9 @@ export default function HeroSection() {
               <span>Expensive.</span>
             </h1>
             <p className="p__responsive mb-36 text-white md:mb-16">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Požgaj Grupa proizvodi široku i zaokruženu paletu proizvoda od
+              drva te tako na najbolji način iskorištava drvnu sirovinu -
+              bogatstvo koje nam daruje priroda!
             </p>
             <div className="absolute bottom-8 left-0 right-0 m-auto flex w-full justify-center p-8 sm:w-3/6 md:w-4/6 xl:w-3/6 2xl:w-2/6">
               <ButtonLink

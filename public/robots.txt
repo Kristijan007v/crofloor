@@ -1,2 +1,9 @@
+# *
 User-agent: *
-Disallow: /
+Allow: /
+
+# Host
+Host: https://www.crofloor.vercel.app
+
+# Sitemaps
+Sitemap: https://www.crofloor.vercel.app/sitemap.xml
