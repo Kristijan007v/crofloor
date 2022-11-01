@@ -205,6 +205,17 @@ export default function About() {
         /> */}
         <SectionHeading heading={t("section-header.title")} />
       </ErrorBoundary>
+      <div className="flex flex-col space-y-4  p-8 text-left md:text-left">
+        <p className="paragraph p__responsive text-justify">
+          {t("section-header.description.first-part")}
+        </p>
+        <p className="paragraph p__responsive text-justify">
+          {t("section-header.description.second-part")}
+        </p>
+        <p className="paragraph p__responsive text-justify">
+          {t("section-header.description.third-part")}
+        </p>
+      </div>
       <div className="mt-4 flex flex-col space-y-4 bg-white p-8 text-left md:mt-12 md:bg-white md:text-center">
         <h2 className="h2__responsive font-semibold uppercase">
           {t("section.locations.heading")}
@@ -229,11 +240,11 @@ export default function About() {
           </div>
         ))}
       </div>
-      <div className="flex flex-col space-y-2 bg-primary-yellow p-8 text-left md:text-center">
+      <div className="flex flex-col space-y-4 bg-primary-yellow p-8 text-left md:text-left">
         <h2 className="h2__responsive font-semibold uppercase">
           {t("section.our-motivation.heading")}
         </h2>
-        <p className="paragraph p__responsive">
+        <p className="paragraph p__responsive text-justify">
           {t("section.our-motivation.description")}
         </p>
         <p className="p__responsive font-semibold text-gray-600">

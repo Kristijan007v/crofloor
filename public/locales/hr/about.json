@@ -4,7 +4,11 @@
     "image": {
       "alt": "O nama"
     },
-    "description": "Naša misija je da postanemo najprepoznatljivi i kvalitetniji brand parketa u Hrvatskoj."
+    "description": {
+      "first-part": "Masivni podovi d.o.o. je tvrtka u sastavu POŽGAJ GRUPE, moderne i inovativne grupacije čija je temeljna djelatnost proizvodnja proizvoda od drva. Kao takav, ujedno je i jedan od najvažnijih subjekata hrvatske drvne industrije, čija tradicija seže 40 godina unazad.",
+      "second-part": "Masivni podovi d.o.o. je tvrtka unutar grupacije koja se bavi proizvodnjom višeslojnih parketa, što potvrđuje i široka paleta ponuđenih robnih marki. Naš glavni cilj je kreirati inovativan i moderan parket koji se ogleda u visokoj kvaliteti i estetskoj prilagodljivosti.",
+      "third-part": "Godišnje proizvedemo preko 400 000 m2 parketa, od čega je 200 000 m2 proizvodnja troslojnog parketa Morello Ottimo, do 50 000 m2 troslojnog parketa Morello Ricco, do 100 000 m2 masivnog parketa Castoro i više na 50 000 m2 dvoslojnog parketa Pavone."
+    }
   },
   "section": {
     "locations": {
@@ -14,7 +18,7 @@
     },
     "our-motivation": {
       "heading": "Naša motivacija",
-      "description": "Mi smo strastveni oko parketa i uvijek smo u potrazi za novim načinima poboljšanja naših proizvoda i usluga.",
+      "description": "Kao proizvođač, predani smo osiguravanju dosljedne kvalitete i stalnom poboljšanju naših proizvoda, kao i praćenju svjetskih trendova. Svi parketi iz naše ponude pažljivo su dizajnirani i proizvedeni od najkvalitetnijih materijala kako bi zadovoljili zahtjeve korisnika u pogledu trajnosti, otpornosti i sigurnosti. Savršen su izbor za sve one koji u svoj dom ili poslovni prostor žele ugraditi dugotrajnu kvalitetu. Dvoslojni i troslojni parketi pogodni su za polaganje na podno grijanje, što dodatno pridonosi udobnosti stanovanja u Vašoj kući ili stanu.",
       "ceo": "Izvršni direktor Požgaj Grupe - Nikola Požgaj"
     },
     "factory": {

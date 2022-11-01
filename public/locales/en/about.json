@@ -4,7 +4,11 @@
     "image": {
       "alt": "About us"
     },
-    "description": "We strive to be the best luxury parquet brand in Croatia."
+    "description": {
+      "first-part": "Massive Flooring d.o.o. is a company within the POŽGAJ GROUP, a modern and innovative group whose fundamental activity is production of wood products. As such, it is also one of the most important subjects of the Croatian wood industry, whose tradition dates back 40 years.",
+      "second-part": "Massive Flooring d.o.o. is a company within the group which is engaged in the production of multi-layer parquet, which is confirmed by the wide range of offered brands. Our main goal is to create innovative and modern parquet, reflected in high quality and aesthetic adaptability.",
+      "third-part": "We annually produce over 400 000 m2 of parquet, of which 200 000 m2 is the production of three-layer parquet Morello Ottimo, up to 50 000 m2 of three-layer parquet Morello Ricco, up to 100 000 m2 of massive parquet Castoro and up to 50 000 m2 of two-layer parquet Pavone."
+    }
   },
   "section": {
     "locations": {
@@ -14,7 +18,7 @@
     },
     "our-motivation": {
       "heading": "Our motivation",
-      "description": "We are passionate about parquet and we are always looking for new ways to improve our products and services.",
+      "description": "As a manufacturer, we are committed to ensuring consistent quality and continuous improvement of our products, as well as following global trends. All parquets in out range are carefully designed and manufactured from the highest quality materials to meet the requirements of users in terms of durability, resistance, and safety. They are the perfect choice for all those who want to install lasting quality in their home or business space. Two-layer and three-layer parquets are suitable for laying on underfloor heating, which further contributes to the comfort of living in your house or apartment.",
       "ceo": "POŽGAJ GROUP  CEO  - Nikola Požgaj"
     },
     "factory": {
