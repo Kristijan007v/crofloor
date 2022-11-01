@@ -53,7 +53,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ErrorBoundary>
         {/* <CookieBanner /> */}
         <CookieConsent
-          debug={true}
           onAccept={() => {
             handleAccept();
           }}
