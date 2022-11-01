@@ -161,8 +161,9 @@ export default function Products({ parket, kategorija }: Props) {
         Lokacije trgovina
       </p>
       <div className="m-4 mt-6 flex items-center justify-center space-x-6">
-        {stores.locations.map((store) => (
+        {stores.locations.map((store, index) => (
           <button
+            key={store.city + index}
             className={`w-36 rounded-full border-2 border-dashed border-black bg-transparent p-1.5 text-black hover:bg-black hover:text-white`}
             onClick={() => {
               useStoresStore.setState({ googleMaps: store.googleMaps });
