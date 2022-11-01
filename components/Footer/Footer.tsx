@@ -205,7 +205,7 @@ export default function Footer() {
               <YoutubeIcon />
             </ButtonLink>
           </div>
-          <div className="xl:3/6 w-full sm:w-4/6 md:w-5/6 lg:w-4/6">
+          <div className="lg:w-content w-4/6 md:w-5/6">
             <ul className="hide-scrollbar faq__responsive flex justify-between space-x-4 overflow-x-auto whitespace-nowrap rounded-2xl bg-primary-gray p-3">
               <li>
                 <Link href="/">
