@@ -4,6 +4,7 @@ import Script from "next/script";
 import { useEffect } from "react";
 import CookieConsent from "react-cookie-consent";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import Head from "next/head";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -27,6 +28,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=G-SSKWFYDDEF`}
