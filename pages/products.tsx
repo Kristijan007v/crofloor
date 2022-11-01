@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { useState } from "react";
+import ButtonDefault from "../components/Buttons/ButtonDefault";
 import Card from "../components/Card/Card";
 import Dropdown from "../components/Dropdown/Dropdown";
 import DropdownItem from "../components/DropdownItem/DropdownItem";
@@ -17,6 +18,7 @@ import SectionSearch from "../components/SectionSearch/SectionSearch";
 import Skeleton from "../components/Skeleton/Skeleton";
 import { getProducts } from "../lib/backend/api";
 import nextI18NextConfig from "../next-i18next.config.js";
+import { useStoresStore } from "../store/app/stores.module";
 
 interface Props {
   parket: any;
@@ -47,6 +49,8 @@ export default function Products({ parket, kategorija }: Props) {
 
   //Tab switching
   const [activeTab, setActiveTab] = useState("hrast");
+
+  const stores = useStoresStore();
 
   return (
     <Skeleton
@@ -156,19 +160,31 @@ export default function Products({ parket, kategorija }: Props) {
       <p className="h3__responsive pt-10 pl-6 pr-6 text-left font-semibold uppercase md:text-center">
         Lokacije trgovina
       </p>
-      <div className="m-auto flex flex-col md:mb-16 md:mt-8 md:flex-row md:space-x-6 lg:mb-32 lg:mt-6 lg:w-5/6 2xl:w-4/6">
+      <div className="m-4 mt-6 flex items-center justify-center space-x-6">
+        {stores.locations.map((store) => (
+          <button
+            className={`w-36 rounded-full border-2 border-dashed border-black bg-transparent p-1.5 text-black hover:bg-black hover:text-white`}
+            onClick={() => {
+              useStoresStore.setState({ googleMaps: store.googleMaps });
+            }}
+          >
+            {store.city}
+          </button>
+          // <ButtonDefault ariaLabel="" text={store.city} />
+        ))}
+      </div>
+      <div className="m-auto mb-28 flex flex-col md:mb-16 md:mt-8 md:flex-row md:space-x-6 lg:mb-32 lg:mt-6 lg:w-4/6 2xl:w-3/6">
         <div className="m-4 flex-grow rounded-2xl border border-black">
           <iframe
             title="Crofloor store locations"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2777.4923100866913!2d16.17125381574605!3d45.88146601352417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476676c82e1c57a5%3A0x16294928bda8e9b6!2sBOHOR%20d.o.o.!5e0!3m2!1sen!2shr!4v1651139897150!5m2!1sen!2shr"
+            src={stores.googleMaps}
             className="rounded-2xl"
             width={"100%"}
-            height={"300"}
-            loading="lazy"
+            height={"400"}
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <div className="m-6 flex flex-grow flex-col space-y-2 rounded-2xl">
+        {/* <div className="m-6 flex flex-grow flex-col space-y-2 rounded-2xl">
           <Dropdown title="Zagreb" open={true}>
             <DropdownItem item="Varaždinska ul. 22, 10363, Belovar" />
             <DropdownItem item="bistrička ul. 7, 10360, Sesvete" />
@@ -179,7 +195,7 @@ export default function Products({ parket, kategorija }: Props) {
           <Dropdown title="Split" open={false}>
             <DropdownItem item="Varaždinska ul. 22, 10363, Belovar" />
           </Dropdown>
-        </div>
+        </div> */}
       </div>
 
       {/* Search overlay */}

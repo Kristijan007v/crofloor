@@ -30,6 +30,16 @@ export interface LocationsState {
   setLocationInfo: (locationInfo: LocationInfo) => void;
 }
 
+export interface StoresState {
+  locations: {
+    city: string;
+    selected: boolean;
+    googleMaps: string;
+  }[];
+  googleMaps: string;
+  setLocationMap: (googleMaps: string) => void;
+}
+
 export interface Locations {
   image: string;
   cityName: string;
