@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useId } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import ButtonLink from "../ButtonLink/ButtonLink";
@@ -11,6 +11,25 @@ import FacebookIcon from "../Icons/FacebookIcon";
 import InstagramIcon from "../Icons/InstagramIcon";
 import LinkedinIcon from "../Icons/LinkedinIcon";
 import YoutubeIcon from "../Icons/YoutubeIcon";
+
+const faqs = [
+  {
+    title: "Kako provjeravate kvalitetu?",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    title: "Kako provjeravate kvalitetu?",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    title: "Tko su vam glavni dobavljači?",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    title: "Što je s garancijom za parket?",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+];
 
 export default function Footer() {
   const { t } = useTranslation("footer");
@@ -54,6 +73,8 @@ export default function Footer() {
     }
   }, [formState, reset]);
 
+  const uniqueKey = useId();
+
   return (
     <footer className="relative flex flex-col">
       <div className="grid auto-cols-max grid-cols-1 gap-6 bg-primary-yellow p-6 md:grid-cols-2 md:p-8 lg:pt-12 lg:pb-12 lg:pr-8 lg:pl-8 2xl:grid-cols-3">
@@ -61,24 +82,11 @@ export default function Footer() {
         <div className="flex flex-col space-y-4 md:col-span-2 md:hidden 2xl:col-span-1">
           <div className="flex flex-grow flex-col space-y-3">
             <p className="heading__3 h3__responsive text-center">FAQ</p>
-            <Faq
-              question="Kako proizvodite parkete?"
-              answer="We offer wide choice and alternatives when it comes to wood specie, parquet size, lacquered or oiled surfaces and natural appearance of the wood (so called grading). Since for many years oak represents the most popular wood specie when it comes to parquet flooring, we are especially proud of our engineered parquet made of SLAVONIA OAK, worldwide famous for its exceptional quality and beauty.
-
-              As a producer, we are dedicated to high quality and continuous improvements of our products, as well as following world trends. All parquets in our assortment are carefully developed and produced from high quality materials in order to satisfy demands regarding durability, resistance and harmlessness. Therefore, they represent perfect choice for everyone who wants to incorporate permanent quality to their premises. 2-layer and 3-layer parquet is convenient for installation on floor heating, which will additionally contribute to the comfortable living in your house or apartment."
-            />
-            <Faq
-              question="Kako provjeravate kvalitetu?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Tko su vam glavni dobavljači?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Što je s garancijom za parket?"
-              answer="A blockchain is a distributed ledger of information."
-            />
+            {faqs.map((faq, index) => (
+              <span key={uniqueKey + index}>
+                <Faq question={faq.title} answer={faq.content} />
+              </span>
+            ))}
           </div>
           <div className="flex justify-center 2xl:justify-start">
             <ButtonLink
@@ -232,24 +240,11 @@ export default function Footer() {
         <div className="hidden flex-col space-y-4 md:col-span-2 md:flex 2xl:col-span-1">
           <div className="flex flex-grow flex-col space-y-3">
             <p className="heading__3 h3__responsive text-center">FAQ</p>
-            <Faq
-              question="Kako proizvodite parkete?"
-              answer="We offer wide choice and alternatives when it comes to wood specie, parquet size, lacquered or oiled surfaces and natural appearance of the wood (so called grading). Since for many years oak represents the most popular wood specie when it comes to parquet flooring, we are especially proud of our engineered parquet made of SLAVONIA OAK, worldwide famous for its exceptional quality and beauty.
-
-              As a producer, we are dedicated to high quality and continuous improvements of our products, as well as following world trends. All parquets in our assortment are carefully developed and produced from high quality materials in order to satisfy demands regarding durability, resistance and harmlessness. Therefore, they represent perfect choice for everyone who wants to incorporate permanent quality to their premises. 2-layer and 3-layer parquet is convenient for installation on floor heating, which will additionally contribute to the comfortable living in your house or apartment."
-            />
-            <Faq
-              question="Kako provjeravate kvalitetu?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Tko su vam glavni dobavljači?"
-              answer="A blockchain is a distributed ledger of information."
-            />
-            <Faq
-              question="Što je s garancijom za parket?"
-              answer="A blockchain is a distributed ledger of information."
-            />
+            {faqs.map((faq, index) => (
+              <span key={uniqueKey + index}>
+                <Faq question={faq.title} answer={faq.content} />
+              </span>
+            ))}
           </div>
           <div className="flex justify-center 2xl:justify-start">
             <ButtonLink
