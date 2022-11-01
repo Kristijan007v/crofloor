@@ -1,7 +1,5 @@
-import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import React from "react";
-import CookieConsent from "react-cookie-consent";
 import { Toaster } from "react-hot-toast";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Footer from "../Footer/Footer";
@@ -26,7 +24,6 @@ const Skeleton = ({
   metaImageURL,
   navigation,
 }: SkeletonProps) => {
-  const { t } = useTranslation("cookieBanner");
   return (
     <>
       <Head>
@@ -47,38 +44,6 @@ const Skeleton = ({
       {/* Footer */}
       <ErrorBoundary>
         <Footer />
-      </ErrorBoundary>
-
-      {/* Cookies banner */}
-      <ErrorBoundary>
-        {/* <CookieBanner /> */}
-        <CookieConsent
-          flipButtons={true}
-          overlay
-          expires={90}
-          acceptOnScroll={true}
-          enableDeclineButton
-          ariaAcceptLabel={t("aria-accept")}
-          ariaDeclineLabel={t("aria-decline")}
-          buttonText={t("button-accept")}
-          declineButtonText={t("button-decline")}
-          declineButtonStyle={{
-            color: "#000",
-            backgroundColor: "#fff",
-            border: "dashed 2px black",
-          }}
-          style={{
-            background: "#fff",
-            color: "#000",
-          }}
-          buttonStyle={{
-            color: "#fff",
-            backgroundColor: "#000",
-            border: "solid 2px black",
-          }}
-        >
-          {t("description")}
-        </CookieConsent>
       </ErrorBoundary>
 
       {/* Notification toaster */}

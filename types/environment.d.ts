@@ -10,6 +10,7 @@ declare global {
       MAILCHIMP_AUDIENCE_ID: string;
       MAILCHIMP_API_SERVER: string;
       MAILCHIMP_API_KEY: string;
+      GA_MEASUREMENT_ID: string;
     }
   }
 }
