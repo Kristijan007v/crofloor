@@ -1,11 +1,8 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Link from "next/link";
-import React from "react";
 import ButtonDefault from "../components/Buttons/ButtonDefault";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import FormField from "../components/FormField/FormField";
-import MailIcon from "../components/Icons/MailIcon";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";

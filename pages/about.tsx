@@ -1,7 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Image from "next/image";
 import DownloadCard from "../components/DownloadCard/DownloadCard";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import Gallery from "../components/Gallery/Gallery";
@@ -229,22 +228,6 @@ export default function About() {
             />
           </div>
         ))}
-        {/* <LocationContainer
-          image="zagreb-location.jpg"
-          cityName="Zagreb"
-          address={t("section.locations.tag")}
-          href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
-          cityPosition="left"
-          tagPosition="right"
-        />
-        <LocationContainer
-          image="split-location.jpg"
-          cityName="Split"
-          address={t("section.locations.tag")}
-          href="https://goo.gl/maps/DyaoKQmL34nuvJ8B7"
-          cityPosition="left"
-          tagPosition="right"
-        /> */}
       </div>
       <div className="flex flex-col space-y-2 bg-primary-yellow p-8 text-left md:text-center">
         <h2 className="h2__responsive font-semibold uppercase">

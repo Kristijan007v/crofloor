@@ -17,7 +17,9 @@
   "work-hours": {
     "title": "Work hours",
     "monday-friday": "Mon-Fri",
-    "saturday": "Saturday"
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "closed": "Closed"
   },
   "navigation": {
     "homepage": "Homepage",

@@ -142,7 +142,7 @@ export default function Footer() {
               "https://www.google.com/maps/place/Dravska+ul.+40,+42231,+Veliki+Bukovec/@46.2869072,16.7099287,17z/data=!4m2!3m1!1s0x4768a18575c182bf:0xfbb76f3cb4d6b219"
             }
           >
-            <a className="p__responsive">Dravska 40, 42 231 Veliki Bukovec</a>
+            <a className="p__responsive">Dravska 24, 42 231 Mali Bukovec</a>
           </Link>
           <p className="p__responsive">
             {t("info.phone")} <a href="tel:+385 42 406 600">+385 42 406 600</a>
@@ -158,34 +158,39 @@ export default function Footer() {
           {/* Work hours INFO */}
           <p className="heading__4 h4__responsive">{t("work-hours.title")}</p>
           <p className="p__responsive">
-            {t("work-hours.monday-friday")}: 08h-17h
+            {t("work-hours.monday-friday")}: 08:00h-15:00h
           </p>
-          <p className="p__responsive">{t("work-hours.saturday")}: 08h-17h</p>
+          <p className="p__responsive">
+            {t("work-hours.saturday")}: {t("work-hours.closed")}
+          </p>
+          <p className="p__responsive">
+            {t("work-hours.sunday")}: {t("work-hours.closed")}
+          </p>
           {/* Social links */}
           <div className="justify-left flex flex-wrap items-center space-x-4">
             <ButtonLink
-              href="https://facebook.com"
+              href="https://facebook.com/people/POZGAJ-grupa/100062984001702/"
               newTab={true}
               ariaLabel="Link to Facebook profile"
             >
               <FacebookIcon />
             </ButtonLink>
             <ButtonLink
-              href="https://instagram.com"
+              href="https://www.instagram.com/pozgajgrupa"
               newTab={true}
               ariaLabel="Link to Instagram profile"
             >
               <InstagramIcon />
             </ButtonLink>
             <ButtonLink
-              href="https://linkedin.com"
+              href="https://linkedin.com/company/pozgaj-group"
               newTab={true}
               ariaLabel="Link to Linkedin profile"
             >
               <LinkedinIcon />
             </ButtonLink>
             <ButtonLink
-              href="https://youtube.com"
+              href="https://www.youtube.com/channel/UCVY3vFaw_T7hM0NV0aJdbEw"
               newTab={true}
               ariaLabel="Link to Youtube profile"
             >
