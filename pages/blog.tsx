@@ -102,7 +102,7 @@ export default function Blog({
               author={featuredArticle.featuredPost[0].author.node.firstName}
               imageAlt={featuredArticle.featuredPost[0].title}
               href={`/articles/${featuredArticle.featuredPost[0].slug}`}
-              type={"secondary"}
+              type={"recommended"}
             />
           )}
         </div>

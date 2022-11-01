@@ -15,7 +15,7 @@ interface Props {
   imageArticle?: string;
   imageAlt?: string;
   avatarURL: string;
-  type?: "primary" | "secondary";
+  type?: "primary" | "secondary" | "recommended";
   date: string;
   author: string;
 }
@@ -44,6 +44,8 @@ export default function ArticleCard({
       className={`${
         type === "secondary"
           ? "bg-primary-bg"
+          : type === "recommended"
+          ? "bg-primary-bg pt-12 pb-12 md:pl-12 md:pr-12"
           : "bg-primary-yellow pt-12 pb-12 md:pl-12 md:pr-12"
       }`}
     >
