@@ -31,7 +31,7 @@ export default function SectionHeader({
   searchOnclick,
 }: Props) {
   return (
-    <div className="relative h-48 w-full  md:h-60 lg:h-72 xl:h-80 2xl:h-96">
+    <div className="min-h-48 relative h-auto  w-full  md:h-60 lg:h-72 xl:h-80 2xl:h-96">
       <div className="overflow-auto">
         <Image
           src={`${imageURL ? imageURL : `/images/${image}`}`}
@@ -42,7 +42,7 @@ export default function SectionHeader({
           priority
         />
 
-        <div className="relative h-48 w-full bg-black/40 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
+        <div className="relative h-60 w-full bg-black/40 md:h-60 lg:h-72 xl:h-80 2xl:h-96">
           <div className="flex space-x-4">
             <div className="absolute bottom-0 flex flex-col space-y-3 p-4 text-white  md:space-y-4">
               <h1 className="h1__responsive font-semibold">{title}</h1>
