@@ -194,15 +194,11 @@ const Home: NextPage<Props> = ({ posts, parket, featuredArticle }) => {
             <h2 className="h2__responsive font-semibold text-yellow-special">
               {t("about-section.heading")}
             </h2>
-            <p className="p__responsive font-medium text-white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-              assumenda sed, iste voluptates quo voluptatum, nulla sint maxime
-              repellendus quia laboriosam! Cupiditate totam dolores eligendi ab
-              ullam accusantium minima autem consectetur, molestiae ipsam culpa
-              voluptatum?
+            <p className="p__responsive text-justify font-medium text-white">
+              {t("about-section.description")}
             </p>
             <p className="p__responsive font-bold text-yellow-special">
-              Pozgaj Group CEO - Name Surname
+              {t("about-section.ceo")}
             </p>
           </div>
         </div>
