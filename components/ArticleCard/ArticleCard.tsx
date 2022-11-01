@@ -83,7 +83,7 @@ export default function ArticleCard({
             </div>
           </div>
         </div>
-        <span className="flex flex-col space-y-4">
+        <span className="flex w-full flex-col space-y-4">
           <p className="h4__responsive font-semibold">{heading}</p>
           <p className="p__default">{description}</p>
           <ButtonLink
