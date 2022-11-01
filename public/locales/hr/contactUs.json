@@ -22,6 +22,8 @@
   "work-hours": {
     "title": "Radno vrijeme",
     "monday-friday": "Pon-Pet",
-    "saturday": "Subota"
+    "saturday": "Subota",
+    "sunday": "Nedjelja",
+    "closed": "Ne radimo"
   }
 }

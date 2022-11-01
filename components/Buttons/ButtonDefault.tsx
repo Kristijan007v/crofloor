@@ -37,7 +37,7 @@ export default function ButtonDefault({
           ease: "easeInOut",
         },
       }}
-      className={`btn-wide btn rounded-full bg-black text-white`}
+      className={`btn-wide btn flex content-center justify-center space-x-2 rounded-full bg-black text-white`}
       onClick={onclick}
       aria-label={ariaLabel}
     >

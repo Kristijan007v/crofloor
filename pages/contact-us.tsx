@@ -66,7 +66,11 @@ export default function ContactUs() {
             </label>
           </span>
 
-          <ButtonDefault text={t("form.submit")} ariaLabel="" icon={"mail"} />
+          <ButtonDefault
+            text={t("form.submit")}
+            ariaLabel="Pošalji kontakt formu"
+            icon={"mail"}
+          />
         </form>
 
         <div className="flex-grow">
@@ -76,7 +80,7 @@ export default function ContactUs() {
           <div className="m-4 rounded-2xl border border-black">
             <iframe
               title="Map location of Požgaj Group headquarters"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2777.4923100866913!2d16.17125381574605!3d45.88146601352417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476676c82e1c57a5%3A0x16294928bda8e9b6!2sBOHOR%20d.o.o.!5e0!3m2!1sen!2shr!4v1651139897150!5m2!1sen!2shr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2757.2081510449625!2d16.706909715773744!3d46.285838786262616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4768a18691ede5fb%3A0xe929edee227d54d9!2sPO%C5%BDGAJ%20Ltd.!5e0!3m2!1sen!2shr!4v1667311460839!5m2!1sen!2shr"
               className="rounded-2xl"
               width={"100%"}
               height={"300"}
@@ -89,13 +93,12 @@ export default function ContactUs() {
             <p className="heading__4 h4__responsive">
               {t("contact-details.title")}
             </p>
-            <Link
-              href={
-                "https://www.google.com/maps/place/Dravska+ul.+40,+42231,+Veliki+Bukovec/@46.2869072,16.7099287,17z/data=!4m2!3m1!1s0x4768a18575c182bf:0xfbb76f3cb4d6b219"
-              }
+            <a
+              href="https://goo.gl/maps/tgqN1zZ1owGahwXe8"
+              className="p__responsive"
             >
-              <a className="p__responsive">Dravska 40, 42 231 Veliki Bukovec</a>
-            </Link>
+              Dravska 24, Veliki Bukovec, 42 231 Mali Bukovec, Hrvatska
+            </a>
             <p className="p__responsive">
               {t("info.phone")}{" "}
               <a href="tel:+385 42 406 600">+385 42 406 600</a>
@@ -106,9 +109,14 @@ export default function ContactUs() {
             </p>
             <p className="heading__4 h4__responsive">{t("work-hours.title")}</p>
             <p className="p__responsive">
-              {t("work-hours.monday-friday")}: 08h-17h
+              {t("work-hours.monday-friday")}: 08:00h-15:00h
             </p>
-            <p className="p__responsive">{t("work-hours.saturday")}: 08h-17h</p>
+            <p className="p__responsive">
+              {t("work-hours.saturday")}: {t("work-hours.closed")}
+            </p>
+            <p className="p__responsive">
+              {t("work-hours.sunday")}: {t("work-hours.closed")}
+            </p>
           </div>
         </div>
       </div>
