@@ -54,7 +54,6 @@ const Skeleton = ({
       <ErrorBoundary>
         {/* <CookieBanner /> */}
         <CookieConsent
-          debug={true}
           flipButtons={true}
           overlay
           expires={90}
