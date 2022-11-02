@@ -64,8 +64,8 @@ export default function LocationInfoPopup({
   } = locationInfo;
 
   return (
-    <div className="h-screen w-full overflow-y-auto rounded-sm bg-primary-yellow p-6 md:w-4/6 lg:w-3/6">
-      <div className="">
+    <div className="h-screen w-full rounded-sm bg-primary-yellow p-4 md:w-4/6 lg:w-3/6">
+      <div className="h-full overflow-y-auto p-2">
         <div className="flex flex-col space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="h2__responsive font-semibold uppercase">
