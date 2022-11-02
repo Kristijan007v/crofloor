@@ -244,3 +244,8 @@ button {
     border-color: black;
   }
 }
+
+/* IOS SPECIAL */
+.ios {
+  -webkit-overflow-scrolling: touch;
+}
