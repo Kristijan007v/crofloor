@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   // for subsequent page visits
   useEffect(() => {
+    console.log(checkConsented());
     if (checkConsented() === true) {
       (window as any).gtag("consent", "update", {
         ad_storage: "granted",
@@ -24,6 +25,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     (window as any).gtag("consent", "update", {
       ad_storage: "granted",
       analytics_storage: "granted",
+    });
+  }
+
+  function handleDecline() {
+    (window as any).gtag("consent", "update", {
+      ad_storage: "denied",
+      analytics_storage: "denied",
     });
   }
   return (
@@ -60,6 +68,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           onAccept={() => {
             handleAccept();
           }}
+          onDecline={() => {
+            handleDecline();
+          }}
           flipButtons={true}
           overlay
           expires={90}
@@ -92,14 +103,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-// function for checking whether visitor has consented before
 function checkConsented() {
-  //cookie is called CookieConsent
   if (document.cookie) {
-    return document.cookie.includes("CookieConsent=true");
+    if (document.cookie.includes("CookieConsent=true")) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
   }
-  return false;
-  //if cookie is not undefined, visitor has consented before
 }
 
 export default appWithTranslation(MyApp);

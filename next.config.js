@@ -11,6 +11,7 @@ const AVATAR_DOMAIN = process.env.AVATAR_DOMAIN;
 
 const nextConfig = withPlugins([
   [withBundleAnalyzer],
+  i18n,
   withPWA({
     pwa: {
       dest: "public",
