@@ -51,7 +51,7 @@ export default function ContactUs() {
           <form
           name="contact" method="POST" data-netlify="true"
           className="flex flex-grow flex-col bg-primary-yellow p-4 md:bg-white"
-        ></form>
+        >
           <FormField label={t("form.name")} type="text" />
           <FormField label={t("form.email")} type="text" />
           <FormField label={t("form.message")} type="textarea" />
