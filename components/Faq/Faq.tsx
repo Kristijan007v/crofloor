@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import ArrowDown from "../Icons/ArrowDown";
@@ -40,16 +41,16 @@ export default function Faq({ question, answer }: Props) {
           {locale === "en" ? (
             <p className="faq__responsive">
               Answer to this question find{" "}
-              <a className="underline" href="/faq">
-                here.
-              </a>
+              <Link href="/faq">
+                <a className="underline">here.</a>
+              </Link>
             </p>
           ) : (
             <p className="faq__responsive">
               Odgovor na pitanje pronađite{" "}
-              <a className="underline" href="/faq">
-                ovdje.
-              </a>
+              <Link href="/faq">
+                <a className="underline">ovdje.</a>
+              </Link>
             </p>
           )}
         </div>

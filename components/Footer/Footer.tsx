@@ -1,5 +1,4 @@
 import { useTranslation } from "next-i18next";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useId } from "react";
 import { useForm } from "react-hook-form";
@@ -11,6 +10,7 @@ import FacebookIcon from "../Icons/FacebookIcon";
 import InstagramIcon from "../Icons/InstagramIcon";
 import LinkedinIcon from "../Icons/LinkedinIcon";
 import YoutubeIcon from "../Icons/YoutubeIcon";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -105,9 +105,9 @@ export default function Footer() {
         {/* FAQs MOBILE */}
         <div className="flex flex-col space-y-4 md:col-span-2 md:hidden 2xl:col-span-1">
           <div className="flex flex-grow flex-col space-y-3">
-            <a href="/faq" className="heading__3 h3__responsive text-center">
-              FAQ
-            </a>
+            <Link href="/faq">
+              <a className="heading__3 h3__responsive text-center">FAQ</a>
+            </Link>
             {locale === "en" &&
               faqsEn.map((faq, index) => (
                 <span key={uniqueKey + index}>
@@ -129,13 +129,11 @@ export default function Footer() {
               type="button"
               color="special"
             /> */}
-            <a
-              target={"_blank"}
-              className="flex grow items-center justify-center rounded-full border-2 border-r-2 border-black p-2  hover:bg-black hover:text-white"
-              href="/documents/catalogue.pdf"
-            >
-              {t("button-catalogue")}
-            </a>
+            <Link href="/documents/catalogue.pdf" target={"_blank"}>
+              <a className="flex grow items-center justify-center rounded-full border-2 border-r-2 border-black p-2  hover:bg-black hover:text-white">
+                {t("button-catalogue")}
+              </a>
+            </Link>
           </div>
         </div>
 
@@ -279,9 +277,9 @@ export default function Footer() {
         {/* FAQs */}
         <div className="hidden flex-col space-y-4 md:col-span-2 md:flex 2xl:col-span-1">
           <div className="flex flex-grow flex-col space-y-3">
-            <a href="/faq" className="heading__3 h3__responsive text-center">
-              FAQ
-            </a>
+            <Link href="/faq">
+              <a className="heading__3 h3__responsive text-center">FAQ</a>
+            </Link>
             {locale === "en" &&
               faqsEn.map((faq, index) => (
                 <span key={uniqueKey + index}>
@@ -303,13 +301,11 @@ export default function Footer() {
               type="button"
               color="special"
             /> */}
-            <a
-              target={"_blank"}
-              className="flex grow items-center justify-center rounded-full border-2 border-r-2 border-black p-2 text-lg hover:bg-black hover:text-white"
-              href="/documents/catalogue.pdf"
-            >
-              {t("button-catalogue")}
-            </a>
+            <Link target={"_blank"} href="/documents/catalogue.pdf">
+              <a className="flex grow items-center justify-center rounded-full border-2 border-r-2 border-black p-2 text-lg hover:bg-black hover:text-white">
+                {t("button-catalogue")}
+              </a>
+            </Link>
           </div>
         </div>
       </div>
