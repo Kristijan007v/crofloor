@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   // for subsequent page visits
   useEffect(() => {
-    console.log(checkConsented());
     if (checkConsented() === true) {
       (window as any).gtag("consent", "update", {
         ad_storage: "granted",
