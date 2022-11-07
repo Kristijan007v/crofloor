@@ -266,7 +266,7 @@ export default function Footer() {
               {t("footer.privacy-policy")}
             </a>
           </Link>
-          <Link href={"/legal/terms"} locale={router.locale}>
+          <Link href={"/legal/privacy-policy"} locale={router.locale}>
             <a className="text-lg uppercase text-white underline-offset-4 hover:underline">
               {t("footer.terms")}
             </a>
