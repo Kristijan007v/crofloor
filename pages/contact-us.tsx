@@ -2,7 +2,6 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ButtonDefault from "../components/Buttons/ButtonDefault";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import FormField from "../components/FormField/FormField";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 import Skeleton from "../components/Skeleton/Skeleton";
 import nextI18NextConfig from "../next-i18next.config.js";
@@ -46,14 +45,42 @@ export default function ContactUs() {
         name="contact" method="POST" data-netlify="true"
         className="flex flex-grow flex-col bg-primary-yellow p-4 md:bg-white"
       > */}
-       <form
+        <form
           className="flex flex-grow flex-col bg-primary-yellow p-4 md:bg-white"
           method="POST"
           action="https://getform.io/f/a1a3ce50-b600-470e-8359-3195ef74cc24"
-        > 
-          <FormField name="Ime i prezime" label={t("form.name")} type="text" />
-          <FormField name="E-mail adresa" label={t("form.email")} type="text" />
-          <FormField name="Poruka" label={t("form.message")} type="textarea" />
+        >
+          <label className="label__default" htmlFor="full-name">
+            {t("form.name")}
+          </label>
+          <input
+            className="input__default"
+            name="Ime i prezime"
+            type="text"
+            id="full-name"
+            required
+          />
+          <label className="label__default" htmlFor="email">
+            {t("form.email")}
+          </label>
+          <input
+            className="input__default"
+            name="E-mail adresa"
+            type="text"
+            id="email"
+            required
+          />
+          <label className="label__default" htmlFor="message">
+            {t("form.message")}
+          </label>
+          <textarea
+            className="input__textarea"
+            name="Poruka"
+            id="message"
+            required
+            cols={30}
+            rows={10}
+          ></textarea>
           <span className="flex items-center space-x-4 p-4">
             <input
               type={"checkbox"}
