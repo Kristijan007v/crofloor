@@ -49,16 +49,16 @@ export default function ContactUs() {
        <form
           className="flex flex-grow flex-col bg-primary-yellow p-4 md:bg-white"
           method="POST"
-          action="https://getform.io/f/bca9d5f9-ce66-41be-b858-03656b93a86d"
+          action="https://getform.io/f/a1a3ce50-b600-470e-8359-3195ef74cc24"
         > 
-          <FormField label={t("form.name")} type="text" />
-          <FormField label={t("form.email")} type="text" />
-          <FormField label={t("form.message")} type="textarea" />
+          <FormField name="Ime i prezime" label={t("form.name")} type="text" />
+          <FormField name="E-mail adresa" label={t("form.email")} type="text" />
+          <FormField name="Poruka" label={t("form.message")} type="textarea" />
           <span className="flex items-center space-x-4 p-4">
             <input
               type={"checkbox"}
               className="accent-black"
-              name={"terms"}
+              name={"Uvjeti korištenja"}
               id={"terms"}
               required
             />
