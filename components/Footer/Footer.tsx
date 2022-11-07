@@ -89,13 +89,20 @@ export default function Footer() {
             ))}
           </div>
           <div className="flex justify-center 2xl:justify-start">
-            <ButtonLink
+            {/* <ButtonLink
               href="/documents/catalogue.pdf"
               newTab={true}
               text={t("button-catalogue")}
               type="button"
               color="special"
-            />
+            /> */}
+            <a
+              target={"_blank"}
+              className="flex grow items-center justify-center rounded-full border-2 border-r-2 border-black p-2 text-lg hover:bg-black hover:text-white"
+              href="/documents/catalogue.pdf"
+            >
+              {t("button-catalogue")}
+            </a>
           </div>
         </div>
 
@@ -247,13 +254,20 @@ export default function Footer() {
             ))}
           </div>
           <div className="flex justify-center 2xl:justify-start">
-            <ButtonLink
+            {/* <ButtonLink
               href="/documents/catalogue.pdf"
               newTab={true}
               text={t("button-catalogue")}
               type="button"
               color="special"
-            />
+            /> */}
+            <a
+              target={"_blank"}
+              className="flex grow items-center justify-center rounded-full border-2 border-r-2 border-black p-2 text-lg hover:bg-black hover:text-white"
+              href="/documents/catalogue.pdf"
+            >
+              {t("button-catalogue")}
+            </a>
           </div>
         </div>
       </div>
