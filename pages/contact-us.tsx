@@ -50,37 +50,43 @@ export default function ContactUs() {
           method="POST"
           action="https://getform.io/f/a1a3ce50-b600-470e-8359-3195ef74cc24"
         >
-          <label className="label__default" htmlFor="full-name">
-            {t("form.name")}
-          </label>
-          <input
-            className="input__default"
-            name="Ime i prezime"
-            type="text"
-            id="full-name"
-            required
-          />
-          <label className="label__default" htmlFor="email">
-            {t("form.email")}
-          </label>
-          <input
-            className="input__default"
-            name="E-mail adresa"
-            type="text"
-            id="email"
-            required
-          />
-          <label className="label__default" htmlFor="message">
-            {t("form.message")}
-          </label>
-          <textarea
-            className="input__textarea"
-            name="Poruka"
-            id="message"
-            required
-            cols={30}
-            rows={10}
-          ></textarea>
+          <div className="flex flex-col space-y-1 p-4">
+            <label className="label__default" htmlFor="full-name">
+              {t("form.name")}
+            </label>
+            <input
+              className="input__default"
+              name="Ime i prezime"
+              type="text"
+              id="full-name"
+              required
+            />
+          </div>
+          <div className="flex flex-col space-y-1 p-4">
+            <label className="label__default" htmlFor="email">
+              {t("form.email")}
+            </label>
+            <input
+              className="input__default"
+              name="E-mail adresa"
+              type="text"
+              id="email"
+              required
+            />
+          </div>
+          <div className="flex flex-col space-y-1 p-4">
+            <label className="label__default" htmlFor="message">
+              {t("form.message")}
+            </label>
+            <textarea
+              className="input__textarea"
+              name="Poruka"
+              id="message"
+              required
+              cols={30}
+              rows={10}
+            ></textarea>
+          </div>
           <span className="flex items-center space-x-4 p-4">
             <input
               type={"checkbox"}
