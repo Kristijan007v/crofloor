@@ -1,3 +1,4 @@
+import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import ArrowDown from "../Icons/ArrowDown";
 import ArrowUp from "../Icons/ArrowUp";
@@ -13,6 +14,8 @@ export default function Faq({ question, answer }: Props) {
   const toogle = () => {
     setIsOpen(!isOpen);
   };
+
+  const { locale } = useRouter();
 
   return (
     <div
@@ -34,7 +37,21 @@ export default function Faq({ question, answer }: Props) {
 
       {isOpen && (
         <div className="overflow-y-auto rounded-md bg-primary-gray p-4">
-          <p className="faq__responsive">{answer}</p>
+          {locale === "en" ? (
+            <p className="faq__responsive">
+              Answer to this question find{" "}
+              <a className="underline" href="/faq">
+                here.
+              </a>
+            </p>
+          ) : (
+            <p className="faq__responsive">
+              Odgovor na pitanje pronađite{" "}
+              <a className="underline" href="/faq">
+                ovdje.
+              </a>
+            </p>
+          )}
         </div>
       )}
     </div>

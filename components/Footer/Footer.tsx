@@ -14,21 +14,42 @@ import YoutubeIcon from "../Icons/YoutubeIcon";
 
 const faqs = [
   {
-    title: "Kako provjeravate kvalitetu?",
+    title: "Što su troslojni gotovi parketi?",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
   {
-    title: "Kako provjeravate kvalitetu?",
+    title: "Kakva je razlika između dvoslojnog i troslojnog parketa?",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
   {
-    title: "Tko su vam glavni dobavljači?",
+    title: "Jesu li bolji višeslojni ili masivni marketi?",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  // {
+  //   title:
+  //     "Da li se gotovi višeslojni parketi mogu polagati na podno grijanje?",
+  //   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  // },
+];
+
+const faqsEn = [
+  {
+    title: "What are three-layer parquets?",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
   {
-    title: "Što je s garancijom za parket?",
+    title: "What is the difference between two-layer and three-layer parquet?",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
+  {
+    title: "Are multi-layered or massive parquets better?",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  // {
+  //   title:
+  //     "Da li se gotovi višeslojni parketi mogu polagati na podno grijanje?",
+  //   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  // },
 ];
 
 export default function Footer() {
@@ -75,18 +96,30 @@ export default function Footer() {
 
   const uniqueKey = useId();
 
+  const route = useRouter();
+  const locale = route.locale;
+
   return (
     <footer className="relative flex flex-col">
       <div className="grid auto-cols-max grid-cols-1 gap-6 bg-primary-yellow p-6 md:grid-cols-2 md:p-8 lg:pt-12 lg:pb-12 lg:pr-8 lg:pl-8 2xl:grid-cols-3">
         {/* FAQs MOBILE */}
         <div className="flex flex-col space-y-4 md:col-span-2 md:hidden 2xl:col-span-1">
           <div className="flex flex-grow flex-col space-y-3">
-            <p className="heading__3 h3__responsive text-center">FAQ</p>
-            {faqs.map((faq, index) => (
-              <span key={uniqueKey + index}>
-                <Faq question={faq.title} answer={faq.content} />
-              </span>
-            ))}
+            <a href="/faq" className="heading__3 h3__responsive text-center">
+              FAQ
+            </a>
+            {locale === "en" &&
+              faqsEn.map((faq, index) => (
+                <span key={uniqueKey + index}>
+                  <Faq question={faq.title} answer={faq.content} />
+                </span>
+              ))}
+            {locale != "en" &&
+              faqs.map((faq, index) => (
+                <span key={uniqueKey + index}>
+                  <Faq question={faq.title} answer={faq.content} />
+                </span>
+              ))}
           </div>
           <div className="flex justify-center 2xl:justify-start">
             {/* <ButtonLink
@@ -98,7 +131,7 @@ export default function Footer() {
             /> */}
             <a
               target={"_blank"}
-              className="flex grow items-center justify-center rounded-full border-2 border-r-2 border-black p-2 text-lg hover:bg-black hover:text-white"
+              className="flex grow items-center justify-center rounded-full border-2 border-r-2 border-black p-2  hover:bg-black hover:text-white"
               href="/documents/catalogue.pdf"
             >
               {t("button-catalogue")}
@@ -246,12 +279,21 @@ export default function Footer() {
         {/* FAQs */}
         <div className="hidden flex-col space-y-4 md:col-span-2 md:flex 2xl:col-span-1">
           <div className="flex flex-grow flex-col space-y-3">
-            <p className="heading__3 h3__responsive text-center">FAQ</p>
-            {faqs.map((faq, index) => (
-              <span key={uniqueKey + index}>
-                <Faq question={faq.title} answer={faq.content} />
-              </span>
-            ))}
+            <a href="/faq" className="heading__3 h3__responsive text-center">
+              FAQ
+            </a>
+            {locale === "en" &&
+              faqsEn.map((faq, index) => (
+                <span key={uniqueKey + index}>
+                  <Faq question={faq.title} answer={faq.content} />
+                </span>
+              ))}
+            {locale != "en" &&
+              faqs.map((faq, index) => (
+                <span key={uniqueKey + index}>
+                  <Faq question={faq.title} answer={faq.content} />
+                </span>
+              ))}
           </div>
           <div className="flex justify-center 2xl:justify-start">
             {/* <ButtonLink
