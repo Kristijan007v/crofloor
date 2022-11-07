@@ -36,7 +36,7 @@ export default function FormField({
         <input
           className="input__default"
           type={type}
-          name={uniqueID}
+          name={name}
           id={uniqueID}
           onChange={onChange}
           required
@@ -44,7 +44,7 @@ export default function FormField({
       ) : (
         <textarea
           className="input__textarea"
-          name={uniqueID}
+          name={name}
           id={uniqueID}
           required
           cols={30}
